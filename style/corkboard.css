@@ -28,6 +28,9 @@ corkboard-item {
 
     cursor: pointer;
 }
+corkboard-item.content-hidden {
+    content-visibility: hidden;
+}
 corkboard-item:not(.visible) {
     content-visibility: hidden;
     box-shadow: none;

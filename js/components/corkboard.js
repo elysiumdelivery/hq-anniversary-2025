@@ -60,7 +60,7 @@ class CorkboardItem extends HTMLElement {
         }
 
         this.imageThumb = document.createElement("img");
-        this.imageThumb.src = imgUrl;
+        // this.imageThumb.src = imgUrl;
         this.appendChild(this.imageThumb);
         this.onclick = this.handleClick;
     }
@@ -99,18 +99,21 @@ customElements.define("corkboard-item", CorkboardItem);
 function scrollIntersectionCallback (entries, observer) {
     entries.forEach((entry, i) => {
         let elem = entry.target;
-        if (entry.isIntersecting && !(elem.classList.contains("visible") || elem.classList.contains("anim-in"))) {
+        if (entry.isIntersecting && !(elem.classList.contains("visible"))) {
             elem.onanimationend = (event) => {
-                event.target.classList.remove("anim-in");
-                elem.classList.add("visible");
-                // elem.style = "";
+                if (event.animationName == "corkboard-item-anim-in") {
+                    elem.classList.add("visible");
+                    elem.classList.remove("anim-in");
+                }
             }
             elem.classList.add("anim-in");
-            // elem.style = `animation-delay: ${Math.max(i * 0.1, 1)}s`;
+            elem.imageThumb.src = elem.getAttribute("img");
+        }
+        if (entry.isIntersecting) {
+            elem.classList.remove("content-hidden");
         }
         else if (!entry.isIntersecting) {
-            elem.classList.remove("visible");
-            elem.classList.remove("anim-in");
+            elem.classList.add("content-hidden");
         }
     });
 }
