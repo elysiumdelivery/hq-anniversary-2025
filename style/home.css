@@ -1,0 +1,98 @@
+section#splash {
+    position: relative;
+    width: 100%;
+    min-height: 50vmin;
+    height: auto;
+}
+
+section#splash img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+section.scroll-vis > * {
+    transition: 0.75s opacity ease, 0.75s transform ease;
+    transform: translateY(-50%);
+    opacity: 0;
+}
+
+section.scroll-vis.visible > * {
+    transform: none;
+    opacity: 1;
+}
+
+section#intro {
+    display: grid;
+    gap: 1em;
+    grid-template-columns: 40vmin 1fr;
+    grid-template-areas:    "header header"
+                            "side-img desc"
+                            "side-img buttons";
+}
+
+section#intro h1 { grid-area: header; }
+section#intro img { grid-area: side-img; }
+section#intro div.description { grid-area: desc; }
+section#intro div.buttons { grid-area: buttons; }
+
+section#intro h1 {
+    text-align: center;
+}
+section#intro img {
+    width: 100%;
+}
+section#intro:not(.visible) img {
+    transform: translateX(-50%);
+}
+section#intro:not(.visible) div.description,
+section#intro:not(.visible) div.buttons {
+    transform: translateX(50%);
+}
+section#intro div.description,
+section#intro div.buttons {
+    justify-self: center;
+    width: 80%;
+}
+
+section#intro div.description {
+    background-color: var(--orange);
+    padding: 1em 2em;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+section#intro div.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+section button {
+    appearance: none;
+    background-color: black;
+    border-radius: 0.25rem;
+    padding: 0.5rem;
+    min-width: 20vmin;
+    font-size: 1rem;
+    font-family: "Oswald", sans-serif;
+    color: var(--orange);
+    border: 0;
+    pointer-events: auto;
+    cursor: pointer;
+    transition: 0.5s background-color ease, 0.5s color ease;
+}
+
+section button a, section button a:visited {
+    color: inherit;
+    text-decoration: none;
+}
+
+section button:hover, section button:active, section button:focus-visible {
+    color: black;
+    background-color: var(--orange);
+}

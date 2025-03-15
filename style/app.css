@@ -1,0 +1,155 @@
+:root {
+    --bg-color: rgb(255, 226, 193);
+    --orange: rgb(255, 179, 92);
+}
+
+global-header {
+    width: 100%;
+}
+global-header nav {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 1em;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+global-header nav .nav-inner {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+}
+
+global-header nav a.nav-home {
+    font-family: "Oswald";
+    font-weight: bold;
+}
+global-header nav a {
+    text-transform: uppercase;
+    color: black;
+}
+
+global-header h1 {
+    text-align: center;
+    padding: 0.25em;
+    background-color: white;
+
+    font-family: "Oswald";
+    font-weight: bold;
+
+    font-size: 2.5em;
+    margin: 2rem 0;
+    margin-top: 0.5rem;
+
+    text-transform: uppercase;
+    text-justify: distribute;
+}
+
+html, body {
+    margin: 0;
+    font-size: 1.2em;
+
+    background-color: var(--bg-color);
+
+    font-family: "Noto Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: normal;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Oswald";
+    font-weight: bold;
+}
+
+#hamburger-button {
+    position: fixed;
+    width: 5vmin;
+    height: 5vmin;
+    top: 1em;
+    left: 1em;
+    z-index: 999;
+
+    appearance: none;
+    border: 0;
+    padding: 0;
+    background: transparent;
+    cursor: pointer;
+}
+
+#hamburger-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 40vmin;
+    height: 100vh;
+    
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    transition: 0.5s transform ease;
+    transform: translateX(-100%);
+
+
+    background-color: white;
+
+    padding: 1em;
+
+    z-index: 1000;
+}
+
+#hamburger-menu.open {
+    transform: none;
+}
+
+#hamburger-menu button.close {
+    position: relative;
+    width: 5vmin;
+    height: 5vmin;
+
+    appearance: none;
+    border: 0;
+    padding: 0;
+    background: transparent;
+    cursor: pointer;
+}
+
+#hamburger-menu a {
+    display: flex;
+    flex-shrink: 0;
+    width: 100%;
+    text-decoration: dotted;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+#hamburger-menu a::after {
+    position: relative;
+    display: inline-block;
+    flex-grow: 1;
+    content: " . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . "
+  ". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . "
+  ". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ";
+}
+
+global-footer {
+    width: 100%;
+    text-align: center;
+    display: block;
+    margin: 1em 0;
+}
+
+global-footer a { font-size: 16px; text-decoration: none; }
+global-footer a::before { content: "⚡"; margin-right: 0.5em; }
+global-footer a::after { content: "💌"; margin-left: 0.5em; }
