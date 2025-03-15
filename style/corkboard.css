@@ -1,0 +1,195 @@
+:root {
+    --angle: 10;
+}
+corkboard-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+    padding: 1em 0;
+    margin: 2em;
+
+    border-style: solid;
+    border-width: 40px;
+    border-image-source: url(../img/corkboard.avif);
+    border-image-slice: 5% 5% 5% 5% fill;
+    border-image-repeat: repeat;
+}
+corkboard-item {
+    position: relative;
+    width: 23vmin;
+    height: 35vmin;
+    transition: 0.5s transform ease, 0.5s rotate ease;
+    transform-origin: 50% 10%;
+    transform: none;
+    box-shadow: 5px 10px 10px 3px rgba(0, 0, 0, 0.5);
+    content-visibility: visible;
+
+    cursor: pointer;
+}
+corkboard-item:not(.visible) {
+    content-visibility: hidden;
+    box-shadow: none;
+    pointer-events: none;
+}
+corkboard-item.to-center {
+    
+}
+
+corkboard-item.anim-in {
+    animation: corkboard-item-anim-in;
+    animation-timing-function: ease-in-out;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}
+
+corkboard-item:hover, corkboard-item:active, corkboard-item:focus-visible {
+    /* animation: corkboard-item-swing 1s linear infinite;
+    animation-fill-mode: both; */
+    transform: rotate(var(--angle));
+}
+
+corkboard-item img,
+#corkboard-item-dummy img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@keyframes corkboard-item-anim-in {
+    from { transform: translateY(-25%); opacity: 0; box-shadow: none; }
+    to { transform: none; opacity: 1; content-visibility: visible; box-shadow: 5px 10px 10px 3px rgba(0, 0, 0, 0.5); }
+}
+
+@keyframes corkboard-item-swing {
+    0% { transform: rotate(0deg);}
+    25% { transform: rotate(10deg);}
+    75% { transform: rotate(0deg);}
+    75% { transform: rotate(-10deg);}
+    100% { transform: rotate(0deg); }
+}
+
+#corkboard-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100dvw;
+    height: 100dvh;
+    z-index: 999;
+}
+
+#corkboard-item-dummy {
+    position: absolute;
+    transition: 0.5s all ease;
+}
+#corkboard-item-dummy img {
+
+}
+
+/* dialog box */
+
+.dialog-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.dialog-container[aria-hidden="true"] {
+    transition: 0.5s opacity ease;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.dialog-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    transition: opacity ease 0.5s;
+    opacity: 0;
+}
+
+[role="dialog"][aria-hidden="true"] {
+    visibility: hidden;
+    pointer-events: none;
+}
+
+#corkboard-item-dialog {
+    position: relative;
+    left: 1em;
+    width: 45%;
+    height: 80dvh;
+    padding: 2em 2em 1em 2em;
+    box-sizing: border-box;
+    transition: 0.5s transform ease, 0.5s opacity ease;
+    opacity: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+#corkboard-item-dialog.slide-out {
+    transform: translateX(50%);
+    opacity: 1;
+}
+
+.dialog-close {
+    margin-top: 1.5em;
+    cursor: pointer;
+}
+
+.dialog-title, .details-dialog-text{
+    background: rgba(255, 255, 255, 0.5);
+    padding: 1rem;
+    width: 97%;
+}
+
+.dialog-title#details-dialog-title{
+    text-align: center;
+    font-size: 1.25em;
+}
+
+#details-dialog-title h2{
+    font-size: 2rem;
+    margin: 0;
+}
+
+.details-dialog-img {
+    margin: 2em 0;
+}
+
+.details-dialog-text h3{
+    font-size: 1.5rem;
+    text-decoration: underline;
+    margin: 1rem 0;
+}
+
+.details-dialog-text p{
+    font-size: 1.25rem;
+    margin: 0;
+}
+.details-dialog-text p:first-child{
+    margin-top: 0;
+}
+.details-dialog-text p:last-child{
+    margin-bottom: 0;
+}
+
+.dialog-container:not([aria-hidden="true"]),
+.dialog-container:not([aria-hidden="true"]) .dialog-overlay {
+    transform: translateY(0);
+    opacity: 1;
+}
