@@ -54,6 +54,9 @@ html, body {
     font-size: 1.2em;
 
     background-color: var(--bg-color);
+    background-image: url(../images/pattern2.png);
+    background-repeat: repeat;
+    background-size: 500px;
 
     font-family: "Noto Sans", sans-serif;
     font-optical-sizing: auto;
