@@ -81,7 +81,7 @@ class CorkboardItem extends HTMLElement {
 
         dummyItem.innerHTML = "";
         let image = document.createElement("img");
-        image.src = `images/corkboard_photos/${this.getAttribute("photo-key")}-full.png`;
+        image.src = `images/corkboard_photos/${this.getAttribute("photo-key")}-full.avif`;
         // dummyItem.appendChild(this.imageThumb.cloneNode());
         dummyItem.appendChild(image)
 
@@ -163,7 +163,7 @@ function setupEntries (elem) {
         let photoKey = photos[i];
         let childEl = new CorkboardItem();
         // childEl.setAttribute("img", `https://picsum.photos/seed/${i + 100}/200/300`);
-        childEl.setAttribute("img", `images/corkboard_photos/${photoKey}.png`);
+        childEl.setAttribute("img", `images/corkboard_photos/${photoKey}.avif`);
         if (photoKey.includes("Food")) childEl.type = "food";
         if (photoKey.includes("Mem")) childEl.type = "memory";
         childEl.setAttribute("photo-key", photoKey);
