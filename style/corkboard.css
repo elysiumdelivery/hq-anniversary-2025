@@ -15,10 +15,10 @@ corkboard-container {
 
     border-style: solid;
     border-width: 40px;
-    border-image-source: url(../img/corkboard.avif);
+    border-image-source: url(../images/corkboard.avif);
     border-image-slice: 4.3% 3.4% 4.3% 3.4%;
     border-image-repeat: repeat;
-    background-image: url(../img/pattern_corkboard1.png);
+    background-image: url(../images/pattern_corkboard1.png);
     background-size: 500px;
 }
 corkboard-item {

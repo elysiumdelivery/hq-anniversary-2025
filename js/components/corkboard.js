@@ -3,7 +3,7 @@ let DETAILS_DIALOG_EL = null;
 
 let photos = ["Food1",  "Mem3", "Food5", "Mem1",  "Food3", "Mem5"]
 
-window.addEventListener("load", function() {   
+window.addEventListener("DOMContentLoaded", function() {   
     window.scrollTo(0, 0);
 
     DETAILS_DIALOG_EL = document.getElementById("corkboard-item-dialog");
@@ -59,7 +59,7 @@ class CorkboardItem extends HTMLElement {
         if (this.hasAttribute("img")) {
           imgUrl = this.getAttribute("img");
         } else {
-          imgUrl = "img/default.png";
+          imgUrl = "images/default.png";
         }
 
         this.imageThumb = document.createElement("img");
@@ -81,7 +81,7 @@ class CorkboardItem extends HTMLElement {
 
         dummyItem.innerHTML = "";
         let image = document.createElement("img");
-        image.src = `img/corkboard_photos/${this.getAttribute("photo-key")}-full.png`;
+        image.src = `images/corkboard_photos/${this.getAttribute("photo-key")}-full.png`;
         // dummyItem.appendChild(this.imageThumb.cloneNode());
         dummyItem.appendChild(image)
 
@@ -163,7 +163,7 @@ function setupEntries (elem) {
         let photoKey = photos[i];
         let childEl = new CorkboardItem();
         // childEl.setAttribute("img", `https://picsum.photos/seed/${i + 100}/200/300`);
-        childEl.setAttribute("img", `img/corkboard_photos/${photoKey}.png`);
+        childEl.setAttribute("img", `images/corkboard_photos/${photoKey}.png`);
         if (photoKey.includes("Food")) childEl.type = "food";
         if (photoKey.includes("Mem")) childEl.type = "memory";
         childEl.setAttribute("photo-key", photoKey);
