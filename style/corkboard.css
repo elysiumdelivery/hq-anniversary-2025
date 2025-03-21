@@ -34,7 +34,7 @@ corkboard-item {
     cursor: pointer;
 }
 corkboard-item.content-hidden {
-    content-visibility: hidden;
+    content-visibility: auto;
 }
 corkboard-item:not(.visible) {
     content-visibility: hidden;
