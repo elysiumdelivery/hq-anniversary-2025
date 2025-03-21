@@ -138,3 +138,5 @@ dist
 
 # Local Netlify folder
 .netlify
+
+images/corkboard_photos/*.png
