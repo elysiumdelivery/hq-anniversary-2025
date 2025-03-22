@@ -16,7 +16,7 @@ window.addEventListener("DOMContentLoaded", function() {
             DETAILS_DIALOG_EL.parentNode.classList.remove("sparkle-in");
             DETAILS_DIALOG_EL.classList.remove("slide-out");
             dummyItem.style = "";
-        }, 500);
+        }, 250);
     })
     DETAILS_DIALOG_A11Y.hide();
 });
@@ -63,11 +63,20 @@ class CorkboardItem extends HTMLElement {
         }
 
         this.imageThumb = document.createElement("img");
+        this.imageThumb.loading = "lazy";
         // this.image = document.createElement("img");
         // this.imageThumb.src = imgUrl;
         this.appendChild(this.imageThumb);
         // this.appendChild(this.image);
+        this.onmouseover = this.preloadImage;
         this.onclick = this.handleClick;
+    }
+
+    preloadImage () {
+        if (this.preloaded === undefined) {
+            this.preloaded = new Image();
+            this.preloaded.src = `image-resize/full/corkboard-img/${this.getAttribute("photo-key")}-full.png`;
+        }
     }
 
     handleClick (e) {
@@ -80,10 +89,15 @@ class CorkboardItem extends HTMLElement {
         dummyItem.style.rotate = this.style.rotate;
 
         dummyItem.innerHTML = "";
-        let image = document.createElement("img");
-        image.src = `images/corkboard_photos/${this.getAttribute("photo-key")}-full.avif`;
-        // dummyItem.appendChild(this.imageThumb.cloneNode());
-        dummyItem.appendChild(image)
+        let image;
+        if (this.preloaded) {
+            image = this.preloaded;
+        }
+        else {
+            image = document.createElement("img");
+            image.src = `image-resize/full/corkboard-img/${this.getAttribute("photo-key")}-full.png`;
+        }
+        dummyItem.appendChild(image);
 
         // overlayContainer.classList.add("show");
         DETAILS_DIALOG_A11Y.show();
@@ -145,13 +159,17 @@ function scrollIntersectionCallback (entries, observer) {
                 }
             }
             elem.classList.add("anim-in");
-            elem.imageThumb.src = elem.getAttribute("img");
-        }
-        if (entry.isIntersecting) {
-            elem.classList.remove("content-hidden");
-        }
-        else if (!entry.isIntersecting) {
-            elem.classList.add("content-hidden");
+            elem.imageThumb.src = `image-resize/50/corkboard-img/${elem.getAttribute("photo-key")}.png`;
+            elem.imageThumb.srcset = [
+                `image-resize/200/corkboard-img/${elem.getAttribute("photo-key")}.png    200w`,
+                `image-resize/400/corkboard-img/${elem.getAttribute("photo-key")}.png    400w`,
+            ].join(",");
+            elem.imageThumb.sizes = [
+                "(max-width: 450px) 200px",
+                "(max-width: 850px) 400px",
+                "400px"
+            ].join(",");
+            observer.unobserve(entry.target);
         }
     });
 }
@@ -163,7 +181,7 @@ function setupEntries (elem) {
         let photoKey = photos[i];
         let childEl = new CorkboardItem();
         // childEl.setAttribute("img", `https://picsum.photos/seed/${i + 100}/200/300`);
-        childEl.setAttribute("img", `images/corkboard_photos/${photoKey}.avif`);
+        childEl.setAttribute("img", `corkboard-img/${photoKey}.png`);
         if (photoKey.includes("Food")) childEl.type = "food";
         if (photoKey.includes("Mem")) childEl.type = "memory";
         childEl.setAttribute("photo-key", photoKey);

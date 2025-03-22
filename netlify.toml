@@ -1,0 +1,14 @@
+[[redirects]]
+  # Requests to URLs matching this pattern...
+  from = "/image-resize/full/*"
+  # ...will resolve to this URL pattern
+  to = "/.netlify/images?url=/images/:splat&fm=avif"
+  # ... and the status code of 200 will make this behave as a rewrite
+  status = 200
+[[redirects]]
+  # Requests to URLs matching this pattern...
+  from = "/image-resize/:width/*"
+  # ...will resolve to this URL pattern
+  to = "/.netlify/images?url=/images/:splat&width=:width&fm=avif"
+  # ... and the status code of 200 will make this behave as a rewrite
+  status = 200
