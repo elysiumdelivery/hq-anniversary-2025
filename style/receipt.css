@@ -1,0 +1,24 @@
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1rem;
+}
+
+.credit-category {
+    /* width: 50%; */
+    padding: 1em;
+}
+
+.credit-category b {
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+ul {
+    padding-left: 0;
+    list-style: none;
+    text-align: center;
+}
