@@ -33,11 +33,12 @@ corkboard-item {
 
     cursor: pointer;
 }
+
 corkboard-item.content-hidden {
     content-visibility: auto;
 }
 corkboard-item:not(.visible) {
-    content-visibility: hidden;
+    opacity: 0;
     box-shadow: none;
     pointer-events: none;
 }

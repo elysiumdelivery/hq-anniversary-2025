@@ -64,6 +64,11 @@ class CorkboardItem extends HTMLElement {
 
         this.imageThumb = document.createElement("img");
         this.imageThumb.loading = "lazy";
+        this.imageThumb.addEventListener("load", function () {
+            setTimeout(function () {
+                this.classList.add("anim-in");
+            }.bind(this), 500);
+        }.bind(this))
         // this.image = document.createElement("img");
         // this.imageThumb.src = imgUrl;
         this.appendChild(this.imageThumb);
@@ -96,6 +101,7 @@ class CorkboardItem extends HTMLElement {
         else {
             image = document.createElement("img");
             image.src = `image-resize/full/corkboard-img/${this.getAttribute("photo-key")}-full.png`;
+            image.onload(() => console.log("a"))
         }
         dummyItem.appendChild(image);
 
@@ -111,6 +117,15 @@ class CorkboardItem extends HTMLElement {
             document.getElementById("sparkle-effects").style.display = "none";
         }
 
+        if (image.complete) {
+            this.onDialogImageLoaded(image, dummyItem);
+        }
+        else {
+            image.addEventListener('load', this.onDialogImageLoaded.bind(this, image, dummyItem))
+        }
+    }
+
+    onDialogImageLoaded (image, dummyItem) {
         setTimeout(() => {
             dummyItem.style.top = "calc(50% - 40vh - 1em)";
             dummyItem.style.height = "80dvh";
@@ -158,7 +173,6 @@ function scrollIntersectionCallback (entries, observer) {
                     elem.classList.remove("anim-in");
                 }
             }
-            elem.classList.add("anim-in");
             elem.imageThumb.src = `image-resize/50/corkboard-img/${elem.getAttribute("photo-key")}.png`;
             elem.imageThumb.srcset = [
                 `image-resize/200/corkboard-img/${elem.getAttribute("photo-key")}.png    200w`,
@@ -169,6 +183,9 @@ function scrollIntersectionCallback (entries, observer) {
                 "(max-width: 850px) 400px",
                 "400px"
             ].join(",");
+            if (elem.imageThumb.complete) {
+                elem.classList.add("anim-in");
+            }
             observer.unobserve(entry.target);
         }
     });

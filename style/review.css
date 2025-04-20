@@ -1,0 +1,176 @@
+section {
+    padding: 30px;
+}
+
+h2 {
+    text-align: center;
+}
+
+section#guestbook-container ul {
+	column-count: 2;
+	column-gap: 0.5em;
+	column-gap: 1em;
+	margin: 0;
+	padding: 0;
+}
+
+section#guestbook-container ul li {
+	list-style: none;
+	display: block;
+}
+
+section#guestbook-container .header-message {
+	column-span: all;
+	text-align: center;
+	margin: 4em;
+}
+section#guestbook-container h1 {
+	color: white;
+	text-align: center;
+	font-size: 1.5em;
+	margin-bottom: 2em;
+}
+
+section#guestbook-container .guestbook-message {
+	padding: 1.5em 2em;
+	background: rgb(255 255 255 / 80%);
+	margin: 1.5em 0.5em;
+    padding: 1.25em 1.25em;
+    border: 2px solid #dbd6d2;
+	/* avoid breaking the message box between columns */
+	break-inside: avoid;
+
+	animation: 1s slide-up ease;
+	animation-fill-mode: both;
+	animation-iteration-count: 1;
+	will-change: transform;
+
+	overflow: hidden;
+	border-radius: 8px;
+
+    display: grid;
+    grid-template-areas:    "guestbook-user guestbook-stars"
+                            "guestbook-message guestbook-message";
+}
+
+/* Altventurer bg */
+section#guestbook-container .guestbook-message::before {
+	position: absolute;
+	content: "";
+	background-image: url(../images/Slime.webp);
+	background-size: contain;
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	left: -60px;
+	bottom: -100px;
+	width: 200px;
+	height: 200px;
+	transform: scale(-1, 1);
+	opacity: 0.25;
+	z-index: -1;
+}
+
+section#guestbook-container .guestbook-message:first-child {
+    margin-top: 0px;
+}
+
+section#guestbook-container .guestbook-message:nth-child(2n) .guestbook-icon {
+    background-color: #d9efff;
+}
+
+section#guestbook-container .guestbook-message .guestbook-icon {
+    grid-area: guestbook-icon;
+    width: 50px;
+    height: 50px;
+	border-radius: 50%;
+    background-color: #ffe9c7;
+    flex-shrink: 0;
+}
+
+section#guestbook-container .guestbook-message .guestbook-stars {
+	display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+section#guestbook-container .guestbook-message .guestbook-stars div {
+    color: black;
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    font-size: 0.6em;
+    text-align: center;
+}
+
+section#guestbook-container .guestbook-message a {
+	color: var(--bg-color);
+}
+
+section#guestbook-container .guestbook-message a:visited {
+	color: var(--bg-color-lighten-50);
+}
+
+section#guestbook-container .guestbook-message:nth-child(odd) {
+	animation-delay: 0.5s;
+}
+section#guestbook-container .guestbook-message:nth-child(even) {
+	animation-delay: 0.75s;
+}
+section#guestbook-container .guestbook-message:nth-child(3n) {
+	animation-delay: 1s;
+}
+
+section#guestbook-container .guestbook-message h2,
+section#guestbook-container .guestbook-message h3 {
+	margin-top: 0;
+	margin-bottom: 0.5em;
+}
+
+section#guestbook-container .guestbook-message h2 {
+	font-size: 1.25em;
+}
+
+section#guestbook-container .guestbook-message .guestbook-user {
+    grid-area: guestbook-user;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.5em;
+    width: 100%;
+}
+
+section#guestbook-container .guestbook-message .guestbook-user div {
+	font-size: 0.8em;
+}
+
+section#guestbook-container .guestbook-message h3 {
+	font-size: 1em;
+}
+
+section#guestbook-container .guestbook-message p {
+    grid-area: guestbook-message;
+    /* text-align: justify; */
+    font-size: 0.8em;
+    padding-left: 0.5rem;
+}
+
+@media only screen and (min-width: 800px) {
+	/* desktop / wide styling */
+	main {
+		padding: 1em;
+	}
+}
+
+@media only screen and (max-width: 800px) {
+	/* mobile / portrait styling */
+
+	html {
+		height: fit-content;
+		width: fit-content;
+	}
+
+	section#guestbook-container ul {
+		column-count: 1;
+	}
+}
