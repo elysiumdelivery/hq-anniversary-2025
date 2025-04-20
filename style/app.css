@@ -1,6 +1,19 @@
 :root {
-    --bg-color: rgb(255, 226, 193);
-    --orange: rgb(255, 179, 92);
+    --blue-0: #c2e2ff;
+    --blue-1: #6fbaff;
+    --blue-2: #3588d3;
+    --blue-3: #003464;
+    --green: #76d695;
+    --beige: #f9f3e8;
+    --yellow: #ffe7b0;
+    --orange-0: #ffa046;
+    --orange-1: #ff835e;
+    --maroon: #671700;
+    --brown-0: #aa8a81;
+    --brown-1: #614f4a;
+    --brown-2: #2c211e;
+    --dark: var(--brown-2);
+    --bg-color: var(--beige);
 }
 
 global-header {
@@ -156,3 +169,15 @@ global-footer {
 global-footer a { font-size: 16px; text-decoration: none; }
 global-footer a::before { content: "⚡"; margin-right: 0.5em; }
 global-footer a::after { content: "💌"; margin-left: 0.5em; }
+
+
+section.scroll-vis > * {
+    transition: 0.75s opacity ease-out, 0.75s transform ease-out;
+    transform: translateY(-25%);
+    opacity: 0;
+}
+
+section.scroll-vis.visible > * {
+    transform: none;
+    opacity: 1;
+}

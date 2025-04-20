@@ -9,16 +9,33 @@ window.addEventListener("load", function() {
     
     const observer = new IntersectionObserver(scrollIntersectionCallback, options);
     sections.forEach((section) => {
-        section.childNodes.forEach((node, i) => node.style = `transition-delay: ${i * 0.25}s;`)
+        let decoCount = 0;
+        section.childNodes.forEach((node, i) => {
+            if (node.nodeType === Node.ELEMENT_NODE && !node.classList.contains("deco")) {
+                observer.observe(node)
+            }
+            else {
+                node.ontransitionend = removeStyle;
+                node.style = `transition-delay: ${decoCount++ * 0.25}s`
+            }
+        });
         observer.observe(section);
     });
 });
 
 function scrollIntersectionCallback (entries, observer) {
-    entries.forEach((entry) => {
+    entries.forEach((entry, i) => {
         let elem = entry.target;
         if (entry.isIntersecting) {
+            elem.ontransitionend = removeStyle;
             elem.classList.add("visible");
+            elem.style = `transition-delay: ${i * 0.25}s`;
+            observer.unobserve(elem);
         }
     });
+}
+
+function removeStyle (e) {
+    e.target.style = "";
+    e.target.classList.add("transition-finish");
 }

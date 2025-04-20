@@ -33,10 +33,10 @@ section#guestbook-container h1 {
 
 section#guestbook-container .guestbook-message {
 	padding: 1.5em 2em;
-	/* background: radial-gradient(circle at 50% 150%, rgba(255,245,218,1) 0%, rgba(34,151,195,1) 100%); */
 	background: rgb(255 255 255 / 80%);
 	margin: 1.5em 0.5em;
-	/* text-align: center; */
+    padding: 1.25em 1.25em;
+    border: 2px solid #dbd6d2;
 	/* avoid breaking the message box between columns */
 	break-inside: avoid;
 
@@ -71,7 +71,11 @@ section#guestbook-container .guestbook-message::before {
 }
 
 section#guestbook-container .guestbook-message:first-child {
-	margin-top: 0px;
+    margin-top: 0px;
+}
+
+section#guestbook-container .guestbook-message:nth-child(2n) .guestbook-icon {
+    background-color: #d9efff;
 }
 
 section#guestbook-container .guestbook-message .guestbook-icon {
@@ -79,7 +83,7 @@ section#guestbook-container .guestbook-message .guestbook-icon {
     width: 50px;
     height: 50px;
 	border-radius: 50%;
-    background-color: blue;
+    background-color: #ffe9c7;
     flex-shrink: 0;
 }
 

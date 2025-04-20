@@ -1,0 +1,33 @@
+section {
+    width: 80vw;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.cover-row {
+    width: 100%;
+    display: flex;
+    padding: 1em 0;
+    gap: 1em;
+}
+
+.cover-row .thumbnail {
+    flex-basis: 45%;
+    flex-shrink: 0;
+    background-color: blue;
+    min-height: 250px;
+}
+
+.cover-row .content {
+    flex-grow: 1;
+}
+
+@media only screen and (max-width: 600px) {
+    .cover-row {
+        flex-direction: column;
+        align-items: center;
+    }
+    .cover-row .thumbnail {
+        width: 100%;
+    }
+}

@@ -10,7 +10,6 @@ class GlobalHeader extends HTMLElement {
                                 <div class="nav-inner">
                                     <a href="/">Home</a>
                                     <a href="/corkboard.html">Corkboard</a>
-                                    <a href="/menu.html">Special Menu</a>
                                     <a href="/ads.html">Ads</a>
                                     <a href="/review.html">Review</a>
                                     <a href="/receipt.html">Receipt</a>
@@ -21,12 +20,10 @@ class GlobalHeader extends HTMLElement {
                                 <h2>navigation</h2>
                                 <a href="/">Home</a>
                                 <a href="/corkboard.html">Corkboard</a>
-                                <a href="/menu.html">Special Menu</a>
                                 <a href="/ads.html">Ads</a>
                                 <a href="/review.html">Review</a>
                                 <a href="/receipt.html">Receipt</a>
-                            </div>
-                            <h1>HQ Anniversary</h1>`;
+                            </div>`;
         this.setup();
     }
 

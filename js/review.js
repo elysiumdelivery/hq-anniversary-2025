@@ -31,16 +31,7 @@ function renderMessages(message_data) {
 
     messageFromDiv.classList.add("guestbook-user");
 
-    if (message["Twitter"] && message["Twitter"] !== "-") {
-      let userSocial = document.createElement("a");
-      userSocial.href = `https://twitter.com/${message["Twitter"]}`;
-      userSocial.setAttribute('target', '_blank');
-      userSocial.textContent =  message["Name"];
-      messageUserHeader.append(userSocial);
-    }
-    else {
-      messageUserHeader.innerText = message["Name"];
-    }
+    messageUserHeader.innerText = message["Name"];
     messageUserMessage.innerText = message["Message"];
 
     for (var j = 0; j < 5; j++) {
