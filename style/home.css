@@ -1,5 +1,5 @@
 html, body {
-    background-image: url(../images/home/bg.png);
+    background-image: url(/image-resize/full/home/bg.png);
     background-repeat: repeat;
     background-size: 500px;
 }
