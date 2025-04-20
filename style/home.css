@@ -48,13 +48,14 @@ section#intro > a.from-left:not(.visible) {
 
 section#intro > a.transition-finish {
     transition-duration: 0.25s;
+    transition-delay: 0s;
 }
 
 section#intro > a.visible:hover {
     transform: scale(1.1);
     transition-duration: 0.25s;
     transition-delay: 0s;
-    z-index: 10;
+    /* z-index: 10; */
 }
 
 section#intro > * > img {
