@@ -4,6 +4,14 @@ html, body {
     background-size: 500px;
 }
 
+global-header nav {
+    display: none;
+}
+
+global-header #logo {
+    height: 250px;
+}
+
 section#intro {
     position: relative;
     width: 80vmax;
@@ -142,10 +150,10 @@ a.pin {
 
 section#intro .message p {
     position: absolute;
-    top: 0;
+    top: 5%;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 80%;
     padding: 5% 10%;
     padding-left: 13%;
     padding-bottom: 8%;
@@ -153,5 +161,5 @@ section#intro .message p {
     rotate: -2deg;
     box-sizing: border-box;
     overflow-y: auto;
-    font-size: 0.8em;
+    font-family: "Schoolbell", cursive;
 }

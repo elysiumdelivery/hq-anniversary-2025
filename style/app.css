@@ -19,10 +19,24 @@
 global-header {
     width: 100%;
 }
+global-header #logo {
+    position: relative;
+    width: 100%;
+    height: 100px;
+    object-fit: contain;
+    margin-top: 0.5em;
+}
+global-header #logo:hover {
+    animation: wiggle;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+    animation-iteration-count: 1;
+}
 global-header nav {
     width: 100%;
     box-sizing: border-box;
     padding: 1em;
+    padding-top: 0;
 
     display: flex;
     align-items: center;
@@ -86,6 +100,9 @@ h1, h2, h3, h4, h5, h6 {
     font-family: "Oswald";
     font-weight: bold;
 }
+
+a { color: var(--blue-2); }
+a:visited { color: var(--blue-3); }
 
 #hamburger-button {
     position: fixed;
@@ -166,9 +183,20 @@ global-footer {
     margin: 1em 0;
 }
 
+global-footer img { 
+    width: 150px;
+    height: 120px;
+}
 global-footer a { font-size: 16px; text-decoration: none; }
 global-footer a::before { content: "⚡"; margin-right: 0.5em; }
 global-footer a::after { content: "💌"; margin-left: 0.5em; }
+
+global-footer footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 
 
 section.scroll-vis > * {
@@ -180,4 +208,12 @@ section.scroll-vis > * {
 section.scroll-vis.visible > * {
     transform: none;
     opacity: 1;
+}
+
+@keyframes wiggle {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(-5deg); }
+    50% { transform: rotate(0deg); }
+    75% { transform: rotate(5deg); }
+    100% { transform: rotate(0deg); }
 }

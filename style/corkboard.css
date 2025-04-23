@@ -5,20 +5,25 @@ html, body {
     background-image: none;
 }
 corkboard-container {
+    position: relative;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     gap: 1em;
-    padding: 1em 0;
+    padding: 2em;
     margin: 2em;
+    min-height: 100vh;
 
-    border-style: solid;
-    border-width: 40px;
-    border-image-source: url(/image-resize/full/corkboard-img/corkboard\ frame.png);
+    /* border-image-source: url(/image-resize/full/corkboard-img/corkboard\ frame.png);
     border-image-slice: 7%;
-    border-image-repeat: repeat;
-    background-image: url(/image-resize/full/corkboard-img/pattern_corkboard1.png);
+    border-image-repeat: repeat; */
+    border-style: solid;
+    border-width: 20px;
+    border-color: #625049;
+    box-shadow: inset 0 0 15px;
+    background-color: #ae8d85;
+    background-image: url(/image-resize/full/corkboard-img/pattern_corkboard1.png), url(/image-resize/256/corkboard-img/pattern_corkboard1.png);
     background-size: 500px;
 }
 corkboard-item {
@@ -32,6 +37,10 @@ corkboard-item {
     content-visibility: visible;
 
     cursor: pointer;
+}
+
+corkboard-item[entry-type="writing"] {
+    box-shadow: none !important;
 }
 
 corkboard-item.content-hidden {
@@ -80,6 +89,20 @@ corkboard-item img,
     100% { transform: rotate(0deg); }
 }
 
+corkboard-container .deco {
+    position: absolute;
+    width: 160px;
+    z-index: 100;
+
+    cursor: grab;
+}
+
+
+corkboard-container .deco.top { bottom: calc(100% - 16px); }
+corkboard-container .deco.bottom { bottom: -80px; }
+corkboard-container .deco.left { left: 0; }
+corkboard-container .deco.right { right: 0; }
+
 #corkboard-overlay {
     position: fixed;
     top: 0;
@@ -87,16 +110,33 @@ corkboard-item img,
     width: 100dvw;
     height: 100dvh;
     z-index: 999;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
 
 #corkboard-item-dummy {
-    position: absolute;
-    transition: 0.5s left ease, 0.5s top ease, 0.5s rotate ease, 0.5s width ease, 0.5s height ease;
+    /* position: absolute; */
+    position: relative;
+    transform: none;
+    transition: 0.5s transform ease, 0.5s rotate ease, 0.5s width ease, 0.5s height ease;
 }
-#corkboard-item-dummy img {
-
+#corkboard-item-dummy.img-load {
+    height: 80dvh;
+    rotate: 0deg;
 }
 
+#corkboard-overlay.memory #corkboard-item-dummy.img-load {
+    width: 45%;
+}
+#corkboard-overlay.food #corkboard-item-dummy.img-load {
+    width: var(--width);
+}
+#corkboard-overlay.writing #corkboard-item-dummy {
+    display: none !important;
+}
 /* dialog box */
 
 .dialog-container {
@@ -135,9 +175,9 @@ corkboard-item img,
 
 #corkboard-item-dialog {
     position: relative;
-    left: 1em;
+    /* left: 1em;
     width: 45%;
-    height: 80dvh;
+    height: 80dvh; */
     padding: 1em;
     box-sizing: border-box;
     transition: 0.5s transform ease, 0.5s opacity ease;
@@ -146,13 +186,40 @@ corkboard-item img,
     overflow-y: auto;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
+
+    background-image: url(/image-resize/full/corkboard/writing_art_bg_2.png), url(/image-resize/200/corkboard/writing_art_bg_2.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: 50%;
+}
+#corkboard-overlay.writing #corkboard-item-dialog {
+    left: 0;
+    width: 80vw;
+    max-width: 800px;
+    background-image: url(/image-resize/full/corkboard/writing_bg.png), url(/image-resize/200/corkboard/writing_bg.png);
+}
+
+#corkboard-overlay.writing .details-dialog-text {
+    position: relative;
+    top: -1vw;
+    padding: 4vw 2vw;
+    padding-left: 6vw;
+    width: calc(100% - 12vw);
+    aspect-ratio: 1.6 / 1;
+    
+    text-indent: 3vw;
+    overflow-y: auto;
 }
 
 #corkboard-item-dialog.slide-out {
-    transform: translateX(50%);
+    /* transform: translateX(50%); */
     opacity: 1;
+}
+
+#corkboard-overlay.writing #corkboard-item-dialog.slide-out {
+    transform: translate(0, -5%) rotate(1deg);
 }
 
 #sparkle-effects {
@@ -197,25 +264,14 @@ corkboard-item img,
     border-radius: 50%;
 }
 
-.dialog-title, .details-dialog-text{
-    background: rgba(255, 255, 255, 1);
-    padding: 1rem;
+.details-dialog-text{
     width: 100%;
     box-sizing: border-box;
-}
-
-.dialog-title#details-dialog-title{
-    text-align: center;
-    font-size: 1.25em;
-}
-
-#details-dialog-title h2{
-    font-size: 2rem;
-    margin: 0;
-}
-
-.details-dialog-img {
-    margin: 2em 0;
+    padding: 5vw;
+    padding-right: 3.5vw;
+    box-sizing: border-box;
+    aspect-ratio: 1 / 1.1;
+    overflow-y: auto;
 }
 
 .details-dialog-text h3{
@@ -239,4 +295,44 @@ corkboard-item img,
 .dialog-container:not([aria-hidden="true"]) .dialog-overlay {
     transform: translateY(0);
     opacity: 1;
+}
+
+.deco.star {
+    position: absolute;
+    width: 5vw;
+    aspect-ratio: 1 / 1;
+}
+
+@media only screen and (max-width: 800px) {
+    global-header nav { display: none !important; }
+    corkboard-container {
+        padding: 1em;
+        margin: 1em;
+        margin-bottom: 100px;
+    }
+    #corkboard-overlay {
+        flex-direction: column;
+    }
+    #corkboard-overlay.memory #corkboard-item-dummy.img-load {
+        height: auto;
+        width: 100%;
+    }
+    #corkboard-overlay.memory #corkboard-item-dummy.img-load {
+        width: 100%;
+        height: 45%;
+    }
+    #corkboard-overlay.food #corkboard-item-dummy.img-load {
+        max-width: 90vw;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    corkboard-container {
+        padding: 1em;
+        margin: 1em;
+        margin-bottom: 100px;
+    }
+    corkboard-item {
+        height: 60vw;
+    }
 }
