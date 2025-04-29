@@ -79,17 +79,19 @@ section#intro > * > img {
 }
 
 .deco.polaroid1 {
-    top: 19.8%;
+    top: 20.2%;
     left: 8.9%;
     width: 26.5%;
     z-index: 4;
+    rotate: 10deg;
 }
 
 .deco.polaroid2 {
     top: 27.6%;
-    left: 17.2%;
-    width: 28%;
+    left: 18.2%;
+    width: 26.5%;
     z-index: 3;
+    rotate: -11deg;
 }
 
 .deco.magazine {
@@ -114,31 +116,35 @@ section#intro > * > img {
 }
 
 .deco.pen {
-    top: 56.4%;
-    width: 14.7%;
-    left: 12.5%;
+    top: 62.4%;
+    width: 31.7%;
+    left: 3.5%;
     z-index: 6;
+    rotate: 110deg;
 }
 
 a.corkboard {
     width: 26.7%;
-    top: 59.5%;
+    top: 58.5%;
     left: 26.1%;
     z-index: 3;
+    rotate: -8deg;
 }
 
 a.keychain {
-    width: 21.9%;
-    top: 73%;
-    left: 15.9%;
+    width: 25.9%;
+    top: 71%;
+    left: 10.9%;
     z-index: 6;
+    rotate: -20deg;
 }
 
 a.receipt {
-    width: 28.9%;
+    width: 32.9%;
     top: 72%;
-    left: 40.9%;
+    left: 38.9%;
     z-index: 5;
+    rotate: 9deg;
 }
 
 a.pin {

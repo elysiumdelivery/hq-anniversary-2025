@@ -99,7 +99,7 @@ corkboard-container .deco {
 
 
 corkboard-container .deco.top { bottom: calc(100% - 16px); }
-corkboard-container .deco.bottom { bottom: -80px; }
+corkboard-container .deco.bottom { bottom: -80px; width: 200px; }
 corkboard-container .deco.left { left: 0; }
 corkboard-container .deco.right { right: 0; }
 
@@ -329,8 +329,9 @@ corkboard-container .deco.right { right: 0; }
 @media only screen and (max-width: 500px) {
     corkboard-container {
         padding: 1em;
-        margin: 1em;
+        margin: 2vw;
         margin-bottom: 100px;
+        min-width: 300px;
     }
     corkboard-item {
         height: 60vw;
