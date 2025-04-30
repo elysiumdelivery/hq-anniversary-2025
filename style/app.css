@@ -153,6 +153,8 @@ a:visited { color: var(--blue-3); }
     padding: 1em;
 
     z-index: 1000;
+
+    gap: 0.5em;
 }
 
 #hamburger-menu.open {
@@ -161,8 +163,8 @@ a:visited { color: var(--blue-3); }
 
 #hamburger-menu button.close {
     position: relative;
-    width: 5vmin;
-    height: 5vmin;
+    width: 50px;
+    height: 50px;
 
     appearance: none;
     border: 0;
@@ -172,22 +174,27 @@ a:visited { color: var(--blue-3); }
     filter: drop-shadow(1px 1px 1px #000000aa);
 }
 
+#hamburger-menu button.close img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
 #hamburger-menu a {
     display: flex;
     flex-shrink: 0;
     width: 100%;
-    text-decoration: dotted;
-    overflow: hidden;
-    white-space: nowrap;
+    height: 2.5em;
 }
-
-#hamburger-menu a::after {
+#hamburger-menu a img {
     position: relative;
-    display: inline-block;
-    flex-grow: 1;
-    content: " . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . "
-  ". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . "
-  ". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ";
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: 0.25s transform ease;
+}
+#hamburger-menu a:hover img {
+    transform: translateY(-10%) ;
 }
 
 global-footer {

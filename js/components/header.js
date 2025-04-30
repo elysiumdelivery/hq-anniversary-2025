@@ -19,11 +19,11 @@ class GlobalHeader extends HTMLElement {
                             <div id="hamburger-menu" role="navigation" aria-label="Main menu">
                                 <button class="close"><img aria-hidden="true" focusable="false" src="/image-resize/50/sidebar_close.png"/></button>
                                 <h2>navigation</h2>
-                                <a href="/">Home</a>
-                                <a href="/corkboard.html">Corkboard</a>
-                                <a href="/ads.html">Ads</a>
-                                <a href="/review.html">Review</a>
-                                <a href="/receipt.html">Receipt</a>
+                                <a href="/"><img alt="Home" focusable="false" src="/image-resize-h/50/nav/home.png"/></a>
+                                <a href="/corkboard.html"><img alt="Corkboard" focusable="false" src="/image-resize-h/50/nav/corkboard.png"/></a>
+                                <a href="/ads.html"><img alt="Ads" focusable="false" src="/image-resize-h/50/nav/ads.png"/></a>
+                                <a href="/review.html"><img alt="Review" focusable="false" src="/image-resize-h/50/nav/review.png"/></a>
+                                <a href="/receipt.html"><img alt="Receipt" focusable="false" src="/image-resize-h/50/nav/receipt.png"/></a>
                             </div>`;
         this.setup();
     }
