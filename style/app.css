@@ -33,9 +33,9 @@ global-header #logo:hover {
     animation-iteration-count: 1;
 }
 global-header nav {
-    width: 55%;
+    width: fit-content;
     box-sizing: border-box;
-    padding: 0.25em;
+    padding: 0.25em 1.5em;
     margin: auto;
 
     background: var(--brown-1);
@@ -237,4 +237,8 @@ section.scroll-vis.visible > * {
     50% { transform: rotate(0deg); }
     75% { transform: rotate(5deg); }
     100% { transform: rotate(0deg); }
+}
+
+@media only screen and (max-width: 800px) {
+    global-header nav { display: none !important; }
 }
