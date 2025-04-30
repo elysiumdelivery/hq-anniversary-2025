@@ -19,10 +19,27 @@
 global-header {
     width: 100%;
 }
-global-header nav {
+global-header #logo {
+    position: relative;
     width: 100%;
+    height: 100px;
+    object-fit: contain;
+    margin-top: 0.5em;
+}
+global-header #logo:hover {
+    animation: wiggle;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+    animation-iteration-count: 1;
+}
+global-header nav {
+    width: fit-content;
     box-sizing: border-box;
-    padding: 1em;
+    padding: 0.25em 1.5em;
+    margin: auto;
+
+    background: var(--brown-1);
+    border-radius: 2.5em;
 
     display: flex;
     align-items: center;
@@ -34,7 +51,7 @@ global-header nav .nav-inner {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 1em;
+    gap: 0.5em;
 }
 
 global-header nav a.nav-home {
@@ -44,6 +61,15 @@ global-header nav a.nav-home {
 global-header nav a {
     text-transform: uppercase;
     color: black;
+    height: 2em;
+}
+global-header nav a img {
+    position: relative;
+    height: 100%;
+    transition: 0.25s transform ease;
+}
+global-header nav a:hover img {
+    transform: translateY(-10%) ;
 }
 
 global-header h1 {
@@ -87,6 +113,9 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: bold;
 }
 
+a { color: var(--blue-2); }
+a:visited { color: var(--blue-3); }
+
 #hamburger-button {
     position: fixed;
     width: 5vmin;
@@ -100,6 +129,7 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0;
     background: transparent;
     cursor: pointer;
+    filter: drop-shadow(1px 1px 1px #000000aa);
 }
 
 #hamburger-menu {
@@ -123,6 +153,8 @@ h1, h2, h3, h4, h5, h6 {
     padding: 1em;
 
     z-index: 1000;
+
+    gap: 0.5em;
 }
 
 #hamburger-menu.open {
@@ -131,32 +163,38 @@ h1, h2, h3, h4, h5, h6 {
 
 #hamburger-menu button.close {
     position: relative;
-    width: 5vmin;
-    height: 5vmin;
+    width: 50px;
+    height: 50px;
 
     appearance: none;
     border: 0;
     padding: 0;
     background: transparent;
     cursor: pointer;
+    filter: drop-shadow(1px 1px 1px #000000aa);
+}
+
+#hamburger-menu button.close img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 #hamburger-menu a {
     display: flex;
     flex-shrink: 0;
     width: 100%;
-    text-decoration: dotted;
-    overflow: hidden;
-    white-space: nowrap;
+    height: 2.5em;
 }
-
-#hamburger-menu a::after {
+#hamburger-menu a img {
     position: relative;
-    display: inline-block;
-    flex-grow: 1;
-    content: " . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . "
-  ". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . "
-  ". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ";
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: 0.25s transform ease;
+}
+#hamburger-menu a:hover img {
+    transform: translateY(-10%) ;
 }
 
 global-footer {
@@ -166,9 +204,20 @@ global-footer {
     margin: 1em 0;
 }
 
+global-footer img { 
+    width: 150px;
+    height: 120px;
+}
 global-footer a { font-size: 16px; text-decoration: none; }
 global-footer a::before { content: "⚡"; margin-right: 0.5em; }
 global-footer a::after { content: "💌"; margin-left: 0.5em; }
+
+global-footer footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 
 
 section.scroll-vis > * {
@@ -180,4 +229,16 @@ section.scroll-vis > * {
 section.scroll-vis.visible > * {
     transform: none;
     opacity: 1;
+}
+
+@keyframes wiggle {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(-5deg); }
+    50% { transform: rotate(0deg); }
+    75% { transform: rotate(5deg); }
+    100% { transform: rotate(0deg); }
+}
+
+@media only screen and (max-width: 800px) {
+    global-header nav { display: none !important; }
 }

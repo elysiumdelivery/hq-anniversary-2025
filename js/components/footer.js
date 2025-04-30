@@ -6,7 +6,8 @@ class GlobalFooter extends HTMLElement {
   
     connectedCallback() {
         this.innerHTML = `  <footer>
-                                <a href="https://twitter.com/ElysiumDelivery">powered by elysium delivery services</a>
+                              <a href="https://twitter.com/ElysiumDelivery">powered by elysium delivery services</a>
+                              <img src="/image-resize/full/eds.png" alt="Elysium Delivery Services logo"/>
                             </footer>`;
     }
 }

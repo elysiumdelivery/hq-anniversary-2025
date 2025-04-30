@@ -54,7 +54,7 @@ section#guestbook-container .guestbook-message {
 }
 
 /* Altventurer bg */
-section#guestbook-container .guestbook-message::before {
+/* section#guestbook-container .guestbook-message::before {
 	position: absolute;
 	content: "";
 	background-image: url(../images/Slime.webp);
@@ -68,7 +68,7 @@ section#guestbook-container .guestbook-message::before {
 	transform: scale(-1, 1);
 	opacity: 0.25;
 	z-index: -1;
-}
+} */
 
 section#guestbook-container .guestbook-message:first-child {
     margin-top: 0px;

@@ -1,7 +1,7 @@
 let DETAILS_DIALOG_A11Y = null;
 let DETAILS_DIALOG_EL = null;
 
-let photos = ["Food1",  "Mem3", "Food5", "Mem1",  "Food3", "Mem5"]
+let photos = ["Food1",  "Mem3", "Food5", "Writing1", "Mem1",  "Food3", "Mem5"]
 
 window.addEventListener("DOMContentLoaded", function() {   
     window.scrollTo(0, 0);
@@ -15,7 +15,10 @@ window.addEventListener("DOMContentLoaded", function() {
         setTimeout(() => {
             DETAILS_DIALOG_EL.parentNode.classList.remove("sparkle-in");
             DETAILS_DIALOG_EL.classList.remove("slide-out");
+            dummyItem.parentElement.classList.remove("writing", "art", "memory");
+            dummyItem.classList.value = "";
             dummyItem.style = "";
+            dummyItem.style.transition = "none";
         }, 250);
     })
     DETAILS_DIALOG_A11Y.hide();
@@ -74,41 +77,55 @@ class CorkboardItem extends HTMLElement {
         this.appendChild(this.imageThumb);
         // this.appendChild(this.image);
         this.onmouseover = this.preloadImage;
-        this.onclick = this.handleClick;
+        this.onclick = this.handleClick.bind(this);
     }
 
     preloadImage () {
-        if (this.preloaded === undefined) {
+        if (this.preloaded === undefined && this.type != "writing") {
             this.preloaded = new Image();
             this.preloaded.src = `image-resize/full/corkboard-img/${this.getAttribute("photo-key")}-full.png`;
         }
     }
 
     handleClick (e) {
-        const overlayContainer = document.getElementById("corkboard-overlay");
         const dummyItem = document.getElementById("corkboard-item-dummy");
-        dummyItem.style.top = (this.offsetTop - window.scrollY) + "px";
-        dummyItem.style.left = this.offsetLeft + "px";
-        dummyItem.style.width = this.offsetWidth + "px";
-        dummyItem.style.height = this.offsetHeight + "px";
+        dummyItem.parentElement.classList.add(this.type);
+        let rect = this.getBoundingClientRect();
+        dummyItem.style.transition = "none";
+        dummyItem.style.width = rect.width + "px";
+        dummyItem.style.height = rect.height + "px";
+        rect = this.getBoundingClientRect();
+        dummyItem.style.transform = `translate(${-dummyItem.offsetLeft}px, ${-dummyItem.offsetTop}px) translate(${rect.x}px, ${rect.y}px)`
         dummyItem.style.rotate = this.style.rotate;
 
         dummyItem.innerHTML = "";
         let image;
-        if (this.preloaded) {
-            image = this.preloaded;
+        if (this.type != "writing") {
+            if (this.preloaded) {
+                image = this.preloaded;
+            }
+            else {
+                image = document.createElement("img");
+                image.src = `image-resize/full/corkboard-img/${this.getAttribute("photo-key")}-full.png`;
+                image.onload(() => console.log("a"))
+            }
+            dummyItem.appendChild(image);
+            if (image.complete) {
+                this.onDialogImageLoaded(image, dummyItem);
+            }
+            else {
+                image.addEventListener('load', this.onDialogImageLoaded.bind(this, image, dummyItem))
+            }
         }
         else {
-            image = document.createElement("img");
-            image.src = `image-resize/full/corkboard-img/${this.getAttribute("photo-key")}-full.png`;
-            image.onload(() => console.log("a"))
+            this.onDialogImageLoaded();
         }
-        dummyItem.appendChild(image);
 
-        // overlayContainer.classList.add("show");
-        DETAILS_DIALOG_A11Y.show();
+        if (this.type == "writing") {
+            DETAILS_DIALOG_EL.classList.add("writing-only");
+        }
 
-        if (this.type != "memory") {
+        if (this.type == "food") {
             DETAILS_DIALOG_EL.style.display = "none";
             document.getElementById("sparkle-effects").style.display = "";
         }
@@ -116,44 +133,32 @@ class CorkboardItem extends HTMLElement {
             DETAILS_DIALOG_EL.style.display = "";
             document.getElementById("sparkle-effects").style.display = "none";
         }
-
-        if (image.complete) {
-            this.onDialogImageLoaded(image, dummyItem);
-        }
-        else {
-            image.addEventListener('load', this.onDialogImageLoaded.bind(this, image, dummyItem))
-        }
+        DETAILS_DIALOG_A11Y.show();
     }
 
     onDialogImageLoaded (image, dummyItem) {
         setTimeout(() => {
-            dummyItem.style.top = "calc(50% - 40vh - 1em)";
-            dummyItem.style.height = "80dvh";
-            dummyItem.style.rotate = "0deg";
-
+            dummyItem.style = "";
+            dummyItem.classList.add("img-load");
             if (this.type == "food") {
-                let sparkleEffect = document.getElementById("sparkle-effects");
                 let ratio = image.naturalWidth / image.naturalHeight;
-                console.log(ratio)
-                console.log(ratio * vh(80))
-                dummyItem.style.left = `calc(50% - ${ratio * vh(80) * 0.5}px)`;
-                dummyItem.style.width = `${vh(80) * ratio}px`;
-                sparkleEffect.style.width = `${vh(80) * ratio}px`;
-                sparkleEffect.style.height = `${vh(80)}px`;
+                dummyItem.style.setProperty('--width', (vh(80) * ratio) + "px");
             }
-            else if (this.type == "memory") {
-                dummyItem.style.left = "calc(50% - 25%)";
-                dummyItem.style.width = "45%";
-            }
+
         }, 500);
         
         setTimeout(() => {
-            if (this.type == "memory") {
-                dummyItem.style.left = "2em";
+            if (this.type == "writing") {
+                DETAILS_DIALOG_EL.classList.add("slide-out");
+            }
+            else if (this.type == "memory") {
                 dummyItem.style.rotate = "-5deg";
                 DETAILS_DIALOG_EL.classList.add("slide-out");
             }
             else if (this.type == "food") {
+                let sparkleEffect = document.getElementById("sparkle-effects");
+                sparkleEffect.style.width = dummyItem.clientWidth + "px";
+                sparkleEffect.style.height = dummyItem.clientHeight + "px";
                 DETAILS_DIALOG_EL.parentNode.classList.add("sparkle-in");
             }
         }, 1000);
@@ -173,16 +178,30 @@ function scrollIntersectionCallback (entries, observer) {
                     elem.classList.remove("anim-in");
                 }
             }
-            elem.imageThumb.src = `image-resize/50/corkboard-img/${elem.getAttribute("photo-key")}.png`;
-            elem.imageThumb.srcset = [
-                `image-resize/200/corkboard-img/${elem.getAttribute("photo-key")}.png    200w`,
-                `image-resize/400/corkboard-img/${elem.getAttribute("photo-key")}.png    400w`,
-            ].join(",");
-            elem.imageThumb.sizes = [
-                "(max-width: 450px) 200px",
-                "(max-width: 850px) 400px",
-                "400px"
-            ].join(",");
+            if (elem.getAttribute("entry-type") === "art") {
+                elem.imageThumb.src = `image-resize/50/corkboard-img/${elem.getAttribute("photo-key")}.png`;
+                elem.imageThumb.srcset = [
+                    `image-resize/200/corkboard-img/${elem.getAttribute("photo-key")}.png    200w`,
+                    `image-resize/400/corkboard-img/${elem.getAttribute("photo-key")}.png    400w`,
+                ].join(",");
+                elem.imageThumb.sizes = [
+                    "(max-width: 450px) 200px",
+                    "(max-width: 850px) 400px",
+                    "400px"
+                ].join(",");
+            }
+            else {
+                elem.imageThumb.src = `image-resize/50/corkboard/writing_thumb.png`;
+                elem.imageThumb.srcset = [
+                    `image-resize/200/corkboard/writing_thumb.png    200w`,
+                    `image-resize/400/corkboard/writing_thumb.png    400w`,
+                ].join(",");
+                elem.imageThumb.sizes = [
+                    "(max-width: 450px) 200px",
+                    "(max-width: 850px) 400px",
+                    "400px"
+                ].join(",");
+            }
             if (elem.imageThumb.complete) {
                 elem.classList.add("anim-in");
             }
@@ -199,10 +218,15 @@ function setupEntries (elem) {
         let childEl = new CorkboardItem();
         // childEl.setAttribute("img", `https://picsum.photos/seed/${i + 100}/200/300`);
         childEl.setAttribute("img", `corkboard-img/${photoKey}.png`);
-        if (photoKey.includes("Food")) childEl.type = "food";
-        if (photoKey.includes("Mem")) childEl.type = "memory";
         childEl.setAttribute("photo-key", photoKey);
         childEl.setAttribute("entry-type", "art");
+        if (photoKey.includes("Food")) childEl.type = "food";
+        if (photoKey.includes("Mem")) childEl.type = "memory";
+        if (photoKey.includes("Writing")) {
+            childEl.type = "writing";
+            childEl.setAttribute("entry-type", "writing");
+            childEl.setAttribute("img", `corkboard/writing_thumb.png`);
+        }
         var newPlusOrMinus = Math.random() < 0.5 ? -1 : 1;
         if (plusOrMinus === newPlusOrMinus && pmCount < 2) {
             pmCount++;
