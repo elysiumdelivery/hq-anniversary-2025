@@ -99,7 +99,7 @@ corkboard-container .deco {
 
 
 corkboard-container .deco.top { bottom: calc(100% - 16px); }
-corkboard-container .deco.bottom { bottom: -80px; width: 200px; }
+corkboard-container .deco.bottom { bottom: -80px; width: 35vw; max-width: 400px; }
 corkboard-container .deco.left { left: 0; }
 corkboard-container .deco.right { right: 0; }
 
@@ -198,6 +198,7 @@ corkboard-container .deco.right { right: 0; }
     left: 0;
     width: 80vw;
     max-width: 800px;
+    aspect-ratio: 1.75 / 1;
     background-image: url(/image-resize/full/corkboard/writing_bg.png), url(/image-resize/200/corkboard/writing_bg.png);
 }
 

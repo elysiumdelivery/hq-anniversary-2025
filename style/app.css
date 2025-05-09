@@ -38,7 +38,6 @@ global-header nav {
     padding: 0.25em 1.5em;
     margin: auto;
 
-    background: var(--brown-1);
     border-radius: 2.5em;
 
     display: flex;
