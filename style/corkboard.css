@@ -29,7 +29,7 @@ html, body {
     border-color: #625049;
     box-shadow: inset 0 0 15px;
     background-color: #ae8d85;
-    background-image: url(/image-resize/full/corkboard-img/pattern_corkboard1.png), url(/image-resize/256/corkboard-img/pattern_corkboard1.png);
+    background-image: url(/image-resize/1024/corkboard-img/pattern_corkboard1.png), url(/image-resize/256/corkboard-img/pattern_corkboard1.png);
     background-size: 500px;
 }
 .corkboard-inner {
