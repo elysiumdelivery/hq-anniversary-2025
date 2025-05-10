@@ -4,13 +4,19 @@
 html, body {
     background-image: none;
 }
-corkboard-container {
+#corkboard {
     position: relative;
-    display: flex;
+    /* display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: center;
-    gap: 1em;
+    justify-content: center; */
+    display: block;
+    /* display: grid;
+    gap: 10px;
+    grid-template-columns: masonry;
+    grid-template-rows: repeat(3, 100px); */
+
+    /* gap: 1em; */
     padding: 2em;
     margin: 2em;
     min-height: 100vh;
@@ -26,33 +32,41 @@ corkboard-container {
     background-image: url(/image-resize/full/corkboard-img/pattern_corkboard1.png), url(/image-resize/256/corkboard-img/pattern_corkboard1.png);
     background-size: 500px;
 }
+.corkboard-inner {
+    margin: 0 auto;
+    display: block;
+}
+corkboard-item,
+.grid-sizer {
+    width: 15vw;
+    min-width: 200px;
+}
 corkboard-item {
     position: relative;
-    /* width: 23vmin; */
-    height: 35vmin;
+    margin-bottom: 3vmin;
+    /* height: 35vmin; */
+    /* width: 20%; */
+    /* height: 100px; */
     transition: 0.5s transform ease, 0.5s rotate ease;
     transform-origin: 50% 10%;
     transform: none;
-    box-shadow: 5px 10px 10px 3px rgba(0, 0, 0, 0.5);
+    filter: drop-shadow(5px 10px 3px rgba(0, 0, 0, 0.5));
     content-visibility: visible;
-
+    display: inline-block;
     cursor: pointer;
 }
 
 corkboard-item[entry-type="writing"] {
-    box-shadow: none !important;
+    /* box-shadow: none !important; */
 }
 
-corkboard-item.content-hidden {
+.corkboard-item.content-hidden {
     content-visibility: auto;
 }
-corkboard-item:not(.visible) {
+.corkboard-item:not(.visible) {
     opacity: 0;
     box-shadow: none;
     pointer-events: none;
-}
-corkboard-item.to-center {
-    
 }
 
 corkboard-item.anim-in {
@@ -77,8 +91,8 @@ corkboard-item img,
 }
 
 @keyframes corkboard-item-anim-in {
-    from { transform: translateY(-25%); opacity: 0; box-shadow: none; }
-    to { transform: none; opacity: 1; content-visibility: visible; box-shadow: 5px 10px 10px 3px rgba(0, 0, 0, 0.5); }
+    from { transform: translateY(-25%); opacity: 0;  }
+    to { transform: none; opacity: 1; content-visibility: visible; }
 }
 
 @keyframes corkboard-item-swing {
@@ -89,17 +103,28 @@ corkboard-item img,
     100% { transform: rotate(0deg); }
 }
 
-corkboard-container .deco {
+.inline-deco {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 5vw;
+    transition: 0.5s opacity ease;
+}
+.inline-deco[src*="star"] { margin: 1vw; }
+.inline-deco[src="/image-resize/full/eds.png"] { width: 15vw; }
+.inline-deco[src*="home/polaroid"] { width: 20vw; }
+
+#corkboard .deco {
     position: absolute;
     width: 160px;
     z-index: 100;
 }
 
 
-corkboard-container .deco.top { bottom: calc(100% - 16px); }
-corkboard-container .deco.bottom { bottom: -80px; width: 20vw; max-width: 400px; min-width: 200px;}
-corkboard-container .deco.left { left: 0; }
-corkboard-container .deco.right { right: 0; }
+#corkboard .deco.top { bottom: calc(100% - 16px); }
+#corkboard .deco.bottom { bottom: -80px; width: 20vw; max-width: 400px; min-width: 200px;}
+#corkboard .deco.left { left: 0; }
+#corkboard .deco.right { right: 0; }
 
 #corkboard-overlay {
     position: fixed;
@@ -304,10 +329,14 @@ corkboard-container .deco.right { right: 0; }
 
 @media only screen and (max-width: 800px) {
     global-header nav { display: none !important; }
-    corkboard-container {
+    #corkboard {
         padding: 1em;
         margin: 1em;
         margin-bottom: 100px;
+    }
+    corkboard-item,
+    .grid-sizer {
+        width: 200px;
     }
     #corkboard-overlay {
         flex-direction: column;
@@ -326,13 +355,17 @@ corkboard-container .deco.right { right: 0; }
 }
 
 @media only screen and (max-width: 500px) {
-    corkboard-container {
+    #corkboard {
         padding: 1em;
         margin: 2vw;
         margin-bottom: 100px;
         min-width: 300px;
     }
-    corkboard-item {
+    /* corkboard-item {
         height: 60vw;
+    } */
+    corkboard-item,
+    .grid-sizer {
+        width: 80%;
     }
 }

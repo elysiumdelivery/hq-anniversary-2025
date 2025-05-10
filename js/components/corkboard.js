@@ -1,7 +1,9 @@
 let DETAILS_DIALOG_A11Y = null;
 let DETAILS_DIALOG_EL = null;
-
-let photos = ["Food1",  "Mem3", "Food5", "Writing1", "Mem1",  "Food3", "Mem5"]
+let msnry;
+let photos = ["Food1",  "Mem3", "Food5", "Writing1", "Mem1",  "Food3", "Writing1", "Mem5", "Food1", "Writing1", "Mem3", "Food5", "Writing1", "Mem1",  "Food3", "Mem5"]
+let singleDecos = ["eds.png", "home/polaroid1.png", "home/polaroid2.png"];
+let reusableDecos = ["star1.png", "star2.png"];
 
 window.addEventListener("DOMContentLoaded", function() {   
     window.scrollTo(0, 0);
@@ -43,13 +45,72 @@ class Corkboard extends HTMLElement {
         };
         this.observer = new IntersectionObserver(scrollIntersectionCallback, options);
         setupEntries(this);
+        msnry = new Masonry(this, {
+            // options
+            itemSelector: '.corkboard-item',
+            columnWidth: 200,
+            initLayout: false,
+            fitWidth: true,
+            gutter: 50,
+            stagger: 50,
+            transitionDuration: 0
+        });
+        msnry.on('layoutComplete', function(laidOutItems) {
+            laidOutItems.forEach((entry, i) => {
+                let elem = entry.element;
+                if (elem.classList.contains("inline-deco") && !(elem.classList.contains("visible"))) {
+                    elem.classList.add("visible");
+                }
+                else if (!(elem.classList.contains("visible"))) {
+                    elem.onanimationend = (event) => {
+                        if (event.animationName == "corkboard-item-anim-in") {
+                            elem.classList.add("visible");
+                            elem.classList.remove("anim-in");
+                        }
+                    }
+                    // if (elem.getAttribute("entry-type") === "art") {
+                    //     elem.imageThumb.src = `image-resize/50/corkboard-img/${elem.getAttribute("photo-key")}.png`;
+                    //     elem.imageThumb.srcset = [
+                    //         `image-resize/200/corkboard-img/${elem.getAttribute("photo-key")}.png    200w`,
+                    //         `image-resize/400/corkboard-img/${elem.getAttribute("photo-key")}.png    400w`,
+                    //     ].join(",");
+                    //     elem.imageThumb.sizes = [
+                    //         "(max-width: 450px) 200px",
+                    //         "(max-width: 850px) 400px",
+                    //         "400px"
+                    //     ].join(",");
+                    // }
+                    // else {
+                    //     elem.imageThumb.src = `image-resize/50/corkboard/writing_thumb.png`;
+                    //     elem.imageThumb.srcset = [
+                    //         `image-resize/200/corkboard/writing_thumb.png    200w`,
+                    //         `image-resize/400/corkboard/writing_thumb.png    400w`,
+                    //     ].join(",");
+                    //     elem.imageThumb.sizes = [
+                    //         "(max-width: 450px) 200px",
+                    //         "(max-width: 850px) 400px",
+                    //         "400px"
+                    //     ].join(",");
+                    // }
+                    if (elem.imageThumb.complete) {
+                        elem.classList.add("anim-in");
+                        // setTimeout(() => msnry.layout(), 500);
+                    }
+                    // observer.unobserve(entry.target);
+                }
+                // msnry.off("layoutComplete");
+            });
+        });
+        imagesLoaded(this).on("progress", function (instance, image) {
+            console.log(image)
+            msnry.layout();
+        });
     }
 
     disconnectedCallback() {
         this.observer.disconnect();
     }
 }
-
 class CorkboardItem extends HTMLElement {
     constructor() {
       // Always call super first in constructor
@@ -57,6 +118,7 @@ class CorkboardItem extends HTMLElement {
     }
   
     connectedCallback() {
+        this.classList.add("corkboard-item");
         this.role = "listitem";
         let imgUrl;
         if (this.hasAttribute("img")) {
@@ -67,14 +129,39 @@ class CorkboardItem extends HTMLElement {
 
         this.imageThumb = document.createElement("img");
         this.imageThumb.loading = "lazy";
-        this.imageThumb.addEventListener("load", function () {
-            setTimeout(function () {
-                this.classList.add("anim-in");
-            }.bind(this), 500);
+        this.imageThumb.addEventListener("load", function (e) {
+            let ratio = e.target.naturalWidth / e.target.naturalHeight;
+            this.style.setProperty('aspect-ratio', ratio.toFixed(2));
+            // this.classList.add("anim-in");
+            // setTimeout(function () { msnry.appended(this); }.bind(this), 500);
         }.bind(this))
         // this.image = document.createElement("img");
-        // this.imageThumb.src = imgUrl;
+        if (this.getAttribute("entry-type") === "art") {
+            this.imageThumb.src = `image-resize/50/corkboard-img/${this.getAttribute("photo-key")}.png`;
+            this.imageThumb.srcset = [
+                `image-resize/200/corkboard-img/${this.getAttribute("photo-key")}.png    200w`,
+                `image-resize/400/corkboard-img/${this.getAttribute("photo-key")}.png    400w`,
+            ].join(",");
+            this.imageThumb.sizes = [
+                "(max-width: 450px) 200px",
+                "(max-width: 850px) 400px",
+                "400px"
+            ].join(",");
+        }
+        else {
+            this.imageThumb.src = `image-resize/50/corkboard/writing_thumb.png`;
+            this.imageThumb.srcset = [
+                `image-resize/200/corkboard/writing_thumb.png    200w`,
+                `image-resize/400/corkboard/writing_thumb.png    400w`,
+            ].join(",");
+            this.imageThumb.sizes = [
+                "(max-width: 450px) 200px",
+                "(max-width: 850px) 400px",
+                "400px"
+            ].join(",");
+        }
         this.appendChild(this.imageThumb);
+        // msnry.appended(this);
         // this.appendChild(this.image);
         this.onmouseover = this.preloadImage;
         this.onclick = this.handleClick.bind(this);
@@ -138,11 +225,13 @@ class CorkboardItem extends HTMLElement {
 
     onDialogImageLoaded (image, dummyItem) {
         setTimeout(() => {
-            dummyItem.style = "";
-            dummyItem.classList.add("img-load");
-            if (this.type == "food") {
-                let ratio = image.naturalWidth / image.naturalHeight;
-                dummyItem.style.setProperty('--width', (vh(80) * ratio) + "px");
+            if (dummyItem) {
+                dummyItem.style = "";
+                dummyItem.classList.add("img-load");
+                if (this.type == "food") {
+                    let ratio = image.naturalWidth / image.naturalHeight;
+                    dummyItem.style.setProperty('--width', (vh(80) * ratio) + "px");
+                }
             }
 
         }, 500);
@@ -178,32 +267,33 @@ function scrollIntersectionCallback (entries, observer) {
                     elem.classList.remove("anim-in");
                 }
             }
-            if (elem.getAttribute("entry-type") === "art") {
-                elem.imageThumb.src = `image-resize/50/corkboard-img/${elem.getAttribute("photo-key")}.png`;
-                elem.imageThumb.srcset = [
-                    `image-resize/200/corkboard-img/${elem.getAttribute("photo-key")}.png    200w`,
-                    `image-resize/400/corkboard-img/${elem.getAttribute("photo-key")}.png    400w`,
-                ].join(",");
-                elem.imageThumb.sizes = [
-                    "(max-width: 450px) 200px",
-                    "(max-width: 850px) 400px",
-                    "400px"
-                ].join(",");
-            }
-            else {
-                elem.imageThumb.src = `image-resize/50/corkboard/writing_thumb.png`;
-                elem.imageThumb.srcset = [
-                    `image-resize/200/corkboard/writing_thumb.png    200w`,
-                    `image-resize/400/corkboard/writing_thumb.png    400w`,
-                ].join(",");
-                elem.imageThumb.sizes = [
-                    "(max-width: 450px) 200px",
-                    "(max-width: 850px) 400px",
-                    "400px"
-                ].join(",");
-            }
+            // if (elem.getAttribute("entry-type") === "art") {
+            //     elem.imageThumb.src = `image-resize/50/corkboard-img/${elem.getAttribute("photo-key")}.png`;
+            //     elem.imageThumb.srcset = [
+            //         `image-resize/200/corkboard-img/${elem.getAttribute("photo-key")}.png    200w`,
+            //         `image-resize/400/corkboard-img/${elem.getAttribute("photo-key")}.png    400w`,
+            //     ].join(",");
+            //     elem.imageThumb.sizes = [
+            //         "(max-width: 450px) 200px",
+            //         "(max-width: 850px) 400px",
+            //         "400px"
+            //     ].join(",");
+            // }
+            // else {
+            //     elem.imageThumb.src = `image-resize/50/corkboard/writing_thumb.png`;
+            //     elem.imageThumb.srcset = [
+            //         `image-resize/200/corkboard/writing_thumb.png    200w`,
+            //         `image-resize/400/corkboard/writing_thumb.png    400w`,
+            //     ].join(",");
+            //     elem.imageThumb.sizes = [
+            //         "(max-width: 450px) 200px",
+            //         "(max-width: 850px) 400px",
+            //         "400px"
+            //     ].join(",");
+            // }
             if (elem.imageThumb.complete) {
                 elem.classList.add("anim-in");
+                // setTimeout(() => msnry.layout(), 500);
             }
             observer.unobserve(entry.target);
         }
@@ -214,6 +304,12 @@ function setupEntries (elem) {
     let plusOrMinus = 1;
     let pmCount = 0;
     for (var i = 0; i < photos.length; i++) {
+        if (i % 6 === 0) {
+            makeInlineDeco(elem, singleDecos, { rotate: true });
+        }
+        else if (i % 3 === 0) {
+            makeInlineDeco(elem, reusableDecos, { margin: true });
+        }
         let photoKey = photos[i];
         let childEl = new CorkboardItem();
         // childEl.setAttribute("img", `https://picsum.photos/seed/${i + 100}/200/300`);
@@ -244,8 +340,23 @@ function setupEntries (elem) {
         childEl.style.zIndex = `${100 - i}`;
 
         elem.append(childEl);
-        elem.observer.observe(childEl);
+        // elem.observer.observe(childEl);
     }
+}
+
+function makeInlineDeco (elem, decos, options) {
+    let decoEl = document.createElement("img");
+    decoEl.classList.add("corkboard-item", "inline-deco")
+    let randomDecoPath = decos[Math.floor(Math.random() * decos.length)];
+    decoEl.src = `/image-resize/full/${randomDecoPath}`;
+    let plusOrMinus = Math.random() < 0.5 ? -1 : 1;
+    if (options.rotate) {
+        decoEl.style.rotate = `${Math.round((2 + Math.random() * 5 * plusOrMinus))}deg`
+    }
+    if (options.margin) {
+        decoEl.style.margin = `1vw ${Math.round((2 + Math.random() * 5))}vw`
+    }
+    elem.append(decoEl);
 }
 
 function vh (percent) {
