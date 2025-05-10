@@ -38,7 +38,6 @@ global-header nav {
     padding: 0.25em 1.5em;
     margin: auto;
 
-    background: var(--brown-1);
     border-radius: 2.5em;
 
     display: flex;
@@ -230,6 +229,9 @@ section.scroll-vis.visible > * {
     transform: none;
     opacity: 1;
 }
+
+.petzone { cursor: grab; }
+.petzone:active { cursor: grabbing; }
 
 @keyframes wiggle {
     0% { transform: rotate(0deg); }
