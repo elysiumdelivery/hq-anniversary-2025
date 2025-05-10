@@ -349,6 +349,7 @@ function setupEntries (elem, entryData) {
             if (data.ratio) {
                 childEl.style.setProperty('aspect-ratio', data.ratio.toFixed(2));
             }
+            childEl.style = `--angle: ${getRandomInt(-5, 5)}deg;`;
             childEl.style.rotate = `${data.rotate}deg`
             childEl.style.zIndex = `${data.zIndex}`;
             elem.append(childEl);
@@ -398,4 +399,10 @@ function makeInlineDeco (elem, data) {
 function vh (percent) {
     var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
     return (percent * h) / 100;
+}
+
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 }
