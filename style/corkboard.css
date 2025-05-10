@@ -115,7 +115,7 @@ corkboard-item img,
 #corkboard .deco {
     position: absolute;
     width: 160px;
-    z-index: 100;
+    z-index: 999;
 }
 
 
