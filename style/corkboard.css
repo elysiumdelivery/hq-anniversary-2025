@@ -97,7 +97,7 @@ corkboard-container .deco {
 
 
 corkboard-container .deco.top { bottom: calc(100% - 16px); }
-corkboard-container .deco.bottom { bottom: -80px; width: 20vw; max-width: 400px; }
+corkboard-container .deco.bottom { bottom: -80px; width: 20vw; max-width: 400px; min-width: 200px;}
 corkboard-container .deco.left { left: 0; }
 corkboard-container .deco.right { right: 0; }
 
