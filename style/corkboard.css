@@ -93,13 +93,11 @@ corkboard-container .deco {
     position: absolute;
     width: 160px;
     z-index: 100;
-
-    cursor: grab;
 }
 
 
 corkboard-container .deco.top { bottom: calc(100% - 16px); }
-corkboard-container .deco.bottom { bottom: -80px; width: 35vw; max-width: 400px; }
+corkboard-container .deco.bottom { bottom: -80px; width: 20vw; max-width: 400px; }
 corkboard-container .deco.left { left: 0; }
 corkboard-container .deco.right { right: 0; }
 
