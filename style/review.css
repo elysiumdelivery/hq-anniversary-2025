@@ -151,6 +151,8 @@ section#guestbook-container .guestbook-message .guestbook-user {
 
 section#guestbook-container .guestbook-message .guestbook-user div {
 	font-size: 0.8em;
+	font-family: "Solway", serif;
+	font-weight: 700;
 }
 
 section#guestbook-container .guestbook-message h3 {
@@ -162,6 +164,7 @@ section#guestbook-container .guestbook-message p {
     /* text-align: justify; */
     font-size: 0.8em;
     padding-left: 0.5rem;
+	line-height: 1.5;
 }
 
 section#guestbook-container .guestbook-message .guestbook-img {

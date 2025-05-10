@@ -9,6 +9,8 @@ global-header nav {
 }
 
 global-header #logo {
+    left: calc(50vw - 250px);
+    width: 500px;
     height: 250px;
 }
 
@@ -187,5 +189,6 @@ section#intro .message p {
     rotate: -2deg;
     box-sizing: border-box;
     overflow-y: auto;
-    font-family: "Schoolbell", cursive;
+    font-family: "Solway", serif;
+	font-weight: 300;
 }
