@@ -31,6 +31,7 @@ function processData (data) {
             type: d["Type"].toLowerCase().split(" + "),
             polaroid: d["Polaroid"],
             credit: d["Credit"].split(") "),
+            title: d["Entry Title"],
             desc: d["Entry Description"],
             cutouts: d["Cutouts"].split(", "),
         }

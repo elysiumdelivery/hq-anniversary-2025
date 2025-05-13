@@ -215,6 +215,11 @@ class CorkboardItem extends HTMLElement {
             credit2.innerHTML = this.data.credit[0];
             document.getElementById("corkboard-item-dummy").append(credit1);
             document.getElementById("corkboard-item-dummy").append(credit2);
+
+            let title = document.createElement("span");
+            title.classList.add("title");
+            title.innerHTML = this.data.title;
+            document.getElementById("corkboard-item-dummy").append(title);
         }
         else {
             DETAILS_DIALOG_EL.style.display = "";
@@ -265,7 +270,6 @@ class CorkboardItem extends HTMLElement {
         }
         setTimeout(() => {
             if (dummyItem) {
-                dummyItem.style = "";
                 dummyItem.classList.add("img-load");
                 if (this.type == "food" || this.type == "memory-art") {
                     dummyItem.style.setProperty('--width', (vh(80) * this.data.imageRatio) + "px");
@@ -274,6 +278,11 @@ class CorkboardItem extends HTMLElement {
                     dummyItem.style.setProperty('--width', (vh(65) * this.data.imageRatio) + "px");
                     dummyItem.style.setProperty('height', "50vh");                        
                 }
+                dummyItem.style.removeProperty("width");
+                dummyItem.style.removeProperty("transition");
+                dummyItem.style.removeProperty("height");
+                dummyItem.style.removeProperty("transform");
+                dummyItem.style.removeProperty("rotate");
              }
 
         }, 500);

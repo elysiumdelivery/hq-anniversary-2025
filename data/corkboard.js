@@ -1,9 +1,9 @@
 const CORKBOARD_DATA = [
   {
     "itemType": "inline-deco",
-    "path": "star2.png",
+    "path": "star1.png",
     "margin": 3,
-    "imageRatio": 1.03125
+    "imageRatio": 1.0289855072463767
   },
   {
     "category": "cafe",
@@ -14,13 +14,14 @@ const CORKBOARD_DATA = [
     "credit": [
       "lighteningsky"
     ],
+    "title": "Elysium Berry Crumble",
     "desc": "Elysium Berry Crumble Muffins Happy Anniversary, Altare and Axel! Thanks for all your hard work and fun streams. I know you'll continue to shine even brighter!",
     "cutouts": [
       ""
     ],
     "path": "corkboard-img/entries/Cafe_Photo_lighteningsky_01.png",
     "itemType": "corkboard-item",
-    "rotate": 0,
+    "rotate": 1,
     "zIndex": 126,
     "imageRatio": 1,
     "polaroidRatio": 0.8334509527170078
@@ -34,13 +35,14 @@ const CORKBOARD_DATA = [
     "credit": [
       "Lotty (@mitiafrapp)"
     ],
+    "title": "Wan Fluff Pup Cake",
     "desc": " Wan Fluff Pup Cake Altare and a slime decorating a dog themed cake ",
     "cutouts": [
       ""
     ],
     "path": "corkboard-img/entries/Cafe_Art_Lotty_02.png",
     "itemType": "corkboard-item",
-    "rotate": 4,
+    "rotate": 1,
     "zIndex": 125,
     "imageRatio": 1.3866666666666667,
     "polaroidRatio": 1.088325652841782
@@ -54,16 +56,23 @@ const CORKBOARD_DATA = [
     "credit": [
       "Nori/Konori (@konoriarts)"
     ],
+    "title": "HQ-themed teatime",
     "desc": "HQ-themed teatime Meeting up with old friends to celebrate with tea and cakes. ",
     "cutouts": [
       ""
     ],
     "path": "corkboard-img/entries/Cafe_Art_konori_01.png",
     "itemType": "corkboard-item",
-    "rotate": 2,
+    "rotate": 3,
     "zIndex": 124,
     "imageRatio": 1,
     "polaroidRatio": 0.8334509527170078
+  },
+  {
+    "itemType": "inline-deco",
+    "path": "eds.png",
+    "rotate": 4,
+    "imageRatio": 1.2598187311178248
   },
   {
     "category": "cafe",
@@ -74,16 +83,23 @@ const CORKBOARD_DATA = [
     "credit": [
       "vivid_Syd (@vivid_Syd315)"
     ],
+    "title": "Shiny Woof and Spicy Meow Soda Floats",
     "desc": "Shiny Woof and Spicy Meow Soda Floats Cute HQ colored soda floats to share with friends!",
     "cutouts": [
       ""
     ],
     "path": "corkboard-img/entries/Cafe_Art_vivid_Syd_01.png",
     "itemType": "corkboard-item",
-    "rotate": 5,
+    "rotate": 3,
     "zIndex": 123,
     "imageRatio": 1.2820512820512822,
     "polaroidRatio": 0.8334509527170078
+  },
+  {
+    "itemType": "inline-deco",
+    "path": "star1.png",
+    "margin": 4,
+    "imageRatio": 1.0289855072463767
   },
   {
     "category": "memory",
@@ -94,6 +110,7 @@ const CORKBOARD_DATA = [
     "credit": [
       "Semiluminary (@semiluminary)"
     ],
+    "title": "",
     "desc": "A note or letter regarding Altare and Vesper’s wild west cosmic horror shooting adventures",
     "cutouts": [
       ""
@@ -108,7 +125,7 @@ const CORKBOARD_DATA = [
     },
     "path": "corkboard/writing_thumb.png",
     "itemType": "corkboard-item",
-    "rotate": 1,
+    "rotate": -2,
     "zIndex": 122,
     "imageRatio": 1
   },
@@ -121,6 +138,7 @@ const CORKBOARD_DATA = [
     "credit": [
       "Cherry (@cherrytartart)"
     ],
+    "title": "",
     "desc": "A note of things the bois did on their raft adventures",
     "cutouts": [
       ""
@@ -135,9 +153,15 @@ const CORKBOARD_DATA = [
     },
     "path": "corkboard/writing_thumb.png",
     "itemType": "corkboard-item",
-    "rotate": 6,
+    "rotate": 3,
     "zIndex": 121,
     "imageRatio": 1
+  },
+  {
+    "itemType": "inline-deco",
+    "path": "star2.png",
+    "margin": 5,
+    "imageRatio": 1.03125
   },
   {
     "category": "memory",
@@ -148,6 +172,7 @@ const CORKBOARD_DATA = [
     "credit": [
       "Semiluminary (@semiluminary)"
     ],
+    "title": "",
     "desc": "A list of the boys’ fun adventures in this first-ever Holostars EN off-collab",
     "cutouts": [
       ""
@@ -162,15 +187,9 @@ const CORKBOARD_DATA = [
     },
     "path": "corkboard/writing_thumb.png",
     "itemType": "corkboard-item",
-    "rotate": 6,
+    "rotate": -2,
     "zIndex": 120,
     "imageRatio": 1
-  },
-  {
-    "itemType": "inline-deco",
-    "path": "home/polaroid2.png",
-    "rotate": 3,
-    "imageRatio": 0.8684863523573201
   },
   {
     "category": "memory",
@@ -181,6 +200,7 @@ const CORKBOARD_DATA = [
     "credit": [
       "Cherry (@cherrytartart)"
     ],
+    "title": "",
     "desc": "A drawing of each of the food that was made put side by side",
     "cutouts": [
       ""
@@ -193,7 +213,7 @@ const CORKBOARD_DATA = [
       "link": "https://www.youtube.com/live/WuXGu4L6bmI?si=VMM0b8f2kpD_lnsW"
     },
     "itemType": "corkboard-item",
-    "rotate": 7,
+    "rotate": 6,
     "zIndex": 119,
     "imageRatio": 1,
     "polaroidRatio": 0.8334509527170078
@@ -209,6 +229,7 @@ const CORKBOARD_DATA = [
       "Cherry(@cherrytartart)",
       "tamacitas (@tamacitas)"
     ],
+    "title": "",
     "desc": "A note of how TSB grew as a team (what the members learned from the experience)",
     "cutouts": [
       ""
@@ -223,16 +244,10 @@ const CORKBOARD_DATA = [
       "type": "Letter"
     },
     "itemType": "corkboard-item",
-    "rotate": 1,
+    "rotate": 2,
     "zIndex": 118,
     "imageRatio": 1,
     "polaroidRatio": 0.8334509527170078
-  },
-  {
-    "itemType": "inline-deco",
-    "path": "star2.png",
-    "margin": 3,
-    "imageRatio": 1.03125
   },
   {
     "category": "memory",
@@ -243,6 +258,7 @@ const CORKBOARD_DATA = [
     "credit": [
       "Ri Lo (@RiLo_08)"
     ],
+    "title": "Altare Curry and Axel Ice Cream Soda",
     "desc": "A note/letter to our beloved leader of Guild Tempus HQ: Regis Altare",
     "cutouts": [
       ""
@@ -257,7 +273,7 @@ const CORKBOARD_DATA = [
     },
     "path": "corkboard/writing_thumb.png",
     "itemType": "corkboard-item",
-    "rotate": 6,
+    "rotate": 0,
     "zIndex": 117,
     "imageRatio": 1
   },
@@ -270,15 +286,22 @@ const CORKBOARD_DATA = [
     "credit": [
       "Kay (@ThatCrypticKay)"
     ],
+    "title": "",
     "desc": " Altare Curry and Axel Ice Cream Soda Waiters Axelotl and Altventerer serving dog Altare curry and a cat Axel ice cream soda.",
     "cutouts": [
       ""
     ],
     "path": "corkboard-img/entries/Cafe_Art_Kay(ThatCrypticKay)_01.png",
     "itemType": "corkboard-item",
-    "rotate": 1,
+    "rotate": -2,
     "zIndex": 116,
     "polaroidRatio": 0.8334509527170078
+  },
+  {
+    "itemType": "inline-deco",
+    "path": "star2.png",
+    "margin": 7,
+    "imageRatio": 1.03125
   },
   {
     "category": "memory",
@@ -291,6 +314,7 @@ const CORKBOARD_DATA = [
       "Ri Lo (@RiLo_08)",
       "Sharkie (@sharkfintempura)"
     ],
+    "title": "",
     "desc": "A list of interesting things noted on this birthday talk together with the one and only doctor,gladiator,hitman,assasin, birthday boy,and filial son Axel Syrios together with his Old Man: Papa Syrios~",
     "cutouts": [
       ""
@@ -305,10 +329,16 @@ const CORKBOARD_DATA = [
     },
     "path": "corkboard/writing_thumb.png",
     "itemType": "corkboard-item",
-    "rotate": 7,
+    "rotate": 4,
     "zIndex": 115,
     "imageRatio": 1,
     "polaroidRatio": 0.8334509527170078
+  },
+  {
+    "itemType": "inline-deco",
+    "path": "star2.png",
+    "margin": 2,
+    "imageRatio": 1.03125
   },
   {
     "category": "memory",
@@ -321,6 +351,7 @@ const CORKBOARD_DATA = [
       "Ri Lo (@RiLo_08)",
       "Sharkie (@sharkfintempura)"
     ],
+    "title": "",
     "desc": "A list of the silly shenigans of our fave Tempus HQ Duo: The Blue Isekai Hero & Orange Gladiator Dingo",
     "cutouts": [
       ""
@@ -335,7 +366,7 @@ const CORKBOARD_DATA = [
     },
     "path": "corkboard/writing_thumb.png",
     "itemType": "corkboard-item",
-    "rotate": 4,
+    "rotate": 2,
     "zIndex": 114,
     "imageRatio": 1,
     "polaroidRatio": 1.088325652841782
@@ -349,13 +380,14 @@ const CORKBOARD_DATA = [
     "credit": [
       "Fluor (@FluorArt)"
     ],
+    "title": "Slime Jelly Soda\n",
     "desc": "Slime Jelly Soda The Alventurers have concocted a new drink: refreshing blue-flavored jelly soda topped with raspberry soft serve and blueberries!\n",
     "cutouts": [
       ""
     ],
     "path": "corkboard-img/entries/Cafe_Art_Fluor_01.png",
     "itemType": "corkboard-item",
-    "rotate": -1,
+    "rotate": 3,
     "zIndex": 113,
     "imageRatio": 1,
     "polaroidRatio": 0.8334509527170078
@@ -369,16 +401,23 @@ const CORKBOARD_DATA = [
     "credit": [
       "Fluor (@FluorArt)"
     ],
+    "title": "Pizza-lotl Pie",
     "desc": "Pizza-lotl Pie Enjoy a single-person meatball pizza shaped like an Axelotl's face! Don't tell the Axelotls what's in the meatballs!",
     "cutouts": [
       ""
     ],
     "path": "corkboard-img/entries/Cafe_Art_Fluor_02.png",
     "itemType": "corkboard-item",
-    "rotate": -2,
+    "rotate": 1,
     "zIndex": 112,
     "imageRatio": 1,
     "polaroidRatio": 0.8334509527170078
+  },
+  {
+    "itemType": "inline-deco",
+    "path": "star2.png",
+    "margin": 7,
+    "imageRatio": 1.03125
   },
   {
     "category": "cafe",
@@ -389,13 +428,14 @@ const CORKBOARD_DATA = [
     "credit": [
       "Fluor (@FluorArt)"
     ],
+    "title": "Dogxel and Nyantare Mini-cakes\n",
     "desc": "Dogxel and Nyantare Mini-cakes Dogxel and Nyantare are now in edible form as mini chocolate cakes!\n",
     "cutouts": [
       ""
     ],
     "path": "corkboard-img/entries/Cafe_Art_Fluor_03.png",
     "itemType": "corkboard-item",
-    "rotate": 6,
+    "rotate": 4,
     "zIndex": 111,
     "imageRatio": 1,
     "polaroidRatio": 0.8334509527170078
@@ -409,13 +449,14 @@ const CORKBOARD_DATA = [
     "credit": [
       "Semiluminary (@semiluminary)"
     ],
+    "title": "Coffee, Cheese, and Coldcuts!",
     "desc": "Coffee, Cheese, and Coldcuts!  Both boys were a little dubious when they heard about the new cafe.  Still, why not give it a try? Then Axel saw the menu.  Meat and cheese at a cafe? Pure heaven!",
     "cutouts": [
       ""
     ],
     "path": "corkboard-img/entries/Cafe_Photo_Semiluminary_01.png",
     "itemType": "corkboard-item",
-    "rotate": -3,
+    "rotate": 1,
     "zIndex": 110,
     "imageRatio": 1,
     "polaroidRatio": 0.8334509527170078
@@ -429,6 +470,7 @@ const CORKBOARD_DATA = [
     "credit": [
       "Baasil"
     ],
+    "title": "Cultare and Axelotl take on Pasta!",
     "desc": "Regis and Axel inspired beverage and snack/dessert",
     "cutouts": [
       "Slime2",
@@ -436,7 +478,7 @@ const CORKBOARD_DATA = [
     ],
     "path": "corkboard-img/entries/Cafe_photo_elliesech_01.jpg",
     "itemType": "corkboard-item",
-    "rotate": 5,
+    "rotate": 4,
     "zIndex": 109,
     "imageRatio": 0.8188464662875711,
     "polaroidRatio": 0.8334509527170078
@@ -450,6 +492,7 @@ const CORKBOARD_DATA = [
     "credit": [
       "elise (@elliesech)"
     ],
+    "title": "Altare and Cultare Diner Date! Cultare and Altare decided to go try out the new diner because of how hyped up it was! They tried the Salad and it was amazing! 10/10",
     "desc": "Cultare and Axelotl take on Pasta! Cultares and Axelotls heard about yummy pasta and wanted to try it for themselves before recommending it to Altare and Axel! ",
     "cutouts": [
       "Slime2"
@@ -462,12 +505,6 @@ const CORKBOARD_DATA = [
     "polaroidRatio": 0.6923076923076923
   },
   {
-    "itemType": "inline-deco",
-    "path": "home/polaroid1.png",
-    "rotate": 5,
-    "imageRatio": 0.8684863523573201
-  },
-  {
     "category": "cafe",
     "type": [
       "photo"
@@ -476,13 +513,14 @@ const CORKBOARD_DATA = [
     "credit": [
       "elise (@elliesech)"
     ],
+    "title": "Axelotl takes on baking Axelotl bakes cookies for Axel secretly to surprise him. They surprisingly turn out delicious! ",
     "desc": "Altare and Cultare Diner Date! Cultare and Altare decided to go try out the new diner because of how hyped up it was! They tried the Salad and it was amazing! 10/10",
     "cutouts": [
       "Axelotl1"
     ],
     "path": "corkboard-img/entries/Cafe_photo_elliesech_03.jpg",
     "itemType": "corkboard-item",
-    "rotate": 6,
+    "rotate": 2,
     "zIndex": 107,
     "imageRatio": 1.3333333333333333,
     "polaroidRatio": 0.6923076923076923
@@ -496,6 +534,7 @@ const CORKBOARD_DATA = [
     "credit": [
       "elise (@elliesech)"
     ],
+    "title": "Cultare's Cinnamon Muffins!",
     "desc": "Axelotl takes on baking Axelotl bakes cookies for Axel secretly to surprise him. They surprisingly turn out delicious! ",
     "cutouts": [
       "Slime1",
@@ -503,7 +542,7 @@ const CORKBOARD_DATA = [
     ],
     "path": "corkboard-img/entries/Cafe_photo_elliesech_04.jpg",
     "itemType": "corkboard-item",
-    "rotate": -2,
+    "rotate": 7,
     "zIndex": 106,
     "imageRatio": 1.3333333333333333,
     "polaroidRatio": 0.6923076923076923
@@ -517,13 +556,14 @@ const CORKBOARD_DATA = [
     "credit": [
       "elise (@elliesech)"
     ],
+    "title": "Axelotl's Sushi Break!",
     "desc": "Cultare's Cinnamon Muffins! Cultare were happy to have their leader back in action! Of course they had to bake Altare something sweet!",
     "cutouts": [
       "Axelotl2"
     ],
     "path": "corkboard-img/entries/Cafe_photo_elliesech_05.jpg",
     "itemType": "corkboard-item",
-    "rotate": 2,
+    "rotate": -1,
     "zIndex": 105
   },
   {
@@ -535,6 +575,7 @@ const CORKBOARD_DATA = [
     "credit": [
       "elise (@elliesech)"
     ],
+    "title": "Cultare and Axelotl's Fish and Dumplings ",
     "desc": "Axelotl's Sushi Break! Axelotl's been a bit sad but nothing Sushi can't fix! Only one roll was enough for now because they had to make room for more food later!",
     "cutouts": [
       "Slime2",
@@ -542,14 +583,14 @@ const CORKBOARD_DATA = [
     ],
     "path": "corkboard-img/entries/Cafe_photo_elliesech_06.jpg",
     "itemType": "corkboard-item",
-    "rotate": 2,
+    "rotate": 3,
     "zIndex": 104
   },
   {
     "itemType": "inline-deco",
-    "path": "home/polaroid2.png",
-    "rotate": -3,
-    "imageRatio": 0.8684863523573201
+    "path": "star2.png",
+    "margin": 2,
+    "imageRatio": 1.03125
   },
   {
     "category": "cafe",
@@ -560,6 +601,7 @@ const CORKBOARD_DATA = [
     "credit": [
       "elise (@elliesech)"
     ],
+    "title": "Axelotl cooks steak!",
     "desc": "Cultare and Axelotl's Fish and Dumplings Cultares and Axelotls wanted to show how much they love Axel and Altare. They decided to take on the biggest threat...frying food.",
     "cutouts": [
       "Axelotl2",
@@ -567,7 +609,7 @@ const CORKBOARD_DATA = [
     ],
     "path": "corkboard-img/entries/Cafe_photo_elliesech_07.jpg",
     "itemType": "corkboard-item",
-    "rotate": 2,
+    "rotate": 4,
     "zIndex": 103
   },
   {
@@ -579,6 +621,7 @@ const CORKBOARD_DATA = [
     "credit": [
       "elise (@elliesech)"
     ],
+    "title": "Cultare's Master Stir-fry",
     "desc": "Axelotl cooks steak! Axelotl decided on steak for dinner! Might wanna share that with Axel...",
     "cutouts": [
       "Slime2",
@@ -586,8 +629,14 @@ const CORKBOARD_DATA = [
     ],
     "path": "corkboard-img/entries/Cafe_photo_elliesech_08.jpg",
     "itemType": "corkboard-item",
-    "rotate": -2,
+    "rotate": 1,
     "zIndex": 102
+  },
+  {
+    "itemType": "inline-deco",
+    "path": "star1.png",
+    "margin": 2,
+    "imageRatio": 1.0289855072463767
   },
   {
     "category": "cafe",
@@ -598,13 +647,14 @@ const CORKBOARD_DATA = [
     "credit": [
       "elise (@elliesech)"
     ],
+    "title": "",
     "desc": "Cultare's Master Stir-fry Cultares cooks stir-fry while waiting for Altare to come home! It's always better to eat together!",
     "cutouts": [
       ""
     ],
     "path": "corkboard/writing_thumb.png",
     "itemType": "corkboard-item",
-    "rotate": 5,
+    "rotate": 4,
     "zIndex": 101,
     "imageRatio": 1
   }
