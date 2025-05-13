@@ -39,7 +39,7 @@ html, body {
 corkboard-item,
 .grid-sizer,
 .inline-deco {
-    width: 15vw;
+    width: 20vmin;
     min-width: 200px;
 }
 corkboard-item {
@@ -55,6 +55,37 @@ corkboard-item {
     content-visibility: visible;
     display: inline-block;
     cursor: pointer;
+}
+corkboard-item[entry-type="art writing"] {
+    margin-top: 5vmin;
+}
+corkboard-item[entry-type="art writing"]::before {
+    content: "";
+    position: absolute;
+    display: block;
+    height: 100%;
+    top: -22%;
+    left: 0%;
+    width: 30%;
+    background-image: url(/image-resize/200/corkboard/bookmark_1.png);
+    z-index: -1;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+corkboard-item[entry-type="art writing"]:nth-child(2n)::before {
+    left: 25%;
+    rotate: 10deg;
+    background-image: url(/image-resize/200/corkboard/bookmark_2.png);
+}
+corkboard-item[entry-type="art writing"]:nth-child(3n)::before {
+    left: 5%;
+    background-image: url(/image-resize/200/corkboard/bookmark_3.png);
+}
+corkboard-item[entry-type="art writing"]:nth-child(4n)::before {
+    left: 50%;
+    rotate: 15deg;
+    background-image: url(/image-resize/200/corkboard/bookmark_4.png);
 }
 
 corkboard-item[entry-type="writing"] {
@@ -89,6 +120,20 @@ corkboard-item img,
     width: 100%;
     height: 100%;
     object-fit: contain;
+}
+
+#corkboard-item-dummy img {
+    border-radius: 12px;
+}
+
+corkboard-item img.polaroid {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
 }
 
 @keyframes corkboard-item-anim-in {
@@ -143,19 +188,77 @@ corkboard-item img,
     position: relative;
     transform: none;
     transition: 0.5s transform ease, 0.5s rotate ease, 0.5s width ease, 0.5s height ease;
+    flex-shrink: 0;
 }
 #corkboard-item-dummy.img-load {
     height: 80dvh;
     rotate: 0deg;
 }
 
-#corkboard-overlay.memory #corkboard-item-dummy.img-load {
+#corkboard-item-dummy.img-load iframe,
+#corkboard-item-dummy.img-load .credit,
+#corkboard-item-dummy.img-load .date {
+    opacity: 1;
+    transform: translateX(-25%) rotate(5deg);
+}
+#corkboard-item-dummy.img-load .credit.label {
+    transform: translateX(-50%) rotate(-5deg);
+}
+#corkboard-item-dummy.img-load .date {
+    transform: translateX(10%) rotate(5deg);
+}
+
+#corkboard-item-dummy iframe {
+    position: absolute;
+    left: 34%;
+    top: 38%;
+    height: 50%;
+    aspect-ratio: 1.75;
+    transition: 0.5s opacity ease, 0.5s transform ease;
+    opacity: 0;
+    transition-delay: 1s;
+    transform: translateX(-10%) rotate(0deg);
+}
+
+#corkboard-item-dummy .credit,
+#corkboard-item-dummy .date {
+    position: absolute;
+    transition: 0.5s opacity ease, 0.5s transform ease;
+    opacity: 0;
+    transition-delay: 1s;
+    transform: translateX(-10%) rotate(0deg);
+    background-color: white;
+    border-radius: 20px;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+}
+#corkboard-item-dummy .credit {
+    left: 5%;
+    bottom: 0%;
+}
+#corkboard-item-dummy .credit.label {
+    left: 0%;
+    bottom: 2em;
+}
+#corkboard-item-dummy .date {
+    top: 0%;
+    right: 0%;
+    transform-origin: 75s% 50%;
+}
+#corkboard-overlay.memory-art-writing #corkboard-item-dummy.img-load {
     width: 45%;
 }
 #corkboard-overlay.food #corkboard-item-dummy.img-load {
+    width: 50vw;
     width: var(--width);
 }
-#corkboard-overlay.writing #corkboard-item-dummy {
+#corkboard-overlay.memory-writing #corkboard-item-dummy {
+    display: none;
+}
+#corkboard-overlay.memory-writing .details-dialog-text .credit {
+    right: 32%;
+}
+#corkboard-overlay.memory-art #corkboard-item-dialog {
     display: none !important;
 }
 /* dialog box */
@@ -214,34 +317,52 @@ corkboard-item img,
     background-size: 100%;
     background-repeat: no-repeat;
     background-position: 50%;
+    aspect-ratio: 1 / 1.15;
+    max-height: 80vh;
+
+    transform: translateX(-10%);
 }
-#corkboard-overlay.writing #corkboard-item-dialog {
+/* #corkboard-overlay.memory-writing.list #corkboard-item-dialog {
     left: 0;
     width: 80vw;
     max-width: 800px;
     aspect-ratio: 1.75 / 1;
+    background-image: url(/image-resize/full/corkboard/writing_art_bg_2.png), url(/image-resize/200/corkboard/writing_art_bg_2.png);
+}
+
+#corkboard-overlay.memory-writing.letter #corkboard-item-dialog {
+    left: 0;
+    width: 80vw;
+    max-width: 800px;
+    aspect-ratio: 1.75 / 1;
+    background-image: url(/image-resize/full/corkboard/writing_art_bg.png), url(/image-resize/200/corkboard/writing_art_bg.png);
+} */
+
+#corkboard-overlay.memory-writing #corkboard-item-dialog {
+    left: 0;
+    width: 80vw;
+    max-width: 910px;
+    aspect-ratio: 1.75 / 1;
     background-image: url(/image-resize/full/corkboard/writing_bg.png), url(/image-resize/200/corkboard/writing_bg.png);
 }
 
-#corkboard-overlay.writing .details-dialog-text {
+#corkboard-overlay.memory-writing .details-dialog-text {
     position: relative;
-    top: -1vw;
-    padding: 4vw 2vw;
-    padding-left: 6vw;
-    width: calc(100% - 12vw);
+    top: 0;
+    padding: 1% 5%;
+    padding-left: 10%;
+    padding-bottom: 8%;
+    width: calc(100% - 19%);
     aspect-ratio: 1.6 / 1;
-    
-    text-indent: 3vw;
     overflow-y: auto;
+}
+#corkboard-overlay.memory-writing .details-dialog-text .date {
+    margin-left: 4.5vw;
 }
 
 #corkboard-item-dialog.slide-out {
-    /* transform: translateX(50%); */
+    transform: translateX(0%) rotate(5deg);
     opacity: 1;
-}
-
-#corkboard-overlay.writing #corkboard-item-dialog.slide-out {
-    transform: translate(0, -5%) rotate(1deg);
 }
 
 #sparkle-effects {
@@ -289,11 +410,18 @@ corkboard-item img,
 .details-dialog-text{
     width: 100%;
     box-sizing: border-box;
-    padding: 5vw;
-    padding-right: 3.5vw;
+    padding: 11% 13.5%;
+    padding-right: 7.5%;
     box-sizing: border-box;
     aspect-ratio: 1 / 1.1;
+    overflow: hidden;
+}
+
+.details-dialog-inner {
     overflow-y: auto;
+    height: calc(100% - 2em);
+    width: 100%;
+    position: relative;
 }
 
 .details-dialog-text h3{
@@ -302,9 +430,31 @@ corkboard-item img,
     margin: 1rem 0;
 }
 
-.details-dialog-text p{
-    font-size: 1.25rem;
-    margin: 0;
+.details-dialog-text .date {
+    font-size: 0.5rem;
+    font-weight: 500;
+    display: inline-block;
+    margin-bottom: 1em;
+}
+.details-dialog-text .details-dialog-inner > * {
+    font-size: 0.85rem;
+}
+.details-dialog-text .details-dialog-inner ul {
+    padding-left: 24px;
+    list-style: url("/image-resize/20/star1.png");
+}
+.details-dialog-text .details-dialog-inner ul li {
+    padding-left: 5px;
+}
+.details-dialog-text .details-dialog-inner ul li:nth-child(2n) {
+    list-style: url("/image-resize/20/star2.png");
+}
+.details-dialog-text .credit {
+    font-size: 0.75rem;
+    text-align: right;
+    position: absolute;
+    bottom: 12%;
+    right: 15%;
 }
 .details-dialog-text p:first-child{
     margin-top: 0;
@@ -340,11 +490,11 @@ corkboard-item img,
     #corkboard-overlay {
         flex-direction: column;
     }
-    #corkboard-overlay.memory #corkboard-item-dummy.img-load {
+    #corkboard-overlay.memory-art-writing #corkboard-item-dummy.img-load {
         height: auto;
         width: 100%;
     }
-    #corkboard-overlay.memory #corkboard-item-dummy.img-load {
+    #corkboard-overlay.memory-art-writing #corkboard-item-dummy.img-load {
         width: 100%;
         height: 45%;
     }

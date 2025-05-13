@@ -1,14 +1,7 @@
 let DETAILS_DIALOG_A11Y = null;
 let DETAILS_DIALOG_EL = null;
 
-const SETUP = false;
-
 let msnry;
-let photos = ["Food1", "Writing1",  "Mem3", "Food5", "Mem1",  "Food3", "Writing1", "Mem5", "Food1", "Mem1",  "Food3", "Writing1", "Mem3", "Food5", "Writing1", "Mem5", "Food5", "Mem1",  "Food3", "Writing1", "Mem5", "Food1", "Mem1",  "Food3", "Writing1", "Mem3", "Food5", "Writing1", "Mem5", "Food1", "Writing1",  "Mem3", "Food5", "Mem1",  "Food3", "Writing1", "Mem5", "Food1", "Mem1",  "Food3", "Writing1", "Mem3", "Food5", "Writing1", "Mem5", "Food5", "Mem1",  "Food3", "Writing1", "Mem5", "Food1", "Mem1",  "Food3", "Writing1", "Mem3", "Food5", "Writing1", "Mem5", "Food1", "Writing1",  "Mem3", "Food5", "Mem1",  "Food3", "Writing1", "Mem5", "Food1", "Mem1",  "Food3", "Writing1", "Mem3", "Food5", "Writing1", "Mem5", "Food5", "Mem1",  "Food3", "Writing1", "Mem5", "Food1", "Mem1",  "Food3", "Writing1", "Mem3", "Food5", "Writing1", "Mem5", "Food1", "Writing1",  "Mem3", "Food5", "Mem1",  "Food3", "Writing1", "Mem5", "Food1", "Mem1",  "Food3", "Writing1", "Mem3", "Food5", "Writing1", "Mem5", "Food5", "Mem1",  "Food3", "Writing1", "Mem5", "Food1", "Mem1",  "Food3", "Writing1", "Mem3", "Food5", "Writing1", "Mem5"]
-let singleDecos = ["eds.png", "home/polaroid1.png", "home/polaroid2.png"];
-let reusableDecos = ["star1.png", "star2.png"];
-
-const randomData = [];
 
 window.addEventListener("DOMContentLoaded", function() {   
     window.scrollTo(0, 0);
@@ -20,9 +13,13 @@ window.addEventListener("DOMContentLoaded", function() {
     DETAILS_DIALOG_A11Y.on('hide', function (event) {
         const dummyItem = document.getElementById("corkboard-item-dummy");
         setTimeout(() => {
+            DETAILS_DIALOG_EL.querySelector(".details-dialog-text .date").innerHTML = "";
+            DETAILS_DIALOG_EL.querySelector(".details-dialog-inner").innerHTML = "";
+            DETAILS_DIALOG_EL.querySelector(".details-dialog-text .credit").innerHTML = "";
             DETAILS_DIALOG_EL.parentNode.classList.remove("sparkle-in");
             DETAILS_DIALOG_EL.classList.remove("slide-out");
-            dummyItem.parentElement.classList.remove("writing", "art", "memory");
+
+            dummyItem.parentElement.classList.remove("memory-writing", "memory-art", "memory-art-writing", "food");
             dummyItem.classList.value = "";
             dummyItem.style = "";
             dummyItem.style.transition = "none";
@@ -51,14 +48,7 @@ class Corkboard extends HTMLElement {
         };
         this.observer = new IntersectionObserver(scrollIntersectionCallback, options);
 
-        if (SETUP) {
-            genEntries();
-            setupEntries(this, randomData);
-        }
-        else {
-            setupEntries(this, CORKBOARD_DATA)
-        }
-
+        setupEntries(this, CORKBOARD_DATA)
         
         msnry = new Masonry(this, {
             // options
@@ -67,7 +57,7 @@ class Corkboard extends HTMLElement {
             initLayout: false,
             horizontalOrder: true,
             fitWidth: true,
-            gutter: 50,
+            gutter: 10,
             stagger: 50,
             transitionDuration: 0
         });
@@ -101,9 +91,11 @@ class Corkboard extends HTMLElement {
     }
 }
 class CorkboardItem extends HTMLElement {
-    constructor() {
+    constructor(data) {
       // Always call super first in constructor
       super();
+
+      this.data = data;
     }
   
     connectedCallback() {
@@ -118,42 +110,43 @@ class CorkboardItem extends HTMLElement {
 
         this.imageThumb = document.createElement("img");
         // this.imageThumb.loading = "lazy";
-        if (SETUP) {
-            this.imageThumb.addEventListener("load", function (e) {
-                let ratio = e.target.naturalWidth / e.target.naturalHeight;
-                this.style.setProperty('aspect-ratio', ratio.toFixed(2));
-                // this.classList.add("anim-in");
-                let idx = Array.from(this.parentNode.children).indexOf(this);
-                randomData[idx].ratio = ratio;
-                // setTimeout(function () { msnry.appended(this); }.bind(this), 500);
-            }.bind(this))
+        this.imageThumb.src = `image-resize/50/${imgUrl}`;
+        this.imageThumb.srcset = [
+            `image-resize/200/${imgUrl}    200w`,
+            `image-resize/400/${imgUrl}    400w`,
+        ].join(",");
+        this.imageThumb.sizes = [
+            "(max-width: 450px) 200px",
+            "(max-width: 850px) 400px",
+            "400px"
+        ].join(",");
+        if (this.data.imageRatio) {
+            this.imageThumb.style.setProperty('aspect-ratio', this.data.imageRatio.toFixed(2) || 1);
         }
-        // this.image = document.createElement("img");
-        if (this.getAttribute("entry-type") === "art") {
-            this.imageThumb.src = `image-resize/50/corkboard-img/${this.getAttribute("photo-key")}.png`;
-            this.imageThumb.srcset = [
-                `image-resize/200/corkboard-img/${this.getAttribute("photo-key")}.png    200w`,
-                `image-resize/400/corkboard-img/${this.getAttribute("photo-key")}.png    400w`,
+        // this.appendChild(this.imageThumb);
+        if (this.getAttribute("entry-type") == "writing") {
+            this.appendChild(this.imageThumb);
+        }
+        else if (this.getAttribute("polaroid-path")) {
+            let polaroidPath = this.getAttribute("polaroid-path");
+            this.polaroid = document.createElement("img");
+            this.polaroid.classList.add("polaroid");
+            this.polaroid.src = `image-size/50/${polaroidPath}`
+            this.polaroid.srcset = [
+                `image-resize/200/${polaroidPath}    200w`,
+                `image-resize/400/${polaroidPath}    400w`,
             ].join(",");
-            this.imageThumb.sizes = [
+            this.polaroid.sizes = [
                 "(max-width: 450px) 200px",
                 "(max-width: 850px) 400px",
                 "400px"
             ].join(",");
+            this.polaroid.style.setProperty("background-image", `url("/image-resize/400/${imgUrl}")`);
+            if (this.data.polaroidRatio) {
+                this.polaroid.style.setProperty('aspect-ratio', this.data.polaroidRatio.toFixed(2) || 1);
+            }
+            this.appendChild(this.polaroid);
         }
-        else {
-            this.imageThumb.src = `image-resize/50/corkboard/writing_thumb.png`;
-            this.imageThumb.srcset = [
-                `image-resize/200/corkboard/writing_thumb.png    200w`,
-                `image-resize/400/corkboard/writing_thumb.png    400w`,
-            ].join(",");
-            this.imageThumb.sizes = [
-                "(max-width: 450px) 200px",
-                "(max-width: 850px) 400px",
-                "400px"
-            ].join(",");
-        }
-        this.appendChild(this.imageThumb);
         // msnry.appended(this);
         // this.appendChild(this.image);
         this.onmouseover = this.preloadImage;
@@ -161,13 +154,14 @@ class CorkboardItem extends HTMLElement {
     }
 
     preloadImage () {
-        if (this.preloaded === undefined && this.type != "writing") {
+        if (this.preloaded === undefined && !this.type.includes("writing")) {
             this.preloaded = new Image();
-            this.preloaded.src = `image-resize/full/corkboard-img/${this.getAttribute("photo-key")}-full.png`;
+            this.preloaded.src = `image-resize/256/${this.getAttribute("img")}`;
         }
     }
 
     handleClick (e) {
+        // setup dummy image
         const dummyItem = document.getElementById("corkboard-item-dummy");
         dummyItem.parentElement.classList.add(this.type);
         let rect = this.getBoundingClientRect();
@@ -177,63 +171,118 @@ class CorkboardItem extends HTMLElement {
         rect = this.getBoundingClientRect();
         dummyItem.style.transform = `translate(${-dummyItem.offsetLeft}px, ${-dummyItem.offsetTop}px) translate(${rect.x}px, ${rect.y}px)`
         dummyItem.style.rotate = this.style.rotate;
-
         dummyItem.innerHTML = "";
+
         let image;
-        if (this.type != "writing") {
+        if (this.type !== "memory-writing") {
             if (this.preloaded) {
                 image = this.preloaded;
             }
             else {
                 image = document.createElement("img");
-                image.src = `image-resize/full/corkboard-img/${this.getAttribute("photo-key")}-full.png`;
-                image.onload(() => console.log("a"))
+                image.src = `image-resize/512/${this.getAttribute("img")}`;
+                image.alt = this.data.desc;
             }
             dummyItem.appendChild(image);
             if (image.complete) {
                 this.onDialogImageLoaded(image, dummyItem);
             }
             else {
-                image.addEventListener('load', this.onDialogImageLoaded.bind(this, image, dummyItem))
+                image.addEventListener('load', this.onDialogImageLoaded.bind(this, image, dummyItem), { once: true })
             }
         }
         else {
             this.onDialogImageLoaded();
         }
 
-        if (this.type == "writing") {
+        if (this.type.includes("writing")) {
             DETAILS_DIALOG_EL.classList.add("writing-only");
         }
 
         if (this.type == "food") {
             DETAILS_DIALOG_EL.style.display = "none";
             document.getElementById("sparkle-effects").style.display = "";
+            let credit1 = document.createElement("span");
+            let credit2 = document.createElement("span");
+            credit1.classList.add("credit", "label");
+            credit2.classList.add("credit");
+            if (this.data.type.includes("photo")) {
+                credit1.innerHTML = "Photo by:";
+            }
+            if (this.data.type.includes("art")) {
+                credit1.innerHTML = "Art by:";
+            }
+            credit2.innerHTML = this.data.credit[0];
+            document.getElementById("corkboard-item-dummy").append(credit1);
+            document.getElementById("corkboard-item-dummy").append(credit2);
         }
         else {
             DETAILS_DIALOG_EL.style.display = "";
             document.getElementById("sparkle-effects").style.display = "none";
         }
+
+        if (this.data.stream) {
+            DETAILS_DIALOG_EL.querySelector(".details-dialog-text .date").innerHTML = `${new Date(this.data.stream.date).toLocaleDateString(undefined, {year: "numeric", month: "numeric", day: "numeric"})} - <a href="${this.data.stream.link}" target="_blank">${this.data.stream.name}</a>`;
+            DETAILS_DIALOG_EL.querySelector(".details-dialog-inner").innerHTML = this.data.stream.entry;
+            DETAILS_DIALOG_EL.querySelector(".details-dialog-text .credit").innerHTML = this.data.credit[0];
+            if (this.type.includes("art")) {
+                let artistCredit = this.data.credit[1] || this.data.credit[0];
+                let credit1 = document.createElement("span");
+                let credit2 = document.createElement("span");
+                credit1.classList.add("credit", "label");
+                credit2.classList.add("credit");
+                if (this.data.type.includes("photo")) {
+                    credit1.innerHTML = "Photo by:";
+                }
+                if (this.data.type.includes("art")) {
+                    credit1.innerHTML = "Art by:";
+                }
+                credit2.innerHTML = artistCredit;
+                document.getElementById("corkboard-item-dummy").append(credit1);
+                document.getElementById("corkboard-item-dummy").append(credit2);
+            }
+            if (this.type == "memory-art") {
+                let streamDate = document.createElement("span");
+                streamDate.classList.add("date");
+                streamDate.innerHTML = `${new Date(this.data.stream.date).toLocaleDateString(undefined, {year: "numeric", month: "numeric", day: "numeric"})} - <a href="${this.data.stream.link}" target="_blank">${this.data.stream.name}</a>`;
+                document.getElementById("corkboard-item-dummy").append(streamDate);
+            }
+            // if (!(this.type.includes("writing") && this.type.includes("art"))) {
+            //     let yt = document.createElement("iframe");
+            //     yt.src = `http://www.youtube.com/embed/${getId(this.data.stream.link)}`;
+            //     document.getElementById("corkboard-item-dummy").append(yt);
+            // }
+        }
+        else if (this.data.desc) {
+            DETAILS_DIALOG_EL.querySelector(".details-dialog-inner").innerHTML = `<p>${this.data.desc}</p>`;
+        }
         DETAILS_DIALOG_A11Y.show();
     }
 
     onDialogImageLoaded (image, dummyItem) {
+        if (image) {
+            image.src = `image-resize/2048/${this.getAttribute("img")}`;
+        }
         setTimeout(() => {
             if (dummyItem) {
                 dummyItem.style = "";
                 dummyItem.classList.add("img-load");
-                if (this.type == "food") {
-                    let ratio = image.naturalWidth / image.naturalHeight;
-                    dummyItem.style.setProperty('--width', (vh(80) * ratio) + "px");
+                if (this.type == "food" || this.type == "memory-art") {
+                    dummyItem.style.setProperty('--width', (vh(80) * this.data.imageRatio) + "px");
                 }
-            }
+                else {
+                    dummyItem.style.setProperty('--width', (vh(65) * this.data.imageRatio) + "px");
+                    dummyItem.style.setProperty('height', "50vh");                        
+                }
+             }
 
         }, 500);
         
         setTimeout(() => {
-            if (this.type == "writing") {
+            if (this.type.includes("writing")) {
                 DETAILS_DIALOG_EL.classList.add("slide-out");
             }
-            else if (this.type == "memory") {
+            else if (this.type.includes("memory") && this.type.includes("art")) {
                 dummyItem.style.rotate = "-5deg";
                 DETAILS_DIALOG_EL.classList.add("slide-out");
             }
@@ -255,100 +304,34 @@ function scrollIntersectionCallback (entries, observer) {
         let elem = entry.target;
         elem.style.setProperty("content-visibility", entry.isIntersecting ? "visible" : "hidden");
         observer.unobserve(entry.target);
-        // if (entry.isIntersecting && !(elem.classList.contains("visible"))) {
-
-            // elem.onanimationend = (event) => {
-            //     if (event.animationName == "corkboard-item-anim-in") {
-            //         elem.classList.add("visible");
-            //         elem.classList.remove("anim-in");
-            //     }
-            // }
-            // // if (elem.getAttribute("entry-type") === "art") {
-            // //     elem.imageThumb.src = `image-resize/50/corkboard-img/${elem.getAttribute("photo-key")}.png`;
-            // //     elem.imageThumb.srcset = [
-            // //         `image-resize/200/corkboard-img/${elem.getAttribute("photo-key")}.png    200w`,
-            // //         `image-resize/400/corkboard-img/${elem.getAttribute("photo-key")}.png    400w`,
-            // //     ].join(",");
-            // //     elem.imageThumb.sizes = [
-            // //         "(max-width: 450px) 200px",
-            // //         "(max-width: 850px) 400px",
-            // //         "400px"
-            // //     ].join(",");
-            // // }
-            // // else {
-            // //     elem.imageThumb.src = `image-resize/50/corkboard/writing_thumb.png`;
-            // //     elem.imageThumb.srcset = [
-            // //         `image-resize/200/corkboard/writing_thumb.png    200w`,
-            // //         `image-resize/400/corkboard/writing_thumb.png    400w`,
-            // //     ].join(",");
-            // //     elem.imageThumb.sizes = [
-            // //         "(max-width: 450px) 200px",
-            // //         "(max-width: 850px) 400px",
-            // //         "400px"
-            // //     ].join(",");
-            // // }
-            // if (elem.imageThumb.complete) {
-            //     elem.classList.add("anim-in");
-            // }
-        // }
     });
 }
 
-function genEntries () {
-    let plusOrMinus = 1;
-    let pmCount = 0;
-    for (var i = 0; i < photos.length; i++) {
-        if (i % 6 === 0) {
-            genInlineDeco(singleDecos, { rotate: true });
-        }
-        else if (i % 3 === 0) {
-            genInlineDeco(reusableDecos, { margin: true });
-        }
-        let photoKey = photos[i];
-        var newPlusOrMinus = Math.random() < 0.5 ? -1 : 1;
-        if (plusOrMinus === newPlusOrMinus && pmCount < 2) {
-            pmCount++;
-        }
-        else if (plusOrMinus === newPlusOrMinus) {
-            newPlusOrMinus = newPlusOrMinus * -1;
-            pmCount = 0;
-        }
-        plusOrMinus = newPlusOrMinus;
-
-        let data = {
-            type: "corkboard-item",
-            photoKey: photoKey,
-            path: `corkboard-img/${photoKey}.png`,
-            rotate: Math.round((2 + Math.random() * 5 * plusOrMinus)),
-            zIndex: 100 + photos.length - i
-        }
-        if (photoKey.includes("Food")) data.type = "food";
-        if (photoKey.includes("Mem")) data.type = "memory";
-        if (photoKey.includes("Writing")) {
-            data.type = "writing";
-        }
-        randomData.push(data);
-    }
-}
-
 function setupEntries (elem, entryData) {
-    entryData.forEach((data) => {
-        if (data.type === "inline-deco") {
+    entryData.forEach((data, i) => {
+        if (data.itemType === "inline-deco") {
             makeInlineDeco(elem, data);
         }
         else {
-            let childEl = new CorkboardItem();
-            childEl.type = data.type;
-            childEl.setAttribute("img", data.path);
-            childEl.setAttribute("photo-key", data.photoKey);
-            childEl.setAttribute("entry-type", "art");
-            if (data.type == "writing") {
-                childEl.setAttribute("entry-type", "writing");
+            let childEl = new CorkboardItem(data);
+            if (data.type.includes("writing")) childEl.type = "writing";
+            if (data.category == "cafe") childEl.type = "food";
+            if (data.category == "memory") childEl.type = `memory-${data.type.join("-")}`;
+            childEl.setAttribute("idx", i);
+            if (data.path) {
+                childEl.setAttribute("img", data.path);
+            }
+            else {
                 childEl.setAttribute("img", `corkboard/writing_thumb.png`);
             }
-            if (data.ratio) {
-                childEl.style.setProperty('aspect-ratio', data.ratio.toFixed(2));
+            childEl.setAttribute("entry-type", data.type.join(" "));
+            if (data.polaroid.toLowerCase().includes(".png") || data.polaroid.toLowerCase().includes(".jpg")) {
+                childEl.setAttribute("polaroid-path", `corkboard-img/entries/${data.polaroid}`);
             }
+            else if (data.polaroid) {
+                childEl.setAttribute("polaroid-path", `corkboard/polaroids/${data.polaroid}.png`);
+            }
+            
             childEl.style = `--angle: ${getRandomInt(-5, 5)}deg;`;
             childEl.style.rotate = `${data.rotate}deg`
             childEl.style.zIndex = `${data.zIndex}`;
@@ -358,34 +341,12 @@ function setupEntries (elem, entryData) {
     })
 }
 
-function genInlineDeco (decos, options) {
-    let randomDecoPath = decos[Math.floor(Math.random() * decos.length)];
-    let data = {
-        type: "inline-deco",
-        path: randomDecoPath,
-    };
-    let plusOrMinus = Math.random() < 0.5 ? -1 : 1;
-    if (options.rotate) {
-        data.rotate = Math.round((2 + Math.random() * 5 * plusOrMinus));
-    }
-    if (options.margin) {
-        data.margin = Math.round((2 + Math.random() * 5));
-    }
-    randomData.push(data);
-}
 function makeInlineDeco (elem, data) {
     let decoEl = document.createElement("img");
     decoEl.classList.add("corkboard-item", "inline-deco")
     decoEl.src = `/image-resize/full/${data.path}`;
-    if (SETUP) {
-        decoEl.addEventListener("load", function (e) {
-            let ratio = e.target.naturalWidth / e.target.naturalHeight;
-            let idx = Array.from(this.parentNode.children).indexOf(this);
-            randomData[idx].ratio = ratio;
-        }.bind(decoEl))
-    }
-    if (data.ratio) {
-        decoEl.style.setProperty('aspect-ratio', data.ratio.toFixed(2));
+    if (data.imageRatio) {
+        decoEl.style.setProperty('aspect-ratio', data.imageRatio.toFixed(2));
     }
     if (data.rotate) {
         decoEl.style.rotate = `${data.rotate}deg`
@@ -405,4 +366,13 @@ function getRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function getId(url) {
+    const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|live\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+    const match = url.match(regExp);
+
+    return (match && match[2].length === 11)
+      ? match[2]
+      : null;
 }
