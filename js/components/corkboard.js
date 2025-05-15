@@ -267,6 +267,16 @@ class CorkboardItem extends HTMLElement {
         else if (this.data.desc) {
             DETAILS_DIALOG_EL.querySelector(".details-dialog-inner").innerHTML = `<p>${this.data.desc}</p>`;
         }
+        if (this.data.cutouts) {
+            let dummyEl = document.getElementById("corkboard-item-dummy");
+            this.data.cutouts.forEach((cutoutKey, i) => {
+                let cutout = document.createElement("img");
+                cutout.classList.add("cutout", `cutout_${i}`);
+                let cutoutPath = `image-resize/256/corkboard/cutouts/${cutoutKey.toLowerCase()}_cutout.png`
+                cutout.src = cutoutPath;
+                dummyEl.append(cutout);
+            })
+        }
         DETAILS_DIALOG_A11Y.show();
     }
 

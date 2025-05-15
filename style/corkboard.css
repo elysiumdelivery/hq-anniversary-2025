@@ -199,7 +199,8 @@ corkboard-item img.polaroid {
 #corkboard-item-dummy.img-load iframe,
 #corkboard-item-dummy.img-load .credit,
 #corkboard-item-dummy.img-load .date,
-#corkboard-item-dummy.img-load .title {
+#corkboard-item-dummy.img-load .title,
+#corkboard-item-dummy.img-load .cutout {
     opacity: 1;
     transform: translateX(-25%) rotate(5deg);
 }
@@ -209,6 +210,12 @@ corkboard-item img.polaroid {
 #corkboard-item-dummy.img-load .date,
 #corkboard-item-dummy.img-load .title {
     transform: translateX(10%) rotate(5deg);
+}
+#corkboard-item-dummy.img-load .cutout.cutout_0 {
+    transform: translate(-65%, -50%) rotate(-10deg);
+}
+#corkboard-item-dummy.img-load .cutout.cutout_1 {
+    transform: translate(65%, -50%) rotate(10deg);
 }
 
 #corkboard-item-dummy iframe {
@@ -254,6 +261,23 @@ corkboard-item img.polaroid {
     text-align: right;
     font-weight: 500;
     font-size: 70%;
+}
+#corkboard-item-dummy img.cutout {
+    position: absolute;
+    z-index: 1;
+    width: 25vmin;
+    height: 30vmin;
+    opacity: 0;
+    transition: 0.5s transform ease, 0.5s opacity ease;
+    transition-delay: 1s;
+}
+#corkboard-item-dummy img.cutout.cutout_0 {
+    transform: translate(-50%, -60%);
+    left: 0; top: 70%;
+}
+#corkboard-item-dummy img.cutout.cutout_1 {
+    transform: translate(50%, -40%);
+    right: 0; top: 25%;
 }
 #corkboard-overlay.memory-art-writing #corkboard-item-dummy.img-load {
     width: 45%;

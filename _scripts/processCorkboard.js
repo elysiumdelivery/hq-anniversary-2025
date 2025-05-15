@@ -33,7 +33,7 @@ function processData (data) {
             credit: d["Credit"].split(") "),
             title: d["Entry Title"],
             desc: d["Entry Description"],
-            cutouts: d["Cutouts"].split(", "),
+            cutouts:  d["Cutouts"] ? d["Cutouts"].split(", ") : [],
         }
         if (p.credit.length > 1) {
             p.credit = p.credit.map((v) => {

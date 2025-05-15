@@ -10,21 +10,13 @@ const CORKBOARD_DATA = [
     ],
     "title": "Elysium Berry Crumble",
     "desc": "Elysium Berry Crumble Muffins Happy Anniversary, Altare and Axel! Thanks for all your hard work and fun streams. I know you'll continue to shine even brighter!",
-    "cutouts": [
-      ""
-    ],
+    "cutouts": [],
     "path": "corkboard-img/entries/Cafe_Photo_lighteningsky_01.png",
     "itemType": "corkboard-item",
-    "rotate": 4,
+    "rotate": 0,
     "zIndex": 126,
     "imageRatio": 1,
-    "polaroidRatio": 0.8334509527170078
-  },
-  {
-    "itemType": "inline-deco",
-    "path": "star1.png",
-    "margin": 2,
-    "imageRatio": 1.0289855072463767
+    "polaroidRatio": 0.833984375
   },
   {
     "category": "cafe",
@@ -37,14 +29,12 @@ const CORKBOARD_DATA = [
     ],
     "title": "Wan Fluff Pup Cake",
     "desc": " Wan Fluff Pup Cake Altare and a slime decorating a dog themed cake ",
-    "cutouts": [
-      ""
-    ],
+    "cutouts": [],
     "path": "corkboard-img/entries/Cafe_Art_Lotty_02.png",
     "itemType": "corkboard-item",
-    "rotate": 0,
+    "rotate": 1,
     "zIndex": 125,
-    "imageRatio": 1.3866666666666667,
+    "imageRatio": 1.3865944482058226,
     "polaroidRatio": 1.088325652841782
   },
   {
@@ -58,12 +48,10 @@ const CORKBOARD_DATA = [
     ],
     "title": "HQ-themed teatime",
     "desc": "HQ-themed teatime Meeting up with old friends to celebrate with tea and cakes. ",
-    "cutouts": [
-      ""
-    ],
+    "cutouts": [],
     "path": "corkboard-img/entries/Cafe_Art_konori_01.png",
     "itemType": "corkboard-item",
-    "rotate": 0,
+    "rotate": 3,
     "zIndex": 124,
     "imageRatio": 1,
     "polaroidRatio": 0.8334509527170078
@@ -79,12 +67,10 @@ const CORKBOARD_DATA = [
     ],
     "title": "Shiny Woof and Spicy Meow Soda Floats",
     "desc": "Shiny Woof and Spicy Meow Soda Floats Cute HQ colored soda floats to share with friends!",
-    "cutouts": [
-      ""
-    ],
+    "cutouts": [],
     "path": "corkboard-img/entries/Cafe_Art_vivid_Syd_01.png",
     "itemType": "corkboard-item",
-    "rotate": 6,
+    "rotate": 2,
     "zIndex": 123,
     "imageRatio": 1.2820512820512822,
     "polaroidRatio": 0.8334509527170078
@@ -100,9 +86,7 @@ const CORKBOARD_DATA = [
     ],
     "title": "",
     "desc": "A note or letter regarding Altare and Vesper’s wild west cosmic horror shooting adventures",
-    "cutouts": [
-      ""
-    ],
+    "cutouts": [],
     "talents": "Collab (Altare)",
     "stream": {
       "date": 1659499200000,
@@ -112,7 +96,7 @@ const CORKBOARD_DATA = [
       "type": "Letter"
     },
     "itemType": "corkboard-item",
-    "rotate": -1,
+    "rotate": -3,
     "zIndex": 122
   },
   {
@@ -126,9 +110,7 @@ const CORKBOARD_DATA = [
     ],
     "title": "",
     "desc": "A note of things the bois did on their raft adventures",
-    "cutouts": [
-      ""
-    ],
+    "cutouts": [],
     "talents": "Collab (both)",
     "stream": {
       "date": 1660795200000,
@@ -138,7 +120,7 @@ const CORKBOARD_DATA = [
       "type": "Letter"
     },
     "itemType": "corkboard-item",
-    "rotate": 2,
+    "rotate": 6,
     "zIndex": 121
   },
   {
@@ -152,9 +134,7 @@ const CORKBOARD_DATA = [
     ],
     "title": "",
     "desc": "A list of the boys’ fun adventures in this first-ever Holostars EN off-collab",
-    "cutouts": [
-      ""
-    ],
+    "cutouts": [],
     "talents": "Collab (Altare)",
     "stream": {
       "date": 1665028800000,
@@ -164,7 +144,7 @@ const CORKBOARD_DATA = [
       "type": "List"
     },
     "itemType": "corkboard-item",
-    "rotate": 0,
+    "rotate": 2,
     "zIndex": 120
   },
   {
@@ -178,9 +158,7 @@ const CORKBOARD_DATA = [
     ],
     "title": "",
     "desc": "A drawing of each of the food that was made put side by side",
-    "cutouts": [
-      ""
-    ],
+    "cutouts": [],
     "path": "corkboard-img/entries/20230123_Collab_Cherry_01.png",
     "talents": "Collab (both)",
     "stream": {
@@ -189,7 +167,7 @@ const CORKBOARD_DATA = [
       "link": "https://www.youtube.com/live/WuXGu4L6bmI?si=VMM0b8f2kpD_lnsW"
     },
     "itemType": "corkboard-item",
-    "rotate": 4,
+    "rotate": 5,
     "zIndex": 119,
     "imageRatio": 1,
     "polaroidRatio": 0.8334509527170078
@@ -207,9 +185,7 @@ const CORKBOARD_DATA = [
     ],
     "title": "",
     "desc": "A note of how TSB grew as a team (what the members learned from the experience)",
-    "cutouts": [
-      ""
-    ],
+    "cutouts": [],
     "path": "corkboard-img/entries/20230416_Collab_tamacitas_01.png",
     "talents": "Axel",
     "stream": {
@@ -220,7 +196,7 @@ const CORKBOARD_DATA = [
       "type": "Letter"
     },
     "itemType": "corkboard-item",
-    "rotate": -1,
+    "rotate": 0,
     "zIndex": 118,
     "imageRatio": 1,
     "polaroidRatio": 0.8334509527170078
@@ -236,9 +212,7 @@ const CORKBOARD_DATA = [
     ],
     "title": "Altare Curry and Axel Ice Cream Soda",
     "desc": "A note/letter to our beloved leader of Guild Tempus HQ: Regis Altare",
-    "cutouts": [
-      ""
-    ],
+    "cutouts": [],
     "talents": "Altare",
     "stream": {
       "date": 1683518400000,
@@ -248,7 +222,7 @@ const CORKBOARD_DATA = [
       "type": "List"
     },
     "itemType": "corkboard-item",
-    "rotate": 6,
+    "rotate": 5,
     "zIndex": 117
   },
   {
@@ -262,12 +236,10 @@ const CORKBOARD_DATA = [
     ],
     "title": "",
     "desc": " Altare Curry and Axel Ice Cream Soda Waiters Axelotl and Altventerer serving dog Altare curry and a cat Axel ice cream soda.",
-    "cutouts": [
-      ""
-    ],
+    "cutouts": [],
     "path": "corkboard-img/entries/Cafe_Art_Kay(ThatCrypticKay)_01.png",
     "itemType": "corkboard-item",
-    "rotate": -2,
+    "rotate": -1,
     "zIndex": 116,
     "polaroidRatio": 0.8334509527170078
   },
@@ -284,9 +256,7 @@ const CORKBOARD_DATA = [
     ],
     "title": "",
     "desc": "A list of interesting things noted on this birthday talk together with the one and only doctor,gladiator,hitman,assasin, birthday boy,and filial son Axel Syrios together with his Old Man: Papa Syrios~",
-    "cutouts": [
-      ""
-    ],
+    "cutouts": [],
     "talents": "Axel",
     "stream": {
       "date": 1698897600000,
@@ -296,15 +266,9 @@ const CORKBOARD_DATA = [
       "type": "List"
     },
     "itemType": "corkboard-item",
-    "rotate": 3,
+    "rotate": -3,
     "zIndex": 115,
     "polaroidRatio": 0.8334509527170078
-  },
-  {
-    "itemType": "inline-deco",
-    "path": "star1.png",
-    "margin": 3,
-    "imageRatio": 1.0289855072463767
   },
   {
     "category": "memory",
@@ -319,9 +283,7 @@ const CORKBOARD_DATA = [
     ],
     "title": "",
     "desc": "A list of the silly shenigans of our fave Tempus HQ Duo: The Blue Isekai Hero & Orange Gladiator Dingo",
-    "cutouts": [
-      ""
-    ],
+    "cutouts": [],
     "talents": "Collab (both)",
     "stream": {
       "date": 1708146000000,
@@ -352,15 +314,13 @@ const CORKBOARD_DATA = [
     ],
     "title": "Slime Jelly Soda\n",
     "desc": "Slime Jelly Soda The Alventurers have concocted a new drink: refreshing blue-flavored jelly soda topped with raspberry soft serve and blueberries!\n",
-    "cutouts": [
-      ""
-    ],
+    "cutouts": [],
     "path": "corkboard-img/entries/Cafe_Art_Fluor_01.png",
     "itemType": "corkboard-item",
-    "rotate": -2,
+    "rotate": 7,
     "zIndex": 113,
     "imageRatio": 1,
-    "polaroidRatio": 0.8334509527170078
+    "polaroidRatio": 0.833984375
   },
   {
     "category": "cafe",
@@ -373,15 +333,13 @@ const CORKBOARD_DATA = [
     ],
     "title": "Pizza-lotl Pie",
     "desc": "Pizza-lotl Pie Enjoy a single-person meatball pizza shaped like an Axelotl's face! Don't tell the Axelotls what's in the meatballs!",
-    "cutouts": [
-      ""
-    ],
+    "cutouts": [],
     "path": "corkboard-img/entries/Cafe_Art_Fluor_02.png",
     "itemType": "corkboard-item",
-    "rotate": -2,
+    "rotate": 0,
     "zIndex": 112,
     "imageRatio": 1,
-    "polaroidRatio": 0.8334509527170078
+    "polaroidRatio": 0.833984375
   },
   {
     "category": "cafe",
@@ -394,15 +352,13 @@ const CORKBOARD_DATA = [
     ],
     "title": "Dogxel and Nyantare Mini-cakes\n",
     "desc": "Dogxel and Nyantare Mini-cakes Dogxel and Nyantare are now in edible form as mini chocolate cakes!\n",
-    "cutouts": [
-      ""
-    ],
+    "cutouts": [],
     "path": "corkboard-img/entries/Cafe_Art_Fluor_03.png",
     "itemType": "corkboard-item",
-    "rotate": 4,
+    "rotate": 6,
     "zIndex": 111,
     "imageRatio": 1,
-    "polaroidRatio": 0.8334509527170078
+    "polaroidRatio": 0.833984375
   },
   {
     "category": "cafe",
@@ -415,15 +371,19 @@ const CORKBOARD_DATA = [
     ],
     "title": "Coffee, Cheese, and Coldcuts!",
     "desc": "Coffee, Cheese, and Coldcuts!  Both boys were a little dubious when they heard about the new cafe.  Still, why not give it a try? Then Axel saw the menu.  Meat and cheese at a cafe? Pure heaven!",
-    "cutouts": [
-      ""
-    ],
+    "cutouts": [],
     "path": "corkboard-img/entries/Cafe_Photo_Semiluminary_01.png",
     "itemType": "corkboard-item",
-    "rotate": 6,
+    "rotate": -2,
     "zIndex": 110,
     "imageRatio": 1,
     "polaroidRatio": 0.8334509527170078
+  },
+  {
+    "itemType": "inline-deco",
+    "path": "eds.png",
+    "rotate": 2,
+    "imageRatio": 1.2598187311178248
   },
   {
     "category": "cafe",
@@ -442,9 +402,9 @@ const CORKBOARD_DATA = [
     ],
     "path": "corkboard-img/entries/Cafe_photo_elliesech_01.jpg",
     "itemType": "corkboard-item",
-    "rotate": 2,
+    "rotate": 4,
     "zIndex": 109,
-    "imageRatio": 0.8188464662875711,
+    "imageRatio": 0.81884765625,
     "polaroidRatio": 0.8334509527170078
   },
   {
@@ -463,10 +423,16 @@ const CORKBOARD_DATA = [
     ],
     "path": "corkboard-img/entries/Cafe_photo_elliesech_02.jpg",
     "itemType": "corkboard-item",
-    "rotate": -3,
+    "rotate": 5,
     "zIndex": 108,
-    "imageRatio": 0.805111821086262,
-    "polaroidRatio": 0.6923076923076923
+    "imageRatio": 0.80517578125,
+    "polaroidRatio": 0.69140625
+  },
+  {
+    "itemType": "inline-deco",
+    "path": "star2.png",
+    "margin": 5,
+    "imageRatio": 1.03125
   },
   {
     "category": "cafe",
@@ -486,14 +452,8 @@ const CORKBOARD_DATA = [
     "itemType": "corkboard-item",
     "rotate": 3,
     "zIndex": 107,
-    "imageRatio": 1.3333333333333333,
-    "polaroidRatio": 0.6923076923076923
-  },
-  {
-    "itemType": "inline-deco",
-    "path": "star1.png",
-    "margin": 3,
-    "imageRatio": 1.0289855072463767
+    "imageRatio": 0.75,
+    "polaroidRatio": 0.69140625
   },
   {
     "category": "cafe",
@@ -514,8 +474,8 @@ const CORKBOARD_DATA = [
     "itemType": "corkboard-item",
     "rotate": 1,
     "zIndex": 106,
-    "imageRatio": 1.3333333333333333,
-    "polaroidRatio": 0.6923076923076923
+    "imageRatio": 0.75,
+    "polaroidRatio": 0.69140625
   },
   {
     "category": "cafe",
@@ -533,10 +493,10 @@ const CORKBOARD_DATA = [
     ],
     "path": "corkboard-img/entries/Cafe_photo_elliesech_05.jpg",
     "itemType": "corkboard-item",
-    "rotate": -1,
+    "rotate": 4,
     "zIndex": 105,
-    "imageRatio": 1.3333333333333333,
-    "polaroidRatio": 0.6923076923076923
+    "imageRatio": 0.75,
+    "polaroidRatio": 0.69140625
   },
   {
     "category": "cafe",
@@ -555,10 +515,10 @@ const CORKBOARD_DATA = [
     ],
     "path": "corkboard-img/entries/Cafe_photo_elliesech_06.jpg",
     "itemType": "corkboard-item",
-    "rotate": 2,
+    "rotate": -1,
     "zIndex": 104,
-    "imageRatio": 1.3333333333333333,
-    "polaroidRatio": 0.8334509527170078
+    "imageRatio": 0.75,
+    "polaroidRatio": 0.833984375
   },
   {
     "category": "cafe",
@@ -577,10 +537,16 @@ const CORKBOARD_DATA = [
     ],
     "path": "corkboard-img/entries/Cafe_photo_elliesech_07.jpg",
     "itemType": "corkboard-item",
-    "rotate": 4,
+    "rotate": 5,
     "zIndex": 103,
-    "imageRatio": 0.9242053789731052,
-    "polaroidRatio": 0.6923076923076923
+    "imageRatio": 0.92431640625,
+    "polaroidRatio": 0.69140625
+  },
+  {
+    "itemType": "inline-deco",
+    "path": "home/polaroid1.png",
+    "rotate": 0,
+    "imageRatio": 0.8684863523573201
   },
   {
     "category": "cafe",
@@ -599,10 +565,10 @@ const CORKBOARD_DATA = [
     ],
     "path": "corkboard-img/entries/Cafe_photo_elliesech_08.jpg",
     "itemType": "corkboard-item",
-    "rotate": -2,
+    "rotate": 2,
     "zIndex": 102,
-    "imageRatio": 1.3333333333333333,
-    "polaroidRatio": 0.6923076923076923
+    "imageRatio": 0.75,
+    "polaroidRatio": 0.69140625
   },
   {
     "category": "cafe",
@@ -615,11 +581,9 @@ const CORKBOARD_DATA = [
     ],
     "title": "",
     "desc": "Cultare's Master Stir-fry Cultares cooks stir-fry while waiting for Altare to come home! It's always better to eat together!",
-    "cutouts": [
-      ""
-    ],
+    "cutouts": [],
     "itemType": "corkboard-item",
-    "rotate": 3,
+    "rotate": -2,
     "zIndex": 101
   }
 ]
