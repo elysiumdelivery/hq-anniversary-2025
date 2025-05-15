@@ -186,7 +186,7 @@ class CorkboardItem extends HTMLElement {
             }
             else {
                 image = document.createElement("img");
-                image.src = `image-resize/512/${this.getAttribute("img")}`;
+                image.src = `image-resize/512/${this.getAttribute("img") || "corkboard/writing_thumb.png"}`;
                 image.alt = this.data.desc;
             }
             dummyItem.appendChild(image);
