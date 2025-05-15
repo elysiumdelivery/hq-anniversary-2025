@@ -1,5 +1,9 @@
 <!DOCTYPE html><html><head>
         <meta charset="utf-8">
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
         <meta name="description" content="TODO">
         <meta name="keywords" content="regis,altare,axel,syrios,tempus,hq,holopro,holostars">
         <meta name="twitter:card" content="summary">
@@ -10,11 +14,14 @@
         <!-- Font -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&amp;family=Oswald:wght@200..700&amp;display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&amp;family=Oswald:wght@200..700&amp;family=Fredoka:wght@300..700&amp;family=Solway:wght@300;400;500;700;800&amp;display=swap" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="style/app.css">
         <link rel="stylesheet" type="text/css" href="style/corkboard.css">
+        <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+        <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
         <script src="js/components/header.js"></script>
         <script src="js/components/footer.js"></script>
+        <script src="data/corkboard.js"></script>
         <script src="js/components/corkboard.js"></script>
     <title>Tempus HQ Anniversary Project</title></head>
     
@@ -22,23 +29,27 @@
         <global-header></global-header>
         <main>
             <section id="intro"></section>
-            <corkboard-container id="corkboard">
+            <div id="corkboard">               
+                <corkboard-container class="corkboard-inner">
+                </corkboard-container>
                 <img class="deco star" src="/image-resize/full/star2.png" style="right: -4vw; top: 5vw; rotate: 25deg; width: 7vw;"/>
                 <img class="deco star" src="/image-resize/full/star1.png" style="left: -3vw; top: 10vw; rotate: -5deg; width: 5vw;"/>
-                <img class="deco star" src="/image-resize/full/star1.png" style=""/>
-                <img class="deco star" src="/image-resize/full/star2.png"/>
-                <img class="deco top left" src="/image-resize/full/corkboard/deco_top_left.png"/>
-                <img class="deco top right" src="/image-resize/full/corkboard/deco_top_right.png" style="width: 200px; bottom: calc(100% - 26px);"/>
-                <img class="deco bottom right" src="/image-resize/full/corkboard/deco_bottom_right.png"/>
-                <img class="deco bottom left" src="/image-resize/full/corkboard/deco_bottom_left.png"/>
-            </corkboard-container>
+                <img class="deco top left petzone" src="/image-resize/full/corkboard/deco_top_left.png"/>
+                <img class="deco top right petzone" src="/image-resize/full/corkboard/deco_top_right.png" style="width: 200px; bottom: calc(100% - 26px);"/>
+                <img class="deco bottom right petzone" src="/image-resize/full/corkboard/deco_bottom_right.png"/>
+                <img class="deco bottom left petzone" src="/image-resize/full/corkboard/deco_bottom_left.png"/>
+            </div>
             <div id="corkboard-overlay" class="dialog-container" aria-labelledby="details-dialog-title" aria-hidden="true">
                 <div class="dialog-overlay" data-a11y-dialog-hide=""></div>
                 <div id="corkboard-item-dummy"></div>
                 <div id="corkboard-item-dialog" role="document">
                     <!-- <div class="dialog-title" id="details-dialog-title"></div> -->
                     <section class="details-dialog-text">
-                        <p>your message goes here!</p>
+                        <span class="date"></span>
+                        <div class="details-dialog-inner">
+                            <p>your message goes here!</p>
+                        </div>
+                        <span class="credit"></span>
                     </section>
                 </div>
                 <div id="sparkle-effects" aria-hidden="true">
@@ -49,8 +60,6 @@
             </div>
         </main>
         <script type="text/javascript" src="js/plugins/a11y-dialog.min.js"></script>
-        <script type="text/javascript" src="js/plugins/papaparse.min.js"></script>
-        <script src="js/app.js"></script>
     
     <global-footer></global-footer>
 </body></html>

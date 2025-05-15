@@ -50,7 +50,8 @@ section#guestbook-container .guestbook-message {
 
     display: grid;
     grid-template-areas:    "guestbook-user guestbook-stars"
-                            "guestbook-message guestbook-message";
+                            "guestbook-message guestbook-message"
+							"guestbook-image guestbook-image";
 }
 
 /* Altventurer bg */
@@ -77,6 +78,9 @@ section#guestbook-container .guestbook-message:first-child {
 section#guestbook-container .guestbook-message:nth-child(2n) .guestbook-icon {
     background-color: #d9efff;
 }
+section#guestbook-container .guestbook-message:nth-child(2n) .guestbook-stars div {
+    background-image: url("/image-resize/50/star1.png");
+}
 
 section#guestbook-container .guestbook-message .guestbook-icon {
     grid-area: guestbook-icon;
@@ -92,6 +96,7 @@ section#guestbook-container .guestbook-message .guestbook-stars {
     flex-direction: row;
     justify-content: flex-end;
     align-items: center;
+	gap: 0.1em;
 }
 
 section#guestbook-container .guestbook-message .guestbook-stars div {
@@ -101,6 +106,10 @@ section#guestbook-container .guestbook-message .guestbook-stars div {
     flex-shrink: 0;
     font-size: 0.6em;
     text-align: center;
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+	background-image: url("/image-resize/50/star2.png");
 }
 
 section#guestbook-container .guestbook-message a {
@@ -142,6 +151,8 @@ section#guestbook-container .guestbook-message .guestbook-user {
 
 section#guestbook-container .guestbook-message .guestbook-user div {
 	font-size: 0.8em;
+	font-family: "Solway", serif;
+	font-weight: 700;
 }
 
 section#guestbook-container .guestbook-message h3 {
@@ -153,6 +164,13 @@ section#guestbook-container .guestbook-message p {
     /* text-align: justify; */
     font-size: 0.8em;
     padding-left: 0.5rem;
+	line-height: 1.5;
+}
+
+section#guestbook-container .guestbook-message .guestbook-img {
+	grid-area: guestbook-image;
+	width: 100%;
+	border-radius: 8px;
 }
 
 @media only screen and (min-width: 800px) {

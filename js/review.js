@@ -23,6 +23,7 @@ function renderMessages(message_data) {
     let messageUserHeader = document.createElement("div");
     let messageUserInfo = document.createElement("div");
     let messageUserMessage = document.createElement("p");
+    let messageUserUpload = document.createElement("img");
     let messageReviewStars = document.createElement("div");
     let messageReviewIcon = document.createElement("div");
     
@@ -36,7 +37,6 @@ function renderMessages(message_data) {
 
     for (var j = 0; j < 5; j++) {
       let messageReviewStar = document.createElement("div");
-      messageReviewStar.textContent = "★";
       messageReviewStars.appendChild(messageReviewStar);
     }
 
@@ -46,6 +46,12 @@ function renderMessages(message_data) {
     messageNode.appendChild(messageReviewStars);
     messageNode.appendChild(messageFromDiv);
     messageNode.appendChild(messageUserMessage);
+    if (message["Filename"]) {
+      messageUserUpload.classList.add("guestbook-img");
+      messageUserUpload.src = `/image-resize/full/guestbook/${message["Filename"]}`
+      messageUserUpload.alt = `User-uploaded image by ${message["Name"]}`
+      messageNode.appendChild(messageUserUpload);
+    }
 
     messageContainer.appendChild(messageNode);
   }
