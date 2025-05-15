@@ -134,6 +134,7 @@ corkboard-item img.polaroid {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 50% 50%;
+    background-color: #faf4e8;
 }
 
 @keyframes corkboard-item-anim-in {

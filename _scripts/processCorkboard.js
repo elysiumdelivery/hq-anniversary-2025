@@ -81,9 +81,9 @@ function processData (data) {
             pmCount = 0;
         }
         plusOrMinus = newPlusOrMinus;
-        if (processedData.path === undefined) {
-            processedData.path = "corkboard/writing_thumb.png";
-        }
+        // if (processedData.path === undefined) {
+        //     processedData.path = "corkboard/writing_thumb.png";
+        // }
         processedData.itemType = "corkboard-item"
         processedData.rotate = Math.round((2 + Math.random() * 5 * plusOrMinus));
         processedData.zIndex = 100 + processed.length - i;

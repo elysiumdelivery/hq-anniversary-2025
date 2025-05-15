@@ -1,11 +1,5 @@
 const CORKBOARD_DATA = [
   {
-    "itemType": "inline-deco",
-    "path": "star1.png",
-    "margin": 3,
-    "imageRatio": 1.0289855072463767
-  },
-  {
     "category": "cafe",
     "type": [
       "photo"
@@ -21,10 +15,16 @@ const CORKBOARD_DATA = [
     ],
     "path": "corkboard-img/entries/Cafe_Photo_lighteningsky_01.png",
     "itemType": "corkboard-item",
-    "rotate": 1,
+    "rotate": 4,
     "zIndex": 126,
     "imageRatio": 1,
     "polaroidRatio": 0.8334509527170078
+  },
+  {
+    "itemType": "inline-deco",
+    "path": "star1.png",
+    "margin": 2,
+    "imageRatio": 1.0289855072463767
   },
   {
     "category": "cafe",
@@ -42,7 +42,7 @@ const CORKBOARD_DATA = [
     ],
     "path": "corkboard-img/entries/Cafe_Art_Lotty_02.png",
     "itemType": "corkboard-item",
-    "rotate": 1,
+    "rotate": 0,
     "zIndex": 125,
     "imageRatio": 1.3866666666666667,
     "polaroidRatio": 1.088325652841782
@@ -63,16 +63,10 @@ const CORKBOARD_DATA = [
     ],
     "path": "corkboard-img/entries/Cafe_Art_konori_01.png",
     "itemType": "corkboard-item",
-    "rotate": 3,
+    "rotate": 0,
     "zIndex": 124,
     "imageRatio": 1,
     "polaroidRatio": 0.8334509527170078
-  },
-  {
-    "itemType": "inline-deco",
-    "path": "eds.png",
-    "rotate": 4,
-    "imageRatio": 1.2598187311178248
   },
   {
     "category": "cafe",
@@ -90,16 +84,10 @@ const CORKBOARD_DATA = [
     ],
     "path": "corkboard-img/entries/Cafe_Art_vivid_Syd_01.png",
     "itemType": "corkboard-item",
-    "rotate": 3,
+    "rotate": 6,
     "zIndex": 123,
     "imageRatio": 1.2820512820512822,
     "polaroidRatio": 0.8334509527170078
-  },
-  {
-    "itemType": "inline-deco",
-    "path": "star1.png",
-    "margin": 4,
-    "imageRatio": 1.0289855072463767
   },
   {
     "category": "memory",
@@ -123,11 +111,9 @@ const CORKBOARD_DATA = [
       "entry": "<p>To the Blue Isekai Hero: </p> <p>Seeing you and Vesper play Hunt: Showdown was a blast! The game itself has great atmosphere, and your helpful teamwork, pleasant chatting, and awesome clutch shots just made it better.  Your patient yet active gameplay taught me to keep a good ear out for enemies (both players and monsters), use dark sight wisely and efficiently, and, of course, ALWAYS KEEP MOVING.  I’d say the two of you made a big success of it!  Whether it was two bullets and a dream or a hectic extraction under gunfire, you stayed cool under fire, and your conversations with Vesper were a treat!</p> <p>Thanks, Leader, for a great stream!</p>",
       "type": "Letter"
     },
-    "path": "corkboard/writing_thumb.png",
     "itemType": "corkboard-item",
-    "rotate": -2,
-    "zIndex": 122,
-    "imageRatio": 1
+    "rotate": -1,
+    "zIndex": 122
   },
   {
     "category": "memory",
@@ -151,17 +137,9 @@ const CORKBOARD_DATA = [
       "entry": "<b>Raft Survival with TEMPUS!</b> <ul> <li>First, appoint roles for each of the boys! (Just don&#39;t make Magni the captain)</li> <li>Beware of sharks wanting to nibble-nibble you when you&#39;re swimming</li> <li>Have a chill fishing session with Altare and Vesper or fight for your life against pufferfishes with Magni and Axel</li> <li>When it&#39;s too dark to see, have a cheeky nap with your homies right next to each other</li> <li>Hunt some animals and wear them as a hat. It gives you a visibility debuff, but hey, it&#39;s for aesthetics!</li> <li>Turns out it’s not a good investment to make a shovel if you’re only getting dirt and stones. Axel suggests grave digging instead</li> <li>Making a couch IS a necessity! Couch co-op with the boys!!</li> <li>Altare snipes a seagull in the sky and breaks the game. Be careful, that might’ve been the God Bird</li> <li>Collect little cat statues and name them Vespurr (or Vespurr #2, should anything happen to the first one) </li> <li>Have a chill time bantering with the boys about fishing hacks, anime memes, being a tsundere, and waxing body hair </li> </ul>",
       "type": "Letter"
     },
-    "path": "corkboard/writing_thumb.png",
     "itemType": "corkboard-item",
-    "rotate": 3,
-    "zIndex": 121,
-    "imageRatio": 1
-  },
-  {
-    "itemType": "inline-deco",
-    "path": "star2.png",
-    "margin": 5,
-    "imageRatio": 1.03125
+    "rotate": 2,
+    "zIndex": 121
   },
   {
     "category": "memory",
@@ -185,11 +163,9 @@ const CORKBOARD_DATA = [
       "entry": "<p>Here's some things you gotta do when you hang out with a homie like Dez:</p> <ul> <li>Provide a thoughtful gift (Maybe an L, maybe a watch, who can say?)</li> <li>Go to the store to get fun stuff together</li> <li>Experiment with crossing your snacks for a flavor adventure</li> <li>Make hostage letter pizza (or maybe hero message pizza)</li> <li>Select your candy with consideration and discernment</li> <li>Do a spontaneous rap to cover dead airtime</li> <li>Share an unremarkable yet expensive meal</li> <li>Maybe sing some karaoke off camera</li> <li>Toast your homies</li> <li>Form heart hands … or not</li> </ul>",
       "type": "List"
     },
-    "path": "corkboard/writing_thumb.png",
     "itemType": "corkboard-item",
-    "rotate": -2,
-    "zIndex": 120,
-    "imageRatio": 1
+    "rotate": 0,
+    "zIndex": 120
   },
   {
     "category": "memory",
@@ -213,7 +189,7 @@ const CORKBOARD_DATA = [
       "link": "https://www.youtube.com/live/WuXGu4L6bmI?si=VMM0b8f2kpD_lnsW"
     },
     "itemType": "corkboard-item",
-    "rotate": 6,
+    "rotate": 4,
     "zIndex": 119,
     "imageRatio": 1,
     "polaroidRatio": 0.8334509527170078
@@ -244,7 +220,7 @@ const CORKBOARD_DATA = [
       "type": "Letter"
     },
     "itemType": "corkboard-item",
-    "rotate": 2,
+    "rotate": -1,
     "zIndex": 118,
     "imageRatio": 1,
     "polaroidRatio": 0.8334509527170078
@@ -271,11 +247,9 @@ const CORKBOARD_DATA = [
       "entry": "<p>To our beloved Leadah,</p> <p>You always pull my heartstrings with your serene voice,sweetly. Like crashing waves of the sea, you give it a different kind of vibe and impact with your own rendition. This song made me realize that even though we’ll experience sadness at some point in our lives, we shouldn’t forget that there’s always a silver lining of hope that motivates us to keep us moving and holding on. For me, you’re not just a mere chapter of a story, because as a Tempura you’re an irreplaceable character as the Blue Isekai Hero of Guild Tempus, that I’ll cherish and adore the most.</p> <p>That’s why thank you Altare for singing this wonderful song, I really enjoyed listening to it.</p>",
       "type": "List"
     },
-    "path": "corkboard/writing_thumb.png",
     "itemType": "corkboard-item",
-    "rotate": 0,
-    "zIndex": 117,
-    "imageRatio": 1
+    "rotate": 6,
+    "zIndex": 117
   },
   {
     "category": "cafe",
@@ -296,12 +270,6 @@ const CORKBOARD_DATA = [
     "rotate": -2,
     "zIndex": 116,
     "polaroidRatio": 0.8334509527170078
-  },
-  {
-    "itemType": "inline-deco",
-    "path": "star2.png",
-    "margin": 7,
-    "imageRatio": 1.03125
   },
   {
     "category": "memory",
@@ -327,18 +295,16 @@ const CORKBOARD_DATA = [
       "entry": "<p>Let’s reminisce about Aniki&#39;s ‘‘2nd birthday’’ with a wholesome (well…for once &gt;:3) and chill father-son bonding talk. Who’s the special guest, you ask? Of course, it’s the one and only Papa Syrios &lt;3</p> <ul> <li>First off, Papa Syrios’ avatar’s so cool. He’s Pretty shy but he’s trying his best for the Axelotls! :D</li> <li>One of the precious streams as Jerry was being mentioned in here. He was sick and needed to be taken to the Vet a few times. :’((</li> <li>Throw your Q&amp;A: Mostly Anime, Games and JPOP ( A lot of interesting stuff to tackle!)</li> <li>Papa Syrios has been influenced by Japanese Culture since Kindergarten. Wow!  At 20 years old, the first time he played games was on a Super Nintendo ES with his close cousin.</li> <li>It&#39;s Merch Time! (While Papa Syrios works in the background) Aniki’s Nihongo Jouzou segment was actually an ear-candy moment 0///0</li> <li>A few top picks from Papa Syrios if you want to check it out: Zero 4 Champ, Kamen Rider (V3, Faiz), Super Robot Wars, Megazone 23, Doraemon and Queen Millenia.</li> <li>If the timing is right then Papa Syrios will come back to art, but more preferred traditional than digital. Not a natural artist he said, but Axel says otherwise.</li> <li>When it comes to booze; beer is the best. Maybe with a good wine, and Vodka on the side. No hard stuff though. ( Kanpai!)</li> <li>He loves to cook what people enjoy to eat: From a simple Steak to Fried Rice, name it.~</li> <li>Papa Syrios’ chosen JP Idols: If you want a touch of disco, folk, jazz, Latin, and R&amp;B then you might need to hear the lovely Nakamori Akina. On the other hand for hip-hop, EDM, and J-pop then AKB 48 is a great choice too with their cute aesthetic! </li> </ul>",
       "type": "List"
     },
-    "path": "corkboard/writing_thumb.png",
     "itemType": "corkboard-item",
-    "rotate": 4,
+    "rotate": 3,
     "zIndex": 115,
-    "imageRatio": 1,
     "polaroidRatio": 0.8334509527170078
   },
   {
     "itemType": "inline-deco",
-    "path": "star2.png",
-    "margin": 2,
-    "imageRatio": 1.03125
+    "path": "star1.png",
+    "margin": 3,
+    "imageRatio": 1.0289855072463767
   },
   {
     "category": "memory",
@@ -364,12 +330,16 @@ const CORKBOARD_DATA = [
       "entry": "<p>It’s already been written in the Stars of Altair and Sirius, the King of Heroes together with the strongest Gladiator will save Elysium from its demise…not with the might of the GunBlade or the strong force of the Silver chains … but with their lovely voices!~</p> <ul> <li>Blue Isekai Hero and Orange Dingo Gladiator back to back while singing ‘’Top of the World’’ in 3D will always be…Legendary! *squeals</li> <li>The Vocals from our Tempus Vanguard was very surprising and come on let’s talk about their harmony; it was amazing &lt;3</li> <li>Look at that enormous stage, a full blast concert collaboration of our favorite Guild Tempus HQ Idols while singing ‘Selling the same…boys!’ wait… what? lmao</li> <li>Sibling kicks and banters from little Sister Kobo and Big bro Ragus are always amusing, and Ollie and Axel’s voices blending is like the Oasis flowing smoothly in the desert. ( I’m pushing it too much, don’t mind me. :p)</li> <li>The Idol journey for ShinySpicy is absolutely a dream come true and a day to remember. Hooray, congratulations on performing in front of all the Tempuras!</li> <li>Big bro Brian bantering with Kobo, while poor Ollie was being patient with her. Honestly, I can’t get enough of this! ( I thought Axel would bark though)</li> <li>HoloStars JP Senpais supporting their cute  HoloStars EN Kouhais was very heartwarming. Makes you wanna squeeze their cheeks *coughs</li> <li>Hanakishi vs. ShinySpicy will make you burst out laughing, the Batsu Game though; Bitter tea… Oh no, blegh! XP</li> <li>Rikka and Astel singing Woven Fates together with ShinySpicy was so beautiful.  I hope to see more of this kind of interaction with them. </li> <li>Shiny Spicy Honorary Pose, OtsuStars in 3D. What more can I say? ( I’m so proud of them T_T)</li> </ul>",
       "type": "List"
     },
-    "path": "corkboard/writing_thumb.png",
     "itemType": "corkboard-item",
-    "rotate": 2,
+    "rotate": 3,
     "zIndex": 114,
-    "imageRatio": 1,
     "polaroidRatio": 1.088325652841782
+  },
+  {
+    "itemType": "inline-deco",
+    "path": "star1.png",
+    "margin": 3,
+    "imageRatio": 1.0289855072463767
   },
   {
     "category": "cafe",
@@ -387,7 +357,7 @@ const CORKBOARD_DATA = [
     ],
     "path": "corkboard-img/entries/Cafe_Art_Fluor_01.png",
     "itemType": "corkboard-item",
-    "rotate": 3,
+    "rotate": -2,
     "zIndex": 113,
     "imageRatio": 1,
     "polaroidRatio": 0.8334509527170078
@@ -408,16 +378,10 @@ const CORKBOARD_DATA = [
     ],
     "path": "corkboard-img/entries/Cafe_Art_Fluor_02.png",
     "itemType": "corkboard-item",
-    "rotate": 1,
+    "rotate": -2,
     "zIndex": 112,
     "imageRatio": 1,
     "polaroidRatio": 0.8334509527170078
-  },
-  {
-    "itemType": "inline-deco",
-    "path": "star2.png",
-    "margin": 7,
-    "imageRatio": 1.03125
   },
   {
     "category": "cafe",
@@ -456,7 +420,7 @@ const CORKBOARD_DATA = [
     ],
     "path": "corkboard-img/entries/Cafe_Photo_Semiluminary_01.png",
     "itemType": "corkboard-item",
-    "rotate": 1,
+    "rotate": 6,
     "zIndex": 110,
     "imageRatio": 1,
     "polaroidRatio": 0.8334509527170078
@@ -478,7 +442,7 @@ const CORKBOARD_DATA = [
     ],
     "path": "corkboard-img/entries/Cafe_photo_elliesech_01.jpg",
     "itemType": "corkboard-item",
-    "rotate": 4,
+    "rotate": 2,
     "zIndex": 109,
     "imageRatio": 0.8188464662875711,
     "polaroidRatio": 0.8334509527170078
@@ -499,7 +463,7 @@ const CORKBOARD_DATA = [
     ],
     "path": "corkboard-img/entries/Cafe_photo_elliesech_02.jpg",
     "itemType": "corkboard-item",
-    "rotate": -1,
+    "rotate": -3,
     "zIndex": 108,
     "imageRatio": 0.805111821086262,
     "polaroidRatio": 0.6923076923076923
@@ -520,10 +484,16 @@ const CORKBOARD_DATA = [
     ],
     "path": "corkboard-img/entries/Cafe_photo_elliesech_03.jpg",
     "itemType": "corkboard-item",
-    "rotate": 2,
+    "rotate": 3,
     "zIndex": 107,
     "imageRatio": 1.3333333333333333,
     "polaroidRatio": 0.6923076923076923
+  },
+  {
+    "itemType": "inline-deco",
+    "path": "star1.png",
+    "margin": 3,
+    "imageRatio": 1.0289855072463767
   },
   {
     "category": "cafe",
@@ -542,7 +512,7 @@ const CORKBOARD_DATA = [
     ],
     "path": "corkboard-img/entries/Cafe_photo_elliesech_04.jpg",
     "itemType": "corkboard-item",
-    "rotate": 7,
+    "rotate": 1,
     "zIndex": 106,
     "imageRatio": 1.3333333333333333,
     "polaroidRatio": 0.6923076923076923
@@ -564,7 +534,9 @@ const CORKBOARD_DATA = [
     "path": "corkboard-img/entries/Cafe_photo_elliesech_05.jpg",
     "itemType": "corkboard-item",
     "rotate": -1,
-    "zIndex": 105
+    "zIndex": 105,
+    "imageRatio": 1.3333333333333333,
+    "polaroidRatio": 0.6923076923076923
   },
   {
     "category": "cafe",
@@ -583,14 +555,10 @@ const CORKBOARD_DATA = [
     ],
     "path": "corkboard-img/entries/Cafe_photo_elliesech_06.jpg",
     "itemType": "corkboard-item",
-    "rotate": 3,
-    "zIndex": 104
-  },
-  {
-    "itemType": "inline-deco",
-    "path": "star2.png",
-    "margin": 2,
-    "imageRatio": 1.03125
+    "rotate": 2,
+    "zIndex": 104,
+    "imageRatio": 1.3333333333333333,
+    "polaroidRatio": 0.8334509527170078
   },
   {
     "category": "cafe",
@@ -610,7 +578,9 @@ const CORKBOARD_DATA = [
     "path": "corkboard-img/entries/Cafe_photo_elliesech_07.jpg",
     "itemType": "corkboard-item",
     "rotate": 4,
-    "zIndex": 103
+    "zIndex": 103,
+    "imageRatio": 0.9242053789731052,
+    "polaroidRatio": 0.6923076923076923
   },
   {
     "category": "cafe",
@@ -629,14 +599,10 @@ const CORKBOARD_DATA = [
     ],
     "path": "corkboard-img/entries/Cafe_photo_elliesech_08.jpg",
     "itemType": "corkboard-item",
-    "rotate": 1,
-    "zIndex": 102
-  },
-  {
-    "itemType": "inline-deco",
-    "path": "star1.png",
-    "margin": 2,
-    "imageRatio": 1.0289855072463767
+    "rotate": -2,
+    "zIndex": 102,
+    "imageRatio": 1.3333333333333333,
+    "polaroidRatio": 0.6923076923076923
   },
   {
     "category": "cafe",
@@ -652,10 +618,8 @@ const CORKBOARD_DATA = [
     "cutouts": [
       ""
     ],
-    "path": "corkboard/writing_thumb.png",
     "itemType": "corkboard-item",
-    "rotate": 4,
-    "zIndex": 101,
-    "imageRatio": 1
+    "rotate": 3,
+    "zIndex": 101
   }
 ]

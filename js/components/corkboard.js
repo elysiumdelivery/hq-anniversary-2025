@@ -81,9 +81,9 @@ class Corkboard extends HTMLElement {
                 // msnry.off("layoutComplete");
             });
         });
-        imagesLoaded(this).on("progress", function (instance, image) {
-            msnry.layout();
-        });
+        // imagesLoaded(this).on("progress", function (instance, image) {
+        //     msnry.layout();
+        // });
     }
 
     disconnectedCallback() {
@@ -125,13 +125,16 @@ class CorkboardItem extends HTMLElement {
         }
         // this.appendChild(this.imageThumb);
         if (this.getAttribute("entry-type") == "writing") {
+            this.imageThumb.onload = function () {
+                msnry.layout();
+            }
             this.appendChild(this.imageThumb);
         }
         else if (this.getAttribute("polaroid-path")) {
             let polaroidPath = this.getAttribute("polaroid-path");
             this.polaroid = document.createElement("img");
             this.polaroid.classList.add("polaroid");
-            this.polaroid.src = `image-size/50/${polaroidPath}`
+            this.polaroid.src = `image-resize/50/${polaroidPath}`
             this.polaroid.srcset = [
                 `image-resize/200/${polaroidPath}    200w`,
                 `image-resize/400/${polaroidPath}    400w`,
@@ -144,6 +147,9 @@ class CorkboardItem extends HTMLElement {
             this.polaroid.style.setProperty("background-image", `url("/image-resize/400/${imgUrl}")`);
             if (this.data.polaroidRatio) {
                 this.polaroid.style.setProperty('aspect-ratio', this.data.polaroidRatio.toFixed(2) || 1);
+            }
+            this.polaroid.onload = function () {
+                msnry.layout();
             }
             this.appendChild(this.polaroid);
         }
@@ -330,7 +336,7 @@ function setupEntries (elem, entryData) {
             if (data.path) {
                 childEl.setAttribute("img", data.path);
             }
-            else {
+            else if (childEl.type == "memory-writing") {
                 childEl.setAttribute("img", `corkboard/writing_thumb.png`);
             }
             childEl.setAttribute("entry-type", data.type.join(" "));
