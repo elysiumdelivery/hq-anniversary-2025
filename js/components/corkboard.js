@@ -11,6 +11,7 @@ window.addEventListener("DOMContentLoaded", function() {
     // as well as closing on esc, clicking outside of the dialog, etc.
     DETAILS_DIALOG_A11Y = new A11yDialog(document.getElementById("corkboard-overlay"));
     DETAILS_DIALOG_A11Y.on('hide', function (event) {
+        document.documentElement.classList.remove("dialog-open");
         const dummyItem = document.getElementById("corkboard-item-dummy");
         setTimeout(() => {
             DETAILS_DIALOG_EL.querySelector(".details-dialog-text .date").innerHTML = "";
@@ -277,6 +278,7 @@ class CorkboardItem extends HTMLElement {
                 dummyEl.append(cutout);
             })
         }
+        document.documentElement.classList.add("dialog-open");
         DETAILS_DIALOG_A11Y.show();
     }
 

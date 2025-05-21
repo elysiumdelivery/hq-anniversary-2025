@@ -94,7 +94,12 @@ global-header h1 {
     text-justify: distribute;
 }
 
-html, body {
+html {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+body {
     margin: 0;
     font-size: 1.2em;
 
@@ -111,9 +116,10 @@ html, body {
 
     font-family: "Solway", serif;
 	font-weight: 300;
+}
 
-    overflow-x: hidden;
-    overflow-y: auto;
+body {
+
 }
 
 

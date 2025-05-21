@@ -4,6 +4,9 @@
 html, body {
     background-image: none;
 }
+html.dialog-open {
+    overflow-y: hidden;
+}
 #corkboard {
     position: relative;
     /* display: flex;
@@ -534,6 +537,7 @@ corkboard-item img.polaroid {
     }
     #corkboard-overlay.food #corkboard-item-dummy.img-load {
         max-width: 90vw;
+        height: auto;
     }
 }
 

@@ -74,14 +74,14 @@ section#intro > * > img {
 }
 
 .deco.cup {
-    top: 0.7%;
-    left: 13%;
-    width: 31%;
+    top: 0%;
+    left: 9%;
+    width: 38%;
     z-index: 5;
 }
 
 .deco.polaroid1 {
-    top: 17.2%;
+    top: 19.2%;
     left: 8.9%;
     width: 26.5%;
     z-index: 4;
@@ -130,8 +130,8 @@ section#intro > * > img {
 }
 
 .deco.cake {
-    width: 45%;
-    top: 46.2%;
+    width: 42%;
+    top: 47.2%;
     right: 5%;
     z-index: 6;
 }
