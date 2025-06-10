@@ -1,5 +1,5 @@
 html, body {
-    background-image: url(/image-resize/full/home/bg.png);
+    background-image: url(/image-resize/1024/home/bg.png);
     background-repeat: repeat;
     background-size: 500px;
 }
@@ -9,6 +9,8 @@ global-header nav {
 }
 
 global-header #logo {
+    left: calc(50vw - 250px);
+    width: 500px;
     height: 250px;
 }
 
@@ -72,14 +74,14 @@ section#intro > * > img {
 }
 
 .deco.cup {
-    top: 1.7%;
-    left: 13%;
-    width: 31%;
+    top: 0%;
+    left: 9%;
+    width: 38%;
     z-index: 5;
 }
 
 .deco.polaroid1 {
-    top: 20.2%;
+    top: 19.2%;
     left: 8.9%;
     width: 26.5%;
     z-index: 4;
@@ -88,7 +90,7 @@ section#intro > * > img {
 
 .deco.polaroid2 {
     top: 27.6%;
-    left: 18.2%;
+    left: 20.2%;
     width: 26.5%;
     z-index: 3;
     rotate: -11deg;
@@ -97,20 +99,39 @@ section#intro > * > img {
 .deco.magazine {
     width: 66.3%;
     top: 3.9%;
-    right: 5%;
+    right: 2%;
     z-index: 4;
 }
 
+.deco.magazine .petzone.alt {
+    position: absolute;
+    top: 34%;
+    left: 20%;
+    width: 27%;
+    height: 44%;
+    rotate: -25deg;
+}
+
+.deco.magazine .petzone.axl {
+    position: absolute;
+    top: 13%;
+    right: 24%;
+    width: 27%;
+    height: 55%;
+    rotate: -25deg;
+}
+
 .deco.message {
-    width: 50%;
-    top: 44%;
+    width: 52%;
+    top: 39%;
     left: 14%;
     z-index: 5;
+    rotate: -3deg;
 }
 
 .deco.cake {
-    width: 45%;
-    top: 46.2%;
+    width: 42%;
+    top: 47.2%;
     right: 5%;
     z-index: 6;
 }
@@ -150,8 +171,9 @@ a.receipt {
 a.pin {
     width: 17.9%;
     top: 81.9%;
-    left: 64.2%;
+    left: 66.2%;
     z-index: 5;
+    rotate: 33deg;
 }
 
 section#intro .message p {
@@ -160,12 +182,13 @@ section#intro .message p {
     left: 0;
     width: 100%;
     height: 80%;
-    padding: 5% 10%;
-    padding-left: 13%;
+    padding: 12% 10%;
+    padding-left: 17%;
     padding-bottom: 8%;
     margin: 0;
     rotate: -2deg;
     box-sizing: border-box;
     overflow-y: auto;
-    font-family: "Schoolbell", cursive;
+    font-family: "Solway", serif;
+	font-weight: 300;
 }

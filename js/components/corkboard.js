@@ -1,7 +1,7 @@
 let DETAILS_DIALOG_A11Y = null;
 let DETAILS_DIALOG_EL = null;
 
-let photos = ["Food1",  "Mem3", "Food5", "Writing1", "Mem1",  "Food3", "Mem5"]
+let msnry;
 
 window.addEventListener("DOMContentLoaded", function() {   
     window.scrollTo(0, 0);
@@ -11,11 +11,16 @@ window.addEventListener("DOMContentLoaded", function() {
     // as well as closing on esc, clicking outside of the dialog, etc.
     DETAILS_DIALOG_A11Y = new A11yDialog(document.getElementById("corkboard-overlay"));
     DETAILS_DIALOG_A11Y.on('hide', function (event) {
+        document.documentElement.classList.remove("dialog-open");
         const dummyItem = document.getElementById("corkboard-item-dummy");
         setTimeout(() => {
+            DETAILS_DIALOG_EL.querySelector(".details-dialog-text .date").innerHTML = "";
+            DETAILS_DIALOG_EL.querySelector(".details-dialog-inner").innerHTML = "";
+            DETAILS_DIALOG_EL.querySelector(".details-dialog-text .credit").innerHTML = "";
             DETAILS_DIALOG_EL.parentNode.classList.remove("sparkle-in");
             DETAILS_DIALOG_EL.classList.remove("slide-out");
-            dummyItem.parentElement.classList.remove("writing", "art", "memory");
+
+            dummyItem.parentElement.classList.remove("memory-writing", "memory-art", "memory-art-writing", "food");
             dummyItem.classList.value = "";
             dummyItem.style = "";
             dummyItem.style.transition = "none";
@@ -35,28 +40,67 @@ class Corkboard extends HTMLElement {
   
     connectedCallback() {
         this.role = "list";
+
         const options = {
-            rootMargin: "20%",
+            rootMargin: "100px",
             trackVisibility: true,
             threshold: 0.5,
             delay: 100,
         };
         this.observer = new IntersectionObserver(scrollIntersectionCallback, options);
-        setupEntries(this);
+
+        setupEntries(this, CORKBOARD_DATA)
+        
+        msnry = new Masonry(this, {
+            // options
+            itemSelector: '.corkboard-item',
+            columnWidth: 200,
+            initLayout: false,
+            horizontalOrder: true,
+            fitWidth: true,
+            gutter: 10,
+            stagger: 50,
+            transitionDuration: 0
+        });
+        msnry.on('layoutComplete', function(laidOutItems) {
+            laidOutItems.forEach((entry, i) => {
+                let elem = entry.element;
+                if (elem.classList.contains("inline-deco") && !(elem.classList.contains("visible"))) {
+                    elem.classList.add("visible");
+                }
+                else if (!(elem.classList.contains("visible"))) {
+                    elem.onanimationend = (event) => {
+                        if (event.animationName == "corkboard-item-anim-in") {
+                            elem.classList.add("visible");
+                            elem.classList.remove("anim-in");
+                        }
+                    }
+                    if (elem.imageThumb.complete) {
+                        elem.classList.add("anim-in");
+                    }
+                }
+                // msnry.off("layoutComplete");
+            });
+        });
+        // imagesLoaded(this).on("progress", function (instance, image) {
+        //     msnry.layout();
+        // });
     }
 
     disconnectedCallback() {
         this.observer.disconnect();
     }
 }
-
 class CorkboardItem extends HTMLElement {
-    constructor() {
+    constructor(data) {
       // Always call super first in constructor
       super();
+
+      this.data = data;
     }
   
     connectedCallback() {
+        this.classList.add("corkboard-item");
         this.role = "listitem";
         let imgUrl;
         if (this.hasAttribute("img")) {
@@ -66,28 +110,66 @@ class CorkboardItem extends HTMLElement {
         }
 
         this.imageThumb = document.createElement("img");
-        this.imageThumb.loading = "lazy";
-        this.imageThumb.addEventListener("load", function () {
-            setTimeout(function () {
-                this.classList.add("anim-in");
-            }.bind(this), 500);
-        }.bind(this))
-        // this.image = document.createElement("img");
-        // this.imageThumb.src = imgUrl;
-        this.appendChild(this.imageThumb);
+        // this.imageThumb.loading = "lazy";
+        this.imageThumb.src = `image-resize/50/${imgUrl}`;
+        this.imageThumb.srcset = [
+            `image-resize/200/${imgUrl}    200w`,
+            `image-resize/400/${imgUrl}    400w`,
+        ].join(",");
+        this.imageThumb.sizes = [
+            "(max-width: 450px) 200px",
+            "(max-width: 850px) 400px",
+            "400px"
+        ].join(",");
+        if (this.data.imageRatio) {
+            this.imageThumb.style.setProperty('aspect-ratio', this.data.imageRatio.toFixed(2) || 1);
+        }
+        // this.appendChild(this.imageThumb);
+        if (this.getAttribute("entry-type") == "writing") {
+            this.imageThumb.onload = function () {
+                msnry.layout();
+            }
+            this.appendChild(this.imageThumb);
+        }
+        else if (this.getAttribute("polaroid-path")) {
+            let polaroidPath = this.getAttribute("polaroid-path");
+            this.polaroid = document.createElement("img");
+            this.polaroid.classList.add("polaroid");
+            this.polaroid.src = `image-resize/50/${polaroidPath}`
+            this.polaroid.srcset = [
+                `image-resize/200/${polaroidPath}    200w`,
+                `image-resize/400/${polaroidPath}    400w`,
+            ].join(",");
+            this.polaroid.sizes = [
+                "(max-width: 450px) 200px",
+                "(max-width: 850px) 400px",
+                "400px"
+            ].join(",");
+            this.polaroid.style.setProperty("background-image", `url("/image-resize/400/${imgUrl}")`);
+            if (this.data.polaroidRatio) {
+                this.polaroid.style.setProperty('aspect-ratio', this.data.polaroidRatio.toFixed(2) || 1);
+            }
+            this.polaroid.onload = function () {
+                msnry.layout();
+            }
+            this.appendChild(this.polaroid);
+        }
+        // msnry.appended(this);
         // this.appendChild(this.image);
         this.onmouseover = this.preloadImage;
         this.onclick = this.handleClick.bind(this);
     }
 
     preloadImage () {
-        if (this.preloaded === undefined && this.type != "writing") {
+        if (this.preloaded === undefined && !this.type.includes("writing")) {
             this.preloaded = new Image();
-            this.preloaded.src = `image-resize/full/corkboard-img/${this.getAttribute("photo-key")}-full.png`;
+            this.preloaded.src = `image-resize/256/${this.getAttribute("img")}`;
         }
     }
 
     handleClick (e) {
+        if (DETAILS_DIALOG_EL === undefined) return;
+        // setup dummy image
         const dummyItem = document.getElementById("corkboard-item-dummy");
         dummyItem.parentElement.classList.add(this.type);
         let rect = this.getBoundingClientRect();
@@ -97,61 +179,143 @@ class CorkboardItem extends HTMLElement {
         rect = this.getBoundingClientRect();
         dummyItem.style.transform = `translate(${-dummyItem.offsetLeft}px, ${-dummyItem.offsetTop}px) translate(${rect.x}px, ${rect.y}px)`
         dummyItem.style.rotate = this.style.rotate;
-
         dummyItem.innerHTML = "";
+
         let image;
-        if (this.type != "writing") {
+        if (this.type !== "memory-writing") {
             if (this.preloaded) {
                 image = this.preloaded;
             }
             else {
                 image = document.createElement("img");
-                image.src = `image-resize/full/corkboard-img/${this.getAttribute("photo-key")}-full.png`;
-                image.onload(() => console.log("a"))
+                image.src = `image-resize/512/${this.getAttribute("img") || "corkboard/writing_thumb.png"}`;
+                image.alt = this.data.desc;
             }
             dummyItem.appendChild(image);
             if (image.complete) {
                 this.onDialogImageLoaded(image, dummyItem);
             }
             else {
-                image.addEventListener('load', this.onDialogImageLoaded.bind(this, image, dummyItem))
+                image.addEventListener('load', this.onDialogImageLoaded.bind(this, image, dummyItem), { once: true })
             }
         }
         else {
             this.onDialogImageLoaded();
         }
 
-        if (this.type == "writing") {
+        if (this.type.includes("writing")) {
             DETAILS_DIALOG_EL.classList.add("writing-only");
         }
 
         if (this.type == "food") {
             DETAILS_DIALOG_EL.style.display = "none";
             document.getElementById("sparkle-effects").style.display = "";
+            let credit1 = document.createElement("span");
+            let credit2 = document.createElement("span");
+            credit1.classList.add("credit", "label");
+            credit2.classList.add("credit");
+            if (this.data.type.includes("photo")) {
+                credit1.innerHTML = "Photo by:";
+            }
+            if (this.data.type.includes("art")) {
+                credit1.innerHTML = "Art by:";
+            }
+            credit2.innerHTML = this.data.credit[0];
+            document.getElementById("corkboard-item-dummy").append(credit1);
+            document.getElementById("corkboard-item-dummy").append(credit2);
+
+            let title = document.createElement("span");
+            title.classList.add("title");
+            title.innerHTML = this.data.title;
+            document.getElementById("corkboard-item-dummy").append(title);
         }
         else {
             DETAILS_DIALOG_EL.style.display = "";
             document.getElementById("sparkle-effects").style.display = "none";
         }
+
+        if (this.data.stream) {
+            DETAILS_DIALOG_EL.querySelector(".details-dialog-text .date").innerHTML = `${new Date(this.data.stream.date).toLocaleDateString(undefined, {year: "numeric", month: "numeric", day: "numeric"})} - <a href="${this.data.stream.link}" target="_blank">${this.data.stream.name}</a>`;
+            DETAILS_DIALOG_EL.querySelector(".details-dialog-inner").innerHTML = this.data.stream.entry;
+            DETAILS_DIALOG_EL.querySelector(".details-dialog-text .credit").innerHTML = this.data.credit[0];
+            if (this.type.includes("art")) {
+                let artistCredit = this.data.credit[1] || this.data.credit[0];
+                let credit1 = document.createElement("span");
+                let credit2 = document.createElement("span");
+                credit1.classList.add("credit", "label");
+                credit2.classList.add("credit");
+                if (this.data.type.includes("photo")) {
+                    credit1.innerHTML = "Photo by:";
+                }
+                if (this.data.type.includes("art")) {
+                    credit1.innerHTML = "Art by:";
+                }
+                credit2.innerHTML = artistCredit;
+                document.getElementById("corkboard-item-dummy").append(credit1);
+                document.getElementById("corkboard-item-dummy").append(credit2);
+            }
+            if (this.type == "memory-art") {
+                let streamDate = document.createElement("span");
+                streamDate.classList.add("date");
+                streamDate.innerHTML = `${new Date(this.data.stream.date).toLocaleDateString(undefined, {year: "numeric", month: "numeric", day: "numeric"})} - <a href="${this.data.stream.link}" target="_blank">${this.data.stream.name}</a>`;
+                document.getElementById("corkboard-item-dummy").append(streamDate);
+            }
+            // if (!(this.type.includes("writing") && this.type.includes("art"))) {
+            //     let yt = document.createElement("iframe");
+            //     yt.src = `http://www.youtube.com/embed/${getId(this.data.stream.link)}`;
+            //     document.getElementById("corkboard-item-dummy").append(yt);
+            // }
+        }
+        else if (this.data.desc) {
+            DETAILS_DIALOG_EL.querySelector(".details-dialog-inner").innerHTML = `<p>${this.data.desc}</p>`;
+        }
+        if (this.data.cutouts) {
+            let dummyEl = document.getElementById("corkboard-item-dummy");
+            this.data.cutouts.forEach((cutoutKey, i) => {
+                let cutout = document.createElement("img");
+                cutout.classList.add("cutout", `cutout_${i}`);
+                let cutoutPath = `image-resize/256/corkboard/cutouts/${cutoutKey.toLowerCase()}_cutout.png`
+                cutout.src = cutoutPath;
+                dummyEl.append(cutout);
+            })
+        }
+        document.documentElement.classList.add("dialog-open");
         DETAILS_DIALOG_A11Y.show();
     }
 
     onDialogImageLoaded (image, dummyItem) {
+        if (image) {
+            image.src = `image-resize/2048/${this.getAttribute("img")}`;
+        }
         setTimeout(() => {
-            dummyItem.style = "";
-            dummyItem.classList.add("img-load");
-            if (this.type == "food") {
-                let ratio = image.naturalWidth / image.naturalHeight;
-                dummyItem.style.setProperty('--width', (vh(80) * ratio) + "px");
-            }
+            if (dummyItem) {
+                dummyItem.classList.add("img-load");
+                if (this.type == "food" || this.type == "memory-art") {
+                    if (this.data.imageRatio > 1.5) {   
+                        dummyItem.style.setProperty('height', (vw(80) / this.data.imageRatio) + "px");
+                    }
+                    else {
+                        dummyItem.style.setProperty('--width', (vh(80) * this.data.imageRatio) + "px");
+                    }
+                }
+                else {
+                    dummyItem.style.setProperty('--width', (vh(65) * this.data.imageRatio) + "px");
+                    dummyItem.style.setProperty('height', "50vh");                        
+                }
+                dummyItem.style.removeProperty("width");
+                dummyItem.style.removeProperty("transition");
+                dummyItem.style.removeProperty("height");
+                dummyItem.style.removeProperty("transform");
+                dummyItem.style.removeProperty("rotate");
+             }
 
         }, 500);
         
         setTimeout(() => {
-            if (this.type == "writing") {
+            if (this.type.includes("writing")) {
                 DETAILS_DIALOG_EL.classList.add("slide-out");
             }
-            else if (this.type == "memory") {
+            else if (this.type.includes("memory") && this.type.includes("art")) {
                 dummyItem.style.rotate = "-5deg";
                 DETAILS_DIALOG_EL.classList.add("slide-out");
             }
@@ -171,84 +335,82 @@ customElements.define("corkboard-item", CorkboardItem);
 function scrollIntersectionCallback (entries, observer) {
     entries.forEach((entry, i) => {
         let elem = entry.target;
-        if (entry.isIntersecting && !(elem.classList.contains("visible"))) {
-            elem.onanimationend = (event) => {
-                if (event.animationName == "corkboard-item-anim-in") {
-                    elem.classList.add("visible");
-                    elem.classList.remove("anim-in");
-                }
-            }
-            if (elem.getAttribute("entry-type") === "art") {
-                elem.imageThumb.src = `image-resize/50/corkboard-img/${elem.getAttribute("photo-key")}.png`;
-                elem.imageThumb.srcset = [
-                    `image-resize/200/corkboard-img/${elem.getAttribute("photo-key")}.png    200w`,
-                    `image-resize/400/corkboard-img/${elem.getAttribute("photo-key")}.png    400w`,
-                ].join(",");
-                elem.imageThumb.sizes = [
-                    "(max-width: 450px) 200px",
-                    "(max-width: 850px) 400px",
-                    "400px"
-                ].join(",");
-            }
-            else {
-                elem.imageThumb.src = `image-resize/50/corkboard/writing_thumb.png`;
-                elem.imageThumb.srcset = [
-                    `image-resize/200/corkboard/writing_thumb.png    200w`,
-                    `image-resize/400/corkboard/writing_thumb.png    400w`,
-                ].join(",");
-                elem.imageThumb.sizes = [
-                    "(max-width: 450px) 200px",
-                    "(max-width: 850px) 400px",
-                    "400px"
-                ].join(",");
-            }
-            if (elem.imageThumb.complete) {
-                elem.classList.add("anim-in");
-            }
-            observer.unobserve(entry.target);
-        }
+        elem.style.setProperty("content-visibility", entry.isIntersecting ? "visible" : "hidden");
+        observer.unobserve(entry.target);
     });
 }
 
-function setupEntries (elem) {
-    let plusOrMinus = 1;
-    let pmCount = 0;
-    for (var i = 0; i < photos.length; i++) {
-        let photoKey = photos[i];
-        let childEl = new CorkboardItem();
-        // childEl.setAttribute("img", `https://picsum.photos/seed/${i + 100}/200/300`);
-        childEl.setAttribute("img", `corkboard-img/${photoKey}.png`);
-        childEl.setAttribute("photo-key", photoKey);
-        childEl.setAttribute("entry-type", "art");
-        if (photoKey.includes("Food")) childEl.type = "food";
-        if (photoKey.includes("Mem")) childEl.type = "memory";
-        if (photoKey.includes("Writing")) {
-            childEl.type = "writing";
-            childEl.setAttribute("entry-type", "writing");
-            childEl.setAttribute("img", `corkboard/writing_thumb.png`);
+function setupEntries (elem, entryData) {
+    entryData.forEach((data, i) => {
+        if (data.itemType === "inline-deco") {
+            makeInlineDeco(elem, data);
         }
-        var newPlusOrMinus = Math.random() < 0.5 ? -1 : 1;
-        if (plusOrMinus === newPlusOrMinus && pmCount < 2) {
-            pmCount++;
+        else {
+            let childEl = new CorkboardItem(data);
+            if (data.type.includes("writing")) childEl.type = "writing";
+            if (data.category == "cafe") childEl.type = "food";
+            if (data.category == "memory") childEl.type = `memory-${data.type.join("-")}`;
+            childEl.setAttribute("idx", i);
+            if (data.path) {
+                childEl.setAttribute("img", data.path);
+            }
+            else if (childEl.type == "memory-writing") {
+                childEl.setAttribute("img", `corkboard/writing_thumb.png`);
+            }
+            childEl.setAttribute("entry-type", data.type.join(" "));
+            if (data.polaroid.toLowerCase().includes(".png") || data.polaroid.toLowerCase().includes(".jpg")) {
+                childEl.setAttribute("polaroid-path", `corkboard-img/entries/${data.polaroid}`);
+            }
+            else if (data.polaroid) {
+                childEl.setAttribute("polaroid-path", `corkboard/polaroids/${data.polaroid}.png`);
+            }
+            
+            childEl.style = `--angle: ${getRandomInt(-5, 5)}deg;`;
+            childEl.style.rotate = `${data.rotate}deg`
+            childEl.style.zIndex = `${data.zIndex}`;
+            elem.append(childEl);
+            elem.observer.observe(childEl);
         }
-        else if (plusOrMinus === newPlusOrMinus) {
-            newPlusOrMinus = newPlusOrMinus * -1;
-            pmCount = 0;
-        }
-        plusOrMinus = newPlusOrMinus;
+    })
+}
 
-        childEl.style = `--angle: ${Math.round((2 + Math.random() * 5) * plusOrMinus)}deg;`;
-        childEl.style.top = `${Math.round((8 + Math.random() * 25 * plusOrMinus))}px`
-        childEl.style.left = `${Math.round((8 + Math.random() * 25 * plusOrMinus))}px`
-        childEl.style.rotate = `${Math.round((2 + Math.random() * 5 * plusOrMinus))}deg`
-        childEl.style.zIndex = `${100 - i}`;
-
-        elem.append(childEl);
-        elem.observer.observe(childEl);
+function makeInlineDeco (elem, data) {
+    let decoEl = document.createElement("img");
+    decoEl.classList.add("corkboard-item", "inline-deco")
+    decoEl.src = `/image-resize/full/${data.path}`;
+    if (data.imageRatio) {
+        decoEl.style.setProperty('aspect-ratio', data.imageRatio.toFixed(2));
     }
+    if (data.rotate) {
+        decoEl.style.rotate = `${data.rotate}deg`
+    }
+    if (data.margin) {
+        decoEl.style.margin = `1vw ${data.margin}vw`
+    }
+    elem.append(decoEl);
 }
 
 function vh (percent) {
     var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
     return (percent * h) / 100;
+}
+
+function vw (percent) {
+    var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+    return (percent * w) / 100;
+}
+
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function getId(url) {
+    const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|live\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+    const match = url.match(regExp);
+
+    return (match && match[2].length === 11)
+      ? match[2]
+      : null;
 }
