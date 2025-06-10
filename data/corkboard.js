@@ -13,8 +13,8 @@ const CORKBOARD_DATA = [
     "cutouts": [],
     "path": "corkboard-img/entries/Cafe_Photo_lighteningsky_01.png",
     "itemType": "corkboard-item",
-    "rotate": 0,
-    "zIndex": 126,
+    "rotate": -1,
+    "zIndex": 142,
     "imageRatio": 1,
     "polaroidRatio": 0.833984375
   },
@@ -33,7 +33,7 @@ const CORKBOARD_DATA = [
     "path": "corkboard-img/entries/Cafe_Art_Lotty_02.png",
     "itemType": "corkboard-item",
     "rotate": 1,
-    "zIndex": 125,
+    "zIndex": 141,
     "imageRatio": 1.3865944482058226,
     "polaroidRatio": 1.088325652841782
   },
@@ -52,7 +52,7 @@ const CORKBOARD_DATA = [
     "path": "corkboard-img/entries/Cafe_Art_konori_01.png",
     "itemType": "corkboard-item",
     "rotate": 3,
-    "zIndex": 124,
+    "zIndex": 140,
     "imageRatio": 1,
     "polaroidRatio": 0.8334509527170078
   },
@@ -70,34 +70,10 @@ const CORKBOARD_DATA = [
     "cutouts": [],
     "path": "corkboard-img/entries/Cafe_Art_vivid_Syd_01.png",
     "itemType": "corkboard-item",
-    "rotate": 2,
-    "zIndex": 123,
+    "rotate": 1,
+    "zIndex": 139,
     "imageRatio": 1.2820512820512822,
     "polaroidRatio": 0.8334509527170078
-  },
-  {
-    "category": "memory",
-    "type": [
-      "writing"
-    ],
-    "polaroid": "Writing",
-    "credit": [
-      "Semiluminary (@semiluminary)"
-    ],
-    "title": "",
-    "desc": "A note or letter regarding Altare and Vesper’s wild west cosmic horror shooting adventures",
-    "cutouts": [],
-    "talents": "Collab (Altare)",
-    "stream": {
-      "date": 1659499200000,
-      "name": "slayin' monsters with pops! w/ ‪@NoirVesper‬ 【Hunt: Showdown】",
-      "link": "https://www.youtube.com/watch?v=GyjTr2pPOhM",
-      "entry": "<p>To the Blue Isekai Hero: </p> <p>Seeing you and Vesper play Hunt: Showdown was a blast! The game itself has great atmosphere, and your helpful teamwork, pleasant chatting, and awesome clutch shots just made it better.  Your patient yet active gameplay taught me to keep a good ear out for enemies (both players and monsters), use dark sight wisely and efficiently, and, of course, ALWAYS KEEP MOVING.  I’d say the two of you made a big success of it!  Whether it was two bullets and a dream or a hectic extraction under gunfire, you stayed cool under fire, and your conversations with Vesper were a treat!</p> <p>Thanks, Leader, for a great stream!</p>",
-      "type": "Letter"
-    },
-    "itemType": "corkboard-item",
-    "rotate": -3,
-    "zIndex": 122
   },
   {
     "category": "memory",
@@ -121,56 +97,7 @@ const CORKBOARD_DATA = [
     },
     "itemType": "corkboard-item",
     "rotate": 6,
-    "zIndex": 121
-  },
-  {
-    "category": "memory",
-    "type": [
-      "writing"
-    ],
-    "polaroid": "Writing",
-    "credit": [
-      "Semiluminary (@semiluminary)"
-    ],
-    "title": "",
-    "desc": "A list of the boys’ fun adventures in this first-ever Holostars EN off-collab",
-    "cutouts": [],
-    "talents": "Collab (Altare)",
-    "stream": {
-      "date": 1665028800000,
-      "name": "【OFF COLLAB】 ALTARE + DEZMOND HANGOUT",
-      "link": "https://www.youtube.com/watch?v=iZ53JttrmUk",
-      "entry": "<p>Here's some things you gotta do when you hang out with a homie like Dez:</p> <ul> <li>Provide a thoughtful gift (Maybe an L, maybe a watch, who can say?)</li> <li>Go to the store to get fun stuff together</li> <li>Experiment with crossing your snacks for a flavor adventure</li> <li>Make hostage letter pizza (or maybe hero message pizza)</li> <li>Select your candy with consideration and discernment</li> <li>Do a spontaneous rap to cover dead airtime</li> <li>Share an unremarkable yet expensive meal</li> <li>Maybe sing some karaoke off camera</li> <li>Toast your homies</li> <li>Form heart hands … or not</li> </ul>",
-      "type": "List"
-    },
-    "itemType": "corkboard-item",
-    "rotate": 2,
-    "zIndex": 120
-  },
-  {
-    "category": "memory",
-    "type": [
-      "art"
-    ],
-    "polaroid": "Mem1",
-    "credit": [
-      "Cherry (@cherrytartart)"
-    ],
-    "title": "",
-    "desc": "A drawing of each of the food that was made put side by side",
-    "cutouts": [],
-    "path": "corkboard-img/entries/20230123_Collab_Cherry_01.png",
-    "talents": "Collab (both)",
-    "stream": {
-      "date": 1674450000000,
-      "name": "【6 MONTH ANNIVERSARY!!!】TEMPURAS, WE HAVE TO COOK.",
-      "link": "https://www.youtube.com/live/WuXGu4L6bmI?si=VMM0b8f2kpD_lnsW"
-    },
-    "itemType": "corkboard-item",
-    "rotate": 5,
-    "zIndex": 119,
-    "imageRatio": 1,
-    "polaroidRatio": 0.8334509527170078
+    "zIndex": 138
   },
   {
     "category": "memory",
@@ -196,8 +123,33 @@ const CORKBOARD_DATA = [
       "type": "Letter"
     },
     "itemType": "corkboard-item",
-    "rotate": 0,
-    "zIndex": 118,
+    "rotate": 1,
+    "zIndex": 137,
+    "imageRatio": 1,
+    "polaroidRatio": 0.8334509527170078
+  },
+  {
+    "category": "memory",
+    "type": [
+      "art"
+    ],
+    "polaroid": "Mem1",
+    "credit": [
+      "Cherry (@cherrytartart)"
+    ],
+    "title": "",
+    "desc": "A drawing of each of the food that was made put side by side",
+    "cutouts": [],
+    "path": "corkboard-img/entries/20230123_Collab_Cherry_01.png",
+    "talents": "Collab (both)",
+    "stream": {
+      "date": 1674450000000,
+      "name": "【6 MONTH ANNIVERSARY!!!】TEMPURAS, WE HAVE TO COOK.",
+      "link": "https://www.youtube.com/live/WuXGu4L6bmI?si=VMM0b8f2kpD_lnsW"
+    },
+    "itemType": "corkboard-item",
+    "rotate": -3,
+    "zIndex": 136,
     "imageRatio": 1,
     "polaroidRatio": 0.8334509527170078
   },
@@ -208,22 +160,46 @@ const CORKBOARD_DATA = [
     ],
     "polaroid": "Writing",
     "credit": [
-      "Ri Lo (@RiLo_08)"
+      "Semiluminary (@semiluminary)"
     ],
-    "title": "Altare Curry and Axel Ice Cream Soda",
-    "desc": "A note/letter to our beloved leader of Guild Tempus HQ: Regis Altare",
+    "title": "",
+    "desc": "A note or letter regarding Altare and Vesper’s wild west cosmic horror shooting adventures",
     "cutouts": [],
-    "talents": "Altare",
+    "talents": "Collab (Altare)",
     "stream": {
-      "date": 1683518400000,
-      "name": "✨️Everything Goes On✨️ by Porter Robinson|| ver. Regis Altare",
-      "link": "https://youtu.be/hf7MS4G5yn8?si=921lV5ABfIxOQIEuu",
-      "entry": "<p>To our beloved Leadah,</p> <p>You always pull my heartstrings with your serene voice,sweetly. Like crashing waves of the sea, you give it a different kind of vibe and impact with your own rendition. This song made me realize that even though we’ll experience sadness at some point in our lives, we shouldn’t forget that there’s always a silver lining of hope that motivates us to keep us moving and holding on. For me, you’re not just a mere chapter of a story, because as a Tempura you’re an irreplaceable character as the Blue Isekai Hero of Guild Tempus, that I’ll cherish and adore the most.</p> <p>That’s why thank you Altare for singing this wonderful song, I really enjoyed listening to it.</p>",
-      "type": "List"
+      "date": 1659499200000,
+      "name": "slayin' monsters with pops! w/ ‪@NoirVesper‬ 【Hunt: Showdown】",
+      "link": "https://www.youtube.com/watch?v=GyjTr2pPOhM",
+      "entry": "<p>To the Blue Isekai Hero: </p> <p>Seeing you and Vesper play Hunt: Showdown was a blast! The game itself has great atmosphere, and your helpful teamwork, pleasant chatting, and awesome clutch shots just made it better.  Your patient yet active gameplay taught me to keep a good ear out for enemies (both players and monsters), use dark sight wisely and efficiently, and, of course, ALWAYS KEEP MOVING.  I’d say the two of you made a big success of it!  Whether it was two bullets and a dream or a hectic extraction under gunfire, you stayed cool under fire, and your conversations with Vesper were a treat!</p> <p>Thanks, Leader, for a great stream!</p>",
+      "type": "Letter"
     },
     "itemType": "corkboard-item",
     "rotate": 5,
-    "zIndex": 117
+    "zIndex": 135
+  },
+  {
+    "category": "memory",
+    "type": [
+      "writing"
+    ],
+    "polaroid": "Writing",
+    "credit": [
+      "Semiluminary (@semiluminary)"
+    ],
+    "title": "",
+    "desc": "A list of the boys’ fun adventures in this first-ever Holostars EN off-collab",
+    "cutouts": [],
+    "talents": "Collab (Altare)",
+    "stream": {
+      "date": 1665028800000,
+      "name": "【OFF COLLAB】 ALTARE + DEZMOND HANGOUT",
+      "link": "https://www.youtube.com/watch?v=iZ53JttrmUk",
+      "entry": "<p>Here's some things you gotta do when you hang out with a homie like Dez:</p> <ul> <li>Provide a thoughtful gift (Maybe an L, maybe a watch, who can say?)</li> <li>Go to the store to get fun stuff together</li> <li>Experiment with crossing your snacks for a flavor adventure</li> <li>Make hostage letter pizza (or maybe hero message pizza)</li> <li>Select your candy with consideration and discernment</li> <li>Do a spontaneous rap to cover dead airtime</li> <li>Share an unremarkable yet expensive meal</li> <li>Maybe sing some karaoke off camera</li> <li>Toast your homies</li> <li>Form heart hands … or not</li> </ul>",
+      "type": "List"
+    },
+    "itemType": "corkboard-item",
+    "rotate": 6,
+    "zIndex": 134
   },
   {
     "category": "cafe",
@@ -237,11 +213,37 @@ const CORKBOARD_DATA = [
     "title": "",
     "desc": " Altare Curry and Axel Ice Cream Soda Waiters Axelotl and Altventerer serving dog Altare curry and a cat Axel ice cream soda.",
     "cutouts": [],
-    "path": "corkboard-img/entries/Cafe_Art_Kay(ThatCrypticKay)_01.png",
+    "path": "corkboard-img/entries/Cafe_Art_Kay_01.png",
     "itemType": "corkboard-item",
-    "rotate": -1,
-    "zIndex": 116,
+    "rotate": 7,
+    "zIndex": 133,
+    "imageRatio": 1,
     "polaroidRatio": 0.8334509527170078
+  },
+  {
+    "category": "cafe",
+    "type": [
+      "art"
+    ],
+    "polaroid": "Cafe_Art_Danie_01polaroid.png",
+    "credit": [
+      "Danie (@danhae_gg)"
+    ],
+    "title": "",
+    "desc": "Shiny Spicy Ganba! ",
+    "cutouts": [],
+    "path": "corkboard-img/entries/Cafe_Art_Danie_01.png",
+    "itemType": "corkboard-item",
+    "rotate": -3,
+    "zIndex": 132,
+    "imageRatio": 1,
+    "polaroidRatio": 0.833984375
+  },
+  {
+    "itemType": "inline-deco",
+    "path": "home/polaroid2.png",
+    "rotate": -1,
+    "imageRatio": 0.8684863523573201
   },
   {
     "category": "memory",
@@ -254,9 +256,69 @@ const CORKBOARD_DATA = [
       "Ri Lo (@RiLo_08)",
       "Sharkie (@sharkfintempura)"
     ],
+    "title": "Altare Curry and Axel Ice Cream Soda",
+    "desc": "A list of the silly shenigans of our fave Tempus HQ Duo: The Blue Isekai Hero & Orange Gladiator Dingo",
+    "cutouts": [],
+    "path": "corkboard-img/entries/20240217_Collab_Sharkfintempura_01.png",
+    "talents": "Collab (both)",
+    "stream": {
+      "date": 1739768400000,
+      "name": "[3D SHOWCASE COLLAB] Tempus HQ 3D-Melodies of Elysium #HQ3D",
+      "link": "https://www.youtube.com/live/Maetuaz6zS8?si=At18QafD-ESXbCHn",
+      "entry": "<p>It’s already been written in the Stars of Altair and Sirius, the King of Heroes together with the strongest Gladiator will save Elysium from its demise…not with the might of the GunBlade or the strong force of the Silver chains … but with their lovely voices!~</p> <ul> <li>Blue Isekai Hero and Orange Dingo Gladiator back to back while singing ‘’Top of the World’’ in 3D will always be…Legendary! *squeals</li> <li>The Vocals from our Tempus Vanguard was very surprising and come on let’s talk about their harmony; it was amazing &lt;3</li> <li>Look at that enormous stage, a full blast concert collaboration of our favorite Guild Tempus HQ Idols while singing ‘Selling the same…boys!’ wait… what? lmao</li> <li>Sibling kicks and banters from little Sister Kobo and Big bro Ragus are always amusing, and Ollie and Axel’s voices blending is like the Oasis flowing smoothly in the desert. ( I’m pushing it too much, don’t mind me. :p)</li> <li>The Idol journey for ShinySpicy is absolutely a dream come true and a day to remember. Hooray, congratulations on performing in front of all the Tempuras!</li> <li>Big bro Brian bantering with Kobo, while poor Ollie was being patient with her. Honestly, I can’t get enough of this! ( I thought Axel would bark though)</li> <li>HoloStars JP Senpais supporting their cute  HoloStars EN Kouhais was very heartwarming. Makes you wanna squeeze their cheeks *coughs</li> <li>Hanakishi vs. ShinySpicy will make you burst out laughing, the Batsu Game though; Bitter tea… Oh no, blegh! XP</li> <li>Rikka and Astel singing Woven Fates together with ShinySpicy was so beautiful.  I hope to see more of this kind of interaction with them. </li> <li>Shiny Spicy Honorary Pose, OtsuStars in 3D. What more can I say? ( I’m so proud of them T_T)</li> </ul>",
+      "type": "List"
+    },
+    "itemType": "corkboard-item",
+    "rotate": 6,
+    "zIndex": 131,
+    "imageRatio": 1.5340823970037454,
+    "polaroidRatio": 0.8334509527170078
+  },
+  {
+    "itemType": "inline-deco",
+    "path": "star2.png",
+    "margin": 3,
+    "imageRatio": 1.03125
+  },
+  {
+    "category": "memory",
+    "type": [
+      "writing"
+    ],
+    "polaroid": "Writing",
+    "credit": [
+      "Ri Lo (@RiLo_08)"
+    ],
+    "title": "",
+    "desc": "A note/letter to our beloved leader of Guild Tempus HQ: Regis Altare",
+    "cutouts": [],
+    "talents": "Altare",
+    "stream": {
+      "date": 1683518400000,
+      "name": "✨️Everything Goes On✨️ by Porter Robinson|| ver. Regis Altare",
+      "link": "https://youtu.be/hf7MS4G5yn8?si=921lV5ABfIxOQIEuu",
+      "entry": "<p>To our beloved Leadah,</p> <p>You always pull my heartstrings with your serene voice,sweetly. Like crashing waves of the sea, you give it a different kind of vibe and impact with your own rendition. This song made me realize that even though we’ll experience sadness at some point in our lives, we shouldn’t forget that there’s always a silver lining of hope that motivates us to keep us moving and holding on. For me, you’re not just a mere chapter of a story, because as a Tempura you’re an irreplaceable character as the Blue Isekai Hero of Guild Tempus, that I’ll cherish and adore the most.</p> <p>That’s why thank you Altare for singing this wonderful song, I really enjoyed listening to it.</p>",
+      "type": "Letter"
+    },
+    "itemType": "corkboard-item",
+    "rotate": 4,
+    "zIndex": 130
+  },
+  {
+    "category": "memory",
+    "type": [
+      "art",
+      "writing"
+    ],
+    "polaroid": "Mem3",
+    "credit": [
+      "Ri Lo (@RiLo_08)",
+      "Sharkie (@sharkfintempura)"
+    ],
     "title": "",
     "desc": "A list of interesting things noted on this birthday talk together with the one and only doctor,gladiator,hitman,assasin, birthday boy,and filial son Axel Syrios together with his Old Man: Papa Syrios~",
     "cutouts": [],
+    "path": "corkboard-img/entries/20231102_Axel_Sharkfintempura_01.png",
     "talents": "Axel",
     "stream": {
       "date": 1698897600000,
@@ -266,42 +328,10 @@ const CORKBOARD_DATA = [
       "type": "List"
     },
     "itemType": "corkboard-item",
-    "rotate": -3,
-    "zIndex": 115,
-    "polaroidRatio": 0.8334509527170078
-  },
-  {
-    "category": "memory",
-    "type": [
-      "art",
-      "writing"
-    ],
-    "polaroid": "Mem2",
-    "credit": [
-      "Ri Lo (@RiLo_08)",
-      "Sharkie (@sharkfintempura)"
-    ],
-    "title": "",
-    "desc": "A list of the silly shenigans of our fave Tempus HQ Duo: The Blue Isekai Hero & Orange Gladiator Dingo",
-    "cutouts": [],
-    "talents": "Collab (both)",
-    "stream": {
-      "date": 1708146000000,
-      "name": "[3D SHOWCASE COLLAB] Tempus HQ 3D-Melodies of Elysium #HQ3D",
-      "link": "https://www.youtube.com/live/Maetuaz6zS8?si=At18QafD-ESXbCHn",
-      "entry": "<p>It’s already been written in the Stars of Altair and Sirius, the King of Heroes together with the strongest Gladiator will save Elysium from its demise…not with the might of the GunBlade or the strong force of the Silver chains … but with their lovely voices!~</p> <ul> <li>Blue Isekai Hero and Orange Dingo Gladiator back to back while singing ‘’Top of the World’’ in 3D will always be…Legendary! *squeals</li> <li>The Vocals from our Tempus Vanguard was very surprising and come on let’s talk about their harmony; it was amazing &lt;3</li> <li>Look at that enormous stage, a full blast concert collaboration of our favorite Guild Tempus HQ Idols while singing ‘Selling the same…boys!’ wait… what? lmao</li> <li>Sibling kicks and banters from little Sister Kobo and Big bro Ragus are always amusing, and Ollie and Axel’s voices blending is like the Oasis flowing smoothly in the desert. ( I’m pushing it too much, don’t mind me. :p)</li> <li>The Idol journey for ShinySpicy is absolutely a dream come true and a day to remember. Hooray, congratulations on performing in front of all the Tempuras!</li> <li>Big bro Brian bantering with Kobo, while poor Ollie was being patient with her. Honestly, I can’t get enough of this! ( I thought Axel would bark though)</li> <li>HoloStars JP Senpais supporting their cute  HoloStars EN Kouhais was very heartwarming. Makes you wanna squeeze their cheeks *coughs</li> <li>Hanakishi vs. ShinySpicy will make you burst out laughing, the Batsu Game though; Bitter tea… Oh no, blegh! XP</li> <li>Rikka and Astel singing Woven Fates together with ShinySpicy was so beautiful.  I hope to see more of this kind of interaction with them. </li> <li>Shiny Spicy Honorary Pose, OtsuStars in 3D. What more can I say? ( I’m so proud of them T_T)</li> </ul>",
-      "type": "List"
-    },
-    "itemType": "corkboard-item",
-    "rotate": 3,
-    "zIndex": 114,
+    "rotate": 6,
+    "zIndex": 129,
+    "imageRatio": 1.526080476900149,
     "polaroidRatio": 1.088325652841782
-  },
-  {
-    "itemType": "inline-deco",
-    "path": "star1.png",
-    "margin": 3,
-    "imageRatio": 1.0289855072463767
   },
   {
     "category": "cafe",
@@ -317,8 +347,8 @@ const CORKBOARD_DATA = [
     "cutouts": [],
     "path": "corkboard-img/entries/Cafe_Art_Fluor_01.png",
     "itemType": "corkboard-item",
-    "rotate": 7,
-    "zIndex": 113,
+    "rotate": -1,
+    "zIndex": 128,
     "imageRatio": 1,
     "polaroidRatio": 0.833984375
   },
@@ -336,10 +366,16 @@ const CORKBOARD_DATA = [
     "cutouts": [],
     "path": "corkboard-img/entries/Cafe_Art_Fluor_02.png",
     "itemType": "corkboard-item",
-    "rotate": 0,
-    "zIndex": 112,
+    "rotate": 3,
+    "zIndex": 127,
     "imageRatio": 1,
     "polaroidRatio": 0.833984375
+  },
+  {
+    "itemType": "inline-deco",
+    "path": "star1.png",
+    "margin": 5,
+    "imageRatio": 1.0289855072463767
   },
   {
     "category": "cafe",
@@ -355,10 +391,67 @@ const CORKBOARD_DATA = [
     "cutouts": [],
     "path": "corkboard-img/entries/Cafe_Art_Fluor_03.png",
     "itemType": "corkboard-item",
-    "rotate": 6,
-    "zIndex": 111,
+    "rotate": -2,
+    "zIndex": 126,
     "imageRatio": 1,
     "polaroidRatio": 0.833984375
+  },
+  {
+    "category": "cafe",
+    "type": [
+      "art"
+    ],
+    "polaroid": "Food5",
+    "credit": [
+      "Danchou (@SunTallulah)"
+    ],
+    "title": "Regis and Axel inspired beverage and snack/dessert",
+    "desc": "Cat Cafe HQ Altare and Axel showing off the newest desserts to their cat  cafe menu. Featuring their favorite cats! ",
+    "cutouts": [],
+    "path": "corkboard-img/entries/Cafe_Art_Suntallulah_5.png",
+    "itemType": "corkboard-item",
+    "rotate": 5,
+    "zIndex": 125,
+    "imageRatio": 1.3044585987261146,
+    "polaroidRatio": 0.8334509527170078
+  },
+  {
+    "category": "cafe",
+    "type": [
+      "art"
+    ],
+    "polaroid": "Food5",
+    "credit": [
+      "HanHan (@Sharialene22)"
+    ],
+    "title": "Shiny Spicy Bento",
+    "desc": "Shiny Spicy Bento ",
+    "cutouts": [],
+    "path": "corkboard-img/entries/Cafe_Art_Sharialene22.png",
+    "itemType": "corkboard-item",
+    "rotate": 5,
+    "zIndex": 124,
+    "imageRatio": 0.9968253968253968,
+    "polaroidRatio": 0.8334509527170078
+  },
+  {
+    "category": "cafe",
+    "type": [
+      "art"
+    ],
+    "polaroid": "HQ-DAY-OUT-withPolaroid.png",
+    "credit": [
+      "LazyMoon (@xlaizimoon)"
+    ],
+    "title": "HQ DAY OUT ",
+    "desc": "HQ DAY OUT ",
+    "cutouts": [],
+    "path": "corkboard-img/entries/HQ-DAY-OUT.png",
+    "itemType": "corkboard-item",
+    "rotate": 1,
+    "zIndex": 123,
+    "imageRatio": 1,
+    "polaroidRatio": 0.8335755813953488
   },
   {
     "category": "cafe",
@@ -374,16 +467,58 @@ const CORKBOARD_DATA = [
     "cutouts": [],
     "path": "corkboard-img/entries/Cafe_Photo_Semiluminary_01.png",
     "itemType": "corkboard-item",
-    "rotate": -2,
-    "zIndex": 110,
+    "rotate": 3,
+    "zIndex": 122,
     "imageRatio": 1,
     "polaroidRatio": 0.8334509527170078
   },
   {
     "itemType": "inline-deco",
-    "path": "eds.png",
-    "rotate": 2,
-    "imageRatio": 1.2598187311178248
+    "path": "star1.png",
+    "margin": 4,
+    "imageRatio": 1.0289855072463767
+  },
+  {
+    "category": "cafe",
+    "type": [
+      "photo"
+    ],
+    "polaroid": "Food1",
+    "credit": [
+      "Baasil"
+    ],
+    "title": "",
+    "desc": "",
+    "cutouts": [
+      "Slime1"
+    ],
+    "path": "corkboard-img/entries/Cafe_Photo_baasil_01.jpg",
+    "itemType": "corkboard-item",
+    "rotate": 1,
+    "zIndex": 121,
+    "imageRatio": 0.56298828125,
+    "polaroidRatio": 1.088325652841782
+  },
+  {
+    "category": "cafe",
+    "type": [
+      "photo"
+    ],
+    "polaroid": "Food1",
+    "credit": [
+      "Baasil"
+    ],
+    "title": "",
+    "desc": "",
+    "cutouts": [
+      "Axelotl2"
+    ],
+    "path": "corkboard-img/entries/Cafe_Photo_baasil_02.jpg",
+    "itemType": "corkboard-item",
+    "rotate": 5,
+    "zIndex": 120,
+    "imageRatio": 2.1649048625792813,
+    "polaroidRatio": 1.088325652841782
   },
   {
     "category": "cafe",
@@ -392,18 +527,18 @@ const CORKBOARD_DATA = [
     ],
     "polaroid": "Cafe_Photo_elliesech_01polaroid.jpg",
     "credit": [
-      "Baasil"
+      "elise (@elliesech)"
     ],
     "title": "Cultare and Axelotl take on Pasta!",
-    "desc": "Regis and Axel inspired beverage and snack/dessert",
+    "desc": "Cultare and Axelotl take on Pasta! Cultares and Axelotls heard about yummy pasta and wanted to try it for themselves before recommending it to Altare and Axel! ",
     "cutouts": [
       "Slime2",
       "Axelotl2"
     ],
     "path": "corkboard-img/entries/Cafe_photo_elliesech_01.jpg",
     "itemType": "corkboard-item",
-    "rotate": 4,
-    "zIndex": 109,
+    "rotate": 2,
+    "zIndex": 119,
     "imageRatio": 0.81884765625,
     "polaroidRatio": 0.8334509527170078
   },
@@ -416,23 +551,23 @@ const CORKBOARD_DATA = [
     "credit": [
       "elise (@elliesech)"
     ],
-    "title": "Altare and Cultare Diner Date! Cultare and Altare decided to go try out the new diner because of how hyped up it was! They tried the Salad and it was amazing! 10/10",
-    "desc": "Cultare and Axelotl take on Pasta! Cultares and Axelotls heard about yummy pasta and wanted to try it for themselves before recommending it to Altare and Axel! ",
+    "title": "Altare and Cultare Diner Date!",
+    "desc": "Altare and Cultare Diner Date! Cultare and Altare decided to go try out the new diner because of how hyped up it was! They tried the Salad and it was amazing! 10/10",
     "cutouts": [
       "Slime2"
     ],
     "path": "corkboard-img/entries/Cafe_photo_elliesech_02.jpg",
     "itemType": "corkboard-item",
     "rotate": 5,
-    "zIndex": 108,
+    "zIndex": 118,
     "imageRatio": 0.80517578125,
     "polaroidRatio": 0.69140625
   },
   {
     "itemType": "inline-deco",
-    "path": "star2.png",
-    "margin": 5,
-    "imageRatio": 1.03125
+    "path": "eds.png",
+    "rotate": 0,
+    "imageRatio": 1.2598187311178248
   },
   {
     "category": "cafe",
@@ -444,14 +579,14 @@ const CORKBOARD_DATA = [
       "elise (@elliesech)"
     ],
     "title": "Axelotl takes on baking Axelotl bakes cookies for Axel secretly to surprise him. They surprisingly turn out delicious! ",
-    "desc": "Altare and Cultare Diner Date! Cultare and Altare decided to go try out the new diner because of how hyped up it was! They tried the Salad and it was amazing! 10/10",
+    "desc": "Axelotl takes on baking Axelotl bakes cookies for Axel secretly to surprise him. They surprisingly turn out delicious! ",
     "cutouts": [
       "Axelotl1"
     ],
     "path": "corkboard-img/entries/Cafe_photo_elliesech_03.jpg",
     "itemType": "corkboard-item",
-    "rotate": 3,
-    "zIndex": 107,
+    "rotate": 5,
+    "zIndex": 117,
     "imageRatio": 0.75,
     "polaroidRatio": 0.69140625
   },
@@ -465,17 +600,23 @@ const CORKBOARD_DATA = [
       "elise (@elliesech)"
     ],
     "title": "Cultare's Cinnamon Muffins!",
-    "desc": "Axelotl takes on baking Axelotl bakes cookies for Axel secretly to surprise him. They surprisingly turn out delicious! ",
+    "desc": "Cultare's Cinnamon Muffins! Cultare were happy to have their leader back in action! Of course they had to bake Altare something sweet!",
     "cutouts": [
       "Slime1",
       "Altare"
     ],
     "path": "corkboard-img/entries/Cafe_photo_elliesech_04.jpg",
     "itemType": "corkboard-item",
-    "rotate": 1,
-    "zIndex": 106,
+    "rotate": 0,
+    "zIndex": 116,
     "imageRatio": 0.75,
     "polaroidRatio": 0.69140625
+  },
+  {
+    "itemType": "inline-deco",
+    "path": "home/polaroid2.png",
+    "rotate": 2,
+    "imageRatio": 0.8684863523573201
   },
   {
     "category": "cafe",
@@ -487,14 +628,14 @@ const CORKBOARD_DATA = [
       "elise (@elliesech)"
     ],
     "title": "Axelotl's Sushi Break!",
-    "desc": "Cultare's Cinnamon Muffins! Cultare were happy to have their leader back in action! Of course they had to bake Altare something sweet!",
+    "desc": "Axelotl's Sushi Break! Axelotl's been a bit sad but nothing Sushi can't fix! Only one roll was enough for now because they had to make room for more food later!",
     "cutouts": [
       "Axelotl2"
     ],
     "path": "corkboard-img/entries/Cafe_photo_elliesech_05.jpg",
     "itemType": "corkboard-item",
-    "rotate": 4,
-    "zIndex": 105,
+    "rotate": 0,
+    "zIndex": 115,
     "imageRatio": 0.75,
     "polaroidRatio": 0.69140625
   },
@@ -508,15 +649,15 @@ const CORKBOARD_DATA = [
       "elise (@elliesech)"
     ],
     "title": "Cultare and Axelotl's Fish and Dumplings ",
-    "desc": "Axelotl's Sushi Break! Axelotl's been a bit sad but nothing Sushi can't fix! Only one roll was enough for now because they had to make room for more food later!",
+    "desc": "Cultare and Axelotl's Fish and Dumplings Cultares and Axelotls wanted to show how much they love Axel and Altare. They decided to take on the biggest threat...frying food.",
     "cutouts": [
-      "Slime2",
-      "Axelotl2"
+      "Axelotl2",
+      "Slime2"
     ],
     "path": "corkboard-img/entries/Cafe_photo_elliesech_06.jpg",
     "itemType": "corkboard-item",
-    "rotate": -1,
-    "zIndex": 104,
+    "rotate": 6,
+    "zIndex": 114,
     "imageRatio": 0.75,
     "polaroidRatio": 0.833984375
   },
@@ -530,23 +671,17 @@ const CORKBOARD_DATA = [
       "elise (@elliesech)"
     ],
     "title": "Axelotl cooks steak!",
-    "desc": "Cultare and Axelotl's Fish and Dumplings Cultares and Axelotls wanted to show how much they love Axel and Altare. They decided to take on the biggest threat...frying food.",
+    "desc": "Axelotl cooks steak! Axelotl decided on steak for dinner! Might wanna share that with Axel...",
     "cutouts": [
       "Axelotl2",
       "Axel"
     ],
     "path": "corkboard-img/entries/Cafe_photo_elliesech_07.jpg",
     "itemType": "corkboard-item",
-    "rotate": 5,
-    "zIndex": 103,
+    "rotate": 3,
+    "zIndex": 113,
     "imageRatio": 0.92431640625,
     "polaroidRatio": 0.69140625
-  },
-  {
-    "itemType": "inline-deco",
-    "path": "home/polaroid1.png",
-    "rotate": 0,
-    "imageRatio": 0.8684863523573201
   },
   {
     "category": "cafe",
@@ -558,17 +693,149 @@ const CORKBOARD_DATA = [
       "elise (@elliesech)"
     ],
     "title": "Cultare's Master Stir-fry",
-    "desc": "Axelotl cooks steak! Axelotl decided on steak for dinner! Might wanna share that with Axel...",
+    "desc": "Cultare's Master Stir-fry Cultares cooks stir-fry while waiting for Altare to come home! It's always better to eat together!",
     "cutouts": [
       "Slime2",
       "Altare"
     ],
     "path": "corkboard-img/entries/Cafe_photo_elliesech_08.jpg",
     "itemType": "corkboard-item",
-    "rotate": 2,
-    "zIndex": 102,
+    "rotate": 0,
+    "zIndex": 112,
     "imageRatio": 0.75,
     "polaroidRatio": 0.69140625
+  },
+  {
+    "itemType": "inline-deco",
+    "path": "star2.png",
+    "margin": 5,
+    "imageRatio": 1.03125
+  },
+  {
+    "category": "cafe",
+    "type": [
+      "art"
+    ],
+    "polaroid": "Food5",
+    "credit": [
+      "Kuma (@kuumaillust)"
+    ],
+    "title": "Anniversary☆Cake! ",
+    "desc": "Anniversary☆Cake! ",
+    "cutouts": [],
+    "path": "corkboard-img/entries/Cafe_Art_Kuma_01.png",
+    "itemType": "corkboard-item",
+    "rotate": 4,
+    "zIndex": 111,
+    "imageRatio": 1,
+    "polaroidRatio": 0.8334509527170078
+  },
+  {
+    "category": "cafe",
+    "type": [
+      "art"
+    ],
+    "polaroid": "Food4",
+    "credit": [
+      "Amanda (@maker_manda)"
+    ],
+    "title": "Latter Onsen",
+    "desc": "Latte Onsen Cheeky little Axelotl taking a bath in your coffee.                                                                     ",
+    "cutouts": [],
+    "path": "corkboard-img/entries/Cafe_Art_Amanda_Maker_Manda_Slime_02.png",
+    "itemType": "corkboard-item",
+    "rotate": 7,
+    "zIndex": 110,
+    "imageRatio": 0.75,
+    "polaroidRatio": 0.6925081433224756
+  },
+  {
+    "category": "cafe",
+    "type": [
+      "art"
+    ],
+    "polaroid": "Food3",
+    "credit": [
+      "Amanda (@maker_manda)"
+    ],
+    "title": "Slime Surprise!",
+    "desc": "Slime Surprise! Slime says hi in an unconventional way",
+    "cutouts": [],
+    "path": "corkboard-img/entries/Cafe_Art_Amanda_Maker_Manda_Axelotl_02.png",
+    "itemType": "corkboard-item",
+    "rotate": 5,
+    "zIndex": 109,
+    "imageRatio": 0.75,
+    "polaroidRatio": 0.6925081433224756
+  },
+  {
+    "itemType": "inline-deco",
+    "path": "star1.png",
+    "margin": 4,
+    "imageRatio": 1.0289855072463767
+  },
+  {
+    "category": "memory",
+    "type": [
+      "art",
+      "writing"
+    ],
+    "polaroid": "",
+    "credit": [
+      "platsu (@TechnicolorQ)\nSeo (@niserri)"
+    ],
+    "title": "",
+    "desc": "Honestly just a small recap of Axel working on his degree while still working and streaming for us, just a little \"we're proud of you\" thing. (Exact details I don't know just yet, maybe even written like a graduation card.)\n",
+    "cutouts": [],
+    "talents": "Axel",
+    "stream": {
+      "date": 1734325200000,
+      "name": "[Zatsudan] I'M GRADUATING (from University)\n",
+      "link": "",
+      "entry": "",
+      "type": ""
+    },
+    "itemType": "corkboard-item",
+    "rotate": 2,
+    "zIndex": 108
+  },
+  {
+    "category": "cafe",
+    "type": [
+      "art"
+    ],
+    "polaroid": "",
+    "credit": [
+      "4xtheSweets (@4xthesweets)"
+    ],
+    "title": "",
+    "desc": "Altare with a tray of HQ-mascot shaped cookies staring at Axel who's adding the finishing touches to his cake (homage to the handcam cake)",
+    "cutouts": [],
+    "itemType": "corkboard-item",
+    "rotate": 6,
+    "zIndex": 107
+  },
+  {
+    "category": "cafe",
+    "type": [
+      "art"
+    ],
+    "polaroid": "",
+    "credit": [
+      "Hiinatsu (@hiinatsu)"
+    ],
+    "title": "",
+    "desc": "Altare with a platter of an altventurer jelly and Axel with an Axelotl soufle cheesecake. I'm thinking of potentially adding drinks but the desserts are a definite plan.",
+    "cutouts": [],
+    "itemType": "corkboard-item",
+    "rotate": 2,
+    "zIndex": 106
+  },
+  {
+    "itemType": "inline-deco",
+    "path": "star2.png",
+    "margin": 7,
+    "imageRatio": 1.03125
   },
   {
     "category": "cafe",
@@ -577,10 +844,74 @@ const CORKBOARD_DATA = [
     ],
     "polaroid": "",
     "credit": [
-      "elise (@elliesech)"
+      "Eevee (@eeveetheerin)"
     ],
     "title": "",
-    "desc": "Cultare's Master Stir-fry Cultares cooks stir-fry while waiting for Altare to come home! It's always better to eat together!",
+    "desc": " dressed-up prince altare and priest syrios nuis with a blue and orange-themed cake",
+    "cutouts": [],
+    "itemType": "corkboard-item",
+    "rotate": 1,
+    "zIndex": 105
+  },
+  {
+    "category": "cafe",
+    "type": [
+      "art"
+    ],
+    "polaroid": "",
+    "credit": [
+      "Lotty (@mitiafrapp)"
+    ],
+    "title": "",
+    "desc": " Axel eating HQ/cat dog themed donuts ",
+    "cutouts": [],
+    "itemType": "corkboard-item",
+    "rotate": -1,
+    "zIndex": 104
+  },
+  {
+    "category": "cafe",
+    "type": [
+      "art"
+    ],
+    "polaroid": "",
+    "credit": [
+      "Aluviella (@aluviella)"
+    ],
+    "title": "",
+    "desc": "Super fancy / themed Altare + Axel coffee drinks, with accompanying Altventurer + Axelotl baked goods. Super subtle reference to Magni + Vesper somewhere in the decoration :3",
+    "cutouts": [],
+    "itemType": "corkboard-item",
+    "rotate": 6,
+    "zIndex": 103
+  },
+  {
+    "category": "cafe",
+    "type": [
+      "photo"
+    ],
+    "polaroid": "",
+    "credit": [
+      "eineru & izu kaze (@eineruu , @izu_mizu_ )\n"
+    ],
+    "title": "",
+    "desc": "Ramen/food photographed with shiny spicy official merch + drawn and printed photocards using the outfits provided in the additional cutouts",
+    "cutouts": [],
+    "itemType": "corkboard-item",
+    "rotate": 3,
+    "zIndex": 102
+  },
+  {
+    "category": "cafe",
+    "type": [
+      "photo"
+    ],
+    "polaroid": "",
+    "credit": [
+      "Amanda (@maker_manda)"
+    ],
+    "title": "",
+    "desc": "Crochet slime and Altare nui eating a fancy meal! ( aiming to make something at home, plate it up nicely and take a photo 🤞)",
     "cutouts": [],
     "itemType": "corkboard-item",
     "rotate": -2,

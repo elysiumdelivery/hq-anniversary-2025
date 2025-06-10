@@ -168,6 +168,7 @@ class CorkboardItem extends HTMLElement {
     }
 
     handleClick (e) {
+        if (DETAILS_DIALOG_EL === undefined) return;
         // setup dummy image
         const dummyItem = document.getElementById("corkboard-item-dummy");
         dummyItem.parentElement.classList.add(this.type);
@@ -290,7 +291,12 @@ class CorkboardItem extends HTMLElement {
             if (dummyItem) {
                 dummyItem.classList.add("img-load");
                 if (this.type == "food" || this.type == "memory-art") {
-                    dummyItem.style.setProperty('--width', (vh(80) * this.data.imageRatio) + "px");
+                    if (this.data.imageRatio > 1.5) {   
+                        dummyItem.style.setProperty('height', (vw(80) / this.data.imageRatio) + "px");
+                    }
+                    else {
+                        dummyItem.style.setProperty('--width', (vh(80) * this.data.imageRatio) + "px");
+                    }
                 }
                 else {
                     dummyItem.style.setProperty('--width', (vh(65) * this.data.imageRatio) + "px");
@@ -387,6 +393,11 @@ function makeInlineDeco (elem, data) {
 function vh (percent) {
     var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
     return (percent * h) / 100;
+}
+
+function vw (percent) {
+    var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+    return (percent * w) / 100;
 }
 
 function getRandomInt(min, max) {
