@@ -21,6 +21,10 @@ window.addEventListener("load", function() {
         });
         observer.observe(section);
     });
+    document.getElementById('intro').scrollIntoView({
+        behavior: 'auto',
+        inline: 'center'
+    });
 });
 
 function scrollIntersectionCallback (entries, observer) {

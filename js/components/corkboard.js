@@ -19,6 +19,7 @@ window.addEventListener("DOMContentLoaded", function() {
             DETAILS_DIALOG_EL.querySelector(".details-dialog-text .credit").innerHTML = "";
             DETAILS_DIALOG_EL.parentNode.classList.remove("sparkle-in");
             DETAILS_DIALOG_EL.classList.remove("slide-out");
+            dummyItem.classList.remove("slide-out");
 
             dummyItem.parentElement.classList.remove("memory-writing", "memory-art", "memory-art-writing", "food");
             dummyItem.classList.value = "";
@@ -54,6 +55,7 @@ class Corkboard extends HTMLElement {
         msnry = new Masonry(this, {
             // options
             itemSelector: '.corkboard-item',
+            stamp: '.stamp',
             columnWidth: 200,
             initLayout: false,
             horizontalOrder: true,
@@ -62,6 +64,7 @@ class Corkboard extends HTMLElement {
             stagger: 50,
             transitionDuration: 0
         });
+        msnry.stamp(document.querySelectorAll(".stamp"));
         msnry.on('layoutComplete', function(laidOutItems) {
             laidOutItems.forEach((entry, i) => {
                 let elem = entry.element;
@@ -185,6 +188,7 @@ class CorkboardItem extends HTMLElement {
         if (this.type !== "memory-writing") {
             if (this.preloaded) {
                 image = this.preloaded;
+                image.alt = this.data.desc;
             }
             else {
                 image = document.createElement("img");
@@ -214,13 +218,10 @@ class CorkboardItem extends HTMLElement {
             let credit2 = document.createElement("span");
             credit1.classList.add("credit", "label");
             credit2.classList.add("credit");
-            if (this.data.type.includes("photo")) {
-                credit1.innerHTML = "Photo by:";
+            if (this.data.type.includes("photo") || this.data.type.includes("art")) {
+                credit1.innerHTML = "Guest Chef:";
             }
-            if (this.data.type.includes("art")) {
-                credit1.innerHTML = "Art by:";
-            }
-            credit2.innerHTML = this.data.credit[0];
+            credit2.innerHTML = `Sent by: ${this.data.credit[0]}`;
             document.getElementById("corkboard-item-dummy").append(credit1);
             document.getElementById("corkboard-item-dummy").append(credit2);
 
@@ -237,7 +238,7 @@ class CorkboardItem extends HTMLElement {
         if (this.data.stream) {
             DETAILS_DIALOG_EL.querySelector(".details-dialog-text .date").innerHTML = `${new Date(this.data.stream.date).toLocaleDateString(undefined, {year: "numeric", month: "numeric", day: "numeric"})} - <a href="${this.data.stream.link}" target="_blank">${this.data.stream.name}</a>`;
             DETAILS_DIALOG_EL.querySelector(".details-dialog-inner").innerHTML = this.data.stream.entry;
-            DETAILS_DIALOG_EL.querySelector(".details-dialog-text .credit").innerHTML = this.data.credit[0];
+            DETAILS_DIALOG_EL.querySelector(".details-dialog-text .credit").innerHTML = `Sent by: ${this.data.credit[0]}`;
             if (this.type.includes("art")) {
                 let artistCredit = this.data.credit[1] || this.data.credit[0];
                 let credit1 = document.createElement("span");
@@ -269,16 +270,16 @@ class CorkboardItem extends HTMLElement {
         else if (this.data.desc) {
             DETAILS_DIALOG_EL.querySelector(".details-dialog-inner").innerHTML = `<p>${this.data.desc}</p>`;
         }
-        if (this.data.cutouts) {
-            let dummyEl = document.getElementById("corkboard-item-dummy");
-            this.data.cutouts.forEach((cutoutKey, i) => {
-                let cutout = document.createElement("img");
-                cutout.classList.add("cutout", `cutout_${i}`);
-                let cutoutPath = `image-resize/256/corkboard/cutouts/${cutoutKey.toLowerCase()}_cutout.png`
-                cutout.src = cutoutPath;
-                dummyEl.append(cutout);
-            })
-        }
+        // if (this.data.cutouts) {
+        //     let dummyEl = document.getElementById("corkboard-item-dummy");
+        //     this.data.cutouts.forEach((cutoutKey, i) => {
+        //         let cutout = document.createElement("img");
+        //         cutout.classList.add("cutout", `cutout_${i}`);
+        //         let cutoutPath = `image-resize/256/corkboard/cutouts/${cutoutKey.toLowerCase()}_cutout.png`
+        //         cutout.src = cutoutPath;
+        //         dummyEl.append(cutout);
+        //     })
+        // }
         document.documentElement.classList.add("dialog-open");
         DETAILS_DIALOG_A11Y.show();
     }
@@ -292,7 +293,7 @@ class CorkboardItem extends HTMLElement {
                 dummyItem.classList.add("img-load");
                 if (this.type == "food" || this.type == "memory-art") {
                     if (this.data.imageRatio > 1.5) {   
-                        dummyItem.style.setProperty('height', (vw(80) / this.data.imageRatio) + "px");
+                        dummyItem.style.setProperty('--height', (vw(80) / this.data.imageRatio) + "px");
                     }
                     else {
                         dummyItem.style.setProperty('--width', (vh(80) * this.data.imageRatio) + "px");
@@ -320,6 +321,7 @@ class CorkboardItem extends HTMLElement {
                 DETAILS_DIALOG_EL.classList.add("slide-out");
             }
             else if (this.type == "food") {
+                dummyItem.classList.add("slide-out");
                 let sparkleEffect = document.getElementById("sparkle-effects");
                 sparkleEffect.style.width = dummyItem.clientWidth + "px";
                 sparkleEffect.style.height = dummyItem.clientHeight + "px";

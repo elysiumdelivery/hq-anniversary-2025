@@ -10,7 +10,7 @@ const __dirname = dirname(__filename);
 const CORKBOARD_CSV = "../data/corkboard.csv";
 
 let singleDecos = ["eds.png", "home/polaroid1.png", "home/polaroid2.png"];
-let reusableDecos = ["star1.png", "star2.png"];
+let reusableDecos = [];
 
 const randomData = [];
 
@@ -25,7 +25,7 @@ Papa.parse(data, {
     },
 });
 function processData (data) {
-    let processed = data.map(d => {
+    let processed = data.filter(d => d["Active?"] === "TRUE").map(d => {
         let p = {
             category: d["Category"].toLowerCase(),
             type: d["Type"].toLowerCase().split(" + "),
@@ -34,6 +34,10 @@ function processData (data) {
             title: d["Entry Title"],
             desc: d["Entry Description"],
             cutouts:  d["Cutouts"] ? d["Cutouts"].split(", ") : [],
+        }
+        if (p.title && p.desc) {
+            let idx = p.desc.indexOf(p.title) + p.title.length;
+            p.desc = p.desc.slice(idx).trim();
         }
         if (p.credit.length > 1) {
             p.credit = p.credit.map((v) => {
@@ -69,9 +73,9 @@ function processData (data) {
         if (Math.floor(Math.random() * 12) === 0) {
             genInlineDeco(singleDecos, { rotate: true });
         }
-        else if (Math.floor(Math.random() * 6) === 0) {
-            genInlineDeco(reusableDecos, { margin: true });
-        }
+        // else if (Math.floor(Math.random() * 6) === 0) {
+        //     genInlineDeco(reusableDecos, { margin: true });
+        // }
         var newPlusOrMinus = Math.random() < 0.5 ? -1 : 1;
         if (plusOrMinus === newPlusOrMinus && pmCount < 2) {
             pmCount++;

@@ -17,13 +17,15 @@
 }
 
 global-header {
+    position: relative;
     width: 100%;
+    display: block;
 }
 global-header #logo {
     position: relative;
-    left: calc(50vw - 150px);
-    width: 300px;
-    height: 100px;
+    left: calc(50vw - 20vmin);
+    width: 40vmin;
+    height: 20vmin;
     object-fit: contain;
     margin-top: 0.5em;
 }
@@ -54,17 +56,10 @@ global-header nav .nav-inner {
     gap: 0.5em;
 }
 
-global-header nav a.nav-home {
-    font-family: "Fredoka", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: bold;
-    font-style: normal;
-    font-variation-settings: "wdth" 100;
-}
 global-header nav a {
     text-transform: uppercase;
     color: black;
-    height: 2em;
+    height: 5vmin;
 }
 global-header nav a img {
     position: relative;
@@ -77,18 +72,12 @@ global-header nav a:hover img {
 
 global-header h1 {
     text-align: center;
-    padding: 0.25em;
+    padding: 1vmin;
     background-color: white;
 
-    font-family: "Fredoka", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: bold;
-    font-style: normal;
-    font-variation-settings: "wdth" 100;
-
-    font-size: 2.5em;
-    margin: 2rem 0;
-    margin-top: 0.5rem;
+    font-size: 3vmin;
+    margin: 3vmin 0;
+    margin-top: 1vmin;
 
     text-transform: uppercase;
     text-justify: distribute;
@@ -97,38 +86,37 @@ global-header h1 {
 html {
     overflow-x: hidden;
     overflow-y: auto;
+    font-size: max(2.5vmin, 1.2em);
 }
 
 body {
     margin: 0;
-    font-size: 1.2em;
 
     background-color: var(--bg-color);
     background-image: url(/image-resize/1024/pattern2.png);
     background-repeat: repeat;
-    background-size: 500px;
+    background-size: max(50vmin, 500px);
 
-    /* font-family: "Noto Sans", sans-serif;
+    font-family: "Quicksand", sans-serif;
     font-optical-sizing: auto;
-    font-weight: normal;
+	font-weight: normal;
     font-style: normal;
-    font-variation-settings: "wdth" 100; */
-
-    font-family: "Solway", serif;
-	font-weight: 300;
 }
 
 body {
 
 }
 
-
+h1, h2 {
+	margin: 0.5em 1em;
+    text-align: center;
+}
 h1, h2, h3, h4, h5, h6 {
-    font-family: "Fredoka", sans-serif;
+    font-family: "Sour Gummy", sans-serif;
     font-optical-sizing: auto;
     font-weight: bold;
     font-style: normal;
-    font-variation-settings: "wdth" 100;
+    font-variation-settings:"wdth" 100;
 }
 
 a { color: var(--blue-2); }
@@ -136,10 +124,10 @@ a:visited { color: var(--blue-3); }
 
 #hamburger-button {
     position: fixed;
-    width: 5vmin;
-    height: 5vmin;
-    top: 1em;
-    left: 1em;
+    width: 8vmin;
+    height: 8vmin;
+    top: 1vmin;
+    left: 1vmin;
     z-index: 999;
 
     appearance: none;
@@ -148,6 +136,14 @@ a:visited { color: var(--blue-3); }
     background: transparent;
     cursor: pointer;
     filter: drop-shadow(1px 1px 1px #000000aa);
+}
+
+#hamburger-button img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
 #hamburger-menu {
@@ -181,8 +177,8 @@ a:visited { color: var(--blue-3); }
 
 #hamburger-menu button.close {
     position: relative;
-    width: 50px;
-    height: 50px;
+    width: 5vmin;
+    height: 5vmin;
 
     appearance: none;
     border: 0;
@@ -238,13 +234,13 @@ global-footer footer {
 }
 
 
-section.scroll-vis > * {
+.scroll-vis > * {
     transition: 0.75s opacity ease-out, 0.75s transform ease-out;
     transform: translateY(-25%);
     opacity: 0;
 }
 
-section.scroll-vis.visible > * {
+.scroll-vis.visible > * {
     transform: none;
     opacity: 1;
 }
@@ -262,4 +258,7 @@ section.scroll-vis.visible > * {
 
 @media only screen and (max-width: 800px) {
     global-header nav { display: none !important; }
+    #hamburger-menu {
+        width: 80vmin;
+    }
 }

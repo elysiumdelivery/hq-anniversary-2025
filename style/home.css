@@ -8,17 +8,19 @@ global-header nav {
     display: none;
 }
 
-global-header #logo {
-    left: calc(50vw - 250px);
-    width: 500px;
-    height: 250px;
-}
+main { padding-top: 5vmin; }
 
 section#intro {
     position: relative;
-    width: 80vmax;
+    /* width: 80vmax;
     min-height: 115vmax;
-    left: calc(50% - 40vmax);
+    left: calc(50% - 40vmax); */
+
+    width: 100vmin;
+    max-width: 1400px;
+    min-width: 100px;
+    aspect-ratio: 0.7;
+    margin: auto;
 
     /* border: 1px solid red;
     background-image: url(../images/home/mockup.png);
@@ -74,33 +76,34 @@ section#intro > * > img {
 }
 
 .deco.cup {
-    top: 0%;
-    left: 9%;
-    width: 38%;
+    top: -1%;
+    left: 1%;
+    width: 40%;
     z-index: 5;
 }
 
 .deco.polaroid1 {
-    top: 19.2%;
-    left: 8.9%;
+    top: 22.2%;
+    left: 5.9%;
     width: 26.5%;
     z-index: 4;
-    rotate: 10deg;
+    rotate: 8deg;
 }
 
 .deco.polaroid2 {
-    top: 27.6%;
-    left: 20.2%;
+    top: 24.6%;
+    left: 27.2%;
     width: 26.5%;
     z-index: 3;
     rotate: -11deg;
 }
 
 .deco.magazine {
-    width: 66.3%;
-    top: 3.9%;
-    right: 2%;
+    width: 76.3%;
+    top: -4.1%;
+    right: -9%;
     z-index: 4;
+    rotate: 9deg;
 }
 
 .deco.magazine .petzone.alt {
@@ -131,7 +134,7 @@ section#intro > * > img {
 
 .deco.cake {
     width: 42%;
-    top: 47.2%;
+    top: 43.2%;
     right: 5%;
     z-index: 6;
 }
@@ -145,33 +148,33 @@ section#intro > * > img {
 }
 
 a.corkboard {
-    width: 26.7%;
+    width: 28.7%;
     top: 58.5%;
-    left: 26.1%;
-    z-index: 3;
+    left: 25.1%;
+    z-index: 5;
     rotate: -8deg;
 }
 
 a.keychain {
-    width: 25.9%;
-    top: 71%;
-    left: 10.9%;
+    width: 18.9%;
+    top: 73%;
+    left: 13.9%;
     z-index: 6;
     rotate: -20deg;
 }
 
 a.receipt {
-    width: 32.9%;
-    top: 72%;
-    left: 38.9%;
+    width: 31.9%;
+    top: 69%;
+    left: 49.9%;
     z-index: 5;
     rotate: 9deg;
 }
 
 a.pin {
     width: 17.9%;
-    top: 81.9%;
-    left: 66.2%;
+    top: 74.9%;
+    left: 74.2%;
     z-index: 5;
     rotate: 33deg;
 }
@@ -189,6 +192,21 @@ section#intro .message p {
     rotate: -2deg;
     box-sizing: border-box;
     overflow-y: auto;
-    font-family: "Solway", serif;
-	font-weight: 300;
+    font-family: "Nanum Pen Script", serif;
+    font-weight: normal;
+    font-size: 1.25em;
+}
+
+@media only screen and (min-aspect-ratio: 3 / 2) {
+    global-header #logo {
+        position: absolute;
+        right: 0;
+        left: auto;
+        height: 20vmin;
+        width: 40vmin;
+        rotate: 10deg;
+    }
+    main {
+        padding-top: 5vmin;
+    }
 }
