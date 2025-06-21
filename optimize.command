@@ -6,4 +6,4 @@ magick mogrify -resize 2048x2048\> images/corkboard-img/entries/*.jpg
 magick mogrify -resize 2048x2048\> images/corkboard-img/entries/*.png
 
 # for file in $(find images/ -name '*.png'); do cwebp -q 100 "$file" -o "${file%.png}.webp"; done
-for file in $(find images/ -name '*.jpg'); do exiftool -EXIF= "$file"; done
+for file in $(find images/ -name '*.png'); do exiftool -EXIF= "$file"; done

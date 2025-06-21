@@ -15,6 +15,14 @@ function getCSVData(filename, callback = undefined) {
 
 function renderMessages(message_data) {
   let messageContainer = document.getElementById("guestbook-messages");
+
+  const options = {
+      rootMargin: "0px",
+      threshold: 0.25,
+  };
+  
+  const observer = new IntersectionObserver(scrollIntersectionCallback, options);
+
   for (var i = 0; i < message_data.length; i++) {
     let message = message_data[i];
     let messageNode = document.createElement("li");
@@ -54,6 +62,7 @@ function renderMessages(message_data) {
     }
 
     messageContainer.appendChild(messageNode);
+    observer.observe(messageNode);
   }
 }
 
@@ -62,3 +71,12 @@ async function main() {
 }
 
 main();
+
+function scrollIntersectionCallback (entries, observer) {
+    entries.forEach((entry) => {
+        let elem = entry.target;
+        if (entry.isIntersecting) {
+            elem.classList.add("visible");
+        }
+    });
+}
