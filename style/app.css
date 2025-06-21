@@ -88,6 +88,8 @@ html {
     overflow-x: hidden;
     overflow-y: auto;
     font-size: max(2vmin, 1.2em);
+
+    scrollbar-color: var(--dark) transparent;
 }
 
 body {
