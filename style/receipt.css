@@ -23,6 +23,7 @@ section {
 }
 
 .credit-image {
+    position: relative;
     width: 90vw;
     max-width: 1600px;
 }
