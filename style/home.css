@@ -17,7 +17,7 @@ section#intro {
     left: calc(50% - 40vmax); */
 
     width: 100vmin;
-    max-width: 1400px;
+    max-width: 1200px;
     min-width: 100px;
     aspect-ratio: 0.7;
     margin: auto;

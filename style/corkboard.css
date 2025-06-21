@@ -21,7 +21,7 @@ html.dialog-open {
 
     /* gap: 1em; */
     padding: 2em;
-    margin: 2em;
+    margin: 1em 2em;
     min-height: 100vh;
 
     /* border-image-source: url(/image-resize/full/corkboard-img/corkboard\ frame.png);
@@ -43,7 +43,7 @@ corkboard-item,
 .grid-sizer,
 .inline-deco {
     /* width: 20vmin; */
-    width: 200px;
+    width: 250px;
 }
 corkboard-item {
     position: relative;
@@ -187,7 +187,7 @@ corkboard-item img.polaroid {
 
 
 #corkboard .deco.top { bottom: calc(100% - 16px); }
-#corkboard .deco.bottom { bottom: -80px; width: 35vmin; max-width: 400px; min-width: 160px;}
+#corkboard .deco.bottom { bottom: -80px; width: 30vmin; max-width: 400px; min-width: 160px;}
 #corkboard .deco.left { left: 0; }
 #corkboard .deco.right { right: 0; }
 
@@ -431,7 +431,7 @@ corkboard-item img.polaroid {
 #corkboard-overlay.memory-writing #corkboard-item-dialog {
     left: 0;
     width: 80vw;
-    max-width: 100vmin;
+    max-width: 120vmin;
     aspect-ratio: 1.75 / 1;
     background-image: url(/image-resize/full/corkboard/writing_bg.png), url(/image-resize/200/corkboard/writing_bg.png);
 }
@@ -539,14 +539,15 @@ corkboard-item img.polaroid {
     font-family: "Nanum Pen Script", cursive;
 }
 .details-dialog-text .details-dialog-inner ul {
-    padding-left: 24px;
-    list-style: url("/image-resize/20/star1.png");
+    padding-inline-start: 1em;
+    list-style-image: url(/image-resize/20/star1.png);
+    list-style-position: outside;
 }
 .details-dialog-text .details-dialog-inner ul li {
     padding-left: 5px;
 }
 .details-dialog-text .details-dialog-inner ul li:nth-child(2n) {
-    list-style: url("/image-resize/20/star2.png");
+    list-style-image: url("/image-resize/20/star2.png");
 }
 .details-dialog-text .credit {
     font-size: 0.85rem;
@@ -628,7 +629,7 @@ corkboard-item img.polaroid {
     corkboard-item,
     .grid-sizer,
     .inline-deco {
-        width: 200px;
+        width: 250px;
     }
     #corkboard-item-dummy img.cutout.cutout_0 {
         right: 10vmin;

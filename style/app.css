@@ -36,7 +36,7 @@ global-header #logo:hover {
     animation-iteration-count: 1;
 }
 global-header nav {
-    width: fit-content;
+    width: 55%;
     box-sizing: border-box;
     padding: 0.25em 1.5em;
     margin: auto;
@@ -53,6 +53,7 @@ global-header nav .nav-inner {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
     gap: 0.5em;
 }
 
@@ -86,7 +87,7 @@ global-header h1 {
 html {
     overflow-x: hidden;
     overflow-y: auto;
-    font-size: max(2.5vmin, 1.2em);
+    font-size: max(2vmin, 1.2em);
 }
 
 body {

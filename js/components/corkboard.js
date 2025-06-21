@@ -56,7 +56,7 @@ class Corkboard extends HTMLElement {
             // options
             itemSelector: '.corkboard-item',
             stamp: '.stamp',
-            columnWidth: 200,
+            columnWidth: 250,
             initLayout: false,
             horizontalOrder: true,
             fitWidth: true,
