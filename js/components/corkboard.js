@@ -221,7 +221,7 @@ class CorkboardItem extends HTMLElement {
             if (this.data.type.includes("photo") || this.data.type.includes("art")) {
                 credit1.innerHTML = "Guest Chef:";
             }
-            credit2.innerHTML = `Sent by: ${this.data.credit[0]}`;
+            credit2.innerHTML = this.data.credit[0];
             document.getElementById("corkboard-item-dummy").append(credit1);
             document.getElementById("corkboard-item-dummy").append(credit2);
 
