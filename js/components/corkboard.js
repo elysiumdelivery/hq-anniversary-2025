@@ -55,7 +55,6 @@ class Corkboard extends HTMLElement {
         msnry = new Masonry(this, {
             // options
             itemSelector: '.corkboard-item',
-            stamp: '.stamp',
             columnWidth: 250,
             initLayout: false,
             horizontalOrder: true,
@@ -64,7 +63,6 @@ class Corkboard extends HTMLElement {
             stagger: 50,
             transitionDuration: 0
         });
-        msnry.stamp(document.querySelectorAll(".stamp"));
         imagesLoaded(this).on("progress", function (instance, image) {
             let elem = image.img.closest("corkboard-item");
             if (image.img.classList.contains("inline-deco")) {
@@ -216,10 +214,12 @@ class CorkboardItem extends HTMLElement {
             document.getElementById("corkboard-item-dummy").append(credit1);
             document.getElementById("corkboard-item-dummy").append(credit2);
 
-            let title = document.createElement("span");
-            title.classList.add("title");
-            title.innerHTML = this.data.title;
-            document.getElementById("corkboard-item-dummy").append(title);
+            if (this.data.title) {
+                let title = document.createElement("span");
+                title.classList.add("title");
+                title.innerHTML = this.data.title;
+                document.getElementById("corkboard-item-dummy").append(title);
+            }
         }
         else {
             DETAILS_DIALOG_EL.style.display = "";
