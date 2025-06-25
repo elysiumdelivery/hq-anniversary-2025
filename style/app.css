@@ -264,4 +264,11 @@ global-footer footer {
     #hamburger-menu {
         width: 80vmin;
     }
+    #hamburger-menu a {
+        height: 3.5em;
+    }
+    #hamburger-menu button.close {
+        width: 5em;
+        height: 5em;
+    }
 }

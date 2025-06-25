@@ -133,7 +133,7 @@ section#intro > a.prompt {
 .deco.cake {
     width: 42%;
     top: 43.2%;
-    right: 5%;
+    right: 2%;
     z-index: 6;
 }
 
@@ -142,7 +142,7 @@ section#intro > a.prompt {
     width: 31.7%;
     left: 3.5%;
     z-index: 6;
-    rotate: 110deg;
+    rotate: -90deg;
 }
 
 a.corkboard {
@@ -189,28 +189,34 @@ section#intro .message .message-container {
     position: absolute;
     top: 0;
     left: 0;
-    width: 70%;
+    width: 75%;
     height: 65%;
     margin: 15%;
-    margin-left: 15%;
+    margin-right: 10%;
     margin-bottom: 10%;
     box-sizing: border-box;
     overflow-y: auto;
     overflow-x: hidden;
 
     scrollbar-color: var(--dark) transparent;
+    transform: skewX(4deg) skewY(-1deg);
 }
 section#intro .message p {
+    color: var(--dark);
     font-family: "Nanum Pen Script", serif;
     font-weight: normal;
     font-size: 1em;
-    rotate: -2deg;
     margin: 0;
 }
 
 @media only screen and (min-aspect-ratio: 3 / 2) {
-    section#intro .message p {
+    /* section#intro .message p {
         font-size: 1.25em;
+    } */
+}
+@media only screen and (max-width: 600px) {
+    section#intro .message p {
+        font-size: 0.75em;
     }
 }
 

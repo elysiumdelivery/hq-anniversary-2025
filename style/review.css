@@ -82,6 +82,7 @@ section#guestbook-container .guestbook-message:first-child {
 
 section#guestbook-container .guestbook-message:nth-child(2n) .guestbook-icon {
     background-color: #d9efff;
+	background-image: url(/image-resize/100/corkboard/cutouts/slime2_cutout.png);
 }
 section#guestbook-container .guestbook-message:nth-child(2n) .guestbook-stars div {
     background-image: url("/image-resize/50/star1.png");
@@ -93,6 +94,10 @@ section#guestbook-container .guestbook-message .guestbook-icon {
     height: 50px;
 	border-radius: 50%;
     background-color: #ffe9c7;
+	background-image: url(/image-resize/100/corkboard/cutouts/axelotl2_cutout.png);
+    background-size: 125%;
+    background-position: 50% 50%;
+	background-repeat: no-repeat;
     flex-shrink: 0;
 }
 
@@ -199,5 +204,18 @@ section#guestbook-container .guestbook-message .guestbook-img {
 
 	section#guestbook-container ul {
 		column-count: 1;
+	}
+}
+
+@media only screen and (max-width: 600px) {
+	section#guestbook-container .guestbook-message {
+		grid-template-columns: 100%;
+		grid-template-areas:    "guestbook-user"
+								"guestbook-stars"
+								"guestbook-message"
+								"guestbook-image";
+	}
+	section#guestbook-container .guestbook-message .guestbook-user div {
+		overflow-wrap: anywhere;
 	}
 }
