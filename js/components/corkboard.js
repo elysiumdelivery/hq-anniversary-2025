@@ -278,6 +278,14 @@ class CorkboardItem extends HTMLElement {
     onDialogImageLoaded (image, dummyItem) {
         if (image) {
             image.src = `image-resize/2048/${this.getAttribute("img")}`;
+            image.srcset = [
+                `image-resize/1024/${this.getAttribute("img")} 1024w`,
+                `image-resize/2048/${this.getAttribute("img")} 2048w`,
+            ].join(",");
+            image.sizes = [
+                "(max-width: 600px) 1024px",
+                "2048px"
+            ].join(",");
         }
         setTimeout(() => {
             if (dummyItem) {

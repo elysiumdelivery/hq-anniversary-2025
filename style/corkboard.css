@@ -59,6 +59,21 @@ corkboard-item {
     display: inline-block;
     cursor: pointer;
 }
+corkboard-item:not([entry-type="writing"])::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-image: url(/image-resize/50/star1.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 40px;
+    height: 40px;
+}
+corkboard-item:not([entry-type="writing"]):nth-child(2n)::after {
+    background-image: url(/image-resize/50/star2.png);
+}
 corkboard-item[entry-type="art writing"] {
     margin-top: 5vmin;
 }
@@ -77,7 +92,7 @@ corkboard-item[entry-type="art writing"]::before {
 }
 
 corkboard-item[entry-type="art writing"]:nth-child(2n)::before {
-    left: 25%;
+    left: 55%;
     rotate: 10deg;
     background-image: url(/image-resize/200/corkboard/bookmark_2.png);
 }
