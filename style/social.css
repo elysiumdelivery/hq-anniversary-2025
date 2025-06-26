@@ -10,12 +10,10 @@ section {
     gap: 0.5em;
 }
 
-#social .full-width {
-    grid-column-start: span 3;
-}
-#social .poster {
-    grid-row-start: span 2;
-    grid-column-start: span 2;
+#poster {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5em;
 }
 
 .social-image {
