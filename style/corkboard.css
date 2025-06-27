@@ -802,6 +802,7 @@ corkboard-item img.polaroid {
 .inline-deco[src="/image-resize/full/corkboard/deco_4.png"] {
     transform-origin: 50% 10%;
     filter: drop-shadow(5px 5px 3px rgba(0, 0, 0, 0.5));
+    z-index: 999;
 }
 
 .inline-deco[src="/image-resize/full/corkboard/deco_1.png"]:hover,
