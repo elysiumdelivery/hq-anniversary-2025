@@ -2,10 +2,15 @@ html, body {
     background-image: url(/image-resize/1024/home/bg.png);
     background-repeat: repeat;
     background-size: 500px;
+    overflow-x: hidden;
 }
 
 global-header nav, global-footer {
     display: none;
+}
+
+main {
+    min-height: 100dvh;
 }
 
 section#intro {

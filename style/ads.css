@@ -17,6 +17,7 @@ section {
     gap: 1em;
     margin: 3em 0;
     margin-bottom: 5em;
+    flex-wrap: wrap;
 }
 
 #tabs a {
