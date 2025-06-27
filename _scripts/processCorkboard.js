@@ -10,7 +10,7 @@ const __dirname = dirname(__filename);
 const CORKBOARD_CSV = "../data/corkboard.csv";
 
 let pettableDecos = ["corkboard/deco_1.png", "corkboard/deco_2.png", "corkboard/deco_3.png", "corkboard/deco_4.png"];
-let reusableDecos = ["corkboard/deco_5.png", "corkboard/deco_6.png"];
+let reusableDecos = [];
 
 const randomData = [];
 
