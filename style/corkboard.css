@@ -192,6 +192,7 @@ corkboard-item img.polaroid {
     justify-content: center;
     transition: 0.5s transform ease, 0.5s opacity ease;
     transform: none;
+    filter: drop-shadow(2px 2px 0px rgba(0, 0, 0, 0.5));
 }
 .inline-deco[src*="star"] { width: 5vmin; margin: 1vmin; min-width: 0; }
 
@@ -800,6 +801,7 @@ corkboard-item img.polaroid {
 .inline-deco[src="/image-resize/full/corkboard/deco_1.png"],
 .inline-deco[src="/image-resize/full/corkboard/deco_4.png"] {
     transform-origin: 50% 10%;
+    filter: drop-shadow(5px 5px 3px rgba(0, 0, 0, 0.5));
 }
 
 .inline-deco[src="/image-resize/full/corkboard/deco_1.png"]:hover,
