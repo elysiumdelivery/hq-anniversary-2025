@@ -190,7 +190,8 @@ corkboard-item img.polaroid {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    transition: 0.5s opacity ease;
+    transition: 0.5s transform ease, 0.5s opacity ease;
+    transform: none;
 }
 .inline-deco[src*="star"] { width: 5vmin; margin: 1vmin; min-width: 0; }
 
@@ -795,4 +796,42 @@ corkboard-item img.polaroid {
     #corkboard-item-dialog.slide-out {
         transform: translateX(0%) rotate(0deg);
     }
+}
+.inline-deco[src="/image-resize/full/corkboard/deco_1.png"],
+.inline-deco[src="/image-resize/full/corkboard/deco_4.png"] {
+    transform-origin: 50% 10%;
+}
+
+.inline-deco[src="/image-resize/full/corkboard/deco_1.png"]:hover,
+.inline-deco[src="/image-resize/full/corkboard/deco_4.png"]:hover {
+    animation: wiggle;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.inline-deco[src="/image-resize/full/corkboard/deco_2.png"]:hover,
+.inline-deco[src="/image-resize/full/corkboard/deco_3.png"]:hover {
+    animation: struggle;
+    animation-duration: 0.25s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+}
+
+@keyframes wiggle {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(-10deg); }
+    50% { transform: rotate(0deg); }
+    75% { transform: rotate(10deg); }
+    100% { transform: rotate(0deg); }
+}
+
+@keyframes struggle {
+    0% { transform: translate(0, 0); }
+    25% { transform: translate(-2px, 0); }
+    50% { transform: translate(0, 2px); }
+    75% { transform: translate(2px, 0); }
+    80% { transform: translate(2px, 2px); }
+    100% { transform: translate(0, 0); }
 }

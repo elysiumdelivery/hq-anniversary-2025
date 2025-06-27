@@ -385,6 +385,9 @@ function makeInlineDeco (elem, data) {
     if (data.rotate) {
         decoEl.style.rotate = `${data.rotate}deg`
     }
+    if (data.class) {
+        decoEl.classList.add(data.class);
+    }
     if (data.margin) {
         decoEl.style.margin = `1vw ${data.margin}vw`
     }

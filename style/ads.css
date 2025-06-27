@@ -15,11 +15,35 @@ section {
     align-items: center;
     justify-content: center;
     gap: 1em;
-    margin: 1em 0;
+    margin: 3em 0;
+    margin-bottom: 5em;
 }
 
 #tabs a {
+    position: relative;
+    transition: 0.5s transform ease;
+    transform-origin: 50% 0%;
+    filter: drop-shadow(5px 10px 3px rgba(0, 0, 0, 0.5));
+}
 
+#tabs a::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-image: url(/image-resize/50/star1.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 40px;
+    height: 40px;
+}
+#tabs a:nth-child(2n)::after {
+    background-image: url(/image-resize/50/star2.png);
+}
+
+#tabs a:hover {
+    transform: rotate(var(--angle));
 }
 
 .cover-row {

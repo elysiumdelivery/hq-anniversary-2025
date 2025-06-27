@@ -129,8 +129,18 @@ a.magazine {
     background-size: contain;
     aspect-ratio: 94/59;
 }
+.deco.stream-safe {
+    width: 45%;
+    top: 91%;
+    left: 26%;
+    z-index: 3;
+    background-image: url(/image-resize/full/home/message_flipped.png);
+    background-size: contain;
+    aspect-ratio: 94/59;
+    rotate: 3deg;
+}
 
-.deco.cake {
+a.cake {
     width: 42%;
     top: 43.2%;
     right: 2%;
@@ -185,23 +195,42 @@ a.eds {
     z-index: 4;
 }
 
-section#intro .message .message-container {
+section#intro .message .message-container,
+section#intro .stream-safe .message-container {
     position: absolute;
     top: 0;
     left: 0;
     width: 75%;
     height: 65%;
     margin: 15%;
-    margin-right: 10%;
     margin-bottom: 10%;
     box-sizing: border-box;
     overflow-y: auto;
     overflow-x: hidden;
 
     scrollbar-color: var(--dark) transparent;
-    transform: skewX(4deg) skewY(-1deg);
 }
-section#intro .message p {
+
+section#intro .message .message-container {
+    margin-right: 15%;
+}
+
+section#intro .stream-safe .message-container {
+    margin-top: 18%;
+    margin-left: 15%;
+    width: 72%;
+    height: 60%;
+    font-size: 0.8em;
+    line-height: 1;
+}
+section#intro .stream-safe .message-container i {
+    font-size: 0.8em;
+    line-height: 1;
+    display: block;
+}
+
+section#intro .message p,
+section#intro .stream-safe p {
     color: var(--dark);
     font-family: "Nanum Pen Script", serif;
     font-weight: normal;
