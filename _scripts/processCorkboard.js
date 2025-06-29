@@ -9,8 +9,8 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const CORKBOARD_CSV = "../data/corkboard.csv";
 
-let singleDecos = ["eds.png", "home/polaroid1.png", "home/polaroid2.png"];
-let reusableDecos = ["star1.png", "star2.png"];
+let pettableDecos = ["corkboard/deco_1.png", "corkboard/deco_2.png", "corkboard/deco_3.png", "corkboard/deco_4.png"];
+let reusableDecos = [];
 
 const randomData = [];
 
@@ -25,7 +25,7 @@ Papa.parse(data, {
     },
 });
 function processData (data) {
-    let processed = data.map(d => {
+    let processed = data.filter(d => d["Active?"] === "TRUE").map(d => {
         let p = {
             category: d["Category"].toLowerCase(),
             type: d["Type"].toLowerCase().split(" + "),
@@ -34,6 +34,10 @@ function processData (data) {
             title: d["Entry Title"],
             desc: d["Entry Description"],
             cutouts:  d["Cutouts"] ? d["Cutouts"].split(", ") : [],
+        }
+        if (p.title && p.desc) {
+            let idx = p.desc.indexOf(p.title) + p.title.length;
+            p.desc = p.desc.slice(idx).trim();
         }
         if (p.credit.length > 1) {
             p.credit = p.credit.map((v) => {
@@ -66,10 +70,10 @@ function processData (data) {
     let pmCount = 0;
     for (var i = 0; i < processed.length; i++) {
         let processedData = processed[i];
-        if (Math.floor(Math.random() * 12) === 0) {
-            genInlineDeco(singleDecos, { rotate: true });
+        if ((i + 1) % 8 === 0) {
+            genInlineDeco(pettableDecos, { rotate: true, class: "petzone" });
         }
-        else if (Math.floor(Math.random() * 6) === 0) {
+        else if (Math.round(i + 1 + Math.random()) % 12 === 0) {
             genInlineDeco(reusableDecos, { margin: true });
         }
         var newPlusOrMinus = Math.random() < 0.5 ? -1 : 1;
@@ -93,6 +97,7 @@ function processData (data) {
     randomData.forEach((processedData, i) => {
         if (processedData.path) {
             let imgPath = path.join(__dirname, `../images/${processedData.path}`);
+            console.log(imgPath)
             try {
                 let stdout = execSync(`identify -ping -format '%w %h' ${imgPath}`, { encoding: "utf-8"});
                 console.log(stdout)
@@ -124,17 +129,26 @@ function processData (data) {
 }
 
 function genInlineDeco (decos, options) {
-    let randomDecoPath = decos[Math.floor(Math.random() * decos.length)];
-    let data = {
-        itemType: "inline-deco",
-        path: randomDecoPath,
-    };
-    let plusOrMinus = Math.random() < 0.5 ? -1 : 1;
-    if (options.rotate) {
-        data.rotate = Math.round((2 + Math.random() * 5 * plusOrMinus));
+    let idx = Math.floor(Math.random() * decos.length);
+    let randomDecoPath;
+    if (options.reusable) {
+        randomDecoPath = decos[idx];
     }
-    if (options.margin) {
-        data.margin = Math.round((2 + Math.random() * 5));
+    else {
+        randomDecoPath = decos.splice(idx, 1)[0];
     }
-    randomData.push(data);
+    if (randomDecoPath) {
+        let data = {
+            itemType: "inline-deco",
+            path: randomDecoPath,
+        };
+        let plusOrMinus = Math.random() < 0.5 ? -1 : 1;
+        if (options.rotate) {
+            data.rotate = Math.round((2 + Math.random() * 5 * plusOrMinus));
+        }
+        if (options.class) {
+            data.class = options.class;
+        }
+        randomData.push(data);
+    }
 }

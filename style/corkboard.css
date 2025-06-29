@@ -3,6 +3,7 @@
 }
 html, body {
     background-image: none;
+    overflow-x: hidden;
 }
 html.dialog-open {
     overflow-y: hidden;
@@ -21,14 +22,14 @@ html.dialog-open {
 
     /* gap: 1em; */
     padding: 2em;
-    margin: 2em;
+    margin: 1em 2em;
     min-height: 100vh;
 
     /* border-image-source: url(/image-resize/full/corkboard-img/corkboard\ frame.png);
     border-image-slice: 7%;
     border-image-repeat: repeat; */
     border-style: solid;
-    border-width: 20px;
+    border-width: 2vmin;
     border-color: #625049;
     box-shadow: inset 0 0 15px;
     background-color: #ae8d85;
@@ -42,8 +43,8 @@ html.dialog-open {
 corkboard-item,
 .grid-sizer,
 .inline-deco {
-    width: 20vmin;
-    min-width: 200px;
+    /* width: 20vmin; */
+    width: 250px;
 }
 corkboard-item {
     position: relative;
@@ -58,6 +59,21 @@ corkboard-item {
     content-visibility: visible;
     display: inline-block;
     cursor: pointer;
+}
+corkboard-item:not([entry-type="writing"])::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-image: url(/image-resize/50/star1.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 40px;
+    height: 40px;
+}
+corkboard-item:not([entry-type="writing"]):nth-child(2n)::after {
+    background-image: url(/image-resize/50/star2.png);
 }
 corkboard-item[entry-type="art writing"] {
     margin-top: 5vmin;
@@ -77,7 +93,7 @@ corkboard-item[entry-type="art writing"]::before {
 }
 
 corkboard-item[entry-type="art writing"]:nth-child(2n)::before {
-    left: 25%;
+    left: 55%;
     rotate: 10deg;
     background-image: url(/image-resize/200/corkboard/bookmark_2.png);
 }
@@ -128,6 +144,24 @@ corkboard-item img,
 #corkboard-item-dummy img {
     border-radius: 12px;
 }
+#corkboard-item-dummy:hover #desc-hover {
+    opacity: 1;
+}
+#corkboard-item-dummy #desc-hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background-color: rgba(255, 255, 255, 0.5);
+
+    opacity: 0;
+    transition: 0.5s opacity ease;
+}
 
 corkboard-item img.polaroid {
     position: relative;
@@ -157,19 +191,21 @@ corkboard-item img.polaroid {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    transition: 0.5s opacity ease;
+    transition: 0.5s transform ease, 0.5s opacity ease;
+    transform: none;
+    filter: drop-shadow(2px 2px 0px rgba(0, 0, 0, 0.5));
 }
-.inline-deco[src*="star"] { width: 5vw; margin: 1vw; min-width: 0; }
+.inline-deco[src*="star"] { width: 5vmin; margin: 1vmin; min-width: 0; }
 
 #corkboard .deco {
     position: absolute;
     width: 160px;
-    z-index: 999;
+    z-index: 888;
 }
 
 
 #corkboard .deco.top { bottom: calc(100% - 16px); }
-#corkboard .deco.bottom { bottom: -80px; width: 20vw; max-width: 400px; min-width: 200px;}
+#corkboard .deco.bottom { bottom: -80px; width: 30vmin; max-width: 400px; min-width: 160px;}
 #corkboard .deco.left { left: 0; }
 #corkboard .deco.right { right: 0; }
 
@@ -178,13 +214,18 @@ corkboard-item img.polaroid {
     top: 0;
     left: 0;
     width: 100%;
+    max-width: 100vw;
     height: 100%;
+    max-height: 100dvh;
     z-index: 999;
 
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
+
+    box-sizing: border-box;
+    padding: 0 5vmin;
 }
 
 #corkboard-item-dummy {
@@ -194,6 +235,20 @@ corkboard-item img.polaroid {
     transition: 0.5s transform ease, 0.5s rotate ease, 0.5s width ease, 0.5s height ease;
     flex-shrink: 0;
 }
+#corkboard-item-dummy::before {
+    content: "";
+    border: 7px solid var(--blue-2);
+    border-radius: 5px;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    box-sizing: border-box;
+    transition: 0.5s opacity ease, 0.5s transform ease;
+    opacity: 0;
+    transform: none;
+    border-style: dashed;
+}
+
 #corkboard-item-dummy.img-load {
     height: 80dvh;
     rotate: 0deg;
@@ -212,7 +267,7 @@ corkboard-item img.polaroid {
 }
 #corkboard-item-dummy.img-load .date,
 #corkboard-item-dummy.img-load .title {
-    transform: translateX(10%) rotate(5deg);
+    transform: translateY(-50%) translateX(10%) rotate(5deg);
 }
 #corkboard-item-dummy.img-load .cutout.cutout_0 {
     transform: translate(-65%, -50%) rotate(-10deg);
@@ -241,18 +296,20 @@ corkboard-item img.polaroid {
     opacity: 0;
     transition-delay: 1s;
     transform: translateX(-10%) rotate(0deg);
-    background-color: white;
-    border-radius: 20px;
+    background-color: var(--beige);
+    border-radius: 2vmin;
     padding: 0.25rem 0.5rem;
-    font-size: 0.75rem;
+    font-size: 1rem;
+    color: var(--dark);
 }
 #corkboard-item-dummy .credit {
-    left: 5%;
-    bottom: 0%;
+    left: 1.5em;
+    bottom: -1.5em;
 }
 #corkboard-item-dummy .credit.label {
     left: 0%;
-    bottom: 2em;
+    bottom: 0.7em;
+    z-index: 2;
 }
 #corkboard-item-dummy .date,
 #corkboard-item-dummy .title {
@@ -261,9 +318,19 @@ corkboard-item img.polaroid {
     transform-origin: 75% 50%;
 }
 #corkboard-item-dummy .title {
-    text-align: right;
+    font-family: "Shantell Sans", cursive;
+    font-optical-sizing: auto;
     font-weight: 500;
-    font-size: 70%;
+    font-style: normal;
+    font-variation-settings:
+        "BNCE" 0,
+        "INFM" 0,
+        "SPAC" 0;
+    text-align: right;
+    padding: 0.25rem 1rem;
+    font-size: 1.5rem;
+    text-align: center;
+    color: var(--blue-3);
 }
 #corkboard-item-dummy img.cutout {
     position: absolute;
@@ -282,6 +349,10 @@ corkboard-item img.polaroid {
     transform: translate(50%, -40%);
     right: 0; top: 25%;
 }
+#corkboard-item-dummy.slide-out::before {
+    transform: rotate(-5deg);
+    opacity: 1;
+}
 #corkboard-overlay.memory-art-writing #corkboard-item-dummy.img-load {
     width: 45%;
     height: auto;
@@ -289,6 +360,7 @@ corkboard-item img.polaroid {
 #corkboard-overlay.food #corkboard-item-dummy.img-load {
     width: 50vw;
     width: var(--width);
+    height: var(--height);
 }
 #corkboard-overlay.memory-writing #corkboard-item-dummy {
     display: none;
@@ -379,7 +451,7 @@ corkboard-item img.polaroid {
 #corkboard-overlay.memory-writing #corkboard-item-dialog {
     left: 0;
     width: 80vw;
-    max-width: 910px;
+    max-width: 120vmin;
     aspect-ratio: 1.75 / 1;
     background-image: url(/image-resize/full/corkboard/writing_bg.png), url(/image-resize/200/corkboard/writing_bg.png);
 }
@@ -408,6 +480,8 @@ corkboard-item img.polaroid {
     transition: 1s transform cubic-bezier(0.175, 0.885, 0.32, 1.275), 0.5s opacity ease;
     transform: translateY(-10%);
     opacity: 0;
+
+    filter: drop-shadow(2px 4px 6px gray);
 }
 
 #sparkle-effects img {
@@ -453,14 +527,22 @@ corkboard-item img.polaroid {
     box-sizing: border-box;
     aspect-ratio: 1 / 1.1;
     overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
 }
 
 .details-dialog-inner {
     overflow-y: auto;
-    height: calc(100% - 2em);
     width: 100%;
     position: relative;
     scrollbar-color: var(--dark) transparent;
+    padding-right: 0.5em;
+    box-sizing: border-box;
+    flex-grow: 1;
+
+    color: var(--dark);
 }
 
 .details-dialog-text h3{
@@ -473,27 +555,27 @@ corkboard-item img.polaroid {
     font-size: 0.75rem;
     font-weight: 500;
     display: inline-block;
-    margin-bottom: 1em;
 }
 .details-dialog-text .details-dialog-inner > * {
-    font-size: 0.85rem;
+    font-size: 1.25rem;
+    font-family: "Nanum Pen Script", cursive;
 }
 .details-dialog-text .details-dialog-inner ul {
-    padding-left: 24px;
-    list-style: url("/image-resize/20/star1.png");
+    padding-inline-start: 1em;
+    list-style-image: url(/image-resize/20/star1.png);
+    list-style-position: outside;
 }
 .details-dialog-text .details-dialog-inner ul li {
     padding-left: 5px;
 }
 .details-dialog-text .details-dialog-inner ul li:nth-child(2n) {
-    list-style: url("/image-resize/20/star2.png");
+    list-style-image: url("/image-resize/20/star2.png");
 }
 .details-dialog-text .credit {
-    font-size: 0.75rem;
+    font-size: 0.85rem;
     text-align: right;
-    position: absolute;
-    bottom: 12%;
-    right: 15%;
+    position: relative;
+    flex-shrink: 0;
 }
 .details-dialog-text p:first-child{
     margin-top: 0;
@@ -513,6 +595,51 @@ corkboard-item img.polaroid {
     width: 5vw;
     aspect-ratio: 1 / 1;
 }
+.credit.label {
+    font-family: "Sour Gummy", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: normal;
+    font-style: normal;
+    font-variation-settings:"wdth" 100;
+}
+.credit {
+    font-family: "Shantell Sans", cursive;
+    /* medium */
+    font-optical-sizing: 500;
+    font-weight: normal;
+    font-style: italic;
+    font-variation-settings:
+        "BNCE" 0,
+        "INFM" 0,
+        "SPAC" 0;
+}
+
+#speech-bubble {
+	position: relative;
+	background: white;
+	border-radius: .4em;
+    color: var(--dark);
+
+    display: none;
+    transition: 0.5s transform, 0.5s opacity ease;
+    transform: translateX(-50%);
+    opacity: 0;
+}
+
+#speech-bubble:after {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 50%;
+	width: 0;
+	height: 0;
+	border: 37px solid transparent;
+	border-right-color: white;
+	border-left: 0;
+	border-bottom: 0;
+	margin-top: -18.5px;
+	margin-left: -37px;
+}
 
 @media only screen and (max-width: 800px) {
     global-header nav { display: none !important; }
@@ -524,7 +651,7 @@ corkboard-item img.polaroid {
     corkboard-item,
     .grid-sizer,
     .inline-deco {
-        width: 200px;
+        width: 250px;
     }
     #corkboard-item-dummy img.cutout.cutout_0 {
         right: 10vmin;
@@ -533,12 +660,6 @@ corkboard-item img.polaroid {
     #corkboard-item-dummy img.cutout.cutout_1 {
         right: 10vmin;
         top: 20%;
-    }
-    #corkboard-item-dummy .credit {
-        left: 10vmin;
-    }
-    #corkboard-item-dummy .credit.label {
-        left: 5vmin;
     }
     /* #corkboard-overlay {
         flex-direction: column;
@@ -552,7 +673,7 @@ corkboard-item img.polaroid {
         height: 45%;
     } */
     #corkboard-overlay.food #corkboard-item-dummy.img-load {
-        max-width: 90vw;
+        max-width: 80vw;
         height: auto;
     }
     #corkboard-overlay.memory-writing #corkboard-item-dialog {
@@ -560,12 +681,19 @@ corkboard-item img.polaroid {
     }
 }
 
+@media only screen and (min-width: 1920px) {
+    #corkboard {
+        margin: 2em auto;
+        max-width: 1920px;
+    }
+}
 @media only screen and (max-width: 600px) {
     #corkboard {
-        padding: 1em;
+        padding: 0;
         margin: 2vw;
         margin-bottom: 100px;
         min-width: 300px;
+        box-sizing: border-box;
     }
     /* corkboard-item {
         height: 60vw;
@@ -578,14 +706,31 @@ corkboard-item img.polaroid {
     #corkboard-overlay {
         flex-direction: column;
         overflow: hidden;
+        padding: 0;
     }
     #corkboard-overlay.memory-art-writing #corkboard-item-dummy.img-load {
         width: auto;
         height: 45%;
     }
     #corkboard-overlay.food #corkboard-item-dummy.img-load {
-        max-width: 90vw;
-        /* height: auto; */
+        /* max-width: 90vw; */
+        height: auto;
+        margin-top: 2.5em;
+    }
+    #corkboard-overlay.food #corkboard-item-dummy.img-load .title {
+        transform: translateY(-125%) translateX(-50%) rotate(0deg);
+        right: auto;
+        left: 50%;
+    }
+    #corkboard-item-dummy.img-load .credit.label {
+        transform: translateX(-10%) rotate(-5deg);
+    }
+    #corkboard-item-dummy.img-load .credit {
+        transform: translateX(-10%) rotate(5deg);
+    }
+    #corkboard-overlay.memory-art-writing #corkboard-item-dummy.img-load .credit,
+    #corkboard-overlay.memory-writing #corkboard-item-dummy.img-load .credit {
+        transform: translateX(-10%) rotate(0deg);
     }
     #corkboard-overlay.memory-writing #corkboard-item-dialog, 
     #corkboard-overlay.memory-art-writing #corkboard-item-dialog {
@@ -605,38 +750,49 @@ corkboard-item img.polaroid {
     #corkboard-overlay.memory-writing .details-dialog-text,
     #corkboard-overlay.memory-art-writing .details-dialog-text {
         aspect-ratio: auto;
-        padding-bottom: 2em;
+        padding-bottom: 0.5em;
         padding-top: 0;
-        width: calc(100% - 1em);
-        max-height: calc(100% - 4em);
-        padding-left: 1em;
+        width: 100%;
+        max-height: calc(100% - 6em);
+        padding-left: 0.75em;
+        padding-right: 0.75em;
         background: #ffffffb0;
         backdrop-filter: blur(1px);
         border-radius: 15px;
     }
     #corkboard-overlay.memory-art-writing .details-dialog-text {
         padding-right: 0;
-        padding-bottom: 2.5em;
+        padding-bottom: 0;
         width: calc(100% - 2.5em);
+        max-height: calc(100% - 1em);
     }
     #corkboard-overlay.memory-writing .details-dialog-inner,
     #corkboard-overlay.memory-art-writing .details-dialog-inner {
         overflow-y: auto;
-        height: calc(100% - 1em);
         width: 100%;
         position: relative;
     }
-    #corkboard-overlay.memory-writing .details-dialog-text .credit {
-        left: 1.25rem;
-        right: auto;
-        bottom: 1rem;
+    #corkboard-overlay.memory-art-writing #corkboard-item-dummy.img-load .credit.label,
+    #corkboard-overlay.memory-writing #corkboard-item-dummy.img-load .credit.label {
+        bottom: 1.5rem;
     }
-    #corkboard-overlay.memory-art-writing .details-dialog-text .credit {
-        bottom: 0.5em;
+    #corkboard-overlay.memory-art-writing #corkboard-item-dummy.img-load .credit,
+    #corkboard-overlay.memory-writing #corkboard-item-dummy.img-load .credit {
+        bottom: 0;
+    }
+    #corkboard-item-dummy .credit, 
+    #corkboard-item-dummy .date {
+        font-size: 0.75rem;
+    }
+    #corkboard-item-dummy .title {
+        font-size: 100%;
+        white-space: nowrap;
+        text-align: center;
+    }
+    #corkboard-overlay.memory-writing .details-dialog-text .credit {
         right: 0;
     }
-    #corkboard-overlay.memory-writing .dialog-close,
-    #corkboard-overlay.memory-art-writing .dialog-close {
+    #corkboard-overlay .dialog-close {
         bottom: auto;
         top: 1em;
         right: 1em;
@@ -644,4 +800,44 @@ corkboard-item img.polaroid {
     #corkboard-item-dialog.slide-out {
         transform: translateX(0%) rotate(0deg);
     }
+}
+.inline-deco[src="/image-resize/full/corkboard/deco_1.png"],
+.inline-deco[src="/image-resize/full/corkboard/deco_4.png"] {
+    transform-origin: 50% 10%;
+    filter: drop-shadow(5px 5px 3px rgba(0, 0, 0, 0.5));
+    z-index: 999;
+}
+
+.inline-deco[src="/image-resize/full/corkboard/deco_1.png"]:hover,
+.inline-deco[src="/image-resize/full/corkboard/deco_4.png"]:hover {
+    animation: wiggle;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.inline-deco[src="/image-resize/full/corkboard/deco_2.png"]:hover,
+.inline-deco[src="/image-resize/full/corkboard/deco_3.png"]:hover {
+    animation: struggle;
+    animation-duration: 0.25s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+}
+
+@keyframes wiggle {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(-10deg); }
+    50% { transform: rotate(0deg); }
+    75% { transform: rotate(10deg); }
+    100% { transform: rotate(0deg); }
+}
+
+@keyframes struggle {
+    0% { transform: translate(0, 0); }
+    25% { transform: translate(-2px, 0); }
+    50% { transform: translate(0, 2px); }
+    75% { transform: translate(2px, 0); }
+    80% { transform: translate(2px, 2px); }
+    100% { transform: translate(0, 0); }
 }

@@ -1,9 +1,7 @@
 section {
     padding: 30px;
-}
-
-h2 {
-    text-align: center;
+	max-width: 1920px;
+    margin: auto;
 }
 
 section#guestbook-container ul {
@@ -17,6 +15,14 @@ section#guestbook-container ul {
 section#guestbook-container ul li {
 	list-style: none;
 	display: block;
+	transition: 0.75s opacity ease-out, 0.75s transform ease-out;
+    transform: translateY(25%);
+    opacity: 0;
+}
+
+section#guestbook-container ul li.visible {
+	transform: none;
+    opacity: 1;
 }
 
 section#guestbook-container .header-message {
@@ -27,7 +33,6 @@ section#guestbook-container .header-message {
 section#guestbook-container h1 {
 	color: white;
 	text-align: center;
-	font-size: 1.5em;
 	margin-bottom: 2em;
 }
 
@@ -77,6 +82,7 @@ section#guestbook-container .guestbook-message:first-child {
 
 section#guestbook-container .guestbook-message:nth-child(2n) .guestbook-icon {
     background-color: #d9efff;
+	background-image: url(/image-resize/100/corkboard/cutouts/slime2_cutout.png);
 }
 section#guestbook-container .guestbook-message:nth-child(2n) .guestbook-stars div {
     background-image: url("/image-resize/50/star1.png");
@@ -88,6 +94,10 @@ section#guestbook-container .guestbook-message .guestbook-icon {
     height: 50px;
 	border-radius: 50%;
     background-color: #ffe9c7;
+	background-image: url(/image-resize/100/corkboard/cutouts/axelotl2_cutout.png);
+    background-size: 125%;
+    background-position: 50% 50%;
+	background-repeat: no-repeat;
     flex-shrink: 0;
 }
 
@@ -150,9 +160,14 @@ section#guestbook-container .guestbook-message .guestbook-user {
 }
 
 section#guestbook-container .guestbook-message .guestbook-user div {
-	font-size: 0.8em;
-	font-family: "Solway", serif;
-	font-weight: 700;
+	font-family: "Shantell Sans", cursive;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-variation-settings:
+        "BNCE" 0,
+        "INFM" 0,
+        "SPAC" 0;
 }
 
 section#guestbook-container .guestbook-message h3 {
@@ -162,7 +177,6 @@ section#guestbook-container .guestbook-message h3 {
 section#guestbook-container .guestbook-message p {
     grid-area: guestbook-message;
     /* text-align: justify; */
-    font-size: 0.8em;
     padding-left: 0.5rem;
 	line-height: 1.5;
 }
@@ -185,10 +199,23 @@ section#guestbook-container .guestbook-message .guestbook-img {
 
 	html {
 		height: fit-content;
-		width: fit-content;
+		width: 100vw;
 	}
 
 	section#guestbook-container ul {
 		column-count: 1;
+	}
+}
+
+@media only screen and (max-width: 600px) {
+	section#guestbook-container .guestbook-message {
+		grid-template-columns: 100%;
+		grid-template-areas:    "guestbook-user"
+								"guestbook-stars"
+								"guestbook-message"
+								"guestbook-image";
+	}
+	section#guestbook-container .guestbook-message .guestbook-user div {
+		overflow-wrap: anywhere;
 	}
 }

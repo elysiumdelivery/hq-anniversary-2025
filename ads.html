@@ -7,14 +7,15 @@
         <meta name="description" content="TODO">
         <meta name="keywords" content="regis,altare,axel,syrios,tempus,hq,holopro,holostars">
         <meta name="twitter:card" content="summary">
-        <meta name="twitter:title" content="<meta name=" twitter:title"="">
-        <meta name="twitter:description" content="TODO">
+        <meta name="twitter:title" content="Pawfee Pals Cafe">
+        <meta name="twitter:description" content="Tempus HQ 3rd Anniversary Fan Project">
+        <meta property="twitter:image" content="/image-resize/full/logo.png">
         <!-- Enables media queries on mobile -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- Font -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&amp;family=Oswald:wght@200..700&amp;family=Fredoka:wght@300..700&amp;family=Solway:wght@300;400;500;700;800&amp;display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Nanum+Pen+Script&family=Quicksand:wght@300..700&family=Shantell+Sans:ital,wght@0,300..800;1,300..800&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="style/app.css">
         <link rel="stylesheet" type="text/css" href="style/ads.css">
         <script src="js/components/header.js"></script>
@@ -24,28 +25,36 @@
     <body>
         <global-header></global-header>
         <main>
-            <section id="splash" class="scroll-vis">
-                <iframe width="100%" height="500" src="https://www.youtube.com/embed/Xyz4NtIAC4A?si=4BtmAqWGSF-Aba9h" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <div id="tabs">
+                <a href="#clips" style="--angle: -5deg; rotate: 2deg; top: 0.5em;"><img alt="Clips" focusable="false" src="/image-resize/250/nav/ad-clips.png"/></a>
+                <a href="#promo" style="--angle: 5deg; rotate: -1deg;"><img alt="Ad Promo" focusable="false" src="/image-resize/250/nav/ad-promo.png"/></a>
+                <a href="#shelter" style="--angle: -5deg; rotate: -3deg; top: 0.25em;"><img alt="Shelter Project" focusable="false" src="/image-resize/250/nav/ad-shelter.png"/></a>
+            </div>
+            <section id="clips" class="scroll-vis">
+                <h2>clips</h2>
+                <p>clips go here!</p>
             </section>
-            <section id="covers" class="scroll-vis">
+            <section id="promo" class="scroll-vis">
+                <h2>promo</h2>
                 <div class="cover-row">
                     <div class="thumbnail"></div>
                     <div class="content">
-                        <h3>check out Altare's cover here!</h3>
-                        <button>view here</button>
+                        <h3>promo item #1</h3>
                         <button>view here</button>
                     </div>
                 </div>
                 <div class="cover-row">
                     <div class="thumbnail"></div>
                     <div class="content">
-                        <h3>check out Axel's cover here!</h3>
-                        <button>view here</button>
+                        <h3>promo item #2</h3>
                         <button>view here</button>
                     </div>
                 </div>
             </section>
-            <section id="addtl-projects"></section>
+            <section id="shelter" class="scroll-vis">
+                <h2>shelter project</h2>
+                <p>shelter content goes here!</p>
+            </section>
         </main>
         <script src="js/scroll-anim.js"></script>
     

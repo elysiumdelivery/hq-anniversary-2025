@@ -1,5 +1,5 @@
 window.addEventListener("load", function() {   
-    let sections = document.querySelectorAll("section.scroll-vis");
+    let sections = document.querySelectorAll(".scroll-vis");
     
     const options = {
         root: document.querySelector("#scrollArea"),

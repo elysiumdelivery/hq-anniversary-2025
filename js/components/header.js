@@ -13,6 +13,7 @@ class GlobalHeader extends HTMLElement {
                                     <a href="/corkboard.html"><img alt="Corkboard" focusable="false" src="/image-resize-h/50/nav/corkboard.png"/></a>
                                     <a href="/ads.html"><img alt="Ads" focusable="false" src="/image-resize-h/50/nav/ads.png"/></a>
                                     <a href="/review.html"><img alt="Review" focusable="false" src="/image-resize-h/50/nav/review.png"/></a>
+                                    <a href="/social.html"><img alt="Social Media Gallery" focusable="false" src="/image-resize-h/50/nav/socmed.png"/></a>
                                     <a href="/receipt.html"><img alt="Receipt" focusable="false" src="/image-resize-h/50/nav/receipt.png"/></a>
                                 </div>
                             </nav>
@@ -23,6 +24,7 @@ class GlobalHeader extends HTMLElement {
                                 <a href="/corkboard.html"><img alt="Corkboard" focusable="false" src="/image-resize-h/50/nav/corkboard.png"/></a>
                                 <a href="/ads.html"><img alt="Ads" focusable="false" src="/image-resize-h/50/nav/ads.png"/></a>
                                 <a href="/review.html"><img alt="Review" focusable="false" src="/image-resize-h/50/nav/review.png"/></a>
+                                <a href="/social.html"><img alt="Social Media Gallery" focusable="false" src="/image-resize-h/50/nav/socmed.png"/></a>
                                 <a href="/receipt.html"><img alt="Receipt" focusable="false" src="/image-resize-h/50/nav/receipt.png"/></a>
                             </div>`;
         this.setup();
