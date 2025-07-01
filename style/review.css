@@ -5,9 +5,8 @@ section {
 }
 
 section#guestbook-container ul {
-	column-count: 2;
+	column-count: 3;
 	column-gap: 0.5em;
-	column-gap: 1em;
 	margin: 0;
 	padding: 0;
 }
@@ -37,10 +36,10 @@ section#guestbook-container h1 {
 }
 
 section#guestbook-container .guestbook-message {
-	padding: 1.5em 2em;
+	font-size: 0.75em;
 	background: rgb(255 255 255 / 80%);
-	margin: 1.5em 0.5em;
-    padding: 1.25em 1.25em;
+	margin: 1em 0.25em;
+    padding: 1em 1em;
     border: 2px solid #dbd6d2;
 	/* avoid breaking the message box between columns */
 	break-inside: avoid;
@@ -90,8 +89,8 @@ section#guestbook-container .guestbook-message:nth-child(2n) .guestbook-stars di
 
 section#guestbook-container .guestbook-message .guestbook-icon {
     grid-area: guestbook-icon;
-    width: 50px;
-    height: 50px;
+    width: 35px;
+    height: 35px;
 	border-radius: 50%;
     background-color: #ffe9c7;
 	background-image: url(/image-resize/100/corkboard/cutouts/axelotl2_cutout.png);
@@ -194,16 +193,19 @@ section#guestbook-container .guestbook-message .guestbook-img {
 	}
 }
 
+@media only screen and (max-width: 1000px) {
+
+	section#guestbook-container ul {
+		column-count: 2;
+	}
+}
+
 @media only screen and (max-width: 800px) {
 	/* mobile / portrait styling */
 
 	html {
 		height: fit-content;
 		width: 100vw;
-	}
-
-	section#guestbook-container ul {
-		column-count: 1;
 	}
 }
 
@@ -217,5 +219,8 @@ section#guestbook-container .guestbook-message .guestbook-img {
 	}
 	section#guestbook-container .guestbook-message .guestbook-user div {
 		overflow-wrap: anywhere;
+	}
+	section#guestbook-container ul {
+		column-count: 1;
 	}
 }

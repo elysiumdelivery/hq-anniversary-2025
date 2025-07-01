@@ -56,7 +56,7 @@ function renderMessages(message_data) {
     messageNode.appendChild(messageUserMessage);
     if (message["Filename"]) {
       messageUserUpload.classList.add("guestbook-img");
-      messageUserUpload.src = `/image-resize/full/guestbook/${message["Filename"]}`
+      messageUserUpload.src = `/image-resize/500/guestbook/${message["Filename"]}`
       messageUserUpload.alt = `User-uploaded image by ${message["Name"]}`
       messageNode.appendChild(messageUserUpload);
     }
