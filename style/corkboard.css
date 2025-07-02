@@ -10,19 +10,11 @@ html.dialog-open {
 }
 #corkboard {
     position: relative;
-    /* display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center; */
     display: block;
-    /* display: grid;
-    gap: 10px;
-    grid-template-columns: masonry;
-    grid-template-rows: repeat(3, 100px); */
 
-    /* gap: 1em; */
     padding: 2em;
     margin: 1em 2em;
+    padding-top: 180px;
     min-height: 100vh;
 
     /* border-image-source: url(/image-resize/full/corkboard-img/corkboard\ frame.png);
@@ -46,6 +38,7 @@ corkboard-item,
     /* width: 20vmin; */
     width: 250px;
 }
+.hoverable,
 corkboard-item {
     position: relative;
     margin-bottom: 3vmin;
@@ -127,12 +120,14 @@ corkboard-item.anim-in {
     animation-fill-mode: both;
 }
 
+.hoverable:hover, .hoverable:active, .hoverable:focus-visible,
 corkboard-item:hover, corkboard-item:active, corkboard-item:focus-visible {
     /* animation: corkboard-item-swing 1s linear infinite;
     animation-fill-mode: both; */
     transform: rotate(var(--angle));
 }
 
+.hoverable img,
 corkboard-item img,
 #corkboard-item-dummy img {
     position: relative;
@@ -172,6 +167,22 @@ corkboard-item img.polaroid {
     background-size: cover;
     background-position: 50% 50%;
     background-color: #faf4e8;
+}
+
+#corkboard .deco.accessible {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 180px;
+    --angle: 5deg;
+}
+#corkboard .deco.pdf {
+    position: absolute;
+    top: 0;
+    right: 50%;
+    width: 170px;
+    --angle: -3deg;
+    transform-origin: 70% 15%;
 }
 
 @keyframes corkboard-item-anim-in {
@@ -646,6 +657,7 @@ corkboard-item img.polaroid {
     #corkboard {
         padding: 1em;
         margin: 1em;
+        padding-top: 180px;
         margin-bottom: 100px;
     }
     corkboard-item,
@@ -684,6 +696,7 @@ corkboard-item img.polaroid {
 @media only screen and (min-width: 1920px) {
     #corkboard {
         margin: 2em auto;
+        padding-top: 180px;
         max-width: 1920px;
     }
 }
@@ -691,6 +704,7 @@ corkboard-item img.polaroid {
     #corkboard {
         padding: 0;
         margin: 2vw;
+        padding-top: 180px;
         margin-bottom: 100px;
         min-width: 300px;
         box-sizing: border-box;

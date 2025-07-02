@@ -4,6 +4,9 @@ html, body {
     background-size: 500px;
     overflow-x: hidden;
 }
+body {
+    overflow-y: hidden;
+}
 
 global-header nav, global-footer {
     display: none;
@@ -13,55 +16,60 @@ main {
     min-height: 100dvh;
 }
 
-section#intro {
+section {
     position: relative;
     width: 100vmin;
     max-width: 1200px;
     min-width: 100px;
-    aspect-ratio: 0.7;
     margin: auto;
 }
+section#intro {
+    aspect-ratio: 0.7;
+}
+section#stream-safe {
+    aspect-ratio: 3.5;
+}
 
-section#intro > * {
+section > * {
     position: absolute;
     transition: 1s opacity ease 0.5s, 1s transform ease 0.5s;
     transform: none;
     opacity: 1;
 }
 
-section#intro:not(.visible) > .deco{
+section:not(.visible) > .deco{
     transform: translateY(-5vmax);
     opacity: 0;
 }
 
-section#intro > a:not(.visible) {
+section > a:not(.visible) {
     opacity: 0;
 }
-section#intro > a.from-right:not(.visible) {
+section > a.from-right:not(.visible) {
     transform: translateX(5vmax);
 }
-section#intro > a.from-left:not(.visible) {
+section > a.from-left:not(.visible) {
     transform: translateX(-5vmax);
 }
 
-section#intro > a.transition-finish {
+section > a.transition-finish {
     transition-duration: 0.25s;
     transition-delay: 0s;
 }
 
-section#intro > a.visible:hover {
+section > a.visible:hover {
     transform: scale(1.1);
     transition-duration: 0.25s;
     transition-delay: 0s;
     /* z-index: 10; */
 }
 
-section#intro > * > img {
+section > * > img {
     position: relative;
     width: 100%;
 }
 
-section#intro > a.prompt {
+section > a.prompt {
     animation: prompt_wiggle;
     animation-duration: 1s;
     animation-fill-mode: forwards;
@@ -127,7 +135,7 @@ a.magazine {
 .deco.message {
     width: 52%;
     top: 39%;
-    left: 14%;
+    left: 10%;
     z-index: 5;
     rotate: -3deg;
     background-image: url(/image-resize/full/home/message.png);
@@ -136,7 +144,7 @@ a.magazine {
 }
 .deco.stream-safe {
     width: 45%;
-    top: 91%;
+    top: -45%;
     left: 26%;
     z-index: 3;
     background-image: url(/image-resize/full/home/message_flipped.png);
@@ -155,7 +163,7 @@ a.cake {
 .deco.pen {
     top: 62.4%;
     width: 31.7%;
-    left: 3.5%;
+    left: 0%;
     z-index: 6;
     rotate: -90deg;
 }
@@ -200,8 +208,8 @@ a.eds {
     z-index: 4;
 }
 
-section#intro .message .message-container,
-section#intro .stream-safe .message-container {
+section .message .message-container,
+section .stream-safe .message-container {
     position: absolute;
     top: 0;
     left: 0;
@@ -216,11 +224,11 @@ section#intro .stream-safe .message-container {
     scrollbar-color: var(--dark) transparent;
 }
 
-section#intro .message .message-container {
+section .message .message-container {
     margin-right: 15%;
 }
 
-section#intro .stream-safe .message-container {
+section .stream-safe .message-container {
     margin-top: 18%;
     margin-left: 15%;
     width: 72%;
@@ -228,14 +236,14 @@ section#intro .stream-safe .message-container {
     font-size: 0.8em;
     line-height: 1;
 }
-section#intro .stream-safe .message-container i {
+section .stream-safe .message-container i {
     font-size: 0.8em;
     line-height: 1;
     display: block;
 }
 
-section#intro .message p,
-section#intro .stream-safe p {
+section .message p,
+section .stream-safe p {
     color: var(--dark);
     font-family: "Nanum Pen Script", serif;
     font-weight: normal;
@@ -244,12 +252,12 @@ section#intro .stream-safe p {
 }
 
 @media only screen and (min-aspect-ratio: 3 / 2) {
-    /* section#intro .message p {
+    /* section .message p {
         font-size: 1.25em;
     } */
 }
 @media only screen and (max-width: 600px) {
-    section#intro .message p {
+    section .message p {
         font-size: 0.75em;
     }
 }
