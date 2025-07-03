@@ -3,11 +3,22 @@ section {
     max-width: 1200px;
     margin: auto;
     margin-top: 2em;
-    
+    margin-bottom: 5em;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    position: relative;
+    gap: 1em;
+}
+
+section#disclamer {
+    margin-bottom: 0;
+}
+
+section h2,
+section h3 {
+    text-align: center;
 }
 
 #tabs {
@@ -67,6 +78,42 @@ section {
 
 img {
     width: 100%;
+    border-radius: 25px;
+}
+
+iframe {
+    border-radius: 25px;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+}
+
+.message {
+    position: relative;
+    rotate: 5deg;
+    width: 70vmin;
+    background-image: url(/image-resize/500/ads/note.png);
+    background-size: contain;
+    aspect-ratio: 95/58;
+    background-repeat: no-repeat;
+}
+
+.message p {
+    color: var(--dark);
+    font-family: "Nanum Pen Script", serif;
+    font-weight: normal;
+    font-size: 1em;
+    margin: 0;
+}
+
+.message-container {
+    margin-top: 15%;
+    margin-left: 22%;
+    width: 52%;
+    height: 48%;
+    font-size: 2.5vmin;
+    margin-right: 15%;
+    line-height: 1;
+    overflow-y: auto;
 }
 
 @media only screen and (max-width: 600px) {

@@ -19,7 +19,6 @@ window.addEventListener("load", function() {
 function scrollIntersectionCallback (entries, observer) {
     entries.forEach((entry) => {
         let elem = entry.target;
-        console.log(entry)
         if (entry.isIntersecting) {
             elem.classList.add("visible");
         }
