@@ -32,7 +32,7 @@ const CORKBOARD_DATA = [
     "cutouts": [],
     "path": "corkboard-img/entries/Cafe_Art_Lotty_02.png",
     "itemType": "corkboard-item",
-    "rotate": 3,
+    "rotate": 5,
     "zIndex": 157,
     "imageRatio": 1.3865944482058226,
     "polaroidRatio": 1.0893617021276596
@@ -51,7 +51,7 @@ const CORKBOARD_DATA = [
     "cutouts": [],
     "path": "corkboard-img/entries/Cafe_Art_konori_01.png",
     "itemType": "corkboard-item",
-    "rotate": -1,
+    "rotate": 3,
     "zIndex": 156,
     "imageRatio": 1,
     "polaroidRatio": 0.833984375
@@ -77,7 +77,7 @@ const CORKBOARD_DATA = [
       "type": "Letter"
     },
     "itemType": "corkboard-item",
-    "rotate": -2,
+    "rotate": 1,
     "zIndex": 155
   },
   {
@@ -118,7 +118,7 @@ const CORKBOARD_DATA = [
     "cutouts": [],
     "path": "corkboard-img/entries/Cafe_Art_vivid_Syd_01.png",
     "itemType": "corkboard-item",
-    "rotate": 6,
+    "rotate": 5,
     "zIndex": 153,
     "imageRatio": 1.2820512820512822,
     "polaroidRatio": 0.833984375
@@ -144,15 +144,15 @@ const CORKBOARD_DATA = [
       "type": "List"
     },
     "itemType": "corkboard-item",
-    "rotate": -3,
+    "rotate": -1,
     "zIndex": 152
   },
   {
     "itemType": "inline-deco",
-    "path": "corkboard/deco_3.png",
-    "rotate": 0,
+    "path": "corkboard/deco_2.png",
+    "rotate": -2,
     "class": "petzone",
-    "imageRatio": 1.0034782608695652
+    "imageRatio": 0.9805970149253731
   },
   {
     "category": "memory",
@@ -174,7 +174,7 @@ const CORKBOARD_DATA = [
       "link": ""
     },
     "itemType": "corkboard-item",
-    "rotate": -3,
+    "rotate": 4,
     "zIndex": 151,
     "imageRatio": 1,
     "polaroidRatio": 0.833984375
@@ -193,7 +193,7 @@ const CORKBOARD_DATA = [
     "cutouts": [],
     "path": "corkboard-img/entries/Cafe_Art_Kay_01.png",
     "itemType": "corkboard-item",
-    "rotate": 1,
+    "rotate": -2,
     "zIndex": 150,
     "imageRatio": 1,
     "polaroidRatio": 0.833984375
@@ -241,7 +241,7 @@ const CORKBOARD_DATA = [
     "cutouts": [],
     "path": "corkboard-img/entries/Cafe_Art_Danie_01.png",
     "itemType": "corkboard-item",
-    "rotate": -1,
+    "rotate": 2,
     "zIndex": 148,
     "imageRatio": 1,
     "polaroidRatio": 0.833984375
@@ -279,7 +279,7 @@ const CORKBOARD_DATA = [
     "cutouts": [],
     "path": "corkboard-img/entries/Cafe_Art_Fluor_02.png",
     "itemType": "corkboard-item",
-    "rotate": 0,
+    "rotate": 2,
     "zIndex": 146,
     "imageRatio": 1,
     "polaroidRatio": 0.833984375
@@ -298,7 +298,7 @@ const CORKBOARD_DATA = [
     "cutouts": [],
     "path": "corkboard-img/entries/Cafe_Art_Fluor_03.png",
     "itemType": "corkboard-item",
-    "rotate": -3,
+    "rotate": 4,
     "zIndex": 145,
     "imageRatio": 1,
     "polaroidRatio": 0.833984375
@@ -312,22 +312,22 @@ const CORKBOARD_DATA = [
     "credit": [
       "Danchou (@SunTallulah)"
     ],
-    "title": "",
-    "desc": "Cat Cafe HQ Altare and Axel showing off the newest desserts on their cat cafe menu featuring their favorite cats! ",
+    "title": "Cat Cafe HQ",
+    "desc": "Altare and Axel showing off the newest desserts on their cat cafe menu featuring their favorite cats!",
     "cutouts": [],
     "path": "corkboard-img/entries/Cafe_Art_Suntallulah_01.png",
     "itemType": "corkboard-item",
-    "rotate": 3,
+    "rotate": 1,
     "zIndex": 144,
     "imageRatio": 1.3044585987261146,
     "polaroidRatio": 0.833984375
   },
   {
     "itemType": "inline-deco",
-    "path": "corkboard/deco_1.png",
-    "rotate": -1,
+    "path": "corkboard/deco_3.png",
+    "rotate": 6,
     "class": "petzone",
-    "imageRatio": 0.6815352697095436
+    "imageRatio": 1.0034782608695652
   },
   {
     "category": "cafe",
@@ -343,7 +343,7 @@ const CORKBOARD_DATA = [
     "cutouts": [],
     "path": "corkboard-img/entries/Cafe_Art_Sharialene22_01.png",
     "itemType": "corkboard-item",
-    "rotate": 0,
+    "rotate": 5,
     "zIndex": 143,
     "imageRatio": 0.9968253968253968,
     "polaroidRatio": 0.833984375
@@ -362,7 +362,7 @@ const CORKBOARD_DATA = [
     "cutouts": [],
     "path": "corkboard-img/entries/Cafe_Art_LazyMoon_01.jpg",
     "itemType": "corkboard-item",
-    "rotate": 6,
+    "rotate": -3,
     "zIndex": 142,
     "imageRatio": 1,
     "polaroidRatio": 0.8335755813953488
@@ -388,7 +388,7 @@ const CORKBOARD_DATA = [
       "type": "Letter"
     },
     "itemType": "corkboard-item",
-    "rotate": 0,
+    "rotate": 6,
     "zIndex": 141
   },
   {
@@ -415,7 +415,7 @@ const CORKBOARD_DATA = [
       "type": "List"
     },
     "itemType": "corkboard-item",
-    "rotate": 1,
+    "rotate": 0,
     "zIndex": 140,
     "imageRatio": 1.526080476900149,
     "polaroidRatio": 1.0893617021276596
@@ -444,7 +444,7 @@ const CORKBOARD_DATA = [
       "type": "List"
     },
     "itemType": "corkboard-item",
-    "rotate": 5,
+    "rotate": 1,
     "zIndex": 139,
     "imageRatio": 1.5340823970037454,
     "polaroidRatio": 0.833984375
@@ -456,7 +456,7 @@ const CORKBOARD_DATA = [
     ],
     "polaroid": "Cafe_Photo_Semiluminary_01polaroid.png",
     "credit": [
-      "Baasil"
+      "Semiluminary (@semiluminary)"
     ],
     "title": "Coffee, Cheese, and Coldcuts!",
     "desc": "",
@@ -477,7 +477,7 @@ const CORKBOARD_DATA = [
     ],
     "polaroid": "Cafe_photo_Baasil_01polaroid.png",
     "credit": [
-      "Semiluminary (@semiluminary)"
+      "Baasil"
     ],
     "title": "Matcha Blend",
     "desc": "ese, and Coldcuts! Both boys were a little dubious when they heard about the new cafe. Still, why not give it a try? Then Axel saw the menu. Meat and cheese at a cafe? Pure heaven!",
@@ -487,7 +487,7 @@ const CORKBOARD_DATA = [
     ],
     "path": "corkboard-img/entries/Cafe_photo_Baasil_01.png",
     "itemType": "corkboard-item",
-    "rotate": 7,
+    "rotate": 4,
     "zIndex": 137,
     "imageRatio": 0.56298828125,
     "polaroidRatio": 1.0893617021276596
@@ -508,17 +508,17 @@ const CORKBOARD_DATA = [
     ],
     "path": "corkboard-img/entries/Cafe_photo_Baasil_02.png",
     "itemType": "corkboard-item",
-    "rotate": 1,
+    "rotate": 4,
     "zIndex": 136,
     "imageRatio": 2.1649048625792813,
     "polaroidRatio": 1.0893617021276596
   },
   {
     "itemType": "inline-deco",
-    "path": "corkboard/deco_2.png",
-    "rotate": 1,
+    "path": "corkboard/deco_1.png",
+    "rotate": 0,
     "class": "petzone",
-    "imageRatio": 0.9805970149253731
+    "imageRatio": 0.6815352697095436
   },
   {
     "category": "cafe",
@@ -536,7 +536,7 @@ const CORKBOARD_DATA = [
     ],
     "path": "corkboard-img/entries/Cafe_photo_elliesech_01.png",
     "itemType": "corkboard-item",
-    "rotate": -1,
+    "rotate": 5,
     "zIndex": 135,
     "imageRatio": 0.81884765625,
     "polaroidRatio": 0.833984375
@@ -555,7 +555,7 @@ const CORKBOARD_DATA = [
     "cutouts": [],
     "path": "corkboard-img/entries/Cafe_photo_elliesech_02.png",
     "itemType": "corkboard-item",
-    "rotate": 6,
+    "rotate": 1,
     "zIndex": 134,
     "imageRatio": 0.80517578125,
     "polaroidRatio": 0.69140625
@@ -577,7 +577,7 @@ const CORKBOARD_DATA = [
     ],
     "path": "corkboard-img/entries/Cafe_photo_elliesech_04.png",
     "itemType": "corkboard-item",
-    "rotate": 5,
+    "rotate": 3,
     "zIndex": 133,
     "imageRatio": 0.75,
     "polaroidRatio": 0.69140625
@@ -598,7 +598,7 @@ const CORKBOARD_DATA = [
     ],
     "path": "corkboard-img/entries/Cafe_photo_elliesech_05.png",
     "itemType": "corkboard-item",
-    "rotate": 0,
+    "rotate": -3,
     "zIndex": 132,
     "imageRatio": 0.75,
     "polaroidRatio": 0.69140625
@@ -620,7 +620,7 @@ const CORKBOARD_DATA = [
     ],
     "path": "corkboard-img/entries/Cafe_photo_elliesech_06.png",
     "itemType": "corkboard-item",
-    "rotate": 4,
+    "rotate": -1,
     "zIndex": 131,
     "imageRatio": 0.75,
     "polaroidRatio": 0.833984375
@@ -642,7 +642,7 @@ const CORKBOARD_DATA = [
     ],
     "path": "corkboard-img/entries/Cafe_photo_elliesech_07.png",
     "itemType": "corkboard-item",
-    "rotate": 2,
+    "rotate": -2,
     "zIndex": 130,
     "imageRatio": 0.92431640625,
     "polaroidRatio": 0.69140625
@@ -691,7 +691,7 @@ const CORKBOARD_DATA = [
   {
     "itemType": "inline-deco",
     "path": "corkboard/deco_4.png",
-    "rotate": 6,
+    "rotate": 3,
     "class": "petzone",
     "imageRatio": 1.0936995153473343
   },
@@ -709,7 +709,7 @@ const CORKBOARD_DATA = [
     "cutouts": [],
     "path": "corkboard-img/entries/Cafe_Art_Amanda_Maker_Manda_Axelotl_02.png",
     "itemType": "corkboard-item",
-    "rotate": 0,
+    "rotate": 3,
     "zIndex": 127,
     "imageRatio": 0.75,
     "polaroidRatio": 0.693359375
@@ -728,7 +728,7 @@ const CORKBOARD_DATA = [
     "cutouts": [],
     "path": "corkboard-img/entries/Cafe_Art_Amanda_Maker_Manda_Slime_02.png",
     "itemType": "corkboard-item",
-    "rotate": 4,
+    "rotate": -2,
     "zIndex": 126,
     "imageRatio": 0.75,
     "polaroidRatio": 0.693359375
@@ -757,7 +757,7 @@ const CORKBOARD_DATA = [
       "type": "Letter"
     },
     "itemType": "corkboard-item",
-    "rotate": 6,
+    "rotate": -2,
     "zIndex": 125,
     "imageRatio": 0.6875,
     "polaroidRatio": 1.0893617021276596
@@ -795,7 +795,7 @@ const CORKBOARD_DATA = [
     "cutouts": [],
     "path": "corkboard-img/entries/Cafe_Art_Hiinatsu_01.png",
     "itemType": "corkboard-item",
-    "rotate": 5,
+    "rotate": 3,
     "zIndex": 123,
     "imageRatio": 1.0636363636363637,
     "polaroidRatio": 0.833984375
@@ -814,7 +814,7 @@ const CORKBOARD_DATA = [
     "cutouts": [],
     "path": "corkboard-img/entries/Cafe_photo_Eevee_01.jpg",
     "itemType": "corkboard-item",
-    "rotate": 3,
+    "rotate": 1,
     "zIndex": 122,
     "imageRatio": 0.78857421875,
     "polaroidRatio": 0.693359375
@@ -833,7 +833,7 @@ const CORKBOARD_DATA = [
     "cutouts": [],
     "path": "corkboard-img/entries/Cafe_Art_Lotty_03.png",
     "itemType": "corkboard-item",
-    "rotate": -3,
+    "rotate": 3,
     "zIndex": 121,
     "imageRatio": 0.75,
     "polaroidRatio": 0.693359375
@@ -852,7 +852,7 @@ const CORKBOARD_DATA = [
     "cutouts": [],
     "path": "corkboard-img/entries/Cafe_Art_Aluviella_01.jpg",
     "itemType": "corkboard-item",
-    "rotate": 0,
+    "rotate": 7,
     "zIndex": 120,
     "imageRatio": 1,
     "polaroidRatio": 0.833984375
@@ -871,7 +871,7 @@ const CORKBOARD_DATA = [
     "cutouts": [],
     "path": "corkboard-img/entries/Cafe_photo_Eineruu_IzuKaze_01.jpg",
     "itemType": "corkboard-item",
-    "rotate": 3,
+    "rotate": -2,
     "zIndex": 119,
     "imageRatio": 1.3333333333333333,
     "polaroidRatio": 1.0874785591766725
@@ -890,7 +890,7 @@ const CORKBOARD_DATA = [
     "cutouts": [],
     "path": "corkboard-img/entries/Cafe_photo_Eineruu_IzuKaze_02.jpg",
     "itemType": "corkboard-item",
-    "rotate": -2,
+    "rotate": 0,
     "zIndex": 118,
     "imageRatio": 0.8343848580441641,
     "polaroidRatio": 0.8343848580441641
@@ -911,7 +911,7 @@ const CORKBOARD_DATA = [
     ],
     "path": "corkboard-img/entries/Cafe_Photo_Amanda_Maker_Manda_03.png",
     "itemType": "corkboard-item",
-    "rotate": 1,
+    "rotate": 3,
     "zIndex": 117,
     "imageRatio": 1.3333333333333333,
     "polaroidRatio": 1.0893617021276596
@@ -937,7 +937,7 @@ const CORKBOARD_DATA = [
       "type": "List"
     },
     "itemType": "corkboard-item",
-    "rotate": 4,
+    "rotate": 0,
     "zIndex": 116
   },
   {
@@ -954,7 +954,7 @@ const CORKBOARD_DATA = [
     "cutouts": [],
     "path": "corkboard-img/entries/Cafe_Art_Haruro_01.png",
     "itemType": "corkboard-item",
-    "rotate": 5,
+    "rotate": 2,
     "zIndex": 115,
     "imageRatio": 0.707,
     "polaroidRatio": 0.833984375
@@ -973,7 +973,7 @@ const CORKBOARD_DATA = [
     "cutouts": [],
     "path": "corkboard-img/entries/Cafe_Photo_Rowen_01.png",
     "itemType": "corkboard-item",
-    "rotate": 1,
+    "rotate": -3,
     "zIndex": 114,
     "imageRatio": 0.59375,
     "polaroidRatio": 0.833984375
@@ -993,7 +993,7 @@ const CORKBOARD_DATA = [
     "cutouts": [],
     "path": "corkboard-img/entries/Cafe_Art_toxxicAli_01.png",
     "itemType": "corkboard-item",
-    "rotate": 4,
+    "rotate": 6,
     "zIndex": 113,
     "imageRatio": 1,
     "polaroidRatio": 1.0893617021276596
@@ -1012,7 +1012,7 @@ const CORKBOARD_DATA = [
     "cutouts": [],
     "path": "corkboard-img/entries/Cafe_Art_mmmonstruo.png",
     "itemType": "corkboard-item",
-    "rotate": -2,
+    "rotate": 0,
     "zIndex": 112,
     "imageRatio": 1.0115025161754134,
     "polaroidRatio": 0.833984375
@@ -1031,7 +1031,7 @@ const CORKBOARD_DATA = [
     "cutouts": [],
     "path": "corkboard-img/entries/Cafe_Photo_Minji_01.png",
     "itemType": "corkboard-item",
-    "rotate": 6,
+    "rotate": 3,
     "zIndex": 111,
     "imageRatio": 1,
     "polaroidRatio": 0.833984375
@@ -1056,7 +1056,7 @@ const CORKBOARD_DATA = [
       "link": ""
     },
     "itemType": "corkboard-item",
-    "rotate": 0,
+    "rotate": 3,
     "zIndex": 110,
     "imageRatio": 1,
     "polaroidRatio": 0.833984375
@@ -1113,7 +1113,7 @@ const CORKBOARD_DATA = [
     "cutouts": [],
     "path": "corkboard-img/entries/Cafe_photo_WindStreak_02.png",
     "itemType": "corkboard-item",
-    "rotate": 5,
+    "rotate": 6,
     "zIndex": 107,
     "imageRatio": 1.7762359063313096,
     "polaroidRatio": 1.0893617021276596
@@ -1132,7 +1132,7 @@ const CORKBOARD_DATA = [
     "cutouts": [],
     "path": "corkboard-img/entries/cafe_art_pinie_01.png",
     "itemType": "corkboard-item",
-    "rotate": -3,
+    "rotate": 5,
     "zIndex": 106,
     "imageRatio": 1.1234229292375206,
     "polaroidRatio": 1.0893617021276596
@@ -1157,7 +1157,7 @@ const CORKBOARD_DATA = [
       "link": ""
     },
     "itemType": "corkboard-item",
-    "rotate": 2,
+    "rotate": -1,
     "zIndex": 105,
     "imageRatio": 0.71435546875,
     "polaroidRatio": 0.833984375
@@ -1182,7 +1182,7 @@ const CORKBOARD_DATA = [
       "link": ""
     },
     "itemType": "corkboard-item",
-    "rotate": 1,
+    "rotate": -3,
     "zIndex": 104,
     "imageRatio": 1.4143646408839778,
     "polaroidRatio": 0.833984375
@@ -1201,7 +1201,7 @@ const CORKBOARD_DATA = [
     "cutouts": [],
     "path": "corkboard-img/entries/Cafe_Art_irisnoira_01.png",
     "itemType": "corkboard-item",
-    "rotate": -2,
+    "rotate": 6,
     "zIndex": 103,
     "imageRatio": 1.6,
     "polaroidRatio": 0.833984375
@@ -1228,7 +1228,7 @@ const CORKBOARD_DATA = [
       "type": "Letter"
     },
     "itemType": "corkboard-item",
-    "rotate": 7,
+    "rotate": -3,
     "zIndex": 102
   },
   {
@@ -1254,7 +1254,7 @@ const CORKBOARD_DATA = [
       "type": "Letter"
     },
     "itemType": "corkboard-item",
-    "rotate": 5,
+    "rotate": 4,
     "zIndex": 101,
     "imageRatio": 0.75830078125,
     "polaroidRatio": 0.833984375

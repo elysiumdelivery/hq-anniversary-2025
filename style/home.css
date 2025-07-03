@@ -8,8 +8,14 @@ body {
     overflow-y: hidden;
 }
 
-global-header nav, global-footer {
+global-header nav,
+global-header #banner,
+global-footer {
     display: none;
+}
+
+global-header #logo {
+    display: unset;
 }
 
 main {

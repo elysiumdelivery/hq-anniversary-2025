@@ -11,12 +11,10 @@ html.dialog-open {
 #corkboard {
     position: relative;
     display: block;
-
     padding: 2em;
-    margin: 1em 2em;
+    margin: 0em 2em;
     padding-top: 180px;
     min-height: 100vh;
-
     /* border-image-source: url(/image-resize/full/corkboard-img/corkboard\ frame.png);
     border-image-slice: 7%;
     border-image-repeat: repeat; */
@@ -658,7 +656,7 @@ corkboard-item img.polaroid {
     global-header nav { display: none !important; }
     #corkboard {
         padding: 1em;
-        margin: 1em;
+        margin: 0 1em;
         padding-top: 180px;
         margin-bottom: 100px;
     }
@@ -697,7 +695,7 @@ corkboard-item img.polaroid {
 
 @media only screen and (min-width: 1920px) {
     #corkboard {
-        margin: 2em auto;
+        margin: 0 auto;
         padding-top: 180px;
         max-width: 1920px;
     }
@@ -821,6 +819,11 @@ corkboard-item img.polaroid {
 .inline-deco[src="/image-resize/full/corkboard/deco_4.png"] {
     transform-origin: 50% 10%;
     filter: drop-shadow(5px 5px 3px rgba(0, 0, 0, 0.5));
+    z-index: 999;
+}
+.inline-deco[src="/image-resize/full/corkboard/deco_2.png"],
+.inline-deco[src="/image-resize/full/corkboard/deco_3.png"] {
+    filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.5));
     z-index: 999;
 }
 
