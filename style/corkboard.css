@@ -134,6 +134,7 @@ corkboard-item img,
     width: 100%;
     height: 100%;
     object-fit: contain;
+    max-height: 80dvh;
 }
 
 #corkboard-item-dummy img {
@@ -271,7 +272,7 @@ corkboard-item img.polaroid {
 #corkboard-item-dummy.img-load .title,
 #corkboard-item-dummy.img-load .cutout {
     opacity: 1;
-    transform: translateX(-25%) rotate(5deg);
+    transform: translateX(-25%) rotate(3deg);
 }
 #corkboard-item-dummy.img-load .credit.label {
     transform: translateX(-50%) rotate(-5deg);
@@ -315,11 +316,12 @@ corkboard-item img.polaroid {
 }
 #corkboard-item-dummy .credit {
     left: 1.5em;
-    bottom: -1.5em;
+    bottom: 0em;
+    transform-origin: 25% 50%;
 }
 #corkboard-item-dummy .credit.label {
     left: 0%;
-    bottom: 0.7em;
+    bottom: 2.1em;
     z-index: 2;
 }
 #corkboard-item-dummy .date,
@@ -737,10 +739,10 @@ corkboard-item img.polaroid {
         left: 50%;
     }
     #corkboard-item-dummy.img-load .credit.label {
-        transform: translateX(-10%) rotate(-5deg);
+        transform: translateX(-10%) translateY(100%) rotate(0deg);
     }
     #corkboard-item-dummy.img-load .credit {
-        transform: translateX(-10%) rotate(5deg);
+        transform: translateX(-10%) translateY(100%) rotate(0deg);
     }
     #corkboard-overlay.memory-art-writing #corkboard-item-dummy.img-load .credit,
     #corkboard-overlay.memory-writing #corkboard-item-dummy.img-load .credit {
