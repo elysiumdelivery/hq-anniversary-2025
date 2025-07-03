@@ -26,6 +26,8 @@ window.addEventListener("DOMContentLoaded", function() {
             dummyItem.classList.value = "";
             dummyItem.style = "";
             dummyItem.style.transition = "none";
+
+            document.getElementById("spinner").style.removeProperty("display");
         }, 250);
     })
     DETAILS_DIALOG_A11Y.hide();
@@ -317,7 +319,7 @@ class CorkboardItem extends HTMLElement {
                 dummyItem.style.removeProperty("transform");
                 dummyItem.style.removeProperty("rotate");
              }
-
+             document.getElementById("spinner").style.display = "none";
         }, 500);
         
         setTimeout(() => {

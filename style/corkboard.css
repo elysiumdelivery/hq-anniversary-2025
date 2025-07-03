@@ -238,6 +238,8 @@ corkboard-item img.polaroid {
     padding: 0 5vmin;
 }
 
+#spinner { position: absolute; }
+
 #corkboard-item-dummy {
     /* position: absolute; */
     position: relative;
