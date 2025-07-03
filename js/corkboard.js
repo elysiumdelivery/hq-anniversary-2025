@@ -2,9 +2,9 @@ let DETAILS_DIALOG_A11Y = null;
 let DETAILS_DIALOG_EL = null;
 
 let msnry;
+let activeCorkboardItem;
 
 window.addEventListener("DOMContentLoaded", function() {   
-    console.log("content loaded")
     window.scrollTo(0, 0);
 
     DETAILS_DIALOG_EL = document.getElementById("corkboard-item-dialog");
@@ -15,6 +15,7 @@ window.addEventListener("DOMContentLoaded", function() {
         document.documentElement.classList.remove("dialog-open");
         const dummyItem = document.getElementById("corkboard-item-dummy");
         setTimeout(() => {
+            activeCorkboardItem = undefined;
             DETAILS_DIALOG_EL.querySelector(".details-dialog-text .date").innerHTML = "";
             DETAILS_DIALOG_EL.querySelector(".details-dialog-inner").innerHTML = "";
             DETAILS_DIALOG_EL.querySelector(".details-dialog-text .credit").innerHTML = "";
@@ -34,12 +35,15 @@ window.addEventListener("DOMContentLoaded", function() {
 
     document.querySelector("corkboard-container").setup();
 });
-window.addEventListener("load", function () {
-    console.log("loaded")
-})
 window.addEventListener("beforeunload", function () {
     window.scrollTo(0,0);
 });
+
+window.addEventListener("resize", function () {
+    if (DETAILS_DIALOG_A11Y && DETAILS_DIALOG_A11Y.shown && activeCorkboardItem) {
+        setDummySize(activeCorkboardItem);
+    }
+})
 
 class Corkboard extends HTMLElement {
     constructor() {
@@ -52,7 +56,6 @@ class Corkboard extends HTMLElement {
 
         const options = {
             rootMargin: "100px",
-            trackVisibility: true,
             threshold: 0.5,
             delay: 100,
         };
@@ -118,22 +121,13 @@ class CorkboardItem extends HTMLElement {
         }
 
         this.imageThumb = document.createElement("img");
-        // this.imageThumb.loading = "lazy";
-        this.imageThumb.src = `image-resize/50/${imgUrl}`;
-        this.imageThumb.srcset = [
-            `image-resize/200/${imgUrl}    200w`,
-            `image-resize/400/${imgUrl}    400w`,
-        ].join(",");
-        this.imageThumb.sizes = [
-            "(max-width: 450px) 200px",
-            "(max-width: 850px) 400px",
-            "400px"
-        ].join(",");
+
         if (this.data.imageRatio) {
             this.imageThumb.style.setProperty('aspect-ratio', this.data.imageRatio.toFixed(2) || 1);
             this.style.setProperty('aspect-ratio', this.data.imageRatio.toFixed(2) || 1);
         }
         if (this.getAttribute("entry-type") == "writing") {
+            this.imageThumb.src = `image-resize/250/${imgUrl}`;
             this.appendChild(this.imageThumb);
         }
         else if (this.getAttribute("polaroid-path")) {
@@ -146,8 +140,7 @@ class CorkboardItem extends HTMLElement {
                 `image-resize/400/${polaroidPath}    400w`,
             ].join(",");
             this.polaroid.sizes = [
-                "(max-width: 450px) 200px",
-                "(max-width: 850px) 400px",
+                "(max-width: 600px) 200px",
                 "400px"
             ].join(",");
             if (polaroidPath.includes("/polaroids/")) {
@@ -166,7 +159,15 @@ class CorkboardItem extends HTMLElement {
     preloadImage () {
         if (this.preloaded === undefined && !this.type.includes("writing")) {
             this.preloaded = new Image();
-            this.preloaded.src = `image-resize/256/${this.getAttribute("img")}`;
+            this.preloaded.src = `image-resize/512/${this.getAttribute("img")}`;
+            this.preloaded.srcset = [
+                `image-resize/256/${this.getAttribute("img")} 1024w`,
+                `image-resize/512/${this.getAttribute("img")} 2048w`,
+            ].join(",");
+            this.preloaded.sizes = [
+                "(max-width: 600px) 1024px",
+                "2048px"
+            ].join(",");
         }
     }
 
@@ -193,6 +194,14 @@ class CorkboardItem extends HTMLElement {
             else {
                 image = document.createElement("img");
                 image.src = `image-resize/512/${this.getAttribute("img") || "corkboard/writing_thumb.png"}`;
+                image.srcset = [
+                    `image-resize/256/${this.getAttribute("img") || "corkboard/writing_thumb.png"} 1024w`,
+                    `image-resize/512/${this.getAttribute("img") || "corkboard/writing_thumb.png"} 2048w`,
+                ].join(",");
+                image.sizes = [
+                    "(max-width: 600px) 1024px",
+                    "2048px"
+                ].join(",");
                 image.alt = this.data.desc;
             }
             dummyItem.appendChild(image);
@@ -269,20 +278,8 @@ class CorkboardItem extends HTMLElement {
             //     document.getElementById("corkboard-item-dummy").append(yt);
             // }
         }
-        else if (this.data.desc) {
-            DETAILS_DIALOG_EL.querySelector(".details-dialog-inner").innerHTML = `<p>${this.data.desc}</p>`;
-        }
-        // if (this.data.cutouts) {
-        //     let dummyEl = document.getElementById("corkboard-item-dummy");
-        //     this.data.cutouts.forEach((cutoutKey, i) => {
-        //         let cutout = document.createElement("img");
-        //         cutout.classList.add("cutout", `cutout_${i}`);
-        //         let cutoutPath = `image-resize/256/corkboard/cutouts/${cutoutKey.toLowerCase()}_cutout.png`
-        //         cutout.src = cutoutPath;
-        //         dummyEl.append(cutout);
-        //     })
-        // }
         document.documentElement.classList.add("dialog-open");
+        activeCorkboardItem = this;
         DETAILS_DIALOG_A11Y.show();
     }
 
@@ -301,21 +298,9 @@ class CorkboardItem extends HTMLElement {
         setTimeout(() => {
             if (dummyItem) {
                 dummyItem.classList.add("img-load");
-                if (this.type == "food" || this.type == "memory-art") {
-                    if (this.data.imageRatio > 1.5) {   
-                        dummyItem.style.setProperty('--height', (vw(80) / this.data.imageRatio) + "px");
-                    }
-                    else {
-                        dummyItem.style.setProperty('--width', (vh(80) * this.data.imageRatio) + "px");
-                    }
-                }
-                else {
-                    dummyItem.style.setProperty('--width', (vh(65) * this.data.imageRatio) + "px");
-                    dummyItem.style.setProperty('height', "50vh");                        
-                }
-                dummyItem.style.removeProperty("width");
+                setDummySize(this);
+                dummyItem.style.setProperty("--ratio", this.data.imageRatio);
                 dummyItem.style.removeProperty("transition");
-                dummyItem.style.removeProperty("height");
                 dummyItem.style.removeProperty("transform");
                 dummyItem.style.removeProperty("rotate");
              }
@@ -327,7 +312,6 @@ class CorkboardItem extends HTMLElement {
                 DETAILS_DIALOG_EL.classList.add("slide-out");
             }
             else if (this.type.includes("memory") && this.type.includes("art")) {
-                dummyItem.style.rotate = "-5deg";
                 DETAILS_DIALOG_EL.classList.add("slide-out");
             }
             else if (this.type == "food") {
@@ -337,6 +321,11 @@ class CorkboardItem extends HTMLElement {
                 sparkleEffect.style.height = dummyItem.clientHeight + "px";
                 DETAILS_DIALOG_EL.parentNode.classList.add("sparkle-in");
             }
+            if (dummyItem) {
+                dummyItem.style.removeProperty("width");
+                dummyItem.style.removeProperty("height");
+            }
+            this.preloaded = undefined;
         }, 1000);
     }
 }
@@ -347,7 +336,7 @@ customElements.define("corkboard-item", CorkboardItem);
 function scrollIntersectionCallback (entries, observer) {
     entries.forEach((entry, i) => {
         let elem = entry.target;
-        if (entry.isIntersecting) {
+        if (entry.isIntersecting && elem.classList.contains("anim-in") || elem.classList.contains("visible")) {
             elem.style.setProperty("content-visibility", "visible");
             observer.unobserve(entry.target);
         }
@@ -430,4 +419,19 @@ function getId(url) {
     return (match && match[2].length === 11)
       ? match[2]
       : null;
+}
+
+function setDummySize (corkboardItem) {
+    const dummyItem = document.getElementById("corkboard-item-dummy");
+    if (corkboardItem.type == "food" || corkboardItem.type == "memory-art") {
+        if (corkboardItem.data.imageRatio > 1.5) {   
+            dummyItem.style.setProperty('--height', (vw(80) / corkboardItem.data.imageRatio) + "px");
+        }
+        else {
+            dummyItem.style.setProperty('--width', (vh(80) * corkboardItem.data.imageRatio) + "px");
+        }
+    }
+    else {
+        dummyItem.style.setProperty('--width', (vh(65) * corkboardItem.data.imageRatio) + "px");                     
+    }
 }

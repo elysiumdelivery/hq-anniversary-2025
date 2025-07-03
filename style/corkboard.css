@@ -14,7 +14,7 @@ html.dialog-open {
     padding: 2em;
     margin: 0em 2em;
     padding-top: 180px;
-    min-height: 100vh;
+    min-height: 200vh;
     /* border-image-source: url(/image-resize/full/corkboard-img/corkboard\ frame.png);
     border-image-slice: 7%;
     border-image-repeat: repeat; */
@@ -133,6 +133,7 @@ corkboard-item img,
     height: 100%;
     object-fit: contain;
     max-height: 80dvh;
+    aspect-ratio: var(--ratio);
 }
 
 #corkboard-item-dummy img {
@@ -262,8 +263,12 @@ corkboard-item img.polaroid {
 }
 
 #corkboard-item-dummy.img-load {
-    height: 80dvh;
+    max-height: calc(80dvh - 5em);
+    max-width: 80vw;
+    width: var(--width);
+    height: var(--height);
     rotate: 0deg;
+    aspect-ratio: var(--ratio);
 }
 
 #corkboard-item-dummy.img-load iframe,
@@ -367,13 +372,8 @@ corkboard-item img.polaroid {
     opacity: 1;
 }
 #corkboard-overlay.memory-art-writing #corkboard-item-dummy.img-load {
-    width: 45%;
+    max-width: 45%;
     height: auto;
-}
-#corkboard-overlay.food #corkboard-item-dummy.img-load {
-    width: 50vw;
-    width: var(--width);
-    height: var(--height);
 }
 #corkboard-overlay.memory-writing #corkboard-item-dummy {
     display: none;
@@ -667,26 +667,8 @@ corkboard-item img.polaroid {
     .inline-deco {
         width: 250px;
     }
-    #corkboard-item-dummy img.cutout.cutout_0 {
-        right: 10vmin;
-        top: 80%;
-    }
-    #corkboard-item-dummy img.cutout.cutout_1 {
-        right: 10vmin;
-        top: 20%;
-    }
-    /* #corkboard-overlay {
-        flex-direction: column;
-    } */
-    /* #corkboard-overlay.memory-art-writing #corkboard-item-dummy.img-load {
-        height: auto;
-        width: 100%;
-    } */
-    /* #corkboard-overlay.memory-art-writing #corkboard-item-dummy.img-load {
-        width: 100%;
-        height: 45%;
-    } */
-    #corkboard-overlay.food #corkboard-item-dummy.img-load {
+    #corkboard-overlay.food #corkboard-item-dummy.img-load,
+    #corkboard-overlay.memory-art #corkboard-item-dummy.img-load {
         max-width: 80vw;
         height: auto;
     }
@@ -728,12 +710,14 @@ corkboard-item img.polaroid {
         width: auto;
         height: 45%;
     }
-    #corkboard-overlay.food #corkboard-item-dummy.img-load {
-        /* max-width: 90vw; */
+    #corkboard-overlay.food #corkboard-item-dummy.img-load,
+    #corkboard-overlay.memory-art #corkboard-item-dummy.img-load {
+        max-width: 90vw;
         height: auto;
         margin-top: 2.5em;
     }
-    #corkboard-overlay.food #corkboard-item-dummy.img-load .title {
+    #corkboard-overlay.food #corkboard-item-dummy.img-load .title,
+    #corkboard-overlay.memory-art #corkboard-item-dummy.img-load .title {
         transform: translateY(-125%) translateX(-50%) rotate(0deg);
         right: auto;
         left: 50%;
@@ -802,7 +786,7 @@ corkboard-item img.polaroid {
     }
     #corkboard-item-dummy .title {
         font-size: 100%;
-        white-space: nowrap;
+        width: 100%;
         text-align: center;
     }
     #corkboard-overlay.memory-writing .details-dialog-text .credit {
