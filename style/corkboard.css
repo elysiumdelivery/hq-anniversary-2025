@@ -2,7 +2,6 @@
     --angle: 10;
 }
 html, body {
-    background-image: none;
     overflow-x: hidden;
 }
 html.dialog-open {
@@ -10,21 +9,11 @@ html.dialog-open {
 }
 #corkboard {
     position: relative;
-    /* display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center; */
     display: block;
-    /* display: grid;
-    gap: 10px;
-    grid-template-columns: masonry;
-    grid-template-rows: repeat(3, 100px); */
-
-    /* gap: 1em; */
     padding: 2em;
-    margin: 1em 2em;
-    min-height: 100vh;
-
+    margin: 0em 2em;
+    padding-top: 180px;
+    min-height: max(200vh, 2000px);
     /* border-image-source: url(/image-resize/full/corkboard-img/corkboard\ frame.png);
     border-image-slice: 7%;
     border-image-repeat: repeat; */
@@ -46,6 +35,7 @@ corkboard-item,
     /* width: 20vmin; */
     width: 250px;
 }
+.hoverable,
 corkboard-item {
     position: relative;
     margin-bottom: 3vmin;
@@ -86,7 +76,7 @@ corkboard-item[entry-type="art writing"]::before {
     top: -22%;
     left: 0%;
     width: 30%;
-    background-image: url(/image-resize/200/corkboard/bookmark_1.png);
+    background-image: url(/image-resize/150/corkboard/bookmark_1.png);
     z-index: -1;
     background-size: contain;
     background-repeat: no-repeat;
@@ -95,16 +85,16 @@ corkboard-item[entry-type="art writing"]::before {
 corkboard-item[entry-type="art writing"]:nth-child(2n)::before {
     left: 55%;
     rotate: 10deg;
-    background-image: url(/image-resize/200/corkboard/bookmark_2.png);
+    background-image: url(/image-resize/150/corkboard/bookmark_2.png);
 }
 corkboard-item[entry-type="art writing"]:nth-child(3n)::before {
     left: 5%;
-    background-image: url(/image-resize/200/corkboard/bookmark_3.png);
+    background-image: url(/image-resize/150/corkboard/bookmark_3.png);
 }
 corkboard-item[entry-type="art writing"]:nth-child(4n)::before {
     left: 50%;
     rotate: 15deg;
-    background-image: url(/image-resize/200/corkboard/bookmark_4.png);
+    background-image: url(/image-resize/150/corkboard/bookmark_4.png);
 }
 
 corkboard-item[entry-type="writing"] {
@@ -127,18 +117,22 @@ corkboard-item.anim-in {
     animation-fill-mode: both;
 }
 
+.hoverable:hover, .hoverable:active, .hoverable:focus-visible,
 corkboard-item:hover, corkboard-item:active, corkboard-item:focus-visible {
     /* animation: corkboard-item-swing 1s linear infinite;
     animation-fill-mode: both; */
     transform: rotate(var(--angle));
 }
 
+.hoverable img,
 corkboard-item img,
 #corkboard-item-dummy img {
     position: relative;
     width: 100%;
     height: 100%;
     object-fit: contain;
+    max-height: 80dvh;
+    aspect-ratio: var(--ratio);
 }
 
 #corkboard-item-dummy img {
@@ -172,6 +166,22 @@ corkboard-item img.polaroid {
     background-size: cover;
     background-position: 50% 50%;
     background-color: #faf4e8;
+}
+
+#corkboard .deco.accessible {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 180px;
+    --angle: 5deg;
+}
+#corkboard .deco.pdf {
+    position: absolute;
+    top: 0;
+    right: 50%;
+    width: 170px;
+    --angle: -3deg;
+    transform-origin: 70% 15%;
 }
 
 @keyframes corkboard-item-anim-in {
@@ -228,6 +238,8 @@ corkboard-item img.polaroid {
     padding: 0 5vmin;
 }
 
+#spinner { position: absolute; }
+
 #corkboard-item-dummy {
     /* position: absolute; */
     position: relative;
@@ -248,10 +260,17 @@ corkboard-item img.polaroid {
     transform: none;
     border-style: dashed;
 }
+#corkboard-overlay.memory-art #corkboard-item-dummy::before {
+    border-color: var(--orange-0);
+}
 
 #corkboard-item-dummy.img-load {
-    height: 80dvh;
+    max-height: calc(80dvh - 5em);
+    max-width: 80vw;
+    width: var(--width);
+    height: var(--height);
     rotate: 0deg;
+    aspect-ratio: var(--ratio);
 }
 
 #corkboard-item-dummy.img-load iframe,
@@ -260,7 +279,7 @@ corkboard-item img.polaroid {
 #corkboard-item-dummy.img-load .title,
 #corkboard-item-dummy.img-load .cutout {
     opacity: 1;
-    transform: translateX(-25%) rotate(5deg);
+    transform: translateX(-25%) rotate(3deg);
 }
 #corkboard-item-dummy.img-load .credit.label {
     transform: translateX(-50%) rotate(-5deg);
@@ -304,11 +323,12 @@ corkboard-item img.polaroid {
 }
 #corkboard-item-dummy .credit {
     left: 1.5em;
-    bottom: -1.5em;
+    bottom: 0em;
+    transform-origin: 25% 50%;
 }
 #corkboard-item-dummy .credit.label {
     left: 0%;
-    bottom: 0.7em;
+    bottom: 2.1em;
     z-index: 2;
 }
 #corkboard-item-dummy .date,
@@ -354,13 +374,8 @@ corkboard-item img.polaroid {
     opacity: 1;
 }
 #corkboard-overlay.memory-art-writing #corkboard-item-dummy.img-load {
-    width: 45%;
+    max-width: 45%;
     height: auto;
-}
-#corkboard-overlay.food #corkboard-item-dummy.img-load {
-    width: 50vw;
-    width: var(--width);
-    height: var(--height);
 }
 #corkboard-overlay.memory-writing #corkboard-item-dummy {
     display: none;
@@ -480,6 +495,8 @@ corkboard-item img.polaroid {
     transition: 1s transform cubic-bezier(0.175, 0.885, 0.32, 1.275), 0.5s opacity ease;
     transform: translateY(-10%);
     opacity: 0;
+    max-height: calc(80dvh - 5em);
+    max-width: 80vw;
 
     filter: drop-shadow(2px 4px 6px gray);
 }
@@ -559,6 +576,9 @@ corkboard-item img.polaroid {
 .details-dialog-text .details-dialog-inner > * {
     font-size: 1.25rem;
     font-family: "Nanum Pen Script", cursive;
+}
+.details-dialog-text .details-dialog-inner > * b {
+    font-family: "Caveat", cursive;
 }
 .details-dialog-text .details-dialog-inner ul {
     padding-inline-start: 1em;
@@ -645,7 +665,8 @@ corkboard-item img.polaroid {
     global-header nav { display: none !important; }
     #corkboard {
         padding: 1em;
-        margin: 1em;
+        margin: 0 1em;
+        padding-top: 180px;
         margin-bottom: 100px;
     }
     corkboard-item,
@@ -653,26 +674,8 @@ corkboard-item img.polaroid {
     .inline-deco {
         width: 250px;
     }
-    #corkboard-item-dummy img.cutout.cutout_0 {
-        right: 10vmin;
-        top: 80%;
-    }
-    #corkboard-item-dummy img.cutout.cutout_1 {
-        right: 10vmin;
-        top: 20%;
-    }
-    /* #corkboard-overlay {
-        flex-direction: column;
-    } */
-    /* #corkboard-overlay.memory-art-writing #corkboard-item-dummy.img-load {
-        height: auto;
-        width: 100%;
-    } */
-    /* #corkboard-overlay.memory-art-writing #corkboard-item-dummy.img-load {
-        width: 100%;
-        height: 45%;
-    } */
-    #corkboard-overlay.food #corkboard-item-dummy.img-load {
+    #corkboard-overlay.food #corkboard-item-dummy.img-load,
+    #corkboard-overlay.memory-art #corkboard-item-dummy.img-load {
         max-width: 80vw;
         height: auto;
     }
@@ -683,14 +686,16 @@ corkboard-item img.polaroid {
 
 @media only screen and (min-width: 1920px) {
     #corkboard {
-        margin: 2em auto;
+        margin: 0 auto;
+        padding-top: 180px;
         max-width: 1920px;
     }
 }
 @media only screen and (max-width: 600px) {
     #corkboard {
         padding: 0;
-        margin: 2vw;
+        margin: 0 2vw;
+        padding-top: 180px;
         margin-bottom: 100px;
         min-width: 300px;
         box-sizing: border-box;
@@ -712,21 +717,23 @@ corkboard-item img.polaroid {
         width: auto;
         height: 45%;
     }
-    #corkboard-overlay.food #corkboard-item-dummy.img-load {
-        /* max-width: 90vw; */
+    #corkboard-overlay.food #corkboard-item-dummy.img-load,
+    #corkboard-overlay.memory-art #corkboard-item-dummy.img-load {
+        max-width: 90vw;
         height: auto;
         margin-top: 2.5em;
     }
-    #corkboard-overlay.food #corkboard-item-dummy.img-load .title {
+    #corkboard-overlay.food #corkboard-item-dummy.img-load .title,
+    #corkboard-overlay.memory-art #corkboard-item-dummy.img-load .date {
         transform: translateY(-125%) translateX(-50%) rotate(0deg);
         right: auto;
         left: 50%;
     }
     #corkboard-item-dummy.img-load .credit.label {
-        transform: translateX(-10%) rotate(-5deg);
+        transform: translateX(-10%) translateY(100%) rotate(0deg);
     }
     #corkboard-item-dummy.img-load .credit {
-        transform: translateX(-10%) rotate(5deg);
+        transform: translateX(-10%) translateY(100%) rotate(0deg);
     }
     #corkboard-overlay.memory-art-writing #corkboard-item-dummy.img-load .credit,
     #corkboard-overlay.memory-writing #corkboard-item-dummy.img-load .credit {
@@ -784,9 +791,12 @@ corkboard-item img.polaroid {
     #corkboard-item-dummy .date {
         font-size: 0.75rem;
     }
+    #corkboard-overlay.memory-art #corkboard-item-dummy.img-load .date {
+        width: 100%;
+    }
     #corkboard-item-dummy .title {
         font-size: 100%;
-        white-space: nowrap;
+        width: 100%;
         text-align: center;
     }
     #corkboard-overlay.memory-writing .details-dialog-text .credit {
@@ -805,6 +815,11 @@ corkboard-item img.polaroid {
 .inline-deco[src="/image-resize/full/corkboard/deco_4.png"] {
     transform-origin: 50% 10%;
     filter: drop-shadow(5px 5px 3px rgba(0, 0, 0, 0.5));
+    z-index: 999;
+}
+.inline-deco[src="/image-resize/full/corkboard/deco_2.png"],
+.inline-deco[src="/image-resize/full/corkboard/deco_3.png"] {
+    filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.5));
     z-index: 999;
 }
 

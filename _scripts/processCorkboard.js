@@ -95,12 +95,12 @@ function processData (data) {
     }
 
     randomData.forEach((processedData, i) => {
-        if (processedData.path) {
+        if (processedData.path && !processedData.path.includes("Writing")) {
             let imgPath = path.join(__dirname, `../images/${processedData.path}`);
-            console.log(imgPath)
+            // console.log(imgPath)
             try {
                 let stdout = execSync(`identify -ping -format '%w %h' ${imgPath}`, { encoding: "utf-8"});
-                console.log(stdout)
+                // console.log(stdout)
                 let dimensions = stdout.split(" ");
                 randomData[i].imageRatio = dimensions[0] / dimensions[1]
             }
@@ -108,7 +108,7 @@ function processData (data) {
                 console.warn(`${imgPath} not found`)
             }
         }
-        if (processedData.polaroid) {
+        if (processedData.polaroid && !processedData.polaroid.includes("Writing")) {
             let polaroidPath;
             if (processedData.polaroid.toLowerCase().includes(".png") || processedData.polaroid.toLowerCase().includes(".jpg")) {
                 polaroidPath = path.join(__dirname, `../images/corkboard-img/entries/${processedData.polaroid}`);

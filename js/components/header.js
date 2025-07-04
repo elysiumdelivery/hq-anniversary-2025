@@ -7,6 +7,7 @@ class GlobalHeader extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `  <button id="hamburger-button" role="navigation" aria-controls="main-menu"><img aria-hidden="true" focusable="false" src="/image-resize/50/sidebar_open.png"/></button>
                             <img id="logo" src="/image-resize/full/logo.png"/>
+                            <div id="banner"><img src="/image-resize/full/banner.png" srcset=/image-resize/2048/banner.png 480w, /image-resize/full/banner.png 800w"  sizes="(width <= 600px) 480px, 800px"></div>
                             <nav>
                                 <div class="nav-inner">
                                     <a href="/"><img alt="Home" focusable="false" src="/image-resize-h/50/nav/home.png"/></a>

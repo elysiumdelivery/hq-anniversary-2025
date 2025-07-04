@@ -25,35 +25,39 @@
     <body>
         <global-header></global-header>
         <main>
+            <section id="disclamer">
+                <div class="message">
+                    <div class="message-container">
+                        <b>IMPORTANT!</b>
+                        <p>This is the only page on the website which is NOT considered stream-safe! If you are streaming, please be careful!</p>
+                        <p>The PDF, Corkboard, Review, Gallery, and Receipt pages are considered safe to stream should you choose to do so. Enjoy!</p>
+                    </div>
+                </div>
+            </section>
             <div id="tabs">
                 <a href="#clips" style="--angle: -5deg; rotate: 2deg; top: 0.5em;"><img alt="Clips" focusable="false" src="/image-resize/250/nav/ad-clips.png"/></a>
                 <a href="#promo" style="--angle: 5deg; rotate: -1deg;"><img alt="Ad Promo" focusable="false" src="/image-resize/250/nav/ad-promo.png"/></a>
                 <a href="#shelter" style="--angle: -5deg; rotate: -3deg; top: 0.25em;"><img alt="Shelter Project" focusable="false" src="/image-resize/250/nav/ad-shelter.png"/></a>
             </div>
             <section id="clips" class="scroll-vis">
-                <h2>clips</h2>
-                <p>clips go here!</p>
+                <h2>🎞️ memories 🎞️</h2>
+                <!-- replace with actual one later -->
+                <iframe src="https://www.youtube.com/embed/1AOTypF9n1g?si=9NowoSTrgLqopl4O" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </section>
-            <section id="promo" class="scroll-vis">
-                <h2>promo</h2>
-                <div class="cover-row">
-                    <div class="thumbnail"></div>
-                    <div class="content">
-                        <h3>promo item #1</h3>
-                        <button>view here</button>
-                    </div>
+            <section id="promo" class="scroll-vis" style="display: none !important;">
+                <div>
+                    <h2 style="margin-bottom: 0;">🏬 support advertisement project 🏬</h2>
+                    <h3 style="margin-top: 0;">📍 ikebukuro, japan</h3>
                 </div>
-                <div class="cover-row">
-                    <div class="thumbnail"></div>
-                    <div class="content">
-                        <h3>promo item #2</h3>
-                        <button>view here</button>
-                    </div>
-                </div>
+                <img src="/image-resize/2048/ads/ad_project.png">
             </section>
-            <section id="shelter" class="scroll-vis">
-                <h2>shelter project</h2>
-                <p>shelter content goes here!</p>
+            <section id="shelter" class="scroll-vis" style="display: none !important;">
+                <h2>🐱 animal shelter charity project 🐱</h2>
+                <img src="/image-resize/2048/ads/dono_pj.png">
+            </section>
+            <section id="thank-you" class="scroll-vis" style="display: none !important;">
+                <h2>💖 thank you to our patrons 💖</h2>
+                <img src="/image-resize/2048/ads/thank_you_card.png">
             </section>
         </main>
         <script src="js/scroll-anim.js"></script>

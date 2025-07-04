@@ -2,15 +2,17 @@ window.addEventListener("load", function() {
     let sections = document.querySelectorAll(".scroll-vis");
     
     const options = {
-        root: document.querySelector("#scrollArea"),
         rootMargin: "0px",
         threshold: 0.25,
     };
     
     const observer = new IntersectionObserver(scrollIntersectionCallback, options);
     sections.forEach((section) => {
-        section.childNodes.forEach((node, i) => node.style = `transition-delay: ${i * 0.25}s;`)
-        observer.observe(section);
+        section.childNodes.forEach((node, i) => {
+            if (node.nodeType === node.ELEMENT_NODE) {
+                observer.observe(node);
+            }
+        })
     });
 });
 
