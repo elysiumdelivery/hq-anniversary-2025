@@ -13,7 +13,7 @@ const CORKBOARD_DATA = [
     "cutouts": [],
     "path": "corkboard-img/entries/Cafe_Photo_lighteningsky_01.png",
     "itemType": "corkboard-item",
-    "rotate": 1,
+    "rotate": 5,
     "zIndex": 158,
     "imageRatio": 1,
     "polaroidRatio": 0.833984375
@@ -32,7 +32,7 @@ const CORKBOARD_DATA = [
     "cutouts": [],
     "path": "corkboard-img/entries/Cafe_Art_Lotty_02.png",
     "itemType": "corkboard-item",
-    "rotate": 5,
+    "rotate": 3,
     "zIndex": 157,
     "imageRatio": 1.3865944482058226,
     "polaroidRatio": 1.0893617021276596
@@ -51,7 +51,7 @@ const CORKBOARD_DATA = [
     "cutouts": [],
     "path": "corkboard-img/entries/Cafe_Art_konori_01.png",
     "itemType": "corkboard-item",
-    "rotate": 3,
+    "rotate": -2,
     "zIndex": 156,
     "imageRatio": 1,
     "polaroidRatio": 0.833984375
@@ -77,7 +77,7 @@ const CORKBOARD_DATA = [
       "type": "Letter"
     },
     "itemType": "corkboard-item",
-    "rotate": 1,
+    "rotate": -1,
     "zIndex": 155
   },
   {
@@ -101,7 +101,7 @@ const CORKBOARD_DATA = [
       "type": "Letter"
     },
     "itemType": "corkboard-item",
-    "rotate": 6,
+    "rotate": 2,
     "zIndex": 154
   },
   {
@@ -118,7 +118,7 @@ const CORKBOARD_DATA = [
     "cutouts": [],
     "path": "corkboard-img/entries/Cafe_Art_vivid_Syd_01.png",
     "itemType": "corkboard-item",
-    "rotate": 5,
+    "rotate": 3,
     "zIndex": 153,
     "imageRatio": 1.2820512820512822,
     "polaroidRatio": 0.833984375
@@ -144,15 +144,15 @@ const CORKBOARD_DATA = [
       "type": "List"
     },
     "itemType": "corkboard-item",
-    "rotate": -1,
+    "rotate": -3,
     "zIndex": 152
   },
   {
     "itemType": "inline-deco",
-    "path": "corkboard/deco_2.png",
-    "rotate": -2,
+    "path": "corkboard/deco_3.png",
+    "rotate": 0,
     "class": "petzone",
-    "imageRatio": 0.9805970149253731
+    "imageRatio": 1.0034782608695652
   },
   {
     "category": "memory",
@@ -174,7 +174,7 @@ const CORKBOARD_DATA = [
       "link": ""
     },
     "itemType": "corkboard-item",
-    "rotate": 4,
+    "rotate": 5,
     "zIndex": 151,
     "imageRatio": 1,
     "polaroidRatio": 0.833984375
@@ -193,7 +193,7 @@ const CORKBOARD_DATA = [
     "cutouts": [],
     "path": "corkboard-img/entries/Cafe_Art_Kay_01.png",
     "itemType": "corkboard-item",
-    "rotate": -2,
+    "rotate": 4,
     "zIndex": 150,
     "imageRatio": 1,
     "polaroidRatio": 0.833984375
@@ -222,7 +222,7 @@ const CORKBOARD_DATA = [
       "type": "Letter"
     },
     "itemType": "corkboard-item",
-    "rotate": 3,
+    "rotate": 7,
     "zIndex": 149,
     "imageRatio": 1,
     "polaroidRatio": 0.833984375
@@ -241,7 +241,7 @@ const CORKBOARD_DATA = [
     "cutouts": [],
     "path": "corkboard-img/entries/Cafe_Art_Danie_01.png",
     "itemType": "corkboard-item",
-    "rotate": 2,
+    "rotate": -2,
     "zIndex": 148,
     "imageRatio": 1,
     "polaroidRatio": 0.833984375
@@ -260,7 +260,7 @@ const CORKBOARD_DATA = [
     "cutouts": [],
     "path": "corkboard-img/entries/Cafe_Art_Fluor_01.png",
     "itemType": "corkboard-item",
-    "rotate": 6,
+    "rotate": -2,
     "zIndex": 147,
     "imageRatio": 1,
     "polaroidRatio": 0.833984375
@@ -279,7 +279,7 @@ const CORKBOARD_DATA = [
     "cutouts": [],
     "path": "corkboard-img/entries/Cafe_Art_Fluor_02.png",
     "itemType": "corkboard-item",
-    "rotate": 2,
+    "rotate": 7,
     "zIndex": 146,
     "imageRatio": 1,
     "polaroidRatio": 0.833984375
@@ -298,7 +298,7 @@ const CORKBOARD_DATA = [
     "cutouts": [],
     "path": "corkboard-img/entries/Cafe_Art_Fluor_03.png",
     "itemType": "corkboard-item",
-    "rotate": 4,
+    "rotate": 1,
     "zIndex": 145,
     "imageRatio": 1,
     "polaroidRatio": 0.833984375
@@ -317,17 +317,17 @@ const CORKBOARD_DATA = [
     "cutouts": [],
     "path": "corkboard-img/entries/Cafe_Art_Suntallulah_01.png",
     "itemType": "corkboard-item",
-    "rotate": 1,
+    "rotate": 0,
     "zIndex": 144,
     "imageRatio": 1.3044585987261146,
     "polaroidRatio": 0.833984375
   },
   {
     "itemType": "inline-deco",
-    "path": "corkboard/deco_3.png",
-    "rotate": 6,
+    "path": "corkboard/deco_4.png",
+    "rotate": -1,
     "class": "petzone",
-    "imageRatio": 1.0034782608695652
+    "imageRatio": 1.0936995153473343
   },
   {
     "category": "cafe",
@@ -362,7 +362,7 @@ const CORKBOARD_DATA = [
     "cutouts": [],
     "path": "corkboard-img/entries/Cafe_Art_LazyMoon_01.jpg",
     "itemType": "corkboard-item",
-    "rotate": -3,
+    "rotate": 1,
     "zIndex": 142,
     "imageRatio": 1,
     "polaroidRatio": 0.8335755813953488
@@ -388,7 +388,7 @@ const CORKBOARD_DATA = [
       "type": "Letter"
     },
     "itemType": "corkboard-item",
-    "rotate": 6,
+    "rotate": 3,
     "zIndex": 141
   },
   {
@@ -444,7 +444,7 @@ const CORKBOARD_DATA = [
       "type": "List"
     },
     "itemType": "corkboard-item",
-    "rotate": 1,
+    "rotate": 3,
     "zIndex": 139,
     "imageRatio": 1.5340823970037454,
     "polaroidRatio": 0.833984375
@@ -487,7 +487,7 @@ const CORKBOARD_DATA = [
     ],
     "path": "corkboard-img/entries/Cafe_photo_Baasil_01.png",
     "itemType": "corkboard-item",
-    "rotate": 4,
+    "rotate": -2,
     "zIndex": 137,
     "imageRatio": 0.56298828125,
     "polaroidRatio": 1.0893617021276596
@@ -508,7 +508,7 @@ const CORKBOARD_DATA = [
     ],
     "path": "corkboard-img/entries/Cafe_photo_Baasil_02.png",
     "itemType": "corkboard-item",
-    "rotate": 4,
+    "rotate": 0,
     "zIndex": 136,
     "imageRatio": 2.1649048625792813,
     "polaroidRatio": 1.0893617021276596
@@ -516,7 +516,7 @@ const CORKBOARD_DATA = [
   {
     "itemType": "inline-deco",
     "path": "corkboard/deco_1.png",
-    "rotate": 0,
+    "rotate": 4,
     "class": "petzone",
     "imageRatio": 0.6815352697095436
   },
@@ -536,7 +536,7 @@ const CORKBOARD_DATA = [
     ],
     "path": "corkboard-img/entries/Cafe_photo_elliesech_01.png",
     "itemType": "corkboard-item",
-    "rotate": 5,
+    "rotate": 2,
     "zIndex": 135,
     "imageRatio": 0.81884765625,
     "polaroidRatio": 0.833984375
@@ -555,7 +555,7 @@ const CORKBOARD_DATA = [
     "cutouts": [],
     "path": "corkboard-img/entries/Cafe_photo_elliesech_02.png",
     "itemType": "corkboard-item",
-    "rotate": 1,
+    "rotate": 3,
     "zIndex": 134,
     "imageRatio": 0.80517578125,
     "polaroidRatio": 0.69140625
@@ -577,7 +577,7 @@ const CORKBOARD_DATA = [
     ],
     "path": "corkboard-img/entries/Cafe_photo_elliesech_04.png",
     "itemType": "corkboard-item",
-    "rotate": 3,
+    "rotate": -2,
     "zIndex": 133,
     "imageRatio": 0.75,
     "polaroidRatio": 0.69140625
@@ -598,7 +598,7 @@ const CORKBOARD_DATA = [
     ],
     "path": "corkboard-img/entries/Cafe_photo_elliesech_05.png",
     "itemType": "corkboard-item",
-    "rotate": -3,
+    "rotate": 3,
     "zIndex": 132,
     "imageRatio": 0.75,
     "polaroidRatio": 0.69140625
@@ -642,7 +642,7 @@ const CORKBOARD_DATA = [
     ],
     "path": "corkboard-img/entries/Cafe_photo_elliesech_07.png",
     "itemType": "corkboard-item",
-    "rotate": -2,
+    "rotate": 7,
     "zIndex": 130,
     "imageRatio": 0.92431640625,
     "polaroidRatio": 0.69140625
@@ -664,7 +664,7 @@ const CORKBOARD_DATA = [
     ],
     "path": "corkboard-img/entries/Cafe_photo_elliesech_08.png",
     "itemType": "corkboard-item",
-    "rotate": 4,
+    "rotate": 5,
     "zIndex": 129,
     "imageRatio": 0.806640625,
     "polaroidRatio": 0.69140625
@@ -683,17 +683,17 @@ const CORKBOARD_DATA = [
     "cutouts": [],
     "path": "corkboard-img/entries/Cafe_Art_Kuma_01.png",
     "itemType": "corkboard-item",
-    "rotate": 3,
+    "rotate": 0,
     "zIndex": 128,
     "imageRatio": 1,
     "polaroidRatio": 0.833984375
   },
   {
     "itemType": "inline-deco",
-    "path": "corkboard/deco_4.png",
+    "path": "corkboard/deco_2.png",
     "rotate": 3,
     "class": "petzone",
-    "imageRatio": 1.0936995153473343
+    "imageRatio": 0.9805970149253731
   },
   {
     "category": "cafe",
@@ -728,7 +728,7 @@ const CORKBOARD_DATA = [
     "cutouts": [],
     "path": "corkboard-img/entries/Cafe_Art_Amanda_Maker_Manda_Slime_02.png",
     "itemType": "corkboard-item",
-    "rotate": -2,
+    "rotate": -1,
     "zIndex": 126,
     "imageRatio": 0.75,
     "polaroidRatio": 0.693359375
@@ -757,7 +757,7 @@ const CORKBOARD_DATA = [
       "type": "Letter"
     },
     "itemType": "corkboard-item",
-    "rotate": -2,
+    "rotate": 5,
     "zIndex": 125,
     "imageRatio": 0.6875,
     "polaroidRatio": 1.0893617021276596
@@ -776,7 +776,7 @@ const CORKBOARD_DATA = [
     "cutouts": [],
     "path": "corkboard-img/entries/Cafe_Art_4xthesweets_01.png",
     "itemType": "corkboard-item",
-    "rotate": 0,
+    "rotate": 1,
     "zIndex": 124,
     "imageRatio": 1,
     "polaroidRatio": 0.833984375
@@ -795,7 +795,7 @@ const CORKBOARD_DATA = [
     "cutouts": [],
     "path": "corkboard-img/entries/Cafe_Art_Hiinatsu_01.png",
     "itemType": "corkboard-item",
-    "rotate": 3,
+    "rotate": 5,
     "zIndex": 123,
     "imageRatio": 1.0636363636363637,
     "polaroidRatio": 0.833984375
@@ -814,7 +814,7 @@ const CORKBOARD_DATA = [
     "cutouts": [],
     "path": "corkboard-img/entries/Cafe_photo_Eevee_01.jpg",
     "itemType": "corkboard-item",
-    "rotate": 1,
+    "rotate": -3,
     "zIndex": 122,
     "imageRatio": 0.78857421875,
     "polaroidRatio": 0.693359375
@@ -833,7 +833,7 @@ const CORKBOARD_DATA = [
     "cutouts": [],
     "path": "corkboard-img/entries/Cafe_Art_Lotty_03.png",
     "itemType": "corkboard-item",
-    "rotate": 3,
+    "rotate": 1,
     "zIndex": 121,
     "imageRatio": 0.75,
     "polaroidRatio": 0.693359375
@@ -852,7 +852,7 @@ const CORKBOARD_DATA = [
     "cutouts": [],
     "path": "corkboard-img/entries/Cafe_Art_Aluviella_01.jpg",
     "itemType": "corkboard-item",
-    "rotate": 7,
+    "rotate": 0,
     "zIndex": 120,
     "imageRatio": 1,
     "polaroidRatio": 0.833984375
@@ -871,7 +871,7 @@ const CORKBOARD_DATA = [
     "cutouts": [],
     "path": "corkboard-img/entries/Cafe_photo_Eineruu_IzuKaze_01.jpg",
     "itemType": "corkboard-item",
-    "rotate": -2,
+    "rotate": 3,
     "zIndex": 119,
     "imageRatio": 1.3333333333333333,
     "polaroidRatio": 1.0874785591766725
@@ -911,7 +911,7 @@ const CORKBOARD_DATA = [
     ],
     "path": "corkboard-img/entries/Cafe_Photo_Amanda_Maker_Manda_03.png",
     "itemType": "corkboard-item",
-    "rotate": 3,
+    "rotate": -3,
     "zIndex": 117,
     "imageRatio": 1.3333333333333333,
     "polaroidRatio": 1.0893617021276596
@@ -933,11 +933,11 @@ const CORKBOARD_DATA = [
       "date": 1726286400000,
       "name": "【🎩 3D OFF COLLAB 🪫】 BETTEL AND FLAYON, MY FIRST GUESTS AT THE NEW STUDIOOOOOOOO ✨",
       "link": "https://www.youtube.com/live/PMdP_rez8JA?si=01dCrRh0JRiOxpYQ ",
-      "entry": "<p><strong>A Very Normal 3D Off-Collab (Boys in the Shower Room Edition)&nbsp;</strong></p>\n<ul>\n<li style=\"font-weight: 400;\"><span style=\"font-weight: 400;\">Instead of proper introductions, start by slapping each other's butts! (This was not rehearsed)&nbsp;</span></li>\n<li style=\"font-weight: 400;\"><span style=\"font-weight: 400;\">It's Friday the 13th! Altare is constantly teleporting into Bettel, Bettel has nosferatu hands, and Flayon&rsquo;s neck broke from fooling around too much. Everything is fine.&nbsp;</span></li>\n<li style=\"font-weight: 400;\"><span style=\"font-weight: 400;\">Altare, who is the most normal of them all, goes around talking to police officers and cashiers, asking random questions like why the stop sign is shaped that way. That's our </span><span style=\"font-weight: 400;\">psychopathic</span><span style=\"font-weight: 400;\"> very normal Leader!</span></li>\n<li style=\"font-weight: 400;\"><span style=\"font-weight: 400;\">Story time! The boys met up, went to Altare's place riding his beautiful steed, ate some cookies and pizza and&ndash; oh, Flayon has just killed Altare by hugging him.</span></li>\n<li style=\"font-weight: 400;\"><span style=\"font-weight: 400;\">Moving on! They got bagels, met with a friend and went for karaoke, where they got </span><span style=\"text-decoration: line-through;\"><span style=\"font-weight: 400;\">scammed</span></span><span style=\"font-weight: 400;\"> persuaded to buy a giant bottle of &ldquo;Not Bettel 1&rdquo; for a 2-hour session. It cost $400 but hey, they got to keep the bottle!</span></li>\n<li style=\"font-weight: 400;\"><span style=\"font-weight: 400;\">Bettel is </span><em><span style=\"font-weight: 400;\">not</span></em><span style=\"font-weight: 400;\"> scared of Flayon at all. Especially knowing that Flayon watches him sleep, and occasionally sleepwalks </span><em><span style=\"font-weight: 400;\">and</span></em><span style=\"font-weight: 400;\"> sleep talks with no recollection of it in the morning. How pleasant!</span></li>\n<li style=\"font-weight: 400;\"><span style=\"font-weight: 400;\">The boys have an arm wrestling match, to which Bettel wins against Altare with his killer right arm! Surely his left arm is just as&ndash; oh, Altare obliterates him easily. But at least he has a killer right arm!&nbsp;</span></li>\n<li style=\"font-weight: 400;\"><span style=\"font-weight: 400;\">For absolutely no reason other than the hee hee hahas, they do another round of butt kicking&ndash; except this time Altare's crotch suffers the consequences. What a fun time!&nbsp;</span></li>\n<li style=\"font-weight: 400;\"><span style=\"font-weight: 400;\">They talk about going on a 3 AM walk together, which was actually kinda nice and relaxing and not at all creepy. It felt like a filler episode of an anime where the characters bond and we can feel their growth.&nbsp;</span></li>\n<li style=\"font-weight: 400;\"><span style=\"font-weight: 400;\">Other fun things the boys do that are completely normal and fun: Furb Doll shenanigans, group pushups, playing limbo until their backs hurt, pouring water down Bettel&rsquo;s pants, and practicing viral dance moves! Truly a &ldquo;boys in the shower room&rdquo; experience!</span></li>\n</ul>",
+      "entry": "<p><strong>A Very Normal 3D Off-Collab (Boys in the Shower Room Edition)</strong></p>\n<ul>\n<li style=\"font-weight: 400;\"><span style=\"font-weight: 400;\">Instead of proper introductions, start by slapping each other's butts! (This was not rehearsed)&nbsp;</span></li>\n<li style=\"font-weight: 400;\"><span style=\"font-weight: 400;\">It's Friday the 13th! Altare is constantly teleporting into Bettel, Bettel has nosferatu hands, and Flayon&rsquo;s neck broke from fooling around too much. Everything is fine.&nbsp;</span></li>\n<li style=\"font-weight: 400;\"><span style=\"font-weight: 400;\">Altare, who is the most normal of them all, goes around talking to police officers and cashiers, asking random questions like why the stop sign is shaped that way. That's our </span><span style=\"font-weight: 400;\">psychopathic</span><span style=\"font-weight: 400;\"> very normal Leader!</span></li>\n<li style=\"font-weight: 400;\"><span style=\"font-weight: 400;\">Story time! The boys met up, went to Altare's place riding his beautiful steed, ate some cookies and pizza and&ndash; oh, Flayon has just killed Altare by hugging him.</span></li>\n<li style=\"font-weight: 400;\"><span style=\"font-weight: 400;\">Moving on! They got bagels, met with a friend and went for karaoke, where they got </span><span style=\"text-decoration: line-through;\"><span style=\"font-weight: 400;\">scammed</span></span><span style=\"font-weight: 400;\"> persuaded to buy a giant bottle of &ldquo;Not Bettel 1&rdquo; for a 2-hour session. It cost $400 but hey, they got to keep the bottle!</span></li>\n<li style=\"font-weight: 400;\"><span style=\"font-weight: 400;\">Bettel is </span><em><span style=\"font-weight: 400;\">not</span></em><span style=\"font-weight: 400;\"> scared of Flayon at all. Especially knowing that Flayon watches him sleep, and occasionally sleepwalks </span><em><span style=\"font-weight: 400;\">and</span></em><span style=\"font-weight: 400;\"> sleep talks with no recollection of it in the morning. How pleasant!</span></li>\n<li style=\"font-weight: 400;\"><span style=\"font-weight: 400;\">The boys have an arm wrestling match, to which Bettel wins against Altare with his killer right arm! Surely his left arm is just as&ndash; oh, Altare obliterates him easily. But at least he has a killer right arm!&nbsp;</span></li>\n<li style=\"font-weight: 400;\"><span style=\"font-weight: 400;\">For absolutely no reason other than the hee hee hahas, they do another round of butt kicking&ndash; except this time Altare's crotch suffers the consequences. What a fun time!&nbsp;</span></li>\n<li style=\"font-weight: 400;\"><span style=\"font-weight: 400;\">They talk about going on a 3 AM walk together, which was actually kinda nice and relaxing and not at all creepy. It felt like a filler episode of an anime where the characters bond and we can feel their growth.&nbsp;</span></li>\n<li style=\"font-weight: 400;\"><span style=\"font-weight: 400;\">Other fun things the boys do that are completely normal and fun: Furb Doll shenanigans, group pushups, playing limbo until their backs hurt, pouring water down Bettel&rsquo;s pants, and practicing viral dance moves! Truly a &ldquo;boys in the shower room&rdquo; experience!</span></li>\n</ul>",
       "type": "List"
     },
     "itemType": "corkboard-item",
-    "rotate": 0,
+    "rotate": 1,
     "zIndex": 116
   },
   {
@@ -954,7 +954,7 @@ const CORKBOARD_DATA = [
     "cutouts": [],
     "path": "corkboard-img/entries/Cafe_Art_Haruro_01.png",
     "itemType": "corkboard-item",
-    "rotate": 2,
+    "rotate": 5,
     "zIndex": 115,
     "imageRatio": 0.707,
     "polaroidRatio": 0.833984375
@@ -993,7 +993,7 @@ const CORKBOARD_DATA = [
     "cutouts": [],
     "path": "corkboard-img/entries/Cafe_Art_toxxicAli_01.png",
     "itemType": "corkboard-item",
-    "rotate": 6,
+    "rotate": -1,
     "zIndex": 113,
     "imageRatio": 1,
     "polaroidRatio": 1.0893617021276596
@@ -1031,7 +1031,7 @@ const CORKBOARD_DATA = [
     "cutouts": [],
     "path": "corkboard-img/entries/Cafe_Photo_Minji_01.png",
     "itemType": "corkboard-item",
-    "rotate": 3,
+    "rotate": 4,
     "zIndex": 111,
     "imageRatio": 1,
     "polaroidRatio": 0.833984375
@@ -1056,7 +1056,7 @@ const CORKBOARD_DATA = [
       "link": ""
     },
     "itemType": "corkboard-item",
-    "rotate": 3,
+    "rotate": -1,
     "zIndex": 110,
     "imageRatio": 1,
     "polaroidRatio": 0.833984375
@@ -1075,7 +1075,7 @@ const CORKBOARD_DATA = [
     "cutouts": [],
     "path": "corkboard-img/entries/Cafe_Art_Tootles_01.png",
     "itemType": "corkboard-item",
-    "rotate": 0,
+    "rotate": 3,
     "zIndex": 109,
     "imageRatio": 1,
     "polaroidRatio": 0.833984375
@@ -1094,7 +1094,7 @@ const CORKBOARD_DATA = [
     "cutouts": [],
     "path": "corkboard-img/entries/Cafe_photo_WindStreak_01.png",
     "itemType": "corkboard-item",
-    "rotate": -1,
+    "rotate": 0,
     "zIndex": 108,
     "imageRatio": 1.7762359063313096,
     "polaroidRatio": 1.0893617021276596
@@ -1113,7 +1113,7 @@ const CORKBOARD_DATA = [
     "cutouts": [],
     "path": "corkboard-img/entries/Cafe_photo_WindStreak_02.png",
     "itemType": "corkboard-item",
-    "rotate": 6,
+    "rotate": 3,
     "zIndex": 107,
     "imageRatio": 1.7762359063313096,
     "polaroidRatio": 1.0893617021276596
@@ -1132,7 +1132,7 @@ const CORKBOARD_DATA = [
     "cutouts": [],
     "path": "corkboard-img/entries/cafe_art_pinie_01.png",
     "itemType": "corkboard-item",
-    "rotate": 5,
+    "rotate": 6,
     "zIndex": 106,
     "imageRatio": 1.1234229292375206,
     "polaroidRatio": 1.0893617021276596
@@ -1182,7 +1182,7 @@ const CORKBOARD_DATA = [
       "link": ""
     },
     "itemType": "corkboard-item",
-    "rotate": -3,
+    "rotate": 3,
     "zIndex": 104,
     "imageRatio": 1.4143646408839778,
     "polaroidRatio": 0.833984375
@@ -1201,7 +1201,7 @@ const CORKBOARD_DATA = [
     "cutouts": [],
     "path": "corkboard-img/entries/Cafe_Art_irisnoira_01.png",
     "itemType": "corkboard-item",
-    "rotate": 6,
+    "rotate": -1,
     "zIndex": 103,
     "imageRatio": 1.6,
     "polaroidRatio": 0.833984375
@@ -1228,7 +1228,7 @@ const CORKBOARD_DATA = [
       "type": "Letter"
     },
     "itemType": "corkboard-item",
-    "rotate": -3,
+    "rotate": -1,
     "zIndex": 102
   },
   {
@@ -1250,13 +1250,13 @@ const CORKBOARD_DATA = [
       "date": 1740114000000,
       "name": "【3D Celebration Collab!!!】Thank you for celebrating this moment with us!!!",
       "link": "https://www.youtube.com/watch?v=nUhdfYGzjh8",
-      "entry": "<p>I was feeling extremely emotional and proud after the 3D debut and ShinySpicy 3D concert. The feeling flew away after this legendary &quot;Post 3D zatsu&quot; off collab though. : D </p>\n<p>Jk. It was one of the funniest streams and peak Shiny Spicy dynamic. Just bros being bros, right? You guys are definitely not guilty after all the stuff you guys put Toramane through (bless him for putting the VOD through procedure and putting out the 2min VOD for us to have some sort of memory token). It was so fun seeing you two just messing around and being silly together. Hope to see another off-collab from HQ and just hearing you guys laughing like that again.</p>",
+      "entry": "<p>I was feeling extremely emotional and proud after the 3D debut and ShinySpicy 3D concert. The feeling flew away after this legendary &quot;Post 3D zatsu&quot; off collab though : D </p>\n<p>Jk. It was one of the funniest streams and peak Shiny Spicy dynamic. Just bros being bros, right? You guys are definitely &quot;<b>not guilty</b>&quot; after all the stuff you guys put Toramane through (bless him for placing the VOD in surgery and uploading the 2min VOD for us to have some sort of memory token). It was so fun seeing you two just messing around and being silly together. Hope to see another off collab from HQ and just hearing you guys laughing like that again!</p>",
       "type": "Letter"
     },
     "itemType": "corkboard-item",
-    "rotate": 4,
+    "rotate": 3,
     "zIndex": 101,
     "imageRatio": 0.75830078125,
-    "polaroidRatio": 0.833984375
+    "polaroidRatio": 0.8334509527170078
   }
 ]

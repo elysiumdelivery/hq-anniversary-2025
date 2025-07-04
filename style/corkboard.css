@@ -2,7 +2,6 @@
     --angle: 10;
 }
 html, body {
-    background-image: none;
     overflow-x: hidden;
 }
 html.dialog-open {
@@ -577,6 +576,9 @@ corkboard-item img.polaroid {
 .details-dialog-text .details-dialog-inner > * {
     font-size: 1.25rem;
     font-family: "Nanum Pen Script", cursive;
+}
+.details-dialog-text .details-dialog-inner > * b {
+    font-family: "Caveat", cursive;
 }
 .details-dialog-text .details-dialog-inner ul {
     padding-inline-start: 1em;
