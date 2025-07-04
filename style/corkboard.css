@@ -14,7 +14,7 @@ html.dialog-open {
     padding: 2em;
     margin: 0em 2em;
     padding-top: 180px;
-    min-height: 200vh;
+    min-height: max(200vh, 2000px);
     /* border-image-source: url(/image-resize/full/corkboard-img/corkboard\ frame.png);
     border-image-slice: 7%;
     border-image-repeat: repeat; */
@@ -77,7 +77,7 @@ corkboard-item[entry-type="art writing"]::before {
     top: -22%;
     left: 0%;
     width: 30%;
-    background-image: url(/image-resize/200/corkboard/bookmark_1.png);
+    background-image: url(/image-resize/150/corkboard/bookmark_1.png);
     z-index: -1;
     background-size: contain;
     background-repeat: no-repeat;
@@ -86,16 +86,16 @@ corkboard-item[entry-type="art writing"]::before {
 corkboard-item[entry-type="art writing"]:nth-child(2n)::before {
     left: 55%;
     rotate: 10deg;
-    background-image: url(/image-resize/200/corkboard/bookmark_2.png);
+    background-image: url(/image-resize/150/corkboard/bookmark_2.png);
 }
 corkboard-item[entry-type="art writing"]:nth-child(3n)::before {
     left: 5%;
-    background-image: url(/image-resize/200/corkboard/bookmark_3.png);
+    background-image: url(/image-resize/150/corkboard/bookmark_3.png);
 }
 corkboard-item[entry-type="art writing"]:nth-child(4n)::before {
     left: 50%;
     rotate: 15deg;
-    background-image: url(/image-resize/200/corkboard/bookmark_4.png);
+    background-image: url(/image-resize/150/corkboard/bookmark_4.png);
 }
 
 corkboard-item[entry-type="writing"] {
@@ -260,6 +260,9 @@ corkboard-item img.polaroid {
     opacity: 0;
     transform: none;
     border-style: dashed;
+}
+#corkboard-overlay.memory-art #corkboard-item-dummy::before {
+    border-color: var(--orange-0);
 }
 
 #corkboard-item-dummy.img-load {
@@ -493,6 +496,8 @@ corkboard-item img.polaroid {
     transition: 1s transform cubic-bezier(0.175, 0.885, 0.32, 1.275), 0.5s opacity ease;
     transform: translateY(-10%);
     opacity: 0;
+    max-height: calc(80dvh - 5em);
+    max-width: 80vw;
 
     filter: drop-shadow(2px 4px 6px gray);
 }
@@ -687,7 +692,7 @@ corkboard-item img.polaroid {
 @media only screen and (max-width: 600px) {
     #corkboard {
         padding: 0;
-        margin: 2vw;
+        margin: 0 2vw;
         padding-top: 180px;
         margin-bottom: 100px;
         min-width: 300px;
@@ -717,7 +722,7 @@ corkboard-item img.polaroid {
         margin-top: 2.5em;
     }
     #corkboard-overlay.food #corkboard-item-dummy.img-load .title,
-    #corkboard-overlay.memory-art #corkboard-item-dummy.img-load .title {
+    #corkboard-overlay.memory-art #corkboard-item-dummy.img-load .date {
         transform: translateY(-125%) translateX(-50%) rotate(0deg);
         right: auto;
         left: 50%;
@@ -783,6 +788,9 @@ corkboard-item img.polaroid {
     #corkboard-item-dummy .credit, 
     #corkboard-item-dummy .date {
         font-size: 0.75rem;
+    }
+    #corkboard-overlay.memory-art #corkboard-item-dummy.img-load .date {
+        width: 100%;
     }
     #corkboard-item-dummy .title {
         font-size: 100%;

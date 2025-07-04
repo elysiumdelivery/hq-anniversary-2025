@@ -312,13 +312,10 @@ class CorkboardItem extends HTMLElement {
                 DETAILS_DIALOG_EL.classList.add("slide-out");
             }
             else if (this.type.includes("memory") && this.type.includes("art")) {
-                DETAILS_DIALOG_EL.classList.add("slide-out");
+                dummyItem.classList.add("slide-out");
             }
             else if (this.type == "food") {
                 dummyItem.classList.add("slide-out");
-                let sparkleEffect = document.getElementById("sparkle-effects");
-                sparkleEffect.style.width = dummyItem.clientWidth + "px";
-                sparkleEffect.style.height = dummyItem.clientHeight + "px";
                 DETAILS_DIALOG_EL.parentNode.classList.add("sparkle-in");
             }
             if (dummyItem) {
@@ -423,13 +420,25 @@ function getId(url) {
 
 function setDummySize (corkboardItem) {
     const dummyItem = document.getElementById("corkboard-item-dummy");
+    let sparkleEffect = document.getElementById("sparkle-effects");
+    sparkleEffect.style.removeProperty("height");
+    sparkleEffect.style.removeProperty("width");
     if (corkboardItem.type == "food" || corkboardItem.type == "memory-art") {
         if (corkboardItem.data.imageRatio > 1.5) {   
             dummyItem.style.setProperty('--height', (vw(80) / corkboardItem.data.imageRatio) + "px");
+            if (corkboardItem.type == "food") {
+                sparkleEffect.style.height = (vw(80) / corkboardItem.data.imageRatio) + "px";
+                sparkleEffect.style.aspectRatio = corkboardItem.data.imageRatio;
+            }
         }
         else {
             dummyItem.style.setProperty('--width', (vh(80) * corkboardItem.data.imageRatio) + "px");
+            if (corkboardItem.type == "food") {
+                sparkleEffect.style.width = (vh(80) * corkboardItem.data.imageRatio) + "px";
+                sparkleEffect.style.aspectRatio = corkboardItem.data.imageRatio;
+            }
         }
+        
     }
     else {
         dummyItem.style.setProperty('--width', (vh(65) * corkboardItem.data.imageRatio) + "px");                     
