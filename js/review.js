@@ -26,6 +26,7 @@ function renderMessages(message_data) {
   for (var i = 0; i < message_data.length; i++) {
     let message = message_data[i];
     let messageNode = document.createElement("li");
+    messageNode.tabIndex = 0;
     messageNode.classList.add("guestbook-message");
     let messageFromDiv = document.createElement("div");
     let messageUserHeader = document.createElement("div");

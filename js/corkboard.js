@@ -80,10 +80,10 @@ class Corkboard extends HTMLElement {
             if (image.img.classList.contains("inline-deco")) {
                 elem = image.img;
             }
-            if (elem.classList.contains("inline-deco") && !(elem.classList.contains("visible"))) {
+            if (elem && elem.classList.contains("inline-deco") && !(elem.classList.contains("visible"))) {
                 elem.classList.add("visible");
             }
-            else if (!(elem.classList.contains("visible"))) {
+            else if (elem && !(elem.classList.contains("visible"))) {
                 elem.onanimationend = (event) => {
                     if (event.animationName == "corkboard-item-anim-in") {
                         elem.classList.add("visible");
@@ -113,6 +113,7 @@ class CorkboardItem extends HTMLElement {
     connectedCallback() {
         this.classList.add("corkboard-item");
         this.role = "listitem";
+        this.tabIndex = 0;
         let imgUrl;
         if (this.hasAttribute("img")) {
           imgUrl = this.getAttribute("img");
@@ -154,6 +155,11 @@ class CorkboardItem extends HTMLElement {
         }
         this.onmouseover = this.preloadImage;
         this.onclick = this.handleClick.bind(this);
+        this.onkeydown = function (e) {
+            if (!activeCorkboardItem && (e.key == "Enter" || e.key == "Space") && !e.repeat) {
+                this.handleClick(e);
+            }
+        }.bind(this)
     }
 
     preloadImage () {
