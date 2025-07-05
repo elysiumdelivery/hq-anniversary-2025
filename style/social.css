@@ -45,7 +45,8 @@ section {
     opacity: 0;
     transition: 0.25s opacity ease 0s;
 }
-.social-image.visible:hover span {
+.social-image.visible:hover span,
+.social-image.visible:focus-visible span {
     opacity: 1;
     transition-delay: 0s !important;
 }

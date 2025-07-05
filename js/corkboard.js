@@ -155,6 +155,11 @@ class CorkboardItem extends HTMLElement {
         }
         this.onmouseover = this.preloadImage;
         this.onclick = this.handleClick.bind(this);
+        this.onkeydown = function (e) {
+            if (!activeCorkboardItem && (e.key == "Enter" || e.key == "Space") && !e.repeat) {
+                this.handleClick(e);
+            }
+        }.bind(this)
     }
 
     preloadImage () {

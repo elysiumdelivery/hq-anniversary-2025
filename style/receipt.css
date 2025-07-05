@@ -30,6 +30,7 @@ section {
 
 .credit-bubble, .credit-alt {
     position: absolute;
+    border-radius: 50%;
 }
 
 ul {

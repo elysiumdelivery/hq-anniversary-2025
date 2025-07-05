@@ -534,6 +534,15 @@ corkboard-item img.polaroid {
     z-index: 1;
     box-sizing: border-box;
     border-radius: 50%;
+    height: 3.5em;
+    width: 3.5em;
+}
+.dialog-close img {
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    width: 50%;
+    height: 50%;
 }
 
 .details-dialog-text{
