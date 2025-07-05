@@ -424,6 +424,7 @@ function setDummySize (corkboardItem) {
     sparkleEffect.style.removeProperty("height");
     sparkleEffect.style.removeProperty("width");
     if (corkboardItem.type == "food" || corkboardItem.type == "memory-art") {
+        let fontSize = parseFloat(getComputedStyle(dummyItem).getPropertyValue("font-size"));
         if (corkboardItem.data.imageRatio > 1.5) {   
             dummyItem.style.setProperty('--height', (vw(80) / corkboardItem.data.imageRatio) + "px");
             if (corkboardItem.type == "food") {
@@ -432,9 +433,9 @@ function setDummySize (corkboardItem) {
             }
         }
         else {
-            dummyItem.style.setProperty('--width', (vh(80) * corkboardItem.data.imageRatio) + "px");
+            dummyItem.style.setProperty('--width', ((vh(80)- (5 * fontSize)) * corkboardItem.data.imageRatio) + "px");
             if (corkboardItem.type == "food") {
-                sparkleEffect.style.width = (vh(80) * corkboardItem.data.imageRatio) + "px";
+                sparkleEffect.style.width = ((vh(80)- (5 * fontSize)) * corkboardItem.data.imageRatio) + "px";
                 sparkleEffect.style.aspectRatio = corkboardItem.data.imageRatio;
             }
         }
