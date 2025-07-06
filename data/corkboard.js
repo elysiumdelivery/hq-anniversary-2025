@@ -676,7 +676,7 @@ const CORKBOARD_DATA = [
     ],
     "polaroid": "Cafe_Art_Kuma_01polaroid.png",
     "credit": [
-      "Kuma (@kuumaillust)"
+      "Kuma (@21noij)"
     ],
     "title": "Anniversary☆Cake! ",
     "desc": "",
