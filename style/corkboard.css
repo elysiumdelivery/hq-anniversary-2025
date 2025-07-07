@@ -709,9 +709,6 @@ corkboard-item img.polaroid {
         min-width: 300px;
         box-sizing: border-box;
     }
-    /* corkboard-item {
-        height: 60vw;
-    } */
     corkboard-item,
     .grid-sizer,
     .inline-deco {
