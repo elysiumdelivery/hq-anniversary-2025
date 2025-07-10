@@ -1225,7 +1225,7 @@ const CORKBOARD_DATA = [
       "date": 1746417600000,
       "name": "【Collab】Are we ready for the #TEMPUSGala ? ",
       "link": "https://www.youtube.com/watch?v=cpZEJNJ6GO0 ",
-      "entry": "<p>Dear Axel and Altare, </p>\n<p>It was great seeing that all of you and the rest of TEMPUS made it into the gala somehow. Thank you for also teaching us very important fashion tips, such as how derby shoes have peaky blinders, your tie should be as wide as your sleeve width, your belt should be the same color as your tie, and how trinity knots, when drawn, do not look like their name at all. We also learned from Leader that “Axel stinks” and that the acrylic stands “uh…yeah they look cool, hey?” It was super entertaining, and I really hope we can experience TEMPUS having more fun together like this in the future!</p>",
+      "entry": "<p>Dear Axel and Altare, </p>\n<p>It was great seeing you two and the rest of TEMPUS somehow make it into the gala! Thank you for also teaching us very important fashion tips, such as how derby shoes have peaky blinders, your tie should be as wide as your sleeve width, your belt should be the same color as your tie, and how trinity knots, when drawn, do not look like their name at all. We also learned from Leader that “Axel stinks” and that the acrylic stands “uh…yeah they look cool, hey?” It was super entertaining, and I really hope we can experience TEMPUS having more fun together like this in the future!</p>",
       "type": "Letter"
     },
     "itemType": "corkboard-item",
