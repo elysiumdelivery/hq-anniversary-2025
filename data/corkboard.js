@@ -1239,6 +1239,7 @@ const CORKBOARD_DATA = [
     ],
     "polaroid": "20250505_Collab_Dalurenne_01_polaroid.png",
     "credit": [
+      "Dalurenne (@dalurenne)",
       "Dalurenne (@dalurenne)"
     ],
     "title": "",
