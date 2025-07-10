@@ -939,7 +939,7 @@ const CORKBOARD_DATA = [
     "rotate": 6,
     "zIndex": 151,
     "imageRatio": 1,
-    "polaroidRatio": 0.833984375
+    "polaroidRatio": 1.089
   },
   {
     "category": "memory",
