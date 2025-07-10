@@ -919,6 +919,31 @@ const CORKBOARD_DATA = [
   {
     "category": "memory",
     "type": [
+      "art"
+    ],
+    "polaroid": "20240724_Altare_Cherry_01_polaroid.png",
+    "credit": [
+      "Cherry (@cherrytartart)"
+    ],
+    "title": "",
+    "desc": "",
+    "cutouts": [],
+    "path": "corkboard-img/entries/20240724_Altare_Cherry.png",
+    "talents": "Altare",
+    "stream": {
+      "date": 1721779200000,
+      "name": "【💬 VRChat 💬】 I RELEASE A VRCHAT WORLD!!!",
+      "link": "https://www.youtube.com/live/8OPU_-Ee6zo?si=dL75nQe_SgN5yQ-G"
+    },
+    "itemType": "corkboard-item",
+    "rotate": 6,
+    "zIndex": 151,
+    "imageRatio": 1,
+    "polaroidRatio": 0.833984375
+  },
+  {
+    "category": "memory",
+    "type": [
       "writing"
     ],
     "polaroid": "Writing",
